@@ -1,0 +1,339 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Definitions}
+ Imagine, for a moment, the simple senario in which you need to weigh several objects, say, four objects \cite[see][Chapter 2]{error-correcting-codes-v1}. Imagine further that you are using a simple balance with two pans that makes an error $\epsilon$ everytime that it is used, where $\epsilon$ is random with mean 0 and variance $\sigma^2$. 
+ 
+ Assume the actual weights are $a,b,c,$ and $d$. If we weigh them seperately with measurements $y_1,y_2,y_3,$ and $y_4$, and if the errors are $\epsilon_1,\epsilon_2,\epsilon_3,$ and $\epsilon_4$, then we obtain the four equations
+ \begin{align*}
+  a &= y_1 + \epsilon_1, &
+  b &= y_2 + \epsilon_2, &
+  c &= y_3 + \epsilon_3, &
+  d &= y_4 + \epsilon_4.
+ \end{align*}
+ The estimates of the weights are then
+ \begin{align*}
+  \hat a &= y_1 = a - \epsilon_1, & 
+  \hat b &= y_2 = b - \epsilon_2, &
+  \hat c &= y_3 = c - \epsilon_3, &
+  \hat d &= y_4 = d - \epsilon_4,
+ \end{align*}
+ each having variance $\sigma^2$.
+ 
+ Now, we will weigh the objects together in the following way.
+ \begin{align*}
+  a + b + c + d &= y_1 + \epsilon_1, \\
+  a - b + c - d &= y_2 + \epsilon_2, \\
+  a + b - d - d &= y_3 + \epsilon_3, \\
+  a - b - c + d &= y_4 + \epsilon_4,
+ \end{align*}
+ where we have used $+1$ to indicate being placed on the right pan, and we have used $-1$ to indicate being placed on the left pan. 
+ 
+ One can see that the coefficient matrix for the weighing configuration is non-singular. As such, we can solve for the variables; for example, we show the estimate for $a$:
+ $$
+ \hat a = \frac{y_1 + y_2 + y_3 + y_4}{4}.
+ $$
+ From this, we can see that the variance of $\hat a$ is given by $\sigma^2/4$, a large improvement from the initial configuration in which each weight was weighed independently.
+ 
+ In general, if there are $n$ weights, and if there is a non-singular ternary (-1,0,1)-matrix of order $n$ with a constant number of non-zero entries in each row, then that matrix can be used as a weighing configuration for the collection of objects in which the variance of the errors can be reduced. 
+ 
+ All this motivates the following definition.
+ 
+ \begin{defin}\label{weighing matrix}\index{weighing matrix}
+  Let $W$ be a $(-1,0,1)$-matrix of order $n$. $W$ is a {\it weighing matrix} of {\it order} $n$ and {\it weight} $k$ if
+  \begin{defenum}
+   \item $WW^t = kI_n$.
+   \end{defenum}
+   If $n=k$, then we say that $W$ is a {\it Hadamard matrix}\index{Hadamard matrix}. If $n-1=k$, then we say that $W$ is a {\it conference matrix}\index{conference matrix}. In any event, we write $\w(n,k)$ to denote this property.
+ \end{defin}
+ 
+ \begin{ex}\label{weighing example}
+  The following can be verified directly to be a $\w(13,9)$ (NB: We have used $-$ in place of $-1$ and $+$ in place of $+1$)
+  \begin{equation}\label{signed-fano}
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{ccccccccccccc}
+0&0&-&+&0&+&-&-&-&-&-&0&-\\
++&0&+&+&+&0&-&+&0&-&0&-&+\\
++&0&0&-&+&+&+&0&-&+&-&-&0\\
+-&0&+&0&-&+&0&+&-&0&-&+&+\\
+-&-&-&+&0&+&+&+&0&0&+&-&0\\
+-&-&0&0&0&0&-&-&+&+&-&-&+\\
++&+&-&+&0&+&0&0&+&+&0&+&+\\
++&-&+&0&-&+&-&0&0&+&+&0&-\\
+0&+&0&+&-&-&0&+&0&+&-&-&-\\
+0&+&-&-&-&0&-&0&-&0&+&-&+\\
+0&+&+&0&-&+&+&-&+&-&0&-&0\\
+-&+&0&-&+&+&-&+&+&0&0&0&-\\
++&-&-&-&-&0&0&+&+&-&-&0&0\\
+  \end{array}\right).
+  \end{equation}
+ \end{ex}
+ 
+ The weighing matrix of the previous example is indicative of a more general construction that uses relative difference sets (see \S3.4). Note that upon changing the nonzero entries of (\ref{signed-fano}), one obtains the incidence matrix of the complement design of (\ref{fano-incidence-matrix}).
+ 
+ \dinkus
+ 
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \subsection{Necessary Conditions on Existence}
+ 
+ The conditions placed on a matrix in order for it to be a weighing matrix are none too restrictive: One only needs orthogonality of the rows, a constant number of nonzero entries in every row, and the non-zero entries to have absolute value 1. Usually, in order to construct these objects one must assume some further combinatorial and/or algebraic properties. So-called cocyclic matrices, for example, are studied extensively in \cite{horadam-hadamard-matrices} and \cite{algebraic-design-theory}. Nevertheless, we can say a few things at the outset.
+ 
+ By Cauchy's property of the determinant\Bnote{cauchy-det}, $\ddet(W)^2 = k^nI_n$, for any $\w(n,k)$. In particular, if $n \equiv 1 \pmod{2}$, then $k$ is a square. This leaves the case that $n \equiv 0 \pmod{2}$. It turns out, though we will not show it here, that if $n \equiv 2 \pmod{4}$, then it must be the case that $k = a^2 + b^2$, for some $a,b \in \Z$\Bnote{hasse-minkowski}. Much is not known about the case $n \equiv 0 \pmod{4}$, though \cite{seberry-od-2017} conjectures that a $\w(4n,k)$ exists for every $n$ and $k \leq 4n$.
+ 
+ Considering the weights, if $k = n-1$, then it is clear that $n \equiv 0 \pmod{2}$; for otherwise, if $n$ is odd, then there will be $n-2$ instances of $\left(\begin{smallmatrix}+\\+\end{smallmatrix}\right)$, $\left(\begin{smallmatrix}+\\-\end{smallmatrix}\right)$, or their negatives, in the product between any two distinct rows. Therefore, the product will resolve to a sum of $n-2$ terms each consisting of $\pm 1$. Since $n-2 \equiv 1 \pmod{2}$, this can never be zero.
+ 
+ In the case that $n = k$, we can assume (see \S3.5) the first three rows have the following form.
+ \[
+ \def\arraystretch{0.65}
+  \begin{array}{cccc}
+   \overbrace{
+   \begin{array}{ccc}
+   + & \dots & + \\ + & \dots & + \\ + & \dots & +
+   \end{array}
+   }^a
+   &
+   \overbrace{
+   \begin{array}{ccc}
+   + & \dots & + \\ + & \dots & + \\ - & \dots & -
+   \end{array}
+   }^b
+   &
+   \overbrace{
+   \begin{array}{ccc}
+   + & \dots & + \\ - & \dots & - \\ + & \dots & +
+   \end{array}
+   }^c
+   &
+   \overbrace{
+   \begin{array}{ccc}
+   + & \dots & + \\ - & \dots & - \\ - & \dots & -
+   \end{array}
+   }^d
+  \end{array}
+ \]
+ Evidently, this configuration yields the following linear system.
+ \begin{align*}
+  a + b + c + d &= n, \\
+  a + b - c - d &= 0, \\
+  a - b + c - d &= 0, \\
+  a - b - c + d &= 0,
+ \end{align*}
+ whose solution is $a = b = c = d = n/4$. As these are integers, it must be the case, outside of the trivial cases $n = 1 \text{ or } 2$, that $n \equiv 0 \pmod{4}$ whenever $n = k$.
+ 
+ Finally, it follows by the definition and the above remarks that $W$ is non-singular with $W^{-1} = k^{-1}W^t$, hence $W^tW = kI_n$. We record these result below.
+ 
+ \begin{prop}\label{weighing properties}
+  If there exists a $\w(n,k)$, say $W$, then the following must hold.
+  \begin{defenum}
+   \item If $n-1 = k$, then $n$ is even;
+   
+   \item if $n = k$, then $n$ is 1, 2, or a multiple of 4;
+   
+   \item if $n$ is odd, then $k$ is a square; 
+   
+   \item if 2 exactly divides $n$, then $k$ is the sum of two squares; and
+   
+   \item $W$ is non-singular and $WW^t = W^tW = kI_n$.
+  \end{defenum}
+ \end{prop}
+ 
+ \dinkus
+ 
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \subsection{Complex Weighing Matrices}
+ 
+ There are many useful generalizations of weighing matrices. We will take this up generally in the next section, but for now we note the following special case, where we use $A^*$ to denote the conjugate (Hermitian) transpose of a complex matrix $A$.
+ 
+ \begin{defin}\label{butson-unitary}\index{Butson weighing matrix}
+  Let $G = \{\mathrm{exp}(\frac{2\pi im}{p}) : 0 \leq m < p\}$, and let $W$ be a $(0,G)$-matrix of order $v$. We say that $W$ is a {\it Butson weighing matrix} of {\it order} $v$ and {\it weight} $k$ if
+  \begin{defenum}
+  \item $WW^* = kI_n$,
+  \end{defenum}
+  and we write $\bw(v,k;p)$ to denote this property.
+ \end{defin}
+ 
+ \begin{ex}\label{butson example}
+  Let $\xi = \mathrm{exp}(\frac{2\pi i}{7})$, and let $H$, for $0 \leq i,j < 7$, be defined by $H_{ij} = \xi^{ij}$. It follows easily that $H$ is a Butson weighing matrix \cite[see][\S2.5]{circulant-matrices-davis}; in fact, it is a Butson Hadamard matrix as $n = k$. To be concrete, the following is a $\bw(7,7;7)$
+  \begin{equation}
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{ccccccc}
+1&1&1&1&1&1&1\\
+1&\xi&\xi^{2}&\xi^{3}&\xi^{4}&\xi^{5}&\xi^{6}\\
+1&\xi^{2}&\xi^{4}&\xi^{6}&\xi&\xi^{3}&\xi^{5}\\
+1&\xi^{3}&\xi^{6}&\xi^{2}&\xi^{5}&\xi&\xi^{4}\\
+1&\xi^{4}&\xi&\xi^{5}&\xi^{2}&\xi^{6}&\xi^{3}\\
+1&\xi^{5}&\xi^{3}&\xi&\xi^{6}&\xi^{4}&\xi^{2}\\
+1&\xi^{6}&\xi^{5}&\xi^{4}&\xi^{3}&\xi^{2}&\xi\\
+  \end{array}\right).
+  \end{equation}
+ \end{ex}
+ 
+ The next result can be found in \cite{lam-leung}.
+ 
+ \begin{lem}\label{butson lemma}
+  Let $p$ be a prime, and let $\xi$ be a primitive complex $p$-th root of unity. Then $\ssum_{i=0}^n a_i\xi^i = 0$ for some $n < p$ and $a_i \in \N$ if and only if $n = p-1$ and $a_0 = \cdots = a_n$.
+ \end{lem}
+ 
+ \begin{proof}
+  Let $f(x) = \ssum_{i=0}^n a_i\xi^i \in \Z[x]$. The minimal polynomial of $\xi$ over $\Q$ is the $p$-th cyclotomic polynomial $h(x) = 1 + x + \cdots + x^{p-1}$. Therefore, since the degree of $f$ is at most $p$, we conclude that if $f(\xi) = 0$, then it must be an integer multiple of $h$. 
+ \end{proof}
+ 
+ \dinkus
+ 
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \subsection{Difference Set Construction II}
+ 
+ Let $G$ be some additive, finite group. In Definition \ref{difference-set-defin}, a subset $D \in \binom{G}{k}$ was said to be a difference set if $\Delta(D)$ contained each element of $G\bb\{0\}$ a constant number of times. Of course, we needn't restrict ourselves to omitting only the identity element; in fact, if we omit elements from a proper normal subgroup, we are left with a most useful object.
+ 
+ \begin{defin}\label{relative-diff-set-def}\index{relative difference set}
+  Let $G$ be an additive, finite group for which $|G|=mn$, $N \subset G$ a normal subgroup of order $n$, and let $R \in \binom{G}{k}$ with $k<mn$. We say that $R$ is a {\it relative difference set} in $G$ with {\it forbidden subgroup $N$}\index{forbidden subgroup} if
+  \begin{defenum}
+  \item If $\Delta(R)=\lambda(G\bb N)$, for some $\lambda \in \N$.
+  \end{defenum}
+  If $N$ is a direct factor of $G$, then we call $R$ a {\it splitting}\index{relative difference set!splitting} relative difference set. In any case, we write $R$ is an $\rds(m,n,k,\lambda)$ in $G$ relative to $N$.
+ \end{defin}
+ 
+ \begin{ex}
+  The set $R=\{\bar{1},\bar{2},\bar{4},\bar{8}\}$ is an $\rds(5,3,4,1)$ in $\Z/15\Z$ relative to $\{\bar{0},\bar{3},\bar{6},\bar{9},\bar{12}\}$.
+ \end{ex}
+ 
+ \begin{ex}
+  Let $G$ be the direct product of $\Z/13\Z$ and $S_3$, and let $a=(1,2)$ and $b=(1,2,3)$. Then $R=\{\bar{1}a,\bar{2},\bar{3}ab,\bar{5},\bar{6},\bar{7}ab^2,\bar{8}a,\bar{9}ab^2,\bar{11}ab\}$ is an $\rds(13,6,9,1)$ in $G$ relative to $S_3$.
+ \end{ex}
+ 
+ Though we do not show it here, just as difference sets are equivalent to square designs admitting a sharpely transitive automorphism group, relative difference sets can be shown to be equivalent to group divisible designs admitting a sharpely transitive automorphism group in which each element either fixes all or no point classes \cite[see][]{gdd-singer}. 
+ 
+ For our purposes, however, we are interested in the application of differences sets to weighing matrices and their generalizations. By far the most important family of such relative difference sets are found in the next result which is Theorem 9.6.12 of \cite{combinatorics-of-symmetric-designs}, and are called the {\it classical}\index{relative difference set!classical} relative difference sets.
+ 
+ \begin{prop}
+  Let $q$ be a prime power and $n>1$. Let $f : \gf(q^n) \rightarrow \gf(q)$ be some nondegenerate linear map over $\gf(q)$. Then
+  \begin{defenum}
+  \item\label{aff-diff} $R=\{x \in \gf(q^n) : f(x)=1\}$ is an $\rds$ in $\gf(q^n)^*$ relative to $\gf(q^*)$.
+  \end{defenum}
+  Moreover, the parameters of $R$ are given by
+  \begin{defenum}[resume]
+   \item\label{aff-diff-parameters} $\left( \frac{q^n-1}{q-1},q-1,q^{n-1},q^{n-2} \right)$.
+  \end{defenum}
+ \end{prop}
+ 
+ \begin{proof}
+  Since $f$ is nondegenerate, the Rank--Nullity Theorem\Bnote{rank-null} implies that the dimension of $\ker(f)$ is $n-1$. 
+  
+  Suppose, for $x,y \in R$, that $xy^{-1} \in \gf(q)$. Then $1=f(x)=af(y)=a$, hence $\gf(q)^* \cap \Delta(R)=\{1\}$. 
+  
+  It remains to verify that $\Delta(R)=q^{n-2}(\gf(q^n)^*\bb\gf(q)^*)$. Let $t \in \gf(q^n)^*\bb\gf(q)^*$, and define $g : \gf(q^n) \rightarrow \gf(q)$ by $g(y)=f(ty)$. It then suffices to show that there are $q^{n-2}$ elements $y \in \gf(q^n)^*$ such that $f(y)=g(y)=1$.
+  
+  Since $g$ is a nondegenerate linear map, the set $Y=g^{-1}(1)$ is an $(n-1)$-dimensional space over $\gf(q)$. Now, $\ker(g)=t^{-1}\ker(f)$, and, since $t \not\in \gf(q)$, $\ker(g) \neq \ker(f)$. Therefore, $\ddim(R \cap Y)=n-2$, and we're done.
+ \end{proof}
+ 
+ \begin{ex}\label{aff-diff-ex}
+  Take $K=\gf(3)$ and $F=\gf(27)$ with the usual polynomial representation, and let $\tr : F \rightarrow K$ be the absolute trace function\Bnote{trace-func}. By Proposition \ref{aff-diff},
+  \begin{defenum}
+   \item\label{aff-diff-ex-R} $R=\{x \in F : \tr(x)=1\}=\{2x^2+x+2,2x^2+2,2x^2,2x^2+x,2x^2+2x+2,2x^2+x+1,2x^2+2x,2x^2+2x+1,2x^2+1\}$.
+  \end{defenum}
+  is an $\rds(13,2,9,3)$ in $F^*$ relative to $K^*$.
+ \end{ex}
+ 
+ The following result is standard, and we do not pause to prove it \cite[see][]{butson-rel-diff-set}.
+ 
+ \begin{prop}\label{projection-prop}
+  Let $R$ be an $\rds(m,n,k,\lambda)$ in a group $G$ relative to a normal subgroup $N$, and let $\varphi : G \rightarrow H$ be a group epimorphism. Take $U=\ker(\varphi)$ and $|U|=u$. If $U \subseteq N$, then $\varphi(R)$ is an $\rds(m,n/u,k,\lambda u)$ in $H$ relative to $\varphi(N)$. In particular, if $U=N$, then $f(R)$ is a $\ds(m,k,\lambda u)$ in $H$.
+ \end{prop}
+ 
+ We now present a construction of weighing matrices using relative difference sets. This construction is a special case of a more general result to be proven later, so we omit the proof.
+ 
+ \begin{thm}\label{nega-weighing}
+  Let $R$ be an $\rds(m,2,k,\lambda)$ in a group $G$ relative to a normal subgroup $N=\{1,t\}$. Let $g_0, \dots, g_{m-1}$ be distinct coset representatives of $N$ in $G$. Let $W$ be a $(-1,0,1)$-matrix of order $m$ defined by
+  \begin{defenum}
+   \item\label{nega-weighing2} $W_{ij}=\begin{cases}
+           1 & \text{if } g_ig_j^{-1} \in R; \\
+           -1 & \text{if } tg_ig_j^{-1} \in R \text{; and} \\
+           0 & \text{otherwise.}
+          \end{cases}$
+  \end{defenum}
+  Then $W$ is a $\w(m,k)$.
+ \end{thm}
+ 
+ Speaking of the relative difference sets \ref{aff-diff} for odd $q$, we see that the forbidden subgroup is cyclic of even order, hence it has a unique normal subgroup of order 2. Proposition \ref{projection-prop} and Theorem \ref{nega-weighing} then imply the existence of a $W((q^n-1)/(q-1),q^{n-1})$ for every $n>1$. We record this result as a corollary.
+ 
+ \begin{cor}
+  For every odd prime power $q$, there is a $W((q^n-1)/(q-1),q^{n-1})$, for every $n>1$.
+ \end{cor}
+ 
+ The case in which $q$ is even, \cite{even-prime-power-diff-sets} showed that there is a $W((q^n-1)/(q-1),q^{n-1})$ whenever $n$ is odd.
+ 
+ \begin{ex}
+  Let $R$ be as in \ref{aff-diff-ex-R}. Using the coset representatives $1, 2x^2 + 2x, 2x^2 + 2x + 1, x^2 + x + 1, x^2 + 2x, x^2 + 2x + 2, 2x^2 + x + 2, 2x^2, 2x, 2x + 1, 2x$ of $\gf(3)^*$ in $\gf(27)^*$, we can construct the weighing matrix in (\ref{signed-fano}).
+ \end{ex}
+ 
+ We will require one further result. Due to its length, we omit the proof; but the interested reader is refered to Chapter 9 of \cite{combinatorics-of-symmetric-designs}.
+ 
+ \begin{prop}
+  Let $q$ be a prime power, $\alpha$ a primitve element of $\gf(q^2)$, and $G=\{g_0, \dots, g_{q-1}\}$ a group of order $q$. Let $C_i=\{a\alpha^i : a \in \gf(q)^*\}$, for each $i \in \{0,\dots,q\}$. Define
+  \begin{defenum}
+   \item\label{p-group-diff} $R = \{(0,1_g)\} \cup \{(a,1_g) : a \in C_0\} \cup \bigcup_{i=1}^q \{(a,g_{i-1}) : a \in C_i\}$.
+  \end{defenum}
+  Then $R$ is an $\rds(q^2,q,q^2,q)$ in $\gf(q^2)^+ \times G$ relative to $\{0\} \times G$.
+ \end{prop}
+ 
+ Proposition \ref{projection-prop} then yields the following.
+ 
+ \begin{cor}
+  Let $p$ be a prime, and let $m \leq n$ be positive integers. Let $A=\gf(q^{2m})^+$, and let $G$ be any group of order $p^n$. Then there is an $\rds(p^{2m},p^n,p^{2m},p^{2m-n})$ in $A \times G$ relative to $\{0\} \times G$.
+ \end{cor}
+ 
+ \dinkus
+ 
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \subsection{Isomorphisms of Weighing Matrices}
+ 
+ Let $W$ be some $\w(v,k)$, and let $P$ and $Q$ be signed permutation matrices of order $v$. It is then clear that $PWQ$ is again a $\w(v,k)$. We have the following.
+ 
+ \begin{defin}
+ Two weighing matrices $W_1$ and $W_2$ are {\it Hadamard equivalent}\index{Hadamard equivalence} if there are two signed permutation matrices $P$ and $Q$ such that 
+ \begin{defenum}
+ \item\label{ternary-equiv} $PW_1Q=W_2$.\Bnote{wreath-prod}
+ \end{defenum}
+ \end{defin}
+ 
+ \begin{ex}
+  The weighing matrix (\ref{signed-fano}) is Hadamard equivalent to the following.
+  \begin{equation}
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+   \left(\begin{array}{ccccccccccccc}
+0&0&+&+&0&+&+&+&+&+&+&0&+\\
+0&+&0&+&-&-&0&-&0&-&+&-&+\\
+0&+&+&-&-&0&+&0&+&0&-&-&-\\
+0&+&-&0&-&+&-&+&-&+&0&-&0\\
++&0&-&+&+&0&+&-&0&+&0&-&-\\
++&0&0&-&+&+&-&0&+&-&+&-&0\\
++&0&+&0&+&-&0&+&-&0&-&-&+\\
++&+&-&-&0&-&+&+&0&0&+&+&0\\
++&+&0&0&0&0&-&-&+&+&-&+&+\\
++&+&+&+&0&+&0&0&-&-&0&+&-\\
++&-&-&0&-&+&+&0&0&-&-&0&+\\
++&-&0&+&-&-&-&+&+&0&0&0&-\\
++&-&+&-&-&0&0&-&-&+&+&0&0\\
+   \end{array}\right)
+  \end{equation}
+ \end{ex}
+ 
+ The above example motivates the following definition.
+ 
+ \begin{defin}\index{weighing matrix!normal form}
+  A $\w(v,k)$ is said to be in {\it normal form} if it has the form
+  \begin{defenum}
+   \item\label{weighing-normal} $\begin{pmatrix} \zz_{v-k} & A_1 \\ \jj_k & A_2 \end{pmatrix}$.
+  \end{defenum}
+  Similar to designs, we call $A_1$ the {\it residual part}\index{weighing matrix!residual part} and $A_2$ the {\it derived part}\index{weighing matrix!derived part} of the weighing matrix.
+  
+  As a consequence of \ref{weighing-normal}, we have
+  \begin{defenum}[resume]
+  \item\label{weighing-residual} $A_1A_1^t=kI_{v-k}$ and
+  \item\label{weighing-derived} $A_2A_2^t = kI_k-J_k$.
+  \end{defenum}
+ \end{defin}
+ 
+ \biblio
+\end{document}

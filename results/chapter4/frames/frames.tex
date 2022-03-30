@@ -1,0 +1,282 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Quasi-Symmetric BIBDs}
+
+Symmetric designs are characterized by the fact that the blocks of the design intersect in a constant number of points. The ``next best'' designs are those which have two cardinalities for the intersections between distinct blocks.
+
+\begin{defin}
+ A balanced incomplete block design is {\it quasi-symmetric} if there exist two cardinalities that exist for the intersections between pairs of distinct blocks. The cardinalities of the intersections are called the {\it intersection numbers} of the design.\Dnote{quasi-symmetric}
+\end{defin}
+
+These beautiful objects are studied extensively in \cite{quasi-symmetric-shrikhande}. \cite{combinatorics-of-symmetric-designs} also contains a study of these objects, especially as it pertains to SRGs and association schemes. 
+
+\begin{ex}
+ The following is the incidence matrix of a quasi-symmetric $\bibd(6,15,5,2,1)$
+ \begin{defenum}
+  \item\label{quasi-sym-ex} $
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{rrrrrrrrrrrrrrr}
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 \\
+0 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0
+\end{array}\right)
+  $
+ \end{defenum}
+ with block intersection numbers 0 and 2.
+\end{ex}
+
+Using the balancedly splittable Hadamard matrices constructed in Theorem \ref{stable-od-thm}, we can constuct quasi-symmetric BIBDs. For the proposition, we assume the notations of $\S8.3$.
+
+\begin{prop}
+ If there is a Hadamard matrix of order $n$, there is a quasi-symmetric $\bibd(2n^2-n,4n^2-1,2n^2-n-1,n^2-n,n^2-n-1)$ with intersection numbers $(n^2-n)/2$ and $(n^2-2n)/2$.
+\end{prop}
+
+\begin{proof}
+ If there exists a normalized Hadamard matrix of order $n$, there exists a balancedly splittable Hadamard matrix of order $4n^2$ by Theorem \ref{stable-hadamard} (or by Theorem \ref{stable-od-thm} upon setting the indeterminants to unity if there is a full OD of order $n$). It suffices to show the result for one of the four splits obtained by the theorem; in particular, we will show the result for the submatrix $X=\left(\begin{smallmatrix} -F \\ B \\ A \end{smallmatrix}\right)$. Form the matrix $\tilde Y = (1/2)(J-X)$, and take $Y$ to be the matrix formed by omitting the first row of $\tilde Y$ consisting of all zeros.
+ 
+ Since $H$ is assumed to be normalized, each row of $H$ and $\left(\begin{smallmatrix}+&+\\+&-\end{smallmatrix}\right) \otimes H$, other than the first, of course, contain $n/2$ and $n^2/2$ $-1$s, respectively. By construction, then, the first row of $F$ consists of all ones, while the remaining rows have $n^2-n$ $+1$s; thus, the same rows of $-F$ have $n^2-n$ $-1$s. Similarly, $A$ and $B$ have $n(2n-2)/2 = n^2-n$ $-1$s in each row. It also follows that there must be $2n^2-2n+n-1=2n^2-n-1$ $-1$s in each column of $X$.
+ 
+ Finally, the index of the design follows by considering the Menon design\Dnote{menon-design} induced by the regular Hadamard matrix of the construction.
+ 
+ It remains to consider the block intersection numbers of the design. Consider the first row of $X$ along with any other two distinct rows. Without loss of generality, we can assume the following situation.
+ \[
+ \def\arraystretch{0.65}
+  \begin{array}{cccc}
+   \overbrace{
+   \begin{array}{ccc}
+   - & \dots & - \\ + & \dots & + \\ + & \dots & +
+   \end{array}
+   }^a
+   &
+   \overbrace{
+   \begin{array}{ccc}
+   - & \dots & - \\ + & \dots & + \\ - & \dots & -
+   \end{array}
+   }^b
+   &
+   \overbrace{
+   \begin{array}{ccc}
+   - & \dots & - \\ - & \dots & - \\ + & \dots & +
+   \end{array}
+   }^c
+   &
+   \overbrace{
+   \begin{array}{ccc}
+   - & \dots & - \\ - & \dots & - \\ - & \dots & -
+   \end{array}
+   }^d
+  \end{array}
+ \]
+ This yields the two linear systems of equations
+ \begin{align*}
+  a + b + c + d &= 2n^2-n, \\
+  - a - b + c + d &= -n, \\
+  - a + b - c + d &= -n \text{, and} \\
+  a - b - c + d &= \pm n.
+ \end{align*}
+ Solving for $d$ gives $2d = n^2-n \text{ or } n^2-2n$, which proves the result.
+\end{proof}
+
+\begin{ex}
+ The quasi-symmetric $\bibd(6,15,5,2,1)$ given by \ref{quasi-sym-ex} is obtained by the splittable Hadamard matrix \ref{stable-had-ex}.
+\end{ex}
+
+The quasi-symmetric designs of the previous result are not new, however. They represent a subset of the designs obtained in \cite{bracken-mcguire} viz. \cite{mcguire-grey-rankin-bound}.
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equiangular Tight Frames}
+
+In our earliest collegiate education, we learn that given some linear space, the ``nice'' bases are those which are orthonormal. As \cite{undergrad-frames} points out, however, the property of orthonormality can be too restrictive in many applications. For instance, if a signal is interferred with in transmission, then the lost information cannot be recovered. 
+
+By contrast, a frame is an overdetermined\Dnote{frame-redundance} spanning set of vectors. In this way, calculations and applications involving these objects can at times be simplified and data loss deterred. Frames have theoretical applications as well, as shown in the seminal paper of \cite{paley-wiener} using different language, however.
+
+We will not have the opportunity to explore the theory of frames in any depth; rather, we direct the reader to the standard references of \cite{intro-to-frame-theory}, \cite{waldron-tight-frames}, and \cite{young-nonharmonic-frames}.
+
+\begin{defin}\index{frame}\index{frame!bounds of}\index{tight frame}\index{Parseval frame}
+ Let $H$ be a Hilbert space\Dnote{hilbert-space} with inner product $\sharps{\cdot,\cdot}$, and let $\{f_i\} \subset H$. Then $\{f_i\}$ is a {\it frame} if there exists two constants $A$ and $B$ such that
+ \begin{defenum}
+  \item $A\Vert f \Vert^2 \leq \ssum_i \abs{\sharps{f,f_i}}^2 \leq B\Vert f \Vert^2$, for all $f \in H$.
+ \end{defenum}
+ $A$ and $B$ are called frame bounds. If $\#\{f_i\} < \infty$, it is a {\it finite frame}. If $A=B$, the frame is said to be {\it tight}. If $A=B=1$, then $\{f_i\}$ is said to be a {\it Parseval frame}.
+\end{defin}
+
+The frame bounds of a frame are not unique. The {\it optimal upper frame bound} is the infimum of the collection of all upper bounds of the frame. Similarly, the {\it optimal lower frame bound} is the supremum of the collection of all lower bounds of the frame.
+
+It also follows from the definition that $\bar{\sspan}\{f_i\}=H$.
+
+\begin{ex}
+ If $\{e_i\}$ is an orthonormal basis, then $\{e_0,e_0,e_1,e_1,\dots\}$, where each element is repeated twice, is a tight frame with $A=2$.
+\end{ex}
+
+\begin{ex}
+ If $\{e_i\}$ is an orthonormal basis, then $\{e_0,2^{-\frac{1}{2}}e_1,2^{-\frac{1}{2}}e_1,3^{-\frac{1}{2}}e_2,3^{-\frac{1}{2}}e_2,3^{-\frac{1}{2}}e_2\}$, where the element $(n+1)^{-\frac{1}{2}}e_n$ is repeated $n+1$ times, is a frame with $A=1$.
+\end{ex}
+
+From this point on, we will assume that we are working with a finite dimensional Hilbert space of dimension $k$. Our frames will, therefore, always be finite, say of order $n$. Just as for the standard bases of a space, we can relate matrices to finite frames.
+
+\begin{defin}\index{analysis operator}\index{synthesis operator}
+ Let $\{f_0, \dots,f_{n-1}\}$ be a finite frame in a finite dimensional Hilbert space $H$. The matrix $\Theta=\left(\begin{smallmatrix} f_0^* \\ \vdots \\ f_{n-1}^* \end{smallmatrix}\right)$ is the {\it analysis operator} of the frame, and $\Theta^*$ is called the {\it synthesis operator} of the frame.
+\end{defin}
+
+The following is then a restatement of the definitions.
+
+\begin{prop}
+ Let $x_0,\dots,x_{n-1}$ be vectos in a Hilbert space $H$ of dimension $n$, and define the $k \times n$ matrix $T=\left(\begin{smallmatrix} x_0 & \dots & x_{n-1} \end{smallmatrix}\right)$. Then:
+ \begin{defenum}
+  \item $\{x_0,\dots,x_{n-1}\}$ is a frame if and only if $\rrank(T)=n$,
+  \item $\{x_0,\dots,x_{n-1}\}$ is a tight frame with bound $A$ if and only if $TT^*=\sqrt{A}I$.
+ \end{defenum}
+\end{prop}
+
+In what follows, we will take $\HH = \{a_1 + a_ii + a_jj + a_kk : a_1,a_i,a_j,a_k \in \R\}$, i.e. the $\R$-algebra of quaternions\Dnote{frames-of-quaternions}, and we will consider frames over $\HH^k$. Furthermore, for $q=z+wj$ where $z,w \in \C$, we define $\co(q)=z$ and $\coo(q)=w^*$. Finally, define $[\cdot]_\C : \HH^d \rightarrow \C^{2d}$ by $[q]_\C = \left(\begin{smallmatrix} \co(q) \\ \coo(q) \end{smallmatrix}\right) = \left(\begin{smallmatrix} z \\ w^* \end{smallmatrix}\right)$.
+
+The following is Theorem 3.2 of \cite{waldron-quaternions}.
+
+\begin{thm}\label{quaternion-complex-frame-thm}
+ \begin{defenum}
+  \item Tight frames for $\C^{2k}$ correspond to tight frames for $\HH^k$, and
+  \item Tight frames for $\HH^k$ correspond to tight frames for $\C^k$ if and only if $\ssum_{i,j}\abs{\co(\sharps{f_i,f_j})}^2 = \ssum_{i,j}\abs{\coo(\sharps{f_i,f_j})}^2$.
+ \end{defenum}
+\end{thm}
+
+In light of this result, it is of interest to find frames over $\HH^k$ for which they are not equivalent to frames over $\C^{2d}$, i.e. there can be no reduction in the ring of scalars. We present two examples of such frames.
+
+\begin{ex}
+ The following is a $\qod(2;1,1)$
+ \begin{defenum}
+\item $
+\arraycolsep=1.25pt\def\arraystretch{0.625}
+\left(\begin{array}{cc}
+\bar{a} & bi \\
+\bar{b}j & ak
+\end{array}\right),
+$
+\end{defenum}
+where $a$ and $b$ are real variables. We then arrive at the following $\qod(16;8,8)$
+\begin{defenum}[resume]
+\item $
+\arraycolsep=1.25pt\def\arraystretch{0.625}
+\left(
+\begin{array}{cccccccccccccccc}
+\bar{a}&bi&\bar{a}&bi&\bar{a}&bi&\bar{a}&bi&\bar{a}&bi& a&\bar{b}i& a&\bar{b}i& a&\bar{b}i\\
+\bar{a}&bi&\bar{a}&bi& a&\bar{b}i&\bar{a}&bi& a&\bar{b}i&\bar{a}&bi& a&\bar{b}i&\bar{a}&bi\\
+\bar{a}&bi&\bar{a}&bi&\bar{a}&bi& a&\bar{b}i& a&\bar{b}i& a&\bar{b}i&\bar{a}&bi&\bar{a}&bi\\
+\bar{a}&bi&\bar{a}&bi& a&\bar{b}i& a&\bar{b}i&\bar{a}&bi&\bar{a}&bi&\bar{a}&bi& a&\bar{b}i\\
+\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{bj}&\mathbf{\bar{a}k}\\
+\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{b}j}&\mathbf{ak}\\
+\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{a}&\mathbf{\bar{b}i}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{\bar{b}j}&\mathbf{ak}\\
+\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{a}&\mathbf{\bar{b}i}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{bj}&\mathbf{\bar{a}k}\\
+\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{a}}&\mathbf{bi}\\
+\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{a}}&\mathbf{bi}&\mathbf{bj}&\mathbf{\bar{a}k}&\mathbf{\bar{b}j}&\mathbf{ak}&\mathbf{\bar{a}}&\mathbf{bi}\\
+bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak&\bar{b}j&ak\\
+bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi&bj&\bar{a}k&\bar{b}j&ak&\bar{a}&bi&bj&\bar{a}k&bj&\bar{a}k\\
+a&\bar{b}i&\bar{a}&bi&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak&\bar{b}j&ak&\bar{a}&bi&\bar{b}j&ak\\
+a&\bar{b}i&\bar{a}&bi&\bar{b}j&ak&\bar{a}&bi&bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi&bj&\bar{a}k\\
+bj&\bar{a}k&\bar{b}j&ak&\bar{b}j&ak&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak&\bar{b}j&ak&\bar{a}&bi\\
+bj&\bar{a}k&\bar{b}j&ak&bj&\bar{a}k&\bar{b}j&ak&\bar{a}&bi&bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi\\
+\end{array}
+\right).
+$
+\end{defenum}
+Taking the horizontal frame shown in bold as the synthesis operator of a frame over $\HH^6$ after setting $a=b=1$, we find that $(1/2)H^*H$ is given by
+\begin{defenum}[resume]
+ \item $
+ \arraycolsep=1.25pt\def\arraystretch{0.625}
+ \left(
+\begin{array}{cccccccccccccccc}
+3&i&-&i&\bar{j}&\bar{k}&1&\bar{i}&\bar{j}&\bar{k}&\bar{j}&\bar{k}&1&\bar{i}&\bar{j}&\bar{k}\\
+\bar{i}&3&\bar{i}&-&k&\bar{j}&i&1&k&\bar{j}&k&\bar{j}&i&1&k&\bar{j}\\
+-&i&3&i&\bar{j}&\bar{k}&-&i&j&k&\bar{j}&\bar{k}&-&i&j&k\\
+\bar{i}&-&\bar{i}&3&k&\bar{j}&\bar{i}&-&\bar{k}&j&k&\bar{j}&\bar{i}&-&\bar{k}&j\\
+j&\bar{k}&j&\bar{k}&3&i&1&i&1&i&1&\bar{i}&-&\bar{i}&1&i\\
+k&j&k&j&\bar{i}&3&\bar{i}&1&\bar{i}&1&i&1&i&-&\bar{i}&1\\
+1&\bar{i}&-&i&1&i&3&i&1&i&1&i&1&\bar{i}&-&\bar{i}\\
+i&1&\bar{i}&-&\bar{i}&1&\bar{i}&3&\bar{i}&1&\bar{i}&1&i&1&i&-\\
+j&\bar{k}&\bar{j}&k&1&i&1&i&3&i&-&\bar{i}&1&i&1&\bar{i}\\
+k&j&\bar{k}&\bar{j}&\bar{i}&1&\bar{i}&1&\bar{i}&3&i&-&\bar{i}&1&i&1\\
+j&\bar{k}&j&\bar{k}&1&\bar{i}&1&i&-&\bar{i}&3&i&-&\bar{i}&-&\bar{i}\\
+k&j&k&j&i&1&\bar{i}&1&i&-&\bar{i}&3&i&-&i&-\\
+1&\bar{i}&-&i&-&\bar{i}&1&\bar{i}&1&i&-&\bar{i}&3&i&-&\bar{i}\\
+i&1&\bar{i}&-&i&-&i&1&\bar{i}&1&i&-&\bar{i}&3&i&-\\
+j&\bar{k}&\bar{j}&k&1&i&-&\bar{i}&1&\bar{i}&-&\bar{i}&-&\bar{i}&3&i\\
+k&j&\bar{k}&\bar{j}&\bar{i}&1&i&-&i&1&i&-&i&-&\bar{i}&3\\
+\end{array}
+\right).
+ $
+\end{defenum}
+It follows that $320 = \sum_{i,j}\abs{\co(\sharps{f_i,f_j})}^2 \neq \sum_{i,j}\abs{\coo(\sharps{f_i,f_j})}^2 = 64$ so that the frame is not reducible to a frame over $\C^{12}$.
+\end{ex}
+
+\begin{ex}
+ Beginning with the $\qod(6;1,5)$
+ \begin{defenum}
+  \item $
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(
+\begin{array}{cccccc}
+a&b&b&b&b&b\\
+b&\bar{a}&bk&\bar{bk}&\bar{bk}&bk\\
+b&bk&\bar{a}&bk&\bar{bk}&\bar{bk}\\
+b&\bar{bk}&bk&\bar{a}&bk&\bar{bk}\\
+b&\bar{bk}&\bar{bk}&bk&\bar{a}&bk\\
+b&bk&\bar{bk}&\bar{bk}&bk&\bar{a}\\
+\end{array}
+\right),
+  $
+ \end{defenum}
+ we apply the construction to obtain a $\qod(144;24,120)$. Taking $H$ to again be the first horizontal frame of the splittable QOD, we find that $29056 = \sum_{i,j}\abs{\co(\sharps{f_i,f_j})}^2 \neq \sum_{i,j}\abs{\coo(\sharps{f_i,f_j})}^2 = 8960$. It follows that we have constructed another quaternion frame not reducible to a complex frame.
+\end{ex}
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Unbiased Orthogonal Designs}
+
+Let $A$ and $B$ be two orthonormal bases of the Hilbert space $\C^k$. The bases are said to be {\it mutually unbiased}\index{mutually unbiased bases} in the event that $\abs{\sharps{a,b}}=k^{-\frac{1}{2}}$, for every $a \in A$ and $b \in B$, and where $\sharps{a,b}$ denotes the usual sesquilinear inner product between $a$ and $b$.
+
+The reader will recognize unbiased bases as a subtype of equiangular lines (see \S8.2). These objects are fundamental in many applications such as quantum key distribution \cite[see][]{real-unbiased-bases}.
+
+Unitary Hadamard matrices, i.e. a matrices with entries from the unit circle in the complex plane whose rows are pairwise orthogonal, have received much attention with their connection to unbiased bases. Two unitary Hadamard matrices $H$ and $K$ of order $n$ are {\it unbiased}\index{unbiased Hadamard matrices} if $HK^*=\sqrt{n}L$, for some unitary Hadamard matrix $L$. Recently, these ideas where studied for the case of unitary weighing matrices\Dnote{unbiased-weighing-matrices} in \cite{unbiased-weighing}. The case of unbiased real Hadamard matrices were studied in \cite{unbiased-real}, and the case of unbiased quaternary complex Hadamard in \cite{unbiased-complex}.
+
+We have seen that extending concepts from matrices of concrete values to matrices of indeterminants usually presents us with subtle difficulties, and extending unbiasedness is no different. In \cite{unbiased-od}, unbiased orthogonal designs are presented thus.
+
+\begin{defin}\index{unbiased orthogonal designs}
+ Let $X_1$ and $X_2$ be two instances of an $\od(n;s_1,\dots,s_u)$ in the indeterminants $x_1,\dots,x_u$. Then $X_1$ and $X_1$ are {\it unbiased} with parameter $\alpha \in \R_+$ if there is a $(-1,0,1)$-matrix $W$ such that
+ \begin{defenum}
+  \item $X_1X_2^t = \left(\alpha^{-\frac{1}{2}}\ssum_i s_ix_i^t\right)W$.
+ \end{defenum}
+\end{defin}
+
+We use the stable construction presented in the previous section to construct pairs of unbiased orthogonal designs. Note that this is essentially a generalization of a method presented in \cite{splittable-hadamard}. In what follows, we take $Z$ to be as in \S9.3.
+
+\begin{prop}
+ Let
+ \[
+ \arraycolsep=1.25pt\def\arraystretch{0.625}
+  V=\left(\begin{array}{c} -F\\B\\A \end{array}\right) \text{, and } 
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  U=\left(\begin{array}{cc} G&F\\E&A\\-E&B \end{array}\right)
+ \]
+ so that $Z=\left(\begin{smallmatrix} U&V \end{smallmatrix}\right)$, and take $Y=\left(\begin{smallmatrix} U&-V \end{smallmatrix}\right)$. Then $Y$ is an OD of the same order and type as $Z$. In particular, $ZY^t=2\sigma K$, where $K$ is a Hadamard matrix.
+\end{prop}
+
+\begin{proof}
+ That $Y$ is also an OD is clear. Then $ZY^t=(UU^t-VV^t)$. We claim that $K=(1/2\sigma)(UU^t-VV^t)$ is a Hadamard matrix. Indeed, since the vertical frames of $Z$ constitute a stable split, and since $Z$ is an OD, we find that $K$ has entries from the set $\{-1,1\}$. Furthermore,
+ \begin{align*}
+  KK^t &= \frac{1}{4\sigma^2}(UU^tUU^t+VV^tVV^t) \\
+  &= \frac{n}{\sigma}(UU^t+VV^t) \\
+  &= 4n^2 I,
+ \end{align*}
+ and the proof is complete.
+\end{proof}
+ 
+\biblio
+\end{document}

@@ -1,0 +1,232 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Definition}
+
+ Recall that a Hadamard matrix is a weighing matrix $\w(n,n)$ (see \S3). These elusive objects have vexed combinatorialists for over a century now. Ever more clever techniques from ever more branches of mathematics are needed in order to construct these objects. 
+ 
+ We will consider one such construction in preparation for our study of orthogonal designs. The matrices we will study are the so-called balancedly splittable Hadamard matrices. First, an example.
+ 
+ \begin{ex}\label{bal-split-hadamard-ex}
+  Consider a Hadamard matrix of order 4 shown below
+  \begin{defenum}
+  \item\label{H(4)} $\arraycolsep=1.25pt\def\arraystretch{0.625}
+   \left(\begin{array}{cccc}
+    + & + & + & + \\
+    + & + & - & - \\
+    + & - & + & - \\
+    + & - & - & +
+   \end{array}\right)$.
+  \end{defenum}
+  Label the rows $h_0, h_1, h_2$, and $h_3$. We then form the block matrix with $(i,j)$-th entry given by $h_j^th_i$.
+  \begin{defenum}[resume]
+   \item\label{balanced-had-ex-M} $
+   \arraycolsep=1.25pt\def\arraystretch{0.625}
+   \left(\begin{array}{cccccccccccccccc}
+\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}\\
+\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}\\
+\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}\\
+\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}\\
++&+&-&-&+&+&-&-&+&+&-&-&+&+&-&-\\
++&+&-&-&+&+&-&-&-&-&+&+&-&-&+&+\\
++&+&-&-&-&-&+&+&+&+&-&-&-&-&+&+\\
++&+&-&-&-&-&+&+&-&-&+&+&+&+&-&-\\
++&-&+&-&+&-&+&-&+&-&+&-&+&-&+&-\\
++&-&+&-&+&-&+&-&-&+&-&+&-&+&-&+\\
++&-&+&-&-&+&-&+&+&-&+&-&-&+&-&+\\
++&-&+&-&-&+&-&+&-&+&-&+&+&-&+&-\\
++&-&-&+&+&-&-&+&+&-&-&+&+&-&-&+\\
++&-&-&+&+&-&-&+&-&+&+&-&-&+&+&-\\
++&-&-&+&-&+&+&-&+&-&-&+&-&+&+&-\\
++&-&-&+&-&+&+&-&-&+&+&-&+&-&-&+\\
+   \end{array}\right).$
+  \end{defenum}
+  The matrix \ref{balanced-had-ex-M} has the submatrix $H_1$ which we have shown in bold above. This submatrix has the property that $H_1^tH_1=4I+4A$, for some symmetric $(0,1)$-matrix $A$ with zero diagonal. In particular, there are only two angles that exist between the columns of $H_1$.
+ \end{ex}
+ 
+ The above example motivates the following definition.
+ 
+ \begin{defin}\label{bal-split-hadamard}\index{balancedly splittable Hadamard matrix}
+  A Hadamard Matrix $H$ of order $n$ is {\it balancedly splittable} with parameters $(n,\ell,a,b)$ if $H$ has an $\ell \times n$ submatrix $H_1$ such that
+  \begin{defenum}
+   \item $H_1^tH_1 = \ell I + aA + b(J-I-A)$,
+  \end{defenum}
+  for some binary $(0,1)$-matrix $A$ with zero diagonal.
+ \end{defin}
+ 
+ This definition and the previous example are suggestive. Notably, a connection to sets of biangular lines is inherent in the definition. These connections will be taken up in the following subsections.
+ 
+ \dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equiangular Lines}
+
+In the previous subsection, it was intimated that balancedly splittable Hadamard matrices were related to collections of biangular lines. By a set of {\it lines}, we mean a collection of vectors in $\R^\ell$, for some $\ell$. Given a collection $\LL$ of lines in $\R^\ell$, define $\Xi=\{|\sharps{u,v}| : u,v \in \LL \text{ and } u \neq v\}$. If $\abs{\Xi}=2$, then we say that $\LL$ is a set of {\it biangular lines}; while if $|\Xi|=1$, then we say that $\LL$ is a set of {\it equiangular lines}\index{equiangular lines}\Dnote{equiangular-lines-note}.
+
+Clearly, if $H$ is balancedly splittable with respect to the $\ell \times n$ submatrix $H_1$, then Definition \ref{bal-split-hadamard} implies that the columns of $H_1$ are at most biangular. They are equiangular precisely in the case that $b=-a$.
+
+We will require the following proposition due to \cite{spherical-codes-designs}.
+
+\begin{prop}
+ Let $\LL \subset \R^\ell$ be a set of lines (vectors) such that $|\sharps{u,v}|=a$, for every pair of distinct lines $u$ and $v$ in $\LL$. If $\ell < a^{-2}$, then
+ \begin{defenum}
+  \item\label{lines-bound} $\abs{\LL} \leq \ell(1-a^2)/(1-\ell a^2)$.
+ \end{defenum}
+\end{prop}
+
+Using balancedly splittable Hadamard matrices, we can construct optimal sets of equiangular lines.
+
+\begin{thm}
+ If there exists a balancedly splittable Hadamard matrix with parameters $(n,\ell,a,-a)$, then there is an optimal set of equiangular lines in $\R^\ell$.
+\end{thm}
+
+\begin{proof}
+ Suppose that $H$ is a balancedly splittable Hadamard matrix with respect to the $\ell \times n$ submatrix $H_1$ with parameters $(n,\ell,a,-a)$. Take $\LL$ to be the collection of normalized columns of $H_1$. Note that $a^2\ell^2=\ell(n-\ell)/(n-1)$; then the absolute value of the inner product between distinct lines in $\LL$ is given by $a=\sqrt{n-\ell}/\sqrt{\ell(n-1)}$; moreover, $\ell \leq a$. The right-hand side of \ref{lines-bound} reduces to $n$. We have, therefore, exhibited an optimal set of equiangular lines.
+\end{proof}
+
+In \S10, we will pursue this topic again in the more restricted setting of frames.
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Constructions}
+
+For the sake of completeness, we make Example \ref{bal-split-hadamard-ex} general.
+
+\begin{prop}
+If there exists a Hadamard matrix of order $n$, then there exists a balancedly splittable Hadamard matrix with parameters $(n^2,n,n,0)$.
+\end{prop}
+
+\begin{proof}
+ Let $H$ be a normalized Hadamard matrix of order $n$, and label the rows $h_0=\jj, \dots, h_{n-1}$. Take $M$ to be the block matrix defined by $M_{ij}=h_j^th_i$. Then $M_{ij}M_{kj}^t=(h_j^th_i)(h_j^th_k)^t=h_j^t(h_ih_k^t)h_j=O$ whenever $i \neq k$, hence $M$ is a Hadamard matrix of order $n^2$ \cite[cf][]{kharaghani-auxiliary}. Take $M_1$ to be the first block row of $M$. Then
+ \[
+  M_1^tM_1=\begin{pmatrix}J \\ \jj^th_1 \\ \vdots \\ \jj^th_{n-1} \end{pmatrix}\begin{pmatrix}J & h_2^t\jj & \dots & h_{n-1}^t\jj\end{pmatrix}
+  =mI \otimes J,
+ \]
+ and the proof is complete.
+\end{proof}
+
+There are many more constructions presented in \cite{splittable-hadamard} that the interested reader may consult. For our purposes, however, we present a novel construction. Consider the following example.
+
+\begin{ex}\label{bal-had-ex2}
+ Consider the Hadamard matrix of order 2
+ \begin{defenum}
+  \item $
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cc}
+   +&+\\+&-
+  \end{array}\right),
+  $
+ \end{defenum}
+ and label the rows $h_0$ and $h_1$. Form the matrices $c_i=h_i^th_i$, the so-called {\it auxiliary matrices}\index{auxiliary matrices}, shown in order below.
+ \begin{defenum}[resume]
+  \item $
+  c_0=
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cc}
+   +&+\\+&+
+  \end{array}\right),
+  c_1=
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cc}
+   +&-\\-&+
+  \end{array}\right).
+  $
+ \end{defenum}
+ Take $K=H \otimes H$, labelling the rows as $k_0,k_1,k_2$, and $k_3$. Form the block circulant matrices $A$ and $B$ with first rows $(c_0,c_1,c_1)$ and $(c_0,c_1,-c_1)$, shown below.
+ \begin{defenum}[resume]
+ \item $
+ \arraycolsep=1.25pt\def\arraystretch{0.625}
+  A=\left(\begin{array}{cccccc}
++&+&+&-&+&-\\
++&+&-&+&-&+\\
++&-&+&+&+&-\\
+-&+&+&+&-&+\\
++&-&+&-&+&+\\
+-&+&-&+&+&+\\
+    \end{array}\right),
+\arraycolsep=1.25pt\def\arraystretch{0.625}
+B=\left(\begin{array}{cccccc}
++&+&+&-&-&+\\
++&+&-&+&+&-\\
+-&+&+&+&+&-\\
++&-&+&+&-&+\\
++&-&-&+&+&+\\
+-&+&+&-&+&+\\
+  \end{array}\right).
+    $
+ \end{defenum}
+ Now, form the block matrix $F=\left(\begin{smallmatrix} F_1 & \dots & F_7 \end{smallmatrix}\right)$ by defining $F_i=k_i^th_0$
+ \begin{defenum}[resume]
+  \item $
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  F=
+  \left(\begin{array}{cccccc}
++&+&+&+&+&+\\
+-&-&+&+&-&-\\
++&+&-&-&-&-\\
+-&-&-&-&+&+\\
+  \end{array}\right).
+  $
+ \end{defenum}
+ Finally, take $E=F^t$. We then form the block matrix $X=\left(\begin{smallmatrix} J&F&-F\\E&A&B\\-E&B&A \end{smallmatrix}\right)$
+ \begin{defenum}[resume]
+  \item\label{stable-had-ex} $
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  X=
+  \left(\begin{array}{cccccccccccccccc}
++&+&+&+&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&-&-&-&-&-&-\\
++&+&+&+&\textbf{-}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{-}&+&+&-&-&+&+\\
++&+&+&+&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&-&-&+&+&+&+\\
++&+&+&+&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{-}&\textbf{+}&\textbf{+}&+&+&+&+&-&-\\
++&-&+&-&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{-}&+&+&+&-&-&+\\
++&-&+&-&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{-}&\textbf{+}&+&+&-&+&+&-\\
++&+&-&-&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&-&+&+&+&+&-\\
++&+&-&-&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{+}&+&-&+&+&-&+\\
++&-&-&+&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{+}&+&-&-&+&+&+\\
++&-&-&+&\textbf{-}&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{+}&-&+&+&-&+&+\\
+-&+&-&+&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{-}&\textbf{+}&+&+&+&-&+&-\\
+-&+&-&+&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{-}&+&+&-&+&-&+\\
+-&-&+&+&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{-}&+&-&+&+&+&-\\
+-&-&+&+&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{+}&-&+&+&+&-&+\\
+-&+&+&-&\textbf{+}&\textbf{-}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{+}&+&-&+&-&+&+\\
+-&+&+&-&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{+}&\textbf{+}&-&+&-&+&+&+\\
+  \end{array}\right).
+  $
+ \end{defenum}
+ The matrix $X$ is a Hadamard matrix of order $16$, and evidently, it is balancedly splittable. Indeed, the submatrix shown in bold above can be used to form a balanced split. Due to the form of $X$, however, any one of the following can be used to form a balanced split
+ \begin{defenum}[resume]
+  \item $
+  \begin{pmatrix}
+   F \\ A \\ B
+  \end{pmatrix},
+  \begin{pmatrix}
+   -F \\ B \\ A
+  \end{pmatrix},
+  \begin{pmatrix}
+   E&A&B
+  \end{pmatrix},
+  \begin{pmatrix}
+   -E&B&A
+  \end{pmatrix}.
+  $
+ \end{defenum}
+ In any event, the parameters of the splits are $(16,6,2,-2)$. Therefore, we have optimal sets of equiangular lines.
+\end{ex}
+
+This construction can be made perfectly general. Since this result is ultimately a special case of Theorem \ref{stable-od-thm}, we will not show it explicitly.
+
+\begin{thm}\label{stable-hadamard}
+ There is a balancedly splittable Hadamard matrix of order $4n^2$ with parameters $(4n^2,2n^2-n,n,-n)$ whenever there is a Hadamard matrix of order $n$.
+\end{thm}
+
+\begin{cor}\label{optimal-lines-cor}
+ If there is a Hadamard matrix of order $n$, then there is an optimal set of equiangular lines in $\R^{2n^2-n}$.
+\end{cor}
+ 
+ We mention in passing that \cite{splittable-hadamard} showed that balancedly splittable Hadamard matrices can be used to construct various association schemes. As nothing essentially new about association schemes has been added in our study of orthogonal designs, we will not pursue this topic here and simply refer the reader to the aforementioned article.
+ 
+\biblio
+\end{document}

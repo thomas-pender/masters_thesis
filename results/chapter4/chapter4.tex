@@ -1,0 +1,43 @@
+%\providecommand{\main}{../../main}
+\documentclass[../../main]{subfiles}
+
+\newendnotes{d}
+\input{ch4notes.txt}
+\setcounter{dnote}{\value{cnote}}
+\newcommand{\Dnote}[1]{\dnote{#1}\big)}
+
+\begin{document}
+
+This is the first chapter constituting the novel results of this work. Here balancedly splittable orthogonal designs are defined and various constructions are presented. These most interesting objects are connected to several objects such as frames and pairs of unbiased orthogonal designs.
+
+ \section{\centering Balancedly Splittable Hadamard Matrices}
+ Most of the results of this section are due to \cite{splittable-hadamard}. We include this material here to evince the fact that the concept of a balancedly splittable orthogonal design is a generalization of previous work.
+ 
+ \dinkus
+ 
+ \subfile{./bhadamard/bhadamard}
+ 
+ \section{\centering Balancedly Splittable Orthogonal Designs}
+ In this and the following section, the new results of \cite{split-od} are presented. Here we define balanced splittability of orthogonal designs and give several constructions. To avoid obfuscation, we given the constructions in terms of real and complex ODs; however, the results are perfectly valid for the more general QODs.
+ 
+ \dinkus
+ 
+ \subfile{./bod/bod}
+ 
+ \section{\centering Related Configurations}
+ In this section, the balancedly splittable orthogonal designs of the previous section are applied in the construction of related objects. We will explore quasi-symmetric balanced incomplete block designs, equiangular tight frames, and unbiased orthogonal designs.
+ 
+ \dinkus
+ 
+ \subfile{./frames/frames}
+ 
+ \singlespace
+ 
+ \addcontentsline{toc}{section}{Notes}
+ \section*{\centering Notes}
+ \thednotes
+ 
+ \doublespacing
+ 
+ \biblio
+\end{document}

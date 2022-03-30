@@ -1,0 +1,232 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Adjacency Matrices}
+
+We must first extend Lemma \ref{bgw-circ-lem} to the case of arbitrary BGW matrices. Let $G=\{g_0=1,g_1,\dots,g_{n-1}\}$ be an abelian group, and let $W=\ssum_{g \in G}g W_g$ be a $\bgw(v,k,\lambda; G)$. We then have the following.
+
+\begin{lem}
+ \begin{defenum}
+  \item[]
+  \item $\ssum_{g,h}gh^{-1}W_gW_h^t = \ssum_{g,h}h^{-1}gW_h^tW_g = kI + \frac{\lambda}{n}\left(\ssum_gg\right)(J-I)$,
+  \item $\ssum_gW_gW_g^t = \ssum_gW_g^tW_g = kI + \frac{\lambda}{n}(J-I)$, and
+  \item $\ssum_gW_gW_{gh^{-1}}^t = \ssum_gW_{gh^{-1}}^tW_g = \frac{\lambda}{n}(J-I)$ whenever $h \neq 1$.
+ \end{defenum}
+\end{lem}
+
+\begin{proof}
+ Restatement of the fact that $W = \ssum_ggW_g$ is a $\bgw(v,k,\lambda;G)$.
+\end{proof}
+
+Let $\{U_g : g \in G\}$ be the usual regular linear representation of $G$, that is, $U_g = (\delta(g_i^{-1}gg_j))$ where $\delta(h) = 1$ if $h=1$ and $0$ otherwise. Consider the following family of matrices.
+\begin{align*}
+ A_{0,g} &= I_2 \otimes U_g \otimes I_v \text{, for $g \in G$,} \\
+ A_1 &= I_2 \otimes J_n \otimes (J_v-I_v), \\
+ A_{2,g} &= \begin{pmatrix} O & \ssum_{h \in G} (U_h \otimes W_{gh}) \\ \ssum_{h \in G} (U_h \otimes W_{g^{-1}h^{-1}}^t) & O \end{pmatrix} \text{, for $g \in G$, and} \\
+ A_3 &= \begin{pmatrix} O & J_n \otimes (J_v - \ssum_{h \in G} W_h) \\ J_n \otimes (J_v - \ssum_{h \in G} W_h^t) & O \end{pmatrix}.
+\end{align*}
+
+In showing that $\{A_1,A_3\}\cup\{A_{0,g},A_{2,g} : g \in G\}$ is an association scheme, we proceed precisely as before. First, $A_1+A_3 + \sum_{g \in G}(A_{0,g}+A_{2,g}) = J$. Second, $A_{0,g}^t = A_{0,g^{-1}}$, $A_1^t=A_1$, $A_{2,g}^t = A_{2,g^{-1}}$, and $A_3^t = A_3$.
+
+We next show closure under multiplication. We have $A_{0,g}A_{0,h} = A_{0,gh} = A_{0,hg} = A_{0,h}A_{0,g}$. Then $A_{0,g}A_1 = A_1A_{0,g} = A_1$ and $A_{0,g}A_3 = A_3A_{0,g} = A_3$. Since $\ssum_j (U_{gj} \otimes W_{hj}) = \ssum_j (U_j \otimes W_{g^{-1}hj})$, it follows that $A_{0,g}A_{2,h} = A_{2,h}A_{0,g} = A_{2,g^{-1}h}$. As $[J_n \otimes (J_v-I_v)]^2 = n(v-1)\ssum_g(U_g \otimes I_v) + n(v-2)J_n \otimes (J_v-I_v)$, we have $A_1^2 = n(v-1)\ssum_g A_{0,g} + n(v-2)A_1$. Next,
+\begin{small}
+\begin{align*}
+ [J_n \otimes (J_v-I_v)]\sum_h(U_h \otimes W_{gh}) &= J_n \otimes (J_v-I_v)\sum_hW_h \\
+ &= (k-1)J_n \otimes J_v + J_n \otimes (J_v - \sum_hW_h),
+\end{align*}
+\end{small}
+hence $A_1A_{2,g} = A_{2,g}A_1 = (k-1)\ssum_{g \in G}A_{2,g} + kA_3$. We have
+\begin{small}
+\begin{align*}
+ [J_n \otimes (J_v-I_v)]\left[J_n \otimes (J_v-\sum_hW_h)\right] &= nJ_n \otimes (J_v-I_v)\left(J_v-\sum_hW_h\right) \\
+ &= n(v-k)J_n \otimes J_v - nJ_n \otimes \left(J_v-\sum_hW_h\right)
+\end{align*}
+\end{small}
+so that $A_1A_3 = A_3A_1 = n(v-k)\ssum_{g \in G}A_{2,g} + n(v-k-1)A_3$. Then
+\begin{small}
+\begin{align*}
+ \sum_h (U_h \otimes W_{gh})\left[J_n \otimes (J_v-\sum_jW_j^t)\right] &= J_n \otimes \left(\sum_hW_hJ_v - \sum_{h,j}W_hW_j^t\right) \\
+ &= (k-\lambda)J_n \otimes (J_v-I_v),
+\end{align*}
+\end{small}
+and $A_{2,g}A_3 = A_3A_{2,g} = (k-\lambda)A_1$. Since
+\begin{align*}
+ \left(J_v-\sum_{h \in G}W_h\right)\left(J_v-\sum_{g \in G}W_g^t\right) &= vJ_v - 2kJ_v + kI_v + \lambda(J_v-I_v) \\
+ &= (v-2k+\lambda)(J_v-I_v) + (v-k)I_v,
+\end{align*}
+one finds that $A_3^2 = n(v-2k+\lambda)A_1 + n(v-k)\ssum_{g \in G}A_{0,g}$. Finally, for fixed $g,h \in G$, we note that
+\begin{align*}
+ \sum_{\alpha,\beta}(U_{\alpha\beta} \otimes W_{g\alpha}W_{h^{-1}\beta^{-1}}^t) &= \sum_\gamma \left( U_\gamma \otimes \sum_{\alpha\beta=\gamma} W_{g\alpha}W_{h^{-1}\beta^{-1}}^t \right) \\
+ &= \sum_{\gamma \neq g^{-1}h^{-1}} \left( U_\gamma \otimes \sum_{\alpha\beta=\gamma} W_{g\alpha}W_{h^{-1}\beta^{-1}}^t \right) \\&\qquad\qquad\qquad+ U_{g^{-1}h^{-1}} \otimes \sum_\gamma W_\gamma W_\gamma^t \\
+ &= \sum_{\gamma \neq g^{-1}h^{-1}} \left[ U_\gamma \otimes \frac{\lambda}{n}(J_v-I_v) \right] \\&\qquad\qquad\qquad+ U_{g^{-1}h^{-1}} \otimes \left[ kI_v + \frac{\lambda}{n}(J_v-I_v) \right] \\
+ &= \frac{\lambda}{n}J_n \otimes (J_v-I_v) + kU_{g^{-1}h^{-1}} \otimes I_v
+\end{align*}
+so that $A_{2,g}A_{2,h} = A_{2,h}A_{2,g} = \frac{\lambda}{n}A_1 + kA_{0,g^{-1}h^{-1}}$.
+
+We have shown the following result.
+
+\begin{thm}\label{general-weighing-scheme-theorem-1}
+ If $G$ is a finite abelian group, and if there is a $\bgw(v,k,\lambda;G)$, then there is either a commutative $2n$- or $(2n+1)$-class association scheme predicated upon whether or not $v=k$.
+\end{thm}
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Character Tables}
+
+As before, we desire to give explicitly the character tables of the scheme. The difference between the schemes arising from an arbitrary BGW vs. a balanced weighing matrix, is that the number of classes is no longer fixed. Therefore, we desire to exhibit a general form for the primitive idempotents of the scheme in terms of the adjacency matrices. 
+
+To this end, let $\hat G = \{\chi_g : g \in G\}$ be the collection of irreducible characters\Fnote{irr-chars} of the group $G$, i.e. the dual group of $G$. Following \cite{ddg-schemes}, we make the following definitions for each $g \in G$: 
+\[
+ F_{0,g} = \sum_{h \in G}\chi_g(h) A_{0,h}, \qquad\text{and} \qquad F_{2,g} = \sum_{h \in G}\chi_g(h) A_{2,h}.
+\]
+Using the intersection numbers derived above, and using the generalized orthogonality relation of characters \cite[see][Theorem 2.13]{isaacs}, we have the following lemma.
+
+\begin{lem}
+ \begin{defenum}
+  \item[]
+  \item\label{character-lem-1} $F_{0,g}F_{0,h} = n\delta_{gh}F_{0,g}$,
+  \item\label{character-lem-2} $F_{0,g}F_{2,h} = F_{2,h}F_{0,g} = n\delta_{g^{-1}h}F_{2,h}$, and
+  \item\label{character-lem-3} $F_{2,g}F_{2,h} = n\lambda\delta_{gh}\delta_{g1}A_1 + nk\delta_{gh}F_{0,g^{-1}}$.
+ \end{defenum}
+\end{lem}
+
+\begin{proof}
+ We have
+ \begin{align*}
+  F_{0,g}F_{0,h} &= \sum_{\alpha,\beta} \chi_g(\alpha)\chi_h(\beta)A_{0,\alpha\beta} \\
+  &= n\sum_\gamma\left(\sum_{\alpha\beta = \gamma} \chi_g(\alpha)\chi_h(\beta)\right) A_{0,\gamma} \\
+  &= n\sum_\gamma\left(\sum_\beta\chi_g(\beta^{-1}\gamma)\chi_h(\beta)\right)A_{0,\gamma} \\
+  &= n\delta_{gh}\sum_\gamma\chi_g(\gamma)A_{0,\gamma} \\
+  &= n\delta_{gh}F_{0,g},
+ \end{align*}
+ which shows \ref{character-lem-1}. Next,
+ \begin{align*}
+  F_{0,g}F_{2,h} &= \sum_{\alpha,\beta} \chi_g(\alpha)\chi_h(\beta)A_{0,g}A_{2,h} \\
+  &= n\sum_\gamma\left(\sum_{\alpha\beta=\gamma}\chi_{g^{-1}}(\alpha)\chi_h(\beta)\right)A_{2,\gamma} \\
+  &= n\delta_{g^{-1}h}\sum_\gamma\chi_h(\gamma)A_{2,\gamma} \\
+  &= n\delta_{g^{-1}h}F_{2,h}.
+ \end{align*}
+ Since the scheme is commutative, $F_{2,h}F_{0,g} = F_{0,g}F_{2,h}$, which shows \ref{character-lem-2}. Finally, 
+ \begin{align*}
+  F_{2,g}F_{2,h} &= \sum_{\alpha,\beta} \chi_g(\alpha)\chi_h(\beta)\left(\frac{\lambda}{n}A_1 + kA_{0,\alpha^{-1}\beta^{-1}}\right) \\
+  &= n\sum_\gamma\left(\sum_{\alpha\beta=\gamma}\chi_{g^{-1}}(\alpha)\chi_{h^{-1}}(\beta)\right)\left(\frac{\lambda}{n}A_1 + kA_{0,\gamma}\right) \\
+  &= n\sum_\gamma\left(\sum_{\beta}\chi_{g^{-1}}(\beta^{-1}\gamma)\chi_{h^{-1}}(\beta)\right)\left(\frac{\lambda}{n}A_1 + kA_{0,\gamma}\right) \\
+  &= n\delta_{gh}\sum_\gamma\chi_{g^{-1}}(\gamma)\left(\frac{\lambda}{n}A_1 + kA_{0,\gamma}\right) \\
+  &= n\lambda\delta_{gh}\delta_{g1}A_1 + nk\delta_{gh}F_{0,g^{-1}},
+ \end{align*}
+ showing \ref{character-lem-3}. This completes the proof.
+\end{proof}
+
+We are now ready to give the idempotents of the scheme. There are two cases two consider, namely, whether or not $v=k$. In the latter case, we have
+\begin{align*}
+ E_0 &= \frac{1}{2nv}(F_{0,0} + F_{2,0} + A_1 + A_3), \\
+ E_1 &= \frac{1}{2nv}\left( F_{0,0} - F_{2,0} + A_1 - A_3 \right), \\
+ E_{2,1} &= \frac{1}{2nv}\left( (v-1)F_{0,0} + \sqrt{\frac{(v-1)(v-k)}{k}}F_{2,0} - A_1 - \sqrt{\frac{k(v-1)}{v-k}}A_3 \right), \\
+ E_{2,2} &= \frac{1}{2nv}\left( (v-1)F_{0,0} - \sqrt{\frac{(v-1)(v-k)}{k}}F_{2,0} - A_1 + \sqrt{\frac{k(v-1)}{v-k}}A_3 \right), \\
+ E_{3,g} &= \frac{1}{2nv}\left( vF_{0,g} + \frac{v}{\sqrt{k}}F_{2,g} \right) \text{, for $g \in G/\{1\}$, and} \\
+ E_{4,g} &= \frac{1}{2nv}\left( vF_{0,g} - \frac{v}{\sqrt{k}}F_{2,g} \right) \text{, for $g \in G/\{1\}$.}
+\end{align*}
+
+In the case that $v=k$, then $A_3=O$ and we replace $E_{2,1}$ and $E_{2,2}$ with $E_2 = E_{2,1}+E_{2,2}$. The following lemma is immediate.
+
+\begin{lem}
+ Let $\mathcal{E} = \{E_0,E_1,E_{2,1},E_{2,2},E_{3,g},E_{4,g} : g \in G/\{1\}\}$. Then:
+ \begin{defenum}
+  \item $EF=\delta_{EF}E$, for all $E,F \in \mathcal{E}$;
+  \item $I=\ssum_{E \in \mathcal{E}}E$; and
+  \item $E^* \in \mathcal{E}$, for each $E \in \mathcal{E}$.
+ \end{defenum}
+\end{lem}
+
+\begin{proof}
+ Straightforward but tedious calculation.
+\end{proof}
+
+Using these lemmata, we have the following result.
+
+\begin{thm}\label{general-weighing-scheme-theorem-2}
+ The commutative association scheme given in Theorem \ref{general-weighing-scheme-theorem-1} has the first and second character tables
+ \begin{align*}
+  P &=
+  \begin{blockarray}{cccc}
+   & A_{0,h} & A_1 & A_{2,h} \\
+   \begin{block}{c(ccc)}
+    E_0 & 1 & n(v-1) & k \\
+    E_1 & 1 & n(v-1) & -k \\
+    E_2 & -n & 0 \\
+    E_{3,g} & \chi_{g^{-1}}(h) & 0 & \sqrt{k}\chi_{g^{-1}}(h) \\
+    E_{4,g} & \chi_{g^{-1}}(h) & 0 & \chi_{g^{-1}}(h) \\
+   \end{block}
+  \end{blockarray}, \\
+  Q &= 
+  \begin{blockarray}{cccccc}
+   & E_0 & E_1 & E_2 & E_{3,g} & E_{4,g} \\
+   \begin{block}{c(ccccc)}
+    A_{0,h} & 1 & 1 & 2(v-1) & v\chi_g(h) & v\chi_g(h) \\
+    A_1 & 1 & 1 & -2 & 0 & 0 \\
+    A_{2,h} & 1 & -1 & 0 & \frac{v}{\sqrt{k}}\chi_g(h) & -\frac{v}{\sqrt{k}}\chi_g(h) \\
+   \end{block}
+  \end{blockarray}
+ \end{align*}
+ in the case that $v=k$ and
+ \begin{align*}
+  P &=
+  \begin{blockarray}{ccccc}
+   & A_{0,h} & A_1 & A_{2,h} & A_3 \\
+   \begin{block}{c(cccc)}
+    E_0 & 1 & n(v-1) & k & n(v-k) \\
+    E_1 & 1 & n(v-1) & -k & n(k-v) \\
+    E_{2,1} & 1 & -n & \sqrt{\frac{k(v-k)}{v-1}} & -n\sqrt{\frac{k(v-k)}{v-1}} \\
+    E_{2,2} & 1 & -n & -\sqrt{\frac{k(v-k)}{v-1}} & n\sqrt{\frac{k(v-k)}{v-1}} \\
+    E_{3,g} & -\chi_{g^{-1}}(h) & 0 & \sqrt{k}\chi_{g^{-1}}(h) & 0 \\
+    E_{3,g} & \chi_{g^{-1}}(h) & 0 & -\sqrt{k}\chi_{g^{-1}}(h) & 0 \\
+   \end{block}
+  \end{blockarray}, \\
+  Q &= 
+  \begin{blockarray}{ccccccc}
+   & E_0 & E_1 & E_{2,1} & E_{2,2} & E_{3,g} & E_{4,g} \\
+   \begin{block}{c(cccccc)}
+    A_{0,h} & 1 & 1 & v-1 & v-1 & v\chi_g(h) & v\chi_g(h) \\
+    A_1 & 1 & 1 & -1 & -1 & 0 & 0 \\
+    A_{2,h} & 1 & -1 & \sqrt{\frac{(v-1)(v-k)}{v-k}} & -\sqrt{\frac{(v-1)(v-k)}{v-k}} & \frac{v}{\sqrt{k}}\chi_g(h) & -\frac{v}{\sqrt{k}}\chi_g(h) \\
+    A_3 & 1 & 1 & -\sqrt{\frac{k(v-1)}{v-k}} & \sqrt{\frac{k(v-1)}{v-k}} & 0 & 0 \\
+   \end{block}
+  \end{blockarray}
+ \end{align*}
+ in the case that $v>k$.
+\end{thm}
+
+As before, the converse also holds.
+
+\begin{thm}
+ If there is a commutative scheme with the character tables given in Theorem \ref{general-weighing-scheme-theorem-2}, then there is a $\bgw(v,k,\lambda; G)$, where $G$ is an abelian group isomorphic to $\{\chi_g\}$.
+\end{thm}
+
+\begin{proof}
+ The derivation of this fact is the same mutatis mutandis as that for Theorem \ref{bw-from-scheme-theorem} and is, therefore, omitted.
+\end{proof}
+
+In light of this equivalence, we make the following final definition.
+
+\begin{defin}
+ The commutaive association schemes with character tables given in Theorem \ref{general-weighing-scheme-theorem-2} are called {\it generalized weighing schemes}\index{generalized weighing schemes}.
+\end{defin}
+
+Since the largest---indeed, the most important---families of generalized matrices are those over a group which is either cyclic or elementary abelian, it would be benificial to conclude with a brief discussion of the irreducible characters of these groups in an effort to make the preceeding results more concrete. 
+
+To this end, recall the irreducible characters of the cyclic group $C_p \simeq \{1,g,\dots,g^{p-1}\}$ of order $p$ are given by $\chi_{g^i}(g^j) = e^\frac{2\pi\sqrt{-1}ij}{p}$. This suffices for the case in which the group is cyclic.
+
+Let $p$ be a prime, and let $C_p$ be as above. If $q=p^n$, then $\text{EA}(q) \simeq \underbrace{C_p \otimes \cdots \otimes C_p}_n = \{g^{m_0} \otimes \cdots \otimes g^{m_{n-1}} : 0 \leq m_0,\dots,m_{n-1} < p\}$. By Theorem 4.21 of \cite{isaacs}, it follows that
+\begin{align*}
+ \chi_{g^{m_0} \otimes \cdots \otimes g^{m_{n-1}}}(g^{k_0} \otimes \cdots \otimes g^{k_{n-1}}) &= \prod_i \chi_{g^{m_i}}(g^{k_i}) \\
+ &= \prod_i e^\frac{2\pi\sqrt{-1}m_ik_i}{p} \\
+ &= e^{\frac{2\pi\sqrt{-1}}{p}\sum_im_ik_i}.
+\end{align*}
+
+This concludes our study of weighing matrices and related configurations.
+
+\biblio
+\end{document}

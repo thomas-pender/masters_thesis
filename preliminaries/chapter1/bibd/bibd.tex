@@ -1,0 +1,347 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Definition and Necessary Parametric Conditions}
+
+ Consider the following example \cite[see][\S 2.5]{error-correcting-codes-v1}. From a group of individuals, we must choose a number of committees, each of identical size, such that the appearances of each of the individuals among the various committees are equinumerous, as are the appearances of each of the $t$-subsets of the individuals. To be concrete, given eight individuals, can we arrange them into some number of committees of size four such that each individual is replicated the same number of times, and such that each triple of individuals is replicated precisely once.
+ 
+ This problem is solved by the following configuration where $\{a, b, c, d, e, f, g, h\}$ is our collection of individuals. The groups, or committees, are given by the following.
+ 
+ \begin{align*}
+  &\{a,b,e,f\}, & &\{c,d,g,h\}, & &\{a,c,e,g\}, & &\{b,d,f,h\}, \\
+  &\{a,d,e,h\}, & &\{b,c,f,g\}, & &\{a,b,c,d\}, & &\{e,f,g,h\}, \\
+  &\{a,b,g,h\}, & &\{c,d,e,f\}, & &\{a,c,f,h\}, & &\{b,d,e,g\}, \\
+  &\{a,d,f,g\}, & &\{b,c,e,h\}. 
+ \end{align*}
+ 
+ This configuration is an example of a so-called $t$-design. The case that $t=2$ is the case with which we will concern ourselves. In what follows, we use $\binom{X}{k}$ to denote the $k$-subsets of a set $X$.
+ 
+ \begin{defin}\label{bibd}\index{balanced incomplete block design}
+ Let $X$ be a set of order $v$, called the set of varieties; and let $\B \subset \binom{X}{k}$, called the set of blocks, have order $b$. The ordered pair $\D=(X,\B)$ is a {\it balanced incomplete block design} (henceforth BIBD) if there is a positive integer $\lambda$ such that each 2-subset of varieties appears in $\lambda$ blocks of $\B$. \\
+ \end{defin}
+ 
+ The conditions placed on a finite set and a collection of its subsets in order to form a BIBD are quite strong, and we have at once the following result.
+
+\begin{prop}\label{prop-bibd-params}
+Let $\D=(X,\B)$ be a BIBD with $|X| = v$, and $\B \subset \binom{X}{k}$ for which $|\B| = b$. Then:
+\begin{defenum}
+\item\label{replications} Every point of $X$ occurs in $r = \frac{\lambda(v-1)}{k-1}$ blocks, and 
+\item\label{blocks} there are $b = \frac{vr}{k} = \frac{\lambda v(v-1)}{k(k-1)}$ blocks in $\B$.
+\end{defenum}
+\end{prop}
+
+\begin{proof}
+  Let $x \in X$, and take $r_x = \#\{B \in \B : B \ni x\}$. We count in two ways the number of ordered pairs $(y,B)$ such that $y \in X \bb \{x\}$, $B \in \B$, and $\{x,y\} \in B$.
+  
+  To begin, there are $v-1$ ways to choose $y$ different from $x$. For each choice of $y$, there are $\lambda$ blocks $B$ which contain both $x$ and $y$. On the other hand, there are $r_x$ ways to choose $B$, and there are $k-1$ remaining points in $B$ different from $x$.
+  
+  We have just shown that $r_x(k-1) = \lambda(v-1)$. Since this argument was independent of the choice of $x$, this shows \ref{replications}.
+  
+  Recall $b = |\B|$. As above, we will employ double counting; we will count the number of ordered pairs $(x,B)$ such that $x \in X$, $B \in \B$ and $x \in B$.
+  
+  First, there are $b$ blocks, and, for each block, there are $k$ points in this block. Second, there are $v$ points, and, for each point, we have already shown that there are $r$ blocks containing this point. All this shows that $bk = vr$. Substituting \ref{replications} into this result yields the final equality in \ref{blocks}.
+\end{proof}
+
+Since these parameters are integers, we have the following immediate consequence.
+
+\begin{cor}\label{cor-bibd-params}
+ For the parameters $v$, $k$, $\lambda$ of a BIBD, it must hold that 
+ \begin{defenum}
+ \item $\lambda(v-1) \mmod{0}{(k-1)}$, and
+ \item $\lambda v(v-1) \mmod{0}{k(k-1)}$.
+ \end{defenum}
+\end{cor}
+
+If $\D=(X,\B)$ is a BIBD with the parameters shown above, then we denote this property as $\bibd(v,b,r,k,\lambda)$. As we have seen, however, the parameters $b$ and $r$ are expressible in terms of $v$, $k$, and $\lambda$; hence, we will usually shorten the denotation to $\bibd(v,k,\lambda)$ whenever no confusion will arise.  
+
+Corollary \ref{cor-bibd-params} imposes some necessary conditions on the parameters of a BIBD. Our next result, due to \cite{fisher-inequality}, is a strong necessary condition relating the number of points to the number of blocks of a BIBD, and it has far reaching consequences in the applications of designs to fields like statistics.
+
+\begin{namedthm}{Fisher's Inequality}\index{Fisher's inequality}
+ Let $\D=(X,\B)$ be a $\bibd(v,b,r,k,\lambda)$. It follows that 
+ \begin{defenum}
+  \item\label{fisher} $b \geq v$.
+ \end{defenum}
+\end{namedthm}
+
+\begin{proof}
+ We will apply the technique of variance counting\Anote{variance} as given in \cite{cameron-combinatorics}. Let $B \in \B$, and, for $i \in \{0, \dots, k\}$, let 
+ \[
+ n_i = \#\{B' \in \B : B' \neq B \text{ and } |B \cap B'| = i\}.
+ \]
+ Since there are $b-1$ blocks distinct from $B$, we have immediately that $\ssum_i n_i = b-1$. 
+ 
+ We next count pairs $(x,B')$ where $x \in X$, $B' \in \B$ with $B' \neq B$, and $x \in B' \cap B$. First, there are $k$ points $x$ in $B$, and there are $r-1$ remaining blocks $B'$ that contain $x$. Second, there are $n_i$ blocks $B'$ for which there are $x$ points in $B \cap B'$. This establishes the equality $\ssum_i in_i = k(r-1)$.
+ 
+ Counting triples $(x_1,x_2,B')$ where $x_1 \neq x_2$, $B' \neq B$, and $x_1, x_2 \in B \cap B'$, we see that there are $k$ choices for $x_1$, $k-1$ choices for $x_2$, and $\lambda-1$ blocks $B'$ different from $B$ that contain both points. Second, if $|B \cap B'| = i$, then there are $i$ choices for $x_1$, $i-1$ choices for $x_2$, and there are $n_i$ such blocks $B'$. Hence, we have $\sum_i i(i-1)n_i = k(k-1)(\lambda-1)$.
+ 
+ Using the equalities just derived, we find that $\ssum_{i=0}^k i^2n_i = k(r-1) + k(k-1)(\lambda-1)$, hence
+ \[
+ \sum_{i=0}^k (z-i)^2n_i = (b-1)z^2 - 2k(r-1)z + [k(r-1)+k(k-1)(\lambda-1)],
+ \]
+ for some variable $z$. From the left-hand side, it follows that the quadratic is positive semi-definite; so, the discriminant of the right-hand side is non-positive, that is,
+ \[
+ k^2(r-1)^2 - (b-1)k[(r-1)+(k-1)(\lambda-1)] \leq 0.
+ \]
+ Using \ref{replications} and \ref{blocks}, and multiplying by $v-1$, the above equality becomes
+ \[
+ k^2(r-1)^2(v-1) - (vr-k)(r-k)(v-1) - (vr-k)r(k-1)^2 \leq 0.
+ \]
+ This simplifies to $(k-r)r(v-k)^2 \leq 0$; and, since $r > 0$ and $(v-k)^2 > 0$, it follows that $k \leq r$. Again using \ref{blocks}, it must be that $v \leq b$, as desired.
+\end{proof}
+
+The extremal case of Fisher's inequality is naturally very interesting and important. We single this case out thus.
+
+\begin{defin}\label{square-design}\index{balanced incomplete block design!symmetric design}
+ Let $\D=(X,\B)$ be some $\bibd(v,b,r,k,\lambda)$. If $v = b$ (equiv. $k = r$), then we say that $\D$ is a {\it symmetric} balanced incomplete block design, or simply symmetric.
+\end{defin}
+
+\begin{ex}\label{fano}
+ Take $X = \{1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13\}$, and let $\B$ be the collection of blocks given by
+ \begin{align*}
+  &\{1,2,8,13\}, & &\{2,7,9,10\}, & &\{1,3,4,7\}, \\
+  &\{4,8,10,11\}, & &\{2,4,5,6\}, & &\{6,7,8,12\}, \\
+  &\{5,7,11,13\}, & &\{3,5,8,9\}, & &\{1,6,9,11\}, \\
+  &\{1,5,10,12\}, & &\{2,3,11,12\}, & &\{4,9,12,13\}, \\
+  &\{3,6,10,13\}.
+ \end{align*}
+ Then $\D=(X,\B)$ is a symmetric $\bibd(13,4,1)$; in fact, it is a projective plane of order 3 (see \S1.3).
+\end{ex}
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Related Configurations}
+
+Thus far, we have been thinking of designs strictly as subsets of some finite set. We can, however, broaden our view to include the following tool, and in so doing the theory of linear algebra can be brought to bear on the subject.
+
+\begin{defin}\label{incidence}\index{balanced incomplete block design!incidence matrix of}
+ Let $\D=(\{x_0, \dots, x_{v-1}\},\{B_0, \dots, B_{b-1}\})$ be a $\bibd(v,b,r,k,\lambda)$, and let $A$ be a $v \times b$ $(0,1)$-matrix defined by
+ \begin{defenum}
+ \item $A_{ij} = 
+ \begin{cases}
+  1 & \text{if } x_i \in B_j \text{, and} \\
+  0 & \text{if } x_i \not\in B_j.
+ \end{cases}$
+ \end{defenum}
+ We call $A$ the {\it incidence matrix} of the design.
+\end{defin}
+
+The next result is immediate. Note that we use $I_n$ and $J_n$ to denote the identity matrix and the all ones matrix, respectively, of $n$ rows and $n$ columns. Similarly, $\jj_n$ and $\zz_n$ will denote the column with $n$ ones and the column with $n$ zeros. For simplicity, the indices will at times be omitted.
+
+\begin{prop}\label{incidence prop}
+ Let $\D=(\{x_0, \dots, x_{v-1}\},\{B_0, \dots, B_{b-1}\})$ be a $\bibd(v,b,r,k,\lambda)$, and let $A$ be a $v \times b$ $(0,1)$-matrix. Then $A$ is the incidence matrix of the design if and only if the following hold.
+ \begin{defenum}
+ \item\label{inc1} $AA^t = rI_v + \lambda(J_v - I_v)$, and
+  \item\label{inc2} $\jj_v^tA = k\jj_b^t$.
+ \end{defenum}
+\end{prop}
+
+\begin{proof}
+ To show sufficiency, assume that $A$ is the incidence matrix of a $\bibd(v,b,r,k,\lambda)$ with rows indexed as $r_0, \dots, r_{v-1}$. Then $r_ir_i^t = \ssum_k A_{ik}^2 = \ssum_k A_{ik}$. Since there are $r$ blocks containing the point $x_i$, it follows that there are $r$ indices $k$ for which $A_{ik} = 1$; hence, $r_ir_i^t = r$. 
+ 
+ Similarly, for $i \neq j$, we have $r_ir_j^t = \ssum_k A_{ik}A_{jk}$. Since there are $\lambda$ blocks containing the 2-subset $\{x_i,x_j\}$, it follows that there are $\lambda$ indices $k$ such that $A_{ik} = A_{jk} = 1$. We have, then, $r_ir_j^t = \lambda$, and \ref{inc1} holds.
+ 
+ Finally, \ref{inc2} is clear since there are $k$ points in every block. Necessity follows by simply transposing the above argument.
+\end{proof}
+
+To show the utility of the incidence matrices, we will give a necessary and sufficient condition under which a design can be symmetric \cite[see][Theorem 1.14]{designs-codes-graphs-and-their-links}.
+
+\begin{prop}\label{square-properties}
+ For a $\bibd(v,b,r,k,\lambda)$ with $k < v$, the following are equivalent.
+ \begin{defenum}
+  \item\label{b=v} $b = v$;
+  \item\label{r=k} $r = k$;
+  \item\label{lambda-intersect} any two blocks intersect at $\lambda$ points; and
+  \item\label{const-intersect} any two blocks intersect at a constant number of points.
+  \end{defenum}
+\end{prop}
+
+\begin{proof}
+ That \ref{b=v} $\Leftrightarrow$ \ref{r=k} is clear. To show \ref{r=k} $\Rightarrow$ \ref{lambda-intersect}, let $A$ be the incidence matrix of the design. Then Proposition \ref{incidence prop} shows that $A^tJ = JA^t = kJ$, hence $A^t$ commutes with $rI + \lambda(J-I)$ and with $[rI + \lambda(J-I)](A^t)^{-1} = A$. Therefore, $A^tA = rI + \lambda(J-I)$, which demonstrates the implication.
+ 
+ Since \ref{lambda-intersect} $\Rightarrow$ \ref{const-intersect} is trivial, it remains to show \ref{const-intersect} $\Rightarrow$ \ref{b=v}. To do this, we will need the concept of a dual design: If $(X,\B)$ is a BIBD, then its dual is the pair $(X^t,\B^t)$ where $X^t = \B$ and $\B^t = \{\beta_x : x \in X\}$, with $\beta_x = \{B \in B : B \ni x\}$.
+ 
+ Clearly, the dual structure is again a design if and only if \ref{const-intersect} holds. An application of \ref{fisher} then yields \ref{b=v}.
+\end{proof}
+
+As balanced incomplete block designs can more generally be regarded as finite incidence structures\Anote{incidence}, there can be related a number of further such structures. For our purposes, we will be interested in the following. 
+
+\begin{defin}\label{res-der}\index{balanced incomplete block design!complement design}\index{balanced incomplete block design!residual design}\index{balanced incomplete block design!derived design}
+ Let $\D=(X,\B)$ be a BIBD, and let $B \in \B$. Then the {\it complement design} $\comp(\D)$ is the pair $(X,\binom{X}{k} \bb \B)$. If $\D$ is symmetric, we have that the {\it derived design} $\der(\D)$ is the pair $(B_0, \{B \cap B_0 : B \in \B \text{ and } B \neq B_0\})$, and the {\it residual design} $\res(\D)$ is the pair $(X \bb B_0, \{B - B_0 : B \in \B \text{ and } B \neq B_0\})$. When convenient, we will simply denote the complement, derived, and residual designs as $\comp$, $\der$, and $\res$, respectively.
+\end{defin}
+
+The next result is immediate.
+
+\begin{prop}\label{res-der-params}
+ Let $\D=(X,\B)$ be a $\bibd(v,b,r,k,\lambda)$. Then
+ \begin{defenum}
+  \item\label{comp-parameters} $\comp$ is a $\bibd(v,b,b-r,v-k,b-2r+\lambda)$.
+ \end{defenum}
+ If $\D$ is symmetric, then we further have that
+ \begin{defenum}[resume]
+  \item\label{der-parameters} $\der$ is a $\bibd(k,b-1,k-1,\lambda,\lambda-1)$, and 
+  \item\label{res-parameters} $\res$ is a $\bibd(v-k,b-1,k,k-\lambda,\lambda)$.
+ \end{defenum}
+\end{prop}
+
+\begin{proof}
+ The result is most easily seen using incidence matrices. To that effect, assume $\D$ is symmetric, let $A$ be its incidence matrix, and note that by permuting the rows and columns, we may assume (see \S1.4) that it has the form
+ \[
+ A = \begin{pmatrix}
+      \zz_{v-k} & A_1 \\
+      \jj_k & A_2
+     \end{pmatrix}.
+ \]
+ Then $A_1$ and $A_2$ are the incidence matrices of the derived and residual designs of $\D$. \ref{der-parameters} and \ref{res-parameters} now follow.
+ 
+ It remains to note that $\comp$ has the incidence matrix $J - A$ (where the design is not assumed to be symmetric here), and \ref{comp-parameters} follows.
+\end{proof}
+
+Notice that for $\res$, $r = \lambda + k$; and for $\der$, $k = \lambda + 1$. Conversely, if there is a $\bibd(v,b,r,k,\lambda)$ satisfying $r = k + \lambda$, then we say that it is {\it quasi-residual}; if instead $k = \lambda + 1$, then we say that it is {\it quasi-derived}.
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Difference Set Construction I}
+
+To present a unifying thread of the material in these preliminary chapters, we will introduce the concept of a difference set. We first look to the following example given in \cite{combinatorial-theory}.
+
+Consider the subset $D=\{\bar{1}, \bar{5}, \bar{6}, \bar{8}\}$ of $\Z/13\Z$. We examine the possible differences between distinct elements of $D$.
+ \begin{align*}
+  \bar{1} &= \bar{6}-\bar{5}, & \bar{7} &= \bar{8}-\bar{1}, \\
+  \bar{2} &= \bar{8}-\bar{6}, & \bar{8} &= \bar{1}-\bar{6}, \\
+  \bar{3} &= \bar{8}-\bar{5}, & \bar{9} &= \bar{1}-\bar{5}, \\
+  \bar{4} &= \bar{5}-\bar{1}, & \bar{10} &= \bar{5}-\bar{8}, \\
+  \bar{5} &= \bar{6}-\bar{1}, & \bar{11} &= \bar{6}-\bar{8}, \\
+  \bar{6} &= \bar{1}-\bar{8}, & \bar{12} &= \bar{5}-\bar{6}.
+ \end{align*}
+ We see that each element of $(\Z/13\Z) \bb \{\bar{0}\} = \{\bar{1}, \dots, \bar{12}\}$ appears precisely once as a difference of elements of $D$. To see the significance of such a configuration, consider now the translates $B_x = \bar{x}+D$, for $\bar{x} \in \Z/13\Z$. In ascending order,
+ \begin{align*}
+  B_0 &= \{\bar{1},\bar{5},\bar{6},\bar{8}\}, & B_7 &= \{\bar{0},\bar{2},\bar{8},\bar{12}\},\\
+  B_1 &= \{\bar{2},\bar{6},\bar{7},\bar{9}\}, & B_8 &= \{\bar{0},\bar{1},\bar{3},\bar{9}\}, \\
+  B_2 &= \{\bar{3},\bar{7},\bar{8},\bar{10}\}, & B_9 &= \{\bar{1},\bar{2},\bar{4},\bar{10}\}, \\
+  B_3 &= \{\bar{4},\bar{8},\bar{9},\bar{11}\}, & B_{10} &= \{\bar{2},\bar{3},\bar{5},\bar{11}\}, \\
+  B_4 &= \{\bar{5},\bar{9},\bar{10},\bar{12}\}, & B_{11} &= \{\bar{3},\bar{4},\bar{6},\bar{12}\}, \\
+  B_5 &= \{\bar{0},\bar{6},\bar{10},\bar{11}\}, & B_{12} &= \{\bar{0},\bar{4},\bar{5},\bar{7}\}. \\
+  B_6 &= \{\bar{1},\bar{7},\bar{11},\bar{12}\}, &
+ \end{align*}
+ Examining these translates, we see that they are distinct, each group element appears in 4 sets, and each pair of distinct points appears in 1 block; that is, we see that these blocks together with $\Z/13\Z$ form a symmetric $\bibd(13,4,1)$. 
+ 
+ This construction also shows that the maps $i \mapsto i+j$, for each $j \in \Z/13\Z$, are each an automorphism of the design; in particular, the group of automorphisms (see Definition \ref{isomorphisms}) of the design has a subgroup isomorphic to $\Z/13\Z$ which acts sharpely transitively\Anote{sharp} on the design.
+ 
+ All this motivates the following definition.
+
+\begin{defin}\label{difference-set-defin}\index{difference set}
+ Let $G$ be an additive finite abelian group of order $v$. Let $D \in \binom{G}{k}$, for $k < v$. Following \cite{design-theory-v1}, we define $\Delta(D)$ to be the multiset of differences between distinct elements of $D$. We say that $D$ is a {\it difference set} if
+ \begin{defenum}
+ \item\label{diff-set-eq} $\Delta(D)=\lambda(G\bb\{0\})$, for some $\lambda \in \N$. 
+ \end{defenum}
+ We write $D$ is a $\ds(v,k,\lambda)$ in the group $G$. The collection of all the translates $g+D$, for $g \in G$, is called the {\it development} $\dev(D)$ of $D$.\index{difference set!development of}
+\end{defin}
+
+The importance of these objects to designs is encapsulated in the following result, which we do not pause to prove \cite[see][Theorem 11.1.2]{combinatorial-theory}.
+
+\begin{thm}
+ A $k$-subset $D$ of a group $G$ is a $\ds(v,k,\lambda)$ if and only if $\dev(D)$ is a symmetric $\bibd(v,k,\lambda)$.
+\end{thm}
+
+\begin{cor}
+ A symmetric design $\D=(X,\B)$ is the development of a difference set in a group $G$ if and only if the group of automorphism of $\D$ has a sharpely transitive subgroup isomorphic to $G$.
+\end{cor}
+
+We will need the following ideas from finite geometry. Let $q$ be a prime power. If $K=\gf(q)$, then recall that the extention field $F=\gf(q^{m+1})$ can be regarded as an $(m+1)$-dimensional vector space over $K$. 
+
+The $m$-dimensional projective space P$(m,q)$\index{projective geometry} has points given by the non-trivial 1-dimensional subspaces of which there are $(q^{m+1}-1)/(q-1)$. If $x$ is a projective point, and if $V \subseteq F$ is a linear subspace, then either $x \subseteq V$ or $x \cap V = \emptyset$. If $V$ has dimension $d+1$, then the collection of all projective points $x \subseteq V$ forms a $d$-dimensional projective subspace of cardinality $(q^{d+1}-1)/(q-1)$.
+
+The projective points, lines, planes, and hyperplanes are the $0$-, $1$-, $2$-, and $(m-1)$-dimensional projective subspaces, respectively. More generally, the $d$-dimensional projective subspaces are called $d$-flats.
+
+It isn't difficult to show that any two distinct points are contained in precisely $(q^{m-1}-1)/(q-1)$ hyperplanes. Evidently, then, the points and hyperplanes of P$(m,q)$ form a square BIBD with parameters
+\begin{equation*}%\label{projective-parameters}
+\left(
+\frac{q^{m+1}-1}{q-1}, \frac{q^m-1}{q-1}, \frac{q^{m-1}-1}{q-1}
+\right).
+\end{equation*}
+
+It is well-known\Anote{projective} that the points of the space P$(m,q)$ can be represented by the cyclic coset space $G=F^*/K^*$. If $\pi: F^* \rightarrow F^*/K^*$ is the natural projection, and if $H$ is any hyperplane of P$(m,q)$, then it follows by the comments above that $\pi(H)$ is a difference set in $G$ with parameters given above. The difference sets so constructed are the so-called Singer difference sets\index{Singer difference set} \citep{singer}.
+
+If $D$ is a $\ds(v,k,\lambda)$ in a group $G$, then $D^c = G \bb D$ is clearly a $\ds(v,v-k,2-2k+\lambda)$\index{difference set!complement of}. It follows that the complement of a Singer difference set in P$(m,q)$ is a difference set with parameters
+\begin{equation*}%\label{singer}
+\left(
+\frac{q^{m+1}-1}{q-1}, q^m, q^m - q^{m-1}
+\right).
+\end{equation*}
+We will follow \cite{waterloo} in labelling this difference set D$(m,q)$. It is custumary to call such difference sets Singer difference sets as well, and we choose to follow this this pattern.
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Isomorphisms of Designs}
+
+We conclude this section by briefly discussing isomorphisms of designs. 
+
+\begin{defin}\label{isomorphisms}\index{balanced incomplete block design!isomorphisms of}\index{balanced incomplete block design!automorphism group}
+ Let $\D_1=(X_1,\B_1)$ and $\D_2=(X_2,\B_2)$ be two BIBDs with the same parameters, and let $f: X_1 \rightarrow X_2$ be some bijection. If $f(\B_1) = f(\B_2)$, then we say that $f$ is an {\it isomorphism} and that the two designs are {\it isomporhic}. For the case in which $\D_1 = \D_2$, we say that $f$ is an {\it automorphism}. The collection of all automorphisms of a design $\D$ forms a group under composition called the {\it automorphism group} of the design.
+
+In practice, one is usually concerned with the actions of isomorphisms on the incidence matrices of designs. In particular, two $\bibd(v,b,r,k,\lambda)$s with incidence matrices $A_1$ and $A_2$ are isomorphic if and only if there is a permutation matrix $P$ of order $v$ and a permutation matrix $Q$ of order $b$ such that 
+\begin{defenum}
+\item\label{binary-equiv} $PA_1Q = A_2$.\Anote{iso-bibd}
+\end{defenum}
+\end{defin}
+
+\begin{defin}\index{balanced incomplete block design!normal form}
+As nothing essential is changed under the action of an isomorphism, one can then assume that the incidence matrix of a square design has the following form
+\begin{equation}
+    \begin{pmatrix}
+     \zz_{v-k} & A_1 \\
+     \jj_k & A_2
+    \end{pmatrix}.
+\end{equation}
+We will say that such an incidence matrix is in {\it normal form}.
+\end{defin}
+
+\begin{ex}
+ The projective plane of order 3 in Example \ref{fano} has the incidence matrix
+ \begin{equation}\label{fano-incidence-matrix}
+ \arraycolsep=2.0pt\def\arraystretch{0.5}
+  \left(\begin{array}{ccccccccccccc}
+1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 \\
+1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 \\
+1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 1
+  \end{array}\right)
+ \end{equation}
+ It can be rearranged, however, so that it has the incidence matrix 
+ \begin{equation}
+ \arraycolsep=2.0pt\def\arraystretch{0.5}
+ \left(\begin{array}{ccccccccccccc}
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 1 \\
+1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 \\
+1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1
+ \end{array}\right),
+ \end{equation}
+ where the residual and derived designs are easily seen. The residual is the affine plane of order 3.
+\end{ex}
+ 
+\biblio
+\end{document}

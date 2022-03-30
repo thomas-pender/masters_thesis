@@ -1,0 +1,197 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lemmata}
+
+ In \S2.2, we introduced the linear simplex code $\simplex_{q,n}$. There it was shown that the code had constant weight $q^{n-1}$; in particular, it follows that it is equidistant with constant Hamming distance $q^{n-1}$ since the code is linear.
+ 
+ In \cite{rajkundlia}, and later reproduced in \cite{ionin-bgw-bibd} using the language of BGW matrices, generalized Hadamard matrices $\gh(q,q^{n-1})$ were used recursively in conjunction with the classical parameter $\bgw((q^n-1)/(q-1),q^{n-1},q^{n-1}-q^{n-2};\gf(q)^*)$s in order to construct certain designs. It turns out out that the $\gh(q,q^{n-1})$ used in the construction can be replaced by $\simplex_{q,n}$, and so simplify the construction.
+ 
+ In order to apply the linear code $\simplex_{q,n}$, we will require the following lemma.
+ 
+ \begin{lem}\label{oa-lem}
+  Let $\gf(q)=\{a_0=0,a_1,\dots,a_{q-1}\}$, and let $n>1$. Then there exist disjoint $(0,1)$-matrices $A_{a_1},\dots,A_{a_{q-1}}$ of dimensions $q^n \times (q^n-1)/(q-1)$ such that $\simplex_{q,n}=\ssum_{\alpha \in \gf(q)^*}\alpha A_\alpha$. If we define $A_0=J-\ssum_{\alpha \in \gf(q)^*} A_\alpha$, then the following hold.
+  \begin{defenum}
+   \item\label{simplex-lem-1} $\ssum_{\alpha \in \gf(q)}A_\alpha A_\alpha^t = \frac{q^{n-1}-1}{q-1}J + q^{n-1}I$, and
+   \item\label{simplex-lem-2} $\ssum_{\begin{smallmatrix} \alpha,\beta \in \gf(q) \\ \alpha \neq \beta \end{smallmatrix}}A_\alpha A_\beta^t = q^{n-1}(J-I)$.
+  \end{defenum}
+ \end{lem}
+ 
+ \begin{proof}
+  Labeling the rows of $\simplex_{q,n}$ by $r_0,\dots,r_{q^n-1}$, and taking $A=\simplex_{q,n}$, we then have that
+  \begin{align*}
+   (\sum_{\alpha\in\gf(q)} A_\alpha A_\alpha^t)_{ij} &= \sum_{\alpha\in\gf(q)}(A_\alpha A_\alpha^t)_{ij} \\
+   &= \sum_{\alpha\in\gf(q)} \sum_{\ell=0}^{\frac{q(q^{n-1}-1)}{q-1}}(A_\alpha)_{i\ell}(A_\alpha)_{j\ell} \\
+   &= \sum_{\alpha\in\gf(q)} \#\{\ell \in \{0,\dots,\frac{q(q^{n-1}-1)}{q-1}\} : A_{i\ell}=A_{j\ell}=\alpha\} \\
+   &= \#\{\ell \in \{0,\dots,\frac{q(q^{n-1}-1)}{q-1}\} : A_{i\ell}=A_{j\ell}\} \\
+   &= \frac{q^n-1}{q-1} - \dist(r_i,r_j),
+  \end{align*}
+  which shows \ref{simplex-lem-1}.
+  
+  Since $\ssum_{\alpha\in\gf(q)}A_\alpha=J$, it follows that $\ssum_{\alpha,\beta}A_\alpha A_\beta^t = (\ssum_\alpha A_\alpha)(\ssum_\beta A_\beta)^t = \frac{q^n-1}{q-1}J$, and \ref{simplex-lem-2} has been proven.
+ \end{proof}
+ 
+ If $W$ is a $\bgw(v,k,\lambda;C_n)$ over some cyclic group $C_n=\{1,g,\dots,g^{n-1}\}$ of order $n$, then there are $n$ disjoint $(0,1)$-matrices $W_0, \dots, W_{n-1}$ such that $W=W_0 + gW_1 + \cdots + g^{n-1}W_{n-1}$. We call $W_0$ and $W_1$ the {\it decomposition matrices}\index{decomposition matrices} of the weighing matrix. Because $W$ is a BGW matrix, we have the following lemma.
+ 
+ \begin{lem}\label{bgw-circ-lem}
+  \begin{defenum}
+   \item[]
+   \item\label{bgw-circ-lem-1} $\ssum_{i,j}g^{i-j}W_iW_j^t = \ssum_{i,j}g^{i-j}W_j^tW_i = kI + \frac{\lambda}{n}(\ssum_ig_i)(J-I)$,
+   \item\label{bgw-circ-lem-2} $\ssum_iW_iW_i^t = \ssum_iW_i^tW_i = kI +\frac{\lambda}{n}(J-I)$, and
+   \item\label{bgw-circ-lem-3} $\ssum_iW_iW_{i+j}^t = \ssum_iW_{i+j}^tW_i = \frac{\lambda}{n}(J-I)$, for $j \in \{1,\dots,n-1\}$.
+  \end{defenum}
+ \end{lem}
+
+ \begin{proof}
+  \ref{bgw-circ-lem-1} is simply a restatment of the fact that both $W$ and $W^*$ are $\bgw(v,k,\lambda;C_n)$s (see Proposition \ref{bgw-conj-trans-prop}). \ref{bgw-circ-lem-2} follows by noting that there are $k$ nonzero entries in every row of $W$, and that $1$ appears $\lambda/n$ times in the conjugate inner product between distinct rows. Similarly, \ref{bgw-circ-lem-3} follows by noting that each nonidentity element of the group appears $\lambda/n$ times in the conjugate inner product between distinct rows of $W$, and that $i \neq i+j$, for each $i$ whenever $j \not\equiv 0 \pmod{n}$.
+ \end{proof}
+
+ Now, consider the balanced $\w(19,9)$ shown to exist by computational means in \cite{bgw-19-9-4}.
+ \[
+  W_{19}=
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{ccccccccccccccccccc}
+0&0&0&0&0&0&0&0&0&0&+&+&+&+&+&+&+&+&+\\
+0&-&0&0&+&0&+&+&+&0&0&0&0&+&0&-&+&-&0\\
+0&0&-&0&+&+&0&0&+&+&0&0&0&-&+&0&0&+&-\\
+0&0&0&-&0&+&+&+&0&+&0&0&0&0&-&+&-&0&+\\
+0&+&+&0&-&0&0&+&0&+&+&-&0&0&0&0&+&0&-\\
+0&0&+&+&0&-&0&+&+&0&0&+&-&0&0&0&-&+&0\\
+0&+&0&+&0&0&-&0&+&+&-&0&+&0&0&0&0&-&+\\
+0&+&0&+&+&+&0&-&0&0&+&0&-&+&-&0&0&0&0\\
+0&+&+&0&0&+&+&0&-&0&-&+&0&0&+&-&0&0&0\\
+0&0&+&+&+&0&+&0&0&-&0&-&+&-&0&+&0&0&0\\
++&0&0&0&+&0&-&+&-&0&0&-&-&0&+&0&0&0&+\\
++&0&0&0&-&+&0&0&+&-&-&0&-&0&0&+&+&0&0\\
++&0&0&0&0&-&+&-&0&+&-&-&0&+&0&0&0&+&0\\
++&+&-&0&0&0&0&+&0&-&0&0&+&0&-&-&0&+&0\\
++&0&+&-&0&0&0&-&+&0&+&0&0&-&0&-&0&0&+\\
++&-&0&+&0&0&0&0&-&+&0&+&0&-&-&0&+&0&0\\
++&+&0&-&+&-&0&0&0&0&0&+&0&0&0&+&0&-&-\\
++&-&+&0&0&+&-&0&0&0&0&0&+&+&0&0&-&0&-\\
++&0&-&+&-&0&+&0&0&0&+&0&0&0&+&0&-&-&0\\
+  \end{array}\right).
+ \]
+ 
+ Take $R_1$ and $D$ to be the residual and derived parts, respectively, of $W_{19}$. Define the matrix $\abs{R_1}$ by $\abs{R_1}_{ij}=\abs{R_{1_{ij}}}$. Then $\abs{R_1}$ is the incidence matrix of a residual $\bibd(10,18,9,5,4)$, hence $\abs{R_2}=J-\abs{R_1}$ is a BIBD with the same parameters. Moreover, $\abs{R_2}$ is residual since $\abs{R_2}$ together with $\abs{D}$ also forms a symmetric design. We therefore seek a signing of $\abs{R_2}$ over $\{-1,1\}$. This search was conducted via Maple, and the following signing was produced.
+ \[
+  R_2=
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cccccccccccccccccc}
++&+&+&+&+&+&+&+&+&0&0&0&0&0&0&0&0&0\\
+0&-&-&0&+&0&0&0&+&-&+&+&0&+&0&0&0&+\\
+-&0&-&0&0&+&+&0&0&+&-&+&0&0&+&+&0&0\\
+-&-&0&+&0&0&0&+&0&+&+&-&+&0&0&0&+&0\\
+0&0&+&0&-&-&0&+&0&0&0&+&-&+&+&0&+&0\\
++&0&0&-&0&-&0&0&+&+&0&0&+&-&+&0&0&+\\
+0&+&0&-&-&0&+&0&0&0&+&0&+&+&-&+&0&0\\
+0&+&0&0&0&+&0&-&-&0&+&0&0&0&+&-&+&+\\
+0&0&+&+&0&0&-&0&-&0&0&+&+&0&0&+&-&+\\
++&0&0&0&+&0&-&-&0&+&0&0&0&+&0&+&+&-\\
+  \end{array}\right).
+ \]
+ Remarkably, $R_2$ together with $D$ also forms a balanced $\w(19,9)$. The matrices $R_1,R_2$, and $D$ then satisfy several properties.
+ 
+ \begin{lem}\label{base-bw-lem}
+  \begin{defenum}
+   \item[]
+   \item\label{base-bw-lem-1} $R_1R_1^t=R_2R_2^t=I$, $R_1R_2^t=R_2R_1^t$;
+   \item\label{base-bw-lem-2} $DD^t=9I-J$;
+   \item\label{base-bw-lem-3} $R_1D^t=R_2D^t=O$;
+   \item\label{base-bw-lem-4} $\abs{R_1}\abs{R_1}^t=\abs{R_2}\abs{R_2}^t=5I+4J$, $\abs{R_1}\abs{R_2}^t=\abs{R_2}\abs{R_1}^t=5(J-I)$; and
+   \item\label{base-bw-lem-5} $\abs{D}\abs{D}^t=5I+3J$, $\abs{R_1}\abs{D}^t=\abs{R_2}\abs{D^t}=4J$.
+  \end{defenum}
+ \end{lem}
+ 
+ \begin{proof}
+  Restatement of the facts that $R_1,R_2$, and $D$ form balanced $\w(19,4)$ weighing matrices.
+ \end{proof}
+ 
+ \dinkus
+ 
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Construction}
+
+Having the lemmata of the previous subsection at our disposal, we are ready to present the construction of a new family of balanced weighing matrices. We desire to apply BGWs in the construction of these matrices, so we need an admissible group of symmetries. Take $\MM=\{R_1,R_2\}$; then it isn't difficult to see that $-R_2 \mapsto -R_1 \mapsto R_2 \mapsto R_1 \mapsto -R_2$ is an admissible cyclic group of symmetries of order 4 for $\MM$---though, this will be derived explicitly below.
+
+Let $n>1$, and take $\Xi$ to be a $\bgw((9^n-1)/8,9^{n-1},9^{n-1}-9^{n-2};C_4)$. We claim that $\Xi \otimes R_1$ is the residual part of a balanced $\w([9(9^n-1)/4]+1,9^n)$. Note there are disjoint $(0,1)$-matrices $\Xi_0,\Xi_1,\Xi_2,\Xi_3$ such that $\Xi = \Xi_0 + g\Xi_1 + g^2\Xi_2 + g^3\Xi_3$ if $C_4=\{e,g,g^2,g^3\}$. Then $\Xi \otimes R_1 = \Xi_0 \otimes R_1 - \Xi_1 \otimes R_2 - \Xi_2 \otimes R_1 + \Xi_3 \otimes R_2$.
+
+Next, let $\simplex_{9,n}=\ssum_{\alpha\in\gf(9)^*}\alpha A_\alpha$, and define $A_0=J-\ssum_{\alpha\in\gf(9)^*}A_\alpha$. Finally, take $\Theta = \ssum_{\alpha\in\gf(9)} A_\alpha \otimes D$. It will be shown that $\Theta$ is the derived part of a balanced $W([9(9^n-1)/4]+1,9^n)$.
+
+We require the following lemma.
+
+\begin{lem}\label{bw-const-lem}
+ \begin{defenum}
+  \item[]
+  \item\label{bw-const-lem-1} $(\Xi \otimes R_1)(\Xi \otimes R_1)^t = 9^nI$;
+  \item\label{bw-const-lem-2} $\Theta\Theta^*=9^nI-J$;
+  \item\label{bw-const-lem-3} $(\Xi \otimes R_1)\Theta^t = \Theta(\Xi \otimes R_1)^t = O$;
+  \item\label{bw-const-lem-4} $\abs{\Xi \otimes R_1}\abs{\Xi \otimes R_1}^t = 5 \cdot 9^nI + 4 \cdot 9^n J$;
+  \item\label{bw-const-lem-5} $\abs{\Theta}\abs{\Theta}^t = 5 \cdot 9^nI + (4 \cdot 9^n-1)J$; and
+  \item\label{bw-const-lem-6} $\abs{\Xi \otimes R_1}\abs{\Theta}^t=\abs{\Theta}\abs{\Xi \otimes R_1}^t=4 \cdot 9^n J$.
+ \end{defenum}
+\end{lem}
+
+\begin{proof}
+ By Lemma \ref{bgw-circ-lem} and \ref{base-bw-lem-1},
+ \begin{small}
+ \begin{align*}
+  (\Xi \otimes R_1)(\Xi \otimes R_1) &= 9\Xi_0\Xi_0^t \otimes I - \Xi_0\Xi_1^t \otimes R_1R_2^t - 9\Xi_0\Xi_2^t \otimes I + \Xi_0\Xi_3^t \otimes R_1R_2^t \\
+  &-\Xi_1\Xi_0^t \otimes R_2R_1^t + 9\Xi_1\Xi_1^t \otimes I + \Xi_1\Xi_2^t \otimes R_2R_1^t - 9\Xi_1\Xi_3^t \otimes I \\
+  &-9\Xi_2\Xi_0^t \otimes I + \Xi_2\Xi_1^t \otimes R_1R_2^t + 9\Xi_2\Xi_2^t \otimes I - \Xi_2\Xi_3^t \otimes R_1R_2^t \\
+  &+\Xi_3\Xi_0^t \otimes R_2R_1^t - 9\Xi_3\Xi_1^t \otimes I - \Xi_3\Xi_2^t \otimes R_2R_1^t + 9\Xi_3\Xi_3^t \otimes I \\
+  &= 9\sum_i(\Xi_i\Xi_i^t - \Xi_i\Xi_{i+2}^t) \otimes I - \sum_i(\Xi_i\Xi_{i+1} - \Xi_i\Xi_{i+3}) \otimes R_1R_2^t \\
+  &= 9^nI,
+ \end{align*}
+ \end{small}
+ and \ref{bw-const-lem-1} is shown.
+ 
+ Next, by Lemma \ref{oa-lem} and \ref{base-bw-lem-2}, and upon indexing the rows of $D$ by elements of $\gf(9)$,
+ \begin{align*}
+  \Theta\Theta^t &= \sum_{\alpha,\beta \in \gf(9)} A_\alpha A_\beta^t \otimes r_\alpha r_\beta^t \\
+  &= \sum_{\alpha\in\gf(9)} A_\alpha A_\alpha^t \otimes r_\alpha r_\alpha^t + \sum_{\alpha\neq\beta} A_\alpha A_\beta^t \otimes r_\alpha r_\beta^t \\
+  &= 8\sum_{\alpha\in\gf(9)} A_\alpha A_\alpha^t - \sum_{\alpha\neq\beta} A_\alpha A_\beta^t \\
+  &= (9^{n-1}-1)J + 8 \cdot 9^{n-1}I - 9^{n-1}(J-I) \\
+  &= 9^nI - J,
+ \end{align*}
+ which shows \ref{bw-const-lem-2}.
+ 
+ By Lemma \ref{base-bw-lem-3},
+ \begin{small}
+ \begin{align*}
+  (\Xi \otimes R_1)\Theta^t &= \sum_{\alpha\in\gf(9)}(\Xi_0A_\alpha^t \otimes R_1r_\alpha^t - \Xi_1A_\alpha^t \otimes R_2r_\alpha^t - \Xi_2A_\alpha^t \otimes R_2r_\alpha^t + \Xi_3A_\alpha^t \otimes R_2r_\alpha^t) \\
+  &= O,
+ \end{align*}
+ \end{small}
+ and \ref{bw-const-lem-3} has been shown.
+ 
+ Since $\abs{\Xi \otimes R_1} = (\Xi_0 + \Xi_2) \otimes \abs{R_1} + (\Xi_1 + \Xi_3) \otimes \abs{R_2}$, \ref{bw-const-lem-4} is shown similarly to \ref{bw-const-lem-1}.
+ 
+ \ref{bw-const-lem-5} is shown just as \ref{bw-const-lem-2} after noting that $\abs{\Theta}=\ssum_{\alpha\in\gf(9)}A_\alpha \otimes \abs{r_\alpha}$.
+ 
+ Finally, \ref{bw-const-lem-6} is shown precisely as in \ref{bw-const-lem-3}.
+\end{proof}
+
+We are now ready to present the main construction.
+
+\begin{thm}
+ Given $\Xi \otimes R_1$ and $\Theta$ defined above,
+ \begin{defenum}
+  \item\label{new-balanced-bw} $
+  %\arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cc}
+   \zz & \Xi \otimes R_1 \\ \jj & \Theta
+  \end{array}\right)
+  $
+ \end{defenum}
+ is a balanced $\w([9(9^n-1)/4]+1,9^n)$.
+\end{thm}
+ 
+ \begin{proof}
+  By the lemma, $(\Xi \otimes R_1)(\Xi \otimes R_1)^t = 9^nI$, $\Theta\Theta^t = 9^nI-J$, and $(\Xi \otimes R_1)\Theta^t = O$; thus, \ref{new-balanced-bw} is a weighing matrix with the appropriate parameters. It remains to show it is balanced. But the lemma again gives $\abs{\Xi \otimes R_1}\abs{\Xi \otimes R_1}^t = 5 \cdot 9^nI + 4 \cdot 9^nJ$, $\abs{\Theta}\abs{\Theta}^t = 5 \cdot 9^nI + (4 \cdot 9^n - 1)J$, and $\abs{\Xi \otimes R_1}\Theta^t = 4 \cdot 9^nJ$. We have then shown that \ref{new-balanced-bw} is balanced, and the proof is complete.
+ \end{proof}
+
+\biblio
+\end{document}

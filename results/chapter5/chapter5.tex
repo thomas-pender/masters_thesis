@@ -1,0 +1,46 @@
+%\providecommand{\main}{../../main}
+\documentclass[../../main]{subfiles}
+
+\newendnotes{e}
+\input{ch5notes.txt}
+\setcounter{enote}{\value{dnote}}
+\newcommand{\Enote}[1]{\enote{#1}\big)}
+
+\begin{document}
+
+This chapter serves as a particular application of a more general construction to be given in the following chapter. Here a new family of balanced weighing matrices are constructed, and an equivalence to certain association schemes is developed. The work shown here is a result of \cite{new-bw}.
+
+ \section{\centering Generalized Kronecker Product}
+ 
+ In this section, we briefly review the Kronecker product and a few of its properties and applications, namely, we will see its applications to regular Hadamard matrices. Following this, we will consider a simple generalization of the Kronecker product in order to allow particular bijections to act on a matrix.
+ 
+ \dinkus
+ 
+ \subfile{./kronecker/kronecker}
+ 
+ \section{\centering A New Family of Balanced Weighing Matrices}
+ 
+ Here the generalized Kronecker product of the previous subsection will be put to use in constructing a new family of balanced weighing matrices. Additionally, the simplex codes appear again and are applied in the construction. The construction presented here is indicative of a general method to be presented in the following chapter.
+ 
+ \dinkus
+ 
+ \subfile{./bw/bw}
+ 
+ \section{\centering Weighing Matrices and Association Schemes}
+ 
+ In \cite{distance-regular-graphs} it is shown that symmetric designs are equivalent to certain 3-class association schemes. It is a natural question to ask whether or not a balanced weighing matrix could be related to this scheme, particularly an augmentation. This is the goal of this subsection.
+ 
+ \dinkus
+ 
+ \subfile{./scheme/scheme}
+ 
+ \singlespace
+ 
+ \addcontentsline{toc}{section}{Notes}
+ \section*{\centering Notes}
+ \theenotes
+ 
+ \doublespacing
+ 
+ \biblio
+\end{document}

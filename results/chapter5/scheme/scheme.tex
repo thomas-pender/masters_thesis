@@ -1,0 +1,257 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Adjacency Matrices}
+
+ Assume the existence of a balanced $\w(v,k)$, say $W = W_0 - W_1$, where $W_0$ and $W_1$ are disjoint $(0,1)$-matrices, and define the following matrices where $P=\left(\begin{smallmatrix} 0&1\\1&0 \end{smallmatrix}\right)$.
+ \begin{align*}
+  A_0 &= I_{4v}, \\
+  A_1 &= I_2 \otimes P \otimes I_v, \\
+  A_2 &= I_2 \otimes J_2 \otimes (J_v-I_v), \\
+  A_3 &= \left(\begin{array}{cc}
+          O & I_2 \otimes W_0 + P \otimes W_1 \\
+          I_2 \otimes W_0^t + P \otimes W_1^t & O
+         \end{array}\right), \\
+  A_4 &= \left(\begin{array}{cc}
+          O & I_2 \otimes W_1 + P \otimes W_0 \\
+          I_2 \otimes W_1^t + P \otimes W_0^t & O
+         \end{array}\right), \\
+  A_5 &= \left(\begin{array}{cc}
+          O & J_2 \otimes (J_v - W_0 - W_1) \\
+          J_2 \otimes (J_v - W_0^t - W_1^t) & O
+         \end{array}\right).
+ \end{align*}
+ 
+ We claim that $\{A_0, A_1,A_2,A_3,A_4,A_5\}$ form a $5$-class symmetric association scheme. Clearly, \ref{id-mat}, \ref{lin-indep}, and \ref{symmetric-scheme} are satisfied. It remains to show closure under multiplication. 
+ 
+ First, $A_1^2 = (I_2 \otimes P \otimes I_v)^2 = I_2 \otimes P^2 \otimes I_v = I = A_0$. Next, since
+ \begin{align*}
+  [J_2 \otimes (J_v-I_v)]^2 &= 2J_2 \otimes [(v-1)I_v + (v-2)(J_v-I_v)] \\
+  &= 2(v-1) J_2 \otimes I_v + 2(v-2) J_2 \otimes (J_v-I_v) \\
+  &= 2(v-1)(I_2+P) \otimes I_v + 2(v-2)J_2 \otimes (J_v-I_v), \\
+ \end{align*}
+ it follows that $A_2^2 = 2(v-1)(A_0+A_1) + 2(v-2)A_2$. By \ref{bgw-circ-lem-2} and \ref{bgw-circ-lem-3}, we find
+ \begin{small}
+ \begin{align*}
+  (I_2 \otimes W_0 + P \otimes W_1)(I_2 \otimes W_0^t + P \otimes W_1^t) &= I_2 \otimes (W_0W_0^t+W_1W_1^t) \\
+  &+ P \otimes (W_0W_1^t + W_1W_0^t) \\
+  &= I_2 \otimes [kI_v + \frac{\lambda}{2}(J_v-I_v)] + P \otimes \frac{\lambda}{2}(J_v-I_v) \\
+  &= kI_{2v} + \frac{\lambda}{2}J_2 \otimes (J_v-I_v),
+ \end{align*}
+ \end{small}
+ where $\lambda = k(k-1)/(v-1)$. Therefore, $A_3^3=A_4^2=kA_0+\frac{\lambda}{2}A_2$. Finally, 
+ \begin{small}
+ \begin{align*}
+  J_2^2 \otimes [J_v-W_0-W_1)(J_v-W_0^t-W_1^t) &= J_2^2 \otimes (J_v^2 - 2J_v(W_0+W_1)\\&\quad\quad\quad+W_0W_0^t+W_1W_1^t+W_0W_1^t+W_1W_0^t] \\
+  &= J_2 \otimes [2(v-k)I_v + 2(v-2k+\lambda)(J_v-I_v)],
+ \end{align*}
+ \end{small}
+ hence $A_5^2 = 2(v-k)(A_0+A_1) + 2(v-2k+\lambda)A_1$. We next show that $A_iA_j \in \sharps{A_0,\dots,A_5}$ whenever $i \neq j$.
+ 
+ Note $(P \otimes I_v)[J_2 \otimes (J_v-I_v)] = J_2 \otimes (J_v-I_v)$ so that $A_1A_2=A_2A_1=A_2$. Then 
+ \begin{small}
+ \begin{align*}
+  (I_2 \otimes W_0 + P \otimes W_1)(I_2 \otimes W_1^t + P \otimes W_0^t) &= I_2 \otimes (W_0W_1^t + W_1W_0^t) + P \otimes (W_0W_0^t + W_1W_1^t) \\
+  &= I_2 \otimes \frac{\lambda}{2}(J_v-I_v) + P \otimes [kI_v + \frac{\lambda}{2}(J_v-I_v)] \\
+  &= \frac{\lambda}{2}J_2 \otimes (J_v-I_v) + kP \otimes I_v
+ \end{align*}
+ \end{small}
+ so that $A_3A_4 = A_4A_3 = kA_1 + \frac{\lambda}{2}A_2$. Next, $(P \otimes I_v)(I_2 \otimes W_0 + P \otimes W_1) = I_2 \otimes W_1 + P \otimes W_0$, hence $A_1A_3=A_3A_1=A_4$; and similary, $A_1A_4=A_4A_1=A_3$. Then $(P \otimes I_v)[J_2 \otimes (J_v-W_0-W_1)] = J_2 \otimes (J_v-W_0-W_1)$ and $A_1A_5=A_5A_1=A_5$. Now,
+ \begin{small}
+ \begin{align*}
+  (I_2 \otimes W_0 + P \otimes W_1)[J_2 \otimes (J_v-W_0^t-W_1^t)] &= J_2 \otimes [(W_0+W_1)(J_v-(W_0+W_1)^t)] \\
+  &= (k-\lambda) J_2 \otimes (J_v-I_v)
+ \end{align*}
+ \end{small}
+ so that $A_3A_5 = A_5A_3 = (k-\lambda)A_2$. Similarly, $A_4A_5 = A_5A_4 = (k-\lambda)A_2$. Since
+ \begin{small}
+ \begin{align*}
+  [J_2 \otimes (J_v-I_v)](I_2 \otimes W_0 + P \otimes W_1 &= J_2 \otimes (J_v-I_v)(W_0+W_1) \\
+  &= (k-1)J_2 \otimes J_v + J_2 \otimes (J_v-W_0-W_1),
+ \end{align*}
+ \end{small}
+ it follows that $A_2A_3=A_3A_2 = (k-1)(A_3+A_4+A_5)+kA_5$. Similarly, $A_2A_4=A_4A_2 = (k-1)(A_3+A_4+A_5)+kA_5$.
+ Finally, 
+ \[
+  [J_2 \otimes (J_v-I_v)][J_2 \otimes (J_v-W_0-W_1)] = J_2 \otimes [2(v-k)J_v - 2(J_v-W_0-W_1)],
+ \]
+ and $A_2A_5 = A_5A_2 = 2(v-k)(A_3+A_4+A_5) - 2A_5$.
+ 
+ We have shown the following result.
+ 
+ \begin{thm}\label{weighing -scheme-existence}
+  If there is a balanced $\w(v,k)$, then there is a $5$-class symmetric association scheme.
+ \end{thm}
+ 
+ \dinkus
+
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Character Tables}
+
+Our work from the previous subsection shows that the third intersection matrix is given by
+\[
+ B_3 =
+ %\arraycolsep=1.25pt\def\arraystretch{0.625}
+ \arraycolsep=4.0pt\def\arraystretch{0.625}
+ \left(\begin{array}{cccccc}
+  0 & 0 & 0 & 1 & 0 & 0 \\
+  0 & 0 & 0 & 0 & 1 & 0 \\
+  0 & 0 & 0 & k-1 & k-1 & k \\
+  k & 0 & \frac{k(k-1)}{2(v-1)} & 0 & 0 & 0 \\
+  0 & k & \frac{k(k-1)}{2(v-1)} & 0 & 0 & 0 \\
+  0 & 0 & \frac{k(v-k)}{v-1} & 0 & 0 & 0
+ \end{array}\right).
+\]
+It can be shown that $B_3^t$ has the six distinct eigenvalues $\pm k, \pm\sqrt{k},$ and $\pm\sqrt{k(v-k)/(v-1)}$ with corresponding eigenvectors
+\[
+ \jj_6,
+ \arraycolsep=1.25pt\def\arraystretch{0.625}
+ \left(\begin{array}{c}
+  1 \\ 1 \\ 1 \\ -1 \\ -1 \\ -1
+ \end{array}\right),
+ \arraycolsep=1.25pt\def\arraystretch{0.625}
+ \left(\begin{array}{c}
+  1 \\ -1 \\ 0 \\ \frac{1}{\sqrt{k}} \\ -\frac{1}{\sqrt{k}} \\ 0
+ \end{array}\right),
+ \arraycolsep=1.25pt\def\arraystretch{0.625}
+ \left(\begin{array}{c}
+  1 \\ -1 \\ 0 \\ -\frac{1}{\sqrt{k}} \\ \frac{1}{\sqrt{k}} \\ 0
+ \end{array}\right),
+ \arraycolsep=1.25pt\def\arraystretch{0.625}
+ \left(\begin{array}{c}
+ 1 \\ 1 \\ \frac{-1}{v-1} \\ \frac{v-k}{\sqrt{k(v-1)(v-k)}} \\ \sqrt{\frac{v-k}{k(v-1)}} \\ \frac{-k}{\sqrt{k(v-1)(v-k)}}
+ \end{array}\right),
+ \arraycolsep=1.25pt\def\arraystretch{0.625}
+ \left(\begin{array}{c}
+ 1 \\ 1 \\ \frac{-1}{v-1} \\ \frac{k-v}{\sqrt{k(v-1)(v-k)}} \\ -\sqrt{\frac{v-k}{k(v-1)}} \\ \frac{k}{\sqrt{k(v-1)(v-k)}}
+ \end{array}\right).
+\]
+
+The valencies of the scheme are $k_0=k_1=1$, $k_2=2(v-1)$, $k_3=k_4=k$, and $k_5=2(v-k)$. Define $\Delta_k = \diag(k_0, \dots,k_5)$. Then $v_i^t=(\Delta_ku_i)^t$ are the standardized left eigenvectors of $B_3^t$. The vectors $v_i^t$ form the rows of the first character table $P$. 
+
+Next, the multiplicities of the scheme are given by $m_i = 4v/\sharps{u_i,v_i}$ and evaluate to $1,1,v,v,v-1,$ and $v-1$. Then $m_iu_i$ are the columns of the second character table $Q$.
+
+Summing up, we have the following result.
+
+\begin{thm}\label{weighing-scheme-character-tables}
+ The $5$-class symmetric association scheme of Theorem \ref{weighing -scheme-existence} has the character tables
+  \begin{align*}
+   P &=
+   \arraycolsep=1.0pt\def\arraystretch{0.75}
+   \begin{blockarray}{ccccccc}
+     & A_0 & A_1 & A_2 & A_3 & A_4 & A_5 \\
+    \begin{block}{c(cccccc)}
+     E_0 & 1 & 1 & 2(v-1) & k & k & 2(v-k) \\
+     E_1 & 1 & -1 & 0 & \sqrt{k} & -\sqrt{k} & 0 \\
+     E_2 & 1 & -1 & 0 & -\sqrt{k} & \sqrt{k} & 0 \\
+     E_3 & 1 & 1 & 2(v-1) & -k & -k & 2(k-v) \\
+     E_4 & 1 & 1 & -2 & -\sqrt{\frac{k(v-k)}{v-1}} & -\sqrt{\frac{k(v-k)}{v-1}} & 2\sqrt{\frac{k(v-k)}{v-1}} \\
+     E_5 & 1 & 1 & -2 & \sqrt{\frac{k(v-k)}{v-1}} & \sqrt{\frac{k(v-k)}{v-1}} & -2\sqrt{\frac{k(v-k)}{v-1}} \\
+    \end{block}
+   \end{blockarray}, \\
+   Q &=
+   \arraycolsep=1.0pt\def\arraystretch{0.75}
+   \begin{blockarray}{ccccccc}
+     & E_0 & E_1 & E_2 & E_3 & E_4 & E_5 \\
+    \begin{block}{c(cccccc)}
+     A_0 & 1 & v & v & 1 & v-1 & v-1 \\
+     A_1 & 1 & -v & -v & 1 & v-1 & v-1 \\
+     A_2 & 1 & 0 & 0 & 1 & -1 & -1 \\
+     A_3 & 1 & \frac{v}{\sqrt{k}} & -\frac{v}{\sqrt{k}} & -1 & -\sqrt{\frac{(v-1)(v-k)}{k}} & \sqrt{\frac{(v-1)(v-k)}{k}} \\
+     A_4 & 1 & -\frac{v}{\sqrt{k}} & \frac{v}{\sqrt{k}} & -1 & -\sqrt{\frac{(v-1)(v-k)}{k}} & \sqrt{\frac{(v-1)(v-k)}{k}} \\
+     A_5 & 1 & 0 & 0 & -1 & \sqrt{\frac{k(v-1)}{v-k}} & -\sqrt{\frac{k(v-1)}{v-k}} \\
+    \end{block}
+   \end{blockarray}.
+  \end{align*}
+\end{thm}
+
+Interestingly, the converse holds as well.
+
+\begin{thm}\label{bw-from-scheme-theorem}
+ If there is a $5$-class symmetric association scheme with the character tables given in the statement of Theorem \ref{weighing-scheme-character-tables}, then there is a balanced $\w(v,k)$.
+\end{thm}
+
+\begin{proof}
+ Let $\tilde A_0, \dots, \tilde A_5$ be the adjacency matrices of the scheme. Then $\tilde A_1 + \tilde A_2$ has eigenvalues $2v-1$ and $-1$ with multiplicities $2$ and $4v-2$, respectively. It follows (see note 21) that $\tilde A_1 + \tilde A_2 \sim I_2 \otimes A(K_{2v})$. By the eigenvalues of $\tilde A_1$, it is the adjacency matrix of $2v$ disjoint $2$-cliques, hence $\tilde A_1 \sim I_2 \otimes P \otimes I_v$ and $\tilde A_2 \sim I_2 \otimes J_2 \otimes (J_v-I_v)$.
+ 
+ It follows that
+ \[
+  A_3 =
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cccc}
+   O & O & X_1 & X_2 \\
+   O & O & X_3 & X_4 \\
+   X_1^t & X_3^t & O & O \\
+   X_2^t & X_4^t & O & O
+  \end{array}\right) \text{ and }
+  A_4 =
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cccc}
+   O & O & Y_1 & Y_2 \\
+   O & O & Y_3 & Y_4 \\
+   Y_1^t & Y_3^t & O & O \\
+   Y_2^t & Y_4^t & O & O
+  \end{array}\right).
+ \]
+ It can be shown \cite[see][Theorem 3.6.2, for example]{bannaialgebraic} that the eigenvalues of the scheme imply that $A_1A_3=A_4$ so that
+ \[
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cccc}
+   O & O & X_3 & X_4 \\
+   O & O & X_1 & X_2 \\
+   X_2^t & X_4^t & O & O \\
+   X_1^t & X_3^t & O & O
+  \end{array}\right) =
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cccc}
+   O & O & Y_1 & Y_2 \\
+   O & O & Y_3 & Y_4 \\
+   Y_1^t & Y_3^t & O & O \\
+   Y_2^t & Y_4^t & O & O
+  \end{array}\right).
+ \]
+ Therefore, there are $(0,1)$-matrices $W_0$ and $W_1$ such that
+ \[
+  A_3 = 
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cccc}
+   O & O & W_0 & W_1 \\
+   O & O & W_1 & W_0 \\
+   W_0^t & W_1^t & O & O \\
+   W_1^t & W_0^t & O & O
+  \end{array}\right) \text{ and }
+  A_4 = 
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(\begin{array}{cccc}
+   O & O & W_1 & W_0 \\
+   O & O & W_0 & W_1 \\
+   W_1^t & W_0^t & O & O \\
+   W_0^t & W_1^t & O & O
+  \end{array}\right).
+ \]
+ Appealing to the character tables again, it can be shown that
+ \begin{align*}
+  A_3^2 &= kA_0 + \frac{k(k-1)}{2(v-1)}A_2, \\
+  A_3A_4 &= A_4A_3 = kA_1 + \frac{k(k-1)}{2(v-1)}A_2 \text{, and} \\
+  A_4^2 &= kA_0 + \frac{k(k-1)}{2(v-1)}A_2.
+ \end{align*}
+ Therefore, $(A_3-A_4)^2 = 2k(A_0-A_1)$ and $(A_3+A_4)^2 = 2k(A_0+A_1) + \frac{2k(k-1)}{v-1}A_2$, from which it follows that
+ \begin{align*}
+  (W_0-W_1)(W_0-W_1)^t &= kI \text{, and} \\
+  (W_0+W_1)(W_0+W_1)^t &= kI + \lambda(J-I),
+ \end{align*}
+ where $\lambda = k(k-1)/(v-1)$. 
+ 
+ We then have that $W_0-W_1$ is the required matrix.
+\end{proof}
+
+In light of the equivalence, we make the following definition.
+
+\begin{defin}\index{weighing schemes}
+ A symmetric $5$-class association scheme is a {\it weighing scheme} if it has the character tables given in Theorem \ref{weighing-scheme-character-tables}.
+\end{defin}
+ 
+\biblio
+\end{document}
