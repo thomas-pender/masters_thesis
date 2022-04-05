@@ -177,7 +177,7 @@
 \reversemarginpar
 \end{comment}
 
-% document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+% document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \pagestyle{plain}
@@ -207,11 +207,11 @@
 %\newpage
 %\blankpage
 
-\cleartooddpage
-\addcontentsline{toc}{chapter}{Preface}
-\begin{center}\section*{\textsc{Preface}}\end{center}
-%\subfile{./prefatory/preface/preface} % preface page
-\clearpage
+% \cleartooddpage
+% \addcontentsline{toc}{chapter}{Preface}
+% \begin{center}\section*{\textsc{Preface}}\end{center}
+% %\subfile{./prefatory/preface/preface} % preface page
+% \clearpage
 %\newpage
 %\blankpage
 
@@ -247,53 +247,66 @@
 \renewcommand{\headrulewidth}{0pt}
 
 \cleartooddpage
-\addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
-\part{Preliminaries}
-\addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
-
-\cleartooddpage
-\fancyhead[C]{\thechapter.\hspace{0.5em}A Study of Incidence}
+\fancyhead[C]{\thechapter.\hspace{0.5em}Introduction}
 \fancyfoot[C]{\thepage}
-%\fancyhead[RO,LE]{\thepage}
-%\fancyhead[LO,RE]{\chaptername\hspace{0.5em}\thechapter.\hspace{0.5em}A Study of Incidence}
+% \fancyhead[RO,LE]{\thepage}
+% \fancyhead[LO,RE]{\chaptername\hspace{0.5em}\thechapter.\hspace{0.5em}A Study of Incidence}
 \addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
-\chapter{A Study of Incidence: Block designs, error-correcting codes}
+\chapter{Introduction}
 \addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
-\subfile{./preliminaries/chapter1/chapter1} % BIBDs, error-correcting codes
+\subfile{./preliminaries/introduction/introduction} % introductory material 
 \clearpage
 
 \fancyhf{}
 
-\cleartooddpage
-\fancyhead[C]{\thechapter.\hspace{0.5em}Weighing Matrices and Their Generalizations}
-\fancyfoot[C]{\thepage}
-%\fancyhead[RO,LE]{\thepage}
-%\fancyhead[LO,RE]{\chaptername\hspace{0.5em}\thechapter.\hspace{0.5em}Weighing Matrices}
-\addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
-\chapter{Weighing Matrices and Their Generalizations}
-\addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
-\subfile{./preliminaries/chapter2/chapter2}
-\clearpage
+% \cleartooddpage
+% \addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
+% \part{Preliminaries}
+% \addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
 
-\fancyhf{}
+% \cleartooddpage
+% \fancyhead[C]{\thechapter.\hspace{0.5em}A Study of Incidence}
+% \fancyfoot[C]{\thepage}
+% %\fancyhead[RO,LE]{\thepage}
+% %\fancyhead[LO,RE]{\chaptername\hspace{0.5em}\thechapter.\hspace{0.5em}A Study of Incidence}
+% \addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
+% \chapter{A Study of Incidence: Block designs, error-correcting codes}
+% \addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
+% \subfile{./preliminaries/chapter1/chapter1} % BIBDs, error-correcting codes
+% \clearpage
 
-\cleartooddpage
-\fancyhead[C]{\thechapter.\hspace{0.5em}Association Schemes}
-\fancyfoot[C]{\thepage}
-%\fancyhead[RO,LE]{\thepage}
-%\fancyhead[LO,RE]{\chaptername\hspace{0.5em}\thechapter.\hspace{0.5em}Association Schemes}
-\addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
-\chapter{Association Schemes}
-\addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
-\subfile{./preliminaries/chapter3/chapter3} % necessary remarks on association schemes
-\clearpage
+% \fancyhf{}
 
-\fancyhf{}
+% \cleartooddpage
+% \fancyhead[C]{\thechapter.\hspace{0.5em}Weighing Matrices and Their Generalizations}
+% \fancyfoot[C]{\thepage}
+% %\fancyhead[RO,LE]{\thepage}
+% %\fancyhead[LO,RE]{\chaptername\hspace{0.5em}\thechapter.\hspace{0.5em}Weighing Matrices}
+% \addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
+% \chapter{Weighing Matrices and Their Generalizations}
+% \addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
+% \subfile{./preliminaries/chapter2/chapter2}
+% \clearpage
 
-\cleartooddpage
-\addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
-\part{Results}
-\addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
+% \fancyhf{}
+
+% \cleartooddpage
+% \fancyhead[C]{\thechapter.\hspace{0.5em}Association Schemes}
+% \fancyfoot[C]{\thepage}
+% %\fancyhead[RO,LE]{\thepage}
+% %\fancyhead[LO,RE]{\chaptername\hspace{0.5em}\thechapter.\hspace{0.5em}Association Schemes}
+% \addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
+% \chapter{Association Schemes}
+% \addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
+% \subfile{./preliminaries/chapter3/chapter3} % necessary remarks on association schemes
+% \clearpage
+
+% \fancyhf{}
+
+% \cleartooddpage
+% \addtocontents{toc}{\let\protect\contentsline\protect\nopagecontentsline}
+% \part{Results}
+% \addtocontents{toc}{\let\protect\contentsline\protect\oldcontentsline}
 
 \cleartooddpage
 \fancyhead[C]{\thechapter.\hspace{0.5em}Balancedly Splittable Orthogonal Designs}

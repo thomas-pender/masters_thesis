@@ -131,7 +131,7 @@ We can now present the first construction of the novel balancedly splittable ODs
 \end{cor}
 
 \begin{proof}
- By Propositions \ref{gc proposition} and \ref{gbrd epimorphism}, there is a skew-symmetric $\w(q+1,q)$. Apply the theorem to this matrix.
+  It is well known \cite[see][]{combinatorics-of-symmetric-designs} that there is a skew-symmetric $\w(q+1,q)$. Apply the theorem to this matrix.
 \end{proof}
 
 \begin{cor}
@@ -139,7 +139,7 @@ We can now present the first construction of the novel balancedly splittable ODs
 \end{cor}
 
 \begin{ex}
- Using the skew-symmetric Paley weighing matrix\Dnote{paley-note} $W(4,3)$ given by
+ Using the skew-symmetric Paley weighing matrix \Dnote{paley-note} $W(4,3)$ given by
  \begin{defenum}
   \item $
   \arraycolsep=1.25pt\def\arraystretch{0.625}
@@ -175,7 +175,9 @@ b & \bar a & \bar b & \bar b & a & b & b & \bar a & \bar b & b & b & b \\
  where the unfaithful split is shown in bold.
 \end{ex}
 
-Our first construction yields real ODs and is applicable in the case that we have a prime power $q \equiv -1 \pmod{4}$. Of course, since $(q-1)/2$ is odd, we can apply the results of $\S4$ to construct a weighing matrix that is skew-symmetric, a property essential to the construction. If $q \equiv 1 \pmod{4}$, then $(q-1)/2$ is even and the ensuing weighing matrix is symmetric. In this event, we need to appeal to complex ODs in order apply the construction.
+Our first construction yields real ODs and is applicable in the case that we
+have a prime power $q \equiv -1 \pmod{4}$. Of course, since $(q-1)/2$ is odd, it
+is known \cite[see][]{combinatorics-of-symmetric-designs} that there is a weighing matrix that is skew-symmetric, a property essential to the construction. If $q \equiv 1 \pmod{4}$, then $(q-1)/2$ is even and the ensuing weighing matrix is symmetric. In this event, we need to appeal to complex ODs in order apply the construction.
 
 To apply the complex units, we make the following recursive definitions where $W=\left(\begin{smallmatrix} 0 & \jj^t \\ \jj & Q \end{smallmatrix}\right)$ is a $\w(q+1,q)$ with $Q^t=Q$.
 \begin{align*}
@@ -280,7 +282,14 @@ ib&i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&ib&a&i\bar b&ib&ib&i\bar b&\bar a&i\b
 
 Here we will introduce a most useful construction of orthogonal designs admitting a faithful split. We will see later how we can use these constructed matrices in constructing other objects.
 
-To begin, we assume the existence of a full $\od(n; s_1, \dots, s_u)$, say $X$, and label the rows of $X$ as $x_0, \dots, x_{n-1}$. Further, assume that the coefficients of the indeterminants of the first row and column are $+1$. We need to extend the idea of an auxiliary matrix given in Example \ref{bal-had-ex2}. To do this, we will follow \cite{unbiased-od} in defining the auxiliary matrix of an OD thus: Let $H$ be the Hadamard matrix obtained by setting each indeterminant of $X$ to $+1$, and label the rows of $H$ as $h_0, \dots, h_{n-1}$. Then the auxiliary matrices\Dnote{aux-note}\index{auxiliary matrices} of $X$ are given by $c_i=h_i^tx_i$. We have the following result.
+To begin, we assume the existence of a full $\od(n; s_1, \dots, s_u)$, say $X$,
+and label the rows of $X$ as $x_0, \dots, x_{n-1}$. Further, assume that the
+coefficients of the indeterminants of the first row and column are $+1$. We need
+to extend the idea of an auxiliary matrix given in Example \ref{bal-had-ex2}. To
+do this, we will follow \cite{unbiased-od} in defining the auxiliary matrix of
+an OD thus: Let $H$ be the Hadamard matrix obtained by setting each
+indeterminant of $X$ to $+1$, and label the rows of $H$ as $h_0, \dots,
+h_{n-1}$. Then the auxiliary matrices \Dnote{aux-note}\index{auxiliary matrices} of $X$ are given by $c_i=h_i^tx_i$. We have the following result.
 
 \begin{lem}
 Let $c_i=h_i^tx_i$, for $i \in \{0, \dots, n-1\}$, be the auxiliary matrices of an $\od(n; s_1, \dots, s_u)$ $X$ where $XX^t=\sigma I$. Then:
@@ -290,7 +299,7 @@ Let $c_i=h_i^tx_i$, for $i \in \{0, \dots, n-1\}$, be the auxiliary matrices of 
  \end{defenum}
 \end{lem}
  
- We need the simple fact that if $(a,b)$ denotes the concatination of sequences $a$ and $b$, then $(a,b)$ and $(a,-b)$ is a Golay pair (see \S5). Continuing to let $c_0, \dots, c_{n-1}$ be the auxiliary matrices of the $\od(n; s_1, \dots, s_u)$ $X$, then $a=(c_0,c_1, \dots, c_{n-1},c_{n-1},\dots,c_1)$ and $b=(c_0,c_1, \dots, c_{n-1},-c_{n-1},\dots,-c_1)$ form a complementary pair. Let $A$ and $B$ be the block-circulant matrices with first rows $a$ and $b$, respectively. 
+ We need the simple fact that if $(a,b)$ denotes the concatination of sequences $a$ and $b$, then $(a,b)$ and $(a,-b)$ is a Golay pair (see \S3). Continuing to let $c_0, \dots, c_{n-1}$ be the auxiliary matrices of the $\od(n; s_1, \dots, s_u)$ $X$, then $a=(c_0,c_1, \dots, c_{n-1},c_{n-1},\dots,c_1)$ and $b=(c_0,c_1, \dots, c_{n-1},-c_{n-1},\dots,-c_1)$ form a complementary pair. Let $A$ and $B$ be the block-circulant matrices with first rows $a$ and $b$, respectively. 
  
  Now, take $\tilde X = \left(\begin{smallmatrix} +&+\\+&- \end{smallmatrix}\right) \otimes X$ and $\tilde H = \left(\begin{smallmatrix} +&+\\+&- \end{smallmatrix}\right) \otimes H$, and label the block rows $\tilde x_0, \dots, \tilde x_{2n-1}$ and $\tilde h_0, \dots, \tilde h_{2n-1}$. Define $G=\tilde h_0^t \tilde x_0$, and define the block matrices $E^t=(\begin{smallmatrix} E_1^t & \dots & E_{2n-1}^t \end{smallmatrix})^t$ and $F=(\begin{smallmatrix} F_1 & \dots & F_{2n-1} \end{smallmatrix})$ by $E_i=h_0^t\tilde x_i$ and $F_i=\tilde h_i^t x_0$.
  
@@ -312,7 +321,7 @@ Let $c_i=h_i^tx_i$, for $i \in \{0, \dots, n-1\}$, be the auxiliary matrices of 
   
   Next, $E_iE_j^t = (h_0^t \tilde x_i)(h_0^t \tilde x_j)^t = h_0^t(\tilde x_i \tilde x_j^t)h_0 = \delta_{ij}2\sigma J_n$. It follows that $EE^t=(E_iE_j^t)=(\delta_{ij}2\sigma J_n) = 2\sigma(I_{2n-1} \otimes J_n)$.
   
-  We need to examine the product $AB^t$ and in order to do that, we need to examine the cross-product correlations (see \S5). To begin, the product between the first block row and column of $A$ and $B^t$ is given by $c_0c_0^t + \ssum_{i=1}^{n-1}c_ic_i^t - \ssum_{i=1}^{n-1}c_ic_i^t = \sigma J_n$. Next, let $a$ and $b$ be two sequences of length $2n-1$ defined by 
+  We need to examine the product $AB^t$ and in order to do that, we need to examine the cross-product correlations (see \S3). To begin, the product between the first block row and column of $A$ and $B^t$ is given by $c_0c_0^t + \ssum_{i=1}^{n-1}c_ic_i^t - \ssum_{i=1}^{n-1}c_ic_i^t = \sigma J_n$. Next, let $a$ and $b$ be two sequences of length $2n-1$ defined by 
   \begin{align*}
   a_i&=\begin{cases}
         c_i & \text{if $0 \leq i < n$, and} \\

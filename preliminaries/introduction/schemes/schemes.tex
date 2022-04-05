@@ -1,0 +1,91 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Defintion}
+
+ We begin with the following definition.
+ 
+ \begin{defin}\label{ass-scheme-def}\index{association scheme}
+  Let $X$ be a finite set of $v$ elements, and let $\RR=\{R_0, \dots, R_d\}$ be a collection of relations on $X$. We say that the ordered pair $\X=(X,\RR)$ is an {\it association scheme} with {\it $d$ classes} whenever the following are satisfied.
+  \begin{defenum}
+   \item $R_0=\{(x,x) : x \in X\}$;
+   \item $R_i \cap R_j = \emptyset$ and $X \times X$ is the disjoint union of $R_0, \dots, R_d$;
+   \item $R_i^t=R_{i'}$ for some $i' \in \{0, \dots, d\}$, where $R_i^t=\{(x,y) : (y,x) \in R_i\}$; and
+   \item Given $(x,y) \in R_k$, the number of $z \in X$ such that $(x,z) \in R_i$ and $(z,y) \in R_j$ is a constant $p_{ij}^k$. We call the $p_{ij}^k$, the {\it intersection numbers}\index{intersection numbers} of the scheme.
+  \end{defenum}
+  The scheme $\X$ is {\it commutative} if
+  \begin{defenum}[resume]
+   \item $p_{ij}^k=p_{ji}^k$, for all $i,j,k \in \{0, \dots, d\}$.
+  \end{defenum}
+  The scheme is {\it symmetric} if
+  \begin{defenum}[resume]
+   \item $i=i'$, for every $i \in \{0, \dots, d\}$.
+  \end{defenum}
+  We denote $p_{ii}^0$ as $k_i$, the {\it valency} of the relation $R_i$.
+ \end{defin}
+ 
+ Unless otherwise stated, we will assume that the association schemes we are working with are commutative. 
+ 
+ \dinkus
+
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Adjacency Algebras} 
+
+ The importance of association schemes resides in the following equivalent definition.
+ 
+ \begin{defin}
+  Let $\X=(X,\RR)$ be a $d$-class assocation scheme. For $i \in \{0, \dots, d\}$, define the $v \times v$ $(0,1)$-matrix $A_i$ with rows and columns indexed by elements of $X$ by $(A_i)_{xy} = 1$ if and only if $(x,y) \in R_i$. We call $A_i$ the {\it adjacency matrix} of the relation $R_i$. Then Definition \ref{ass-scheme-def} is equivalent to the following.
+  \begin{defenum}
+   \item\label{id-mat} $A_0=I$;
+   \item\label{lin-indep} $A_0 + \cdots + A_d=J$;
+   \item\label{trans-closed} $A_i^t=A_{i'}$ for some $i' \in \{0, \dots, d\}$; and
+   \item\label{mult-closed} $A_iA_j=\sum_k p_{ij}^kA_k$, for every $i,j \in \{0, \dots d\}$.
+  \end{defenum}
+  If $\X$ is commutative, then
+  \begin{defenum}[resume]
+   \item\label{commutative-scheme} $A_iA_j=A_jA_i$, for each $i,j \in \{0, \dots, d\}$.
+  \end{defenum}
+  If $\X$ is symmetric, then
+  \begin{defenum}[resume]
+   \item\label{symmetric-scheme} $A_i^t=A_i$, for every $i \in \{0, \dots, d\}$.
+  \end{defenum}
+  By \ref{lin-indep}, the adjacency matrices of the scheme are $\C$-linearly independent and generate a subspace $\U$ of $\mat_v(\C)$ of dimension $d+1$. By \ref{mult-closed}, $\U$ is closed under standard matrix multiplication. We call $\U$ the {\it adjacency algebra}\index{adjacency algebra} of the association scheme $\X$.
+  
+  We further have that $A_i \circ A_j = \delta_{ij}A_i$. Therefore, $A_0, \dots,
+  A_d$ also generate a comutative algebra $\hat \U$ with Schur multiplication
+  for which they are primitive idempotents \Anote{dual-scheme}. We therefore also call the adjacency matrices the {\it Schur idempotents}\index{Schur idempotents} of the scheme.
+ \end{defin}
+ 
+ Assume an ordering of $X=\{x_0, \dots, x_{v-1}\}$, and take $e_{x_i}$ to be the standard vector with $i$-th position equal to 1 and 0 elsewhere. Take $V$ to be the Hermitian space with the standard orthonormal basis $\{e_x : x \in X\}$. 
+ 
+ Since we are assuming commutativity, the adjacency matrices $A_0, \dots, A_d$ are pairwise commuting, normal matrices. So, they share an eigenbasis, and by the Spectral Theorem for normal matrices, $V= \bigoplus_{i=1}^r V_i$, where the $V_i$ are maximal common eigenspaces. 
+ 
+ Since $J=\sum_i A_i$, we find the eigenspace corresponding to the eigenvalue $v$ is spanned by $\jj_v$, i.e. it is 1-dimensional and hence maximal. It follows that this space is equal to $V_i$ for some $i$. We can assume, then, that $i=0$.
+ 
+ If we take $E_i$ to be the orthogonal projection $V \rightarrow V_i$ with respect to the basis $\{e_x : x \in X\}$, then we can assume that $E_0=\abs{X}^{-1}J$, and we have $E_0 + \cdots + E_d = I$. Moreover, there is a unitary matrix $\Lambda$ such that $\Lambda^* E_i \Lambda = \diag(0,\dots,0,\underbrace{1,\dots,1}_{m_i},0,\dots,0)$, where we have used $m_i$ to denote $\ddim(V_i)$. The numbers $m_i$, for $i \in \{0, \dots, d\}$, are called the {\it multiplicities}\index{multiplicities} of the scheme.
+ 
+ It can be shown \cite[see][Theorem 3.1]{bannaialgebraic} that the projection matrices $E_0, \dots, E_d$ are primitive idempotents of $\U$ and form a dual basis of $\U$. It follows that there are constants $P_{ij}$ and $Q_{ij}$, for $i,j \in \{0, \dots, d\}$, called the {\it eigenvalues}\index{eigenvalues of a scheme} and {\it dual-eigenvalues}\index{dual-eigenvalues of a scheme} of the scheme, such that $A_j=\sum_i P_{ij}E_i$ and $E_j=\abs{X}^{-1}\sum_i Q_{ij}A_i$. Using these constants, we form the matrices $P$ and $Q$ with $(i,j)$-th entry given by $P_{ij}$ and $Q_{ij}$, respectively, and we call these matrices the {\it first} and {\it second character tables}\index{character tables} of the scheme. By what has been said, we have at once that $PQ=QP=vI$.
+ 
+ \dinkus
+
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+  \subsection{Intersection Matrices}
+ 
+ If we regard left multiplication of $\U$ as linear transformations of $\U$ and express them in terms of the basis $\{A_0, \dots, A_d\}$, then we have an algebra homomorphism $\U \rightarrow \mat_v(\C)$ called the {\it left regular representation of $\U$} with respect to $\{A_0, \dots, A_d\}$. 
+ 
+ For $i \in \{0, \dots, d\}$, define the matrix $B_i$ by $(B_i)_{jk}=p_{ij}^k$, called the {\it $i$-th intersection matrix}\index{intersection matrix}. It then follows by \ref{mult-closed} that the image of $A_i$ under the above homomorphism is $B_i^t$, whence $A_i \leftrightarrow B_i^t$ is an isomorphism. Since, however, we are assuming that our schemes are commutative, transposition is an isomorphism; thus, $A_i \leftrightarrow B_i$ is an isomorphism. If we denote $\BB=\sharps{B_0, \dots, B_d}$, then we have shown $\U\simeq\BB$.
+ 
+ That the intersection matrices and the isomorphism given above are important for us is shown in the next result. First, however, we say that a vector is in {\it standard form}\index{standard form} if the first entry is 1.
+ 
+ \begin{thm}\label{intersect-thm}
+ Let $\X=(X,\RR)$ be a commutative association scheme with $d$ classes. Let $v_i=(P_{i0},\dots,P_{id})$ and $u_i=(\bar{P_{i0}}/k_0, \dots, \bar{P_{id}}/k_d)$ be the row vectors obtained by standardizing the first row and column of $P$ and $Q$, respectively. Then $u_i$ is the unique standardized common left eigenvector $u$ of the matrices $B_j$ such that $uB_j=P_{ij}u$. Similarly, $v_i^t$ is the common right eigenvector $v^t$ of the matrices $B_j$ such that $B_jv^t=P_{ij}v^t$.
+ \end{thm}
+
+ As stated in \cite{bannaialgebraic}, by virture of this result, one can conceivably derive the character tables $P$ and $Q$ from the intersection matrices. In particular, if the algebra $\BB$ is generated by a single $B_j$, we can use the single matrix $B_j$ to calculate the character tables. Following Lemma 2.2.1 of \cite{distance-regular-graphs}, the authors go on to point out that if some $B_j$ has $d+1$ distinct eigenvalues, then we can similarly use this intersection matrix. Of course, if $\BB$ is cyclic, then this property is satisfied by the generator matrix.
+
+\biblio
+\end{document}

@@ -8,7 +8,10 @@
 Symmetric designs are characterized by the fact that the blocks of the design intersect in a constant number of points. The ``next best'' designs are those which have two cardinalities for the intersections between distinct blocks.
 
 \begin{defin}
- A balanced incomplete block design is {\it quasi-symmetric} if there exist two cardinalities that exist for the intersections between pairs of distinct blocks. The cardinalities of the intersections are called the {\it intersection numbers} of the design.\Dnote{quasi-symmetric}
+ A balanced incomplete block design is {\it quasi-symmetric} if there exist two
+ cardinalities that exist for the intersections between pairs of distinct
+ blocks. The cardinalities of the intersections are called the {\it intersection
+   numbers} of the design \Dnote{quasi-symmetric}.
 \end{defin}
 
 These beautiful objects are studied extensively in \cite{quasi-symmetric-shrikhande}. \cite{combinatorics-of-symmetric-designs} also contains a study of these objects, especially as it pertains to SRGs and association schemes. 
@@ -31,7 +34,7 @@ These beautiful objects are studied extensively in \cite{quasi-symmetric-shrikha
  with block intersection numbers 0 and 2.
 \end{ex}
 
-Using the balancedly splittable Hadamard matrices constructed in Theorem \ref{stable-od-thm}, we can constuct quasi-symmetric BIBDs. For the proposition, we assume the notations of $\S8.3$.
+Using the balancedly splittable Hadamard matrices constructed in Theorem \ref{stable-od-thm}, we can constuct quasi-symmetric BIBDs. For the proposition, we assume the notations of $\S5.3$.
 
 \begin{prop}
  If there is a Hadamard matrix of order $n$, there is a quasi-symmetric $\bibd(2n^2-n,4n^2-1,2n^2-n-1,n^2-n,n^2-n-1)$ with intersection numbers $(n^2-n)/2$ and $(n^2-2n)/2$.
@@ -42,7 +45,7 @@ Using the balancedly splittable Hadamard matrices constructed in Theorem \ref{st
  
  Since $H$ is assumed to be normalized, each row of $H$ and $\left(\begin{smallmatrix}+&+\\+&-\end{smallmatrix}\right) \otimes H$, other than the first, of course, contain $n/2$ and $n^2/2$ $-1$s, respectively. By construction, then, the first row of $F$ consists of all ones, while the remaining rows have $n^2-n$ $+1$s; thus, the same rows of $-F$ have $n^2-n$ $-1$s. Similarly, $A$ and $B$ have $n(2n-2)/2 = n^2-n$ $-1$s in each row. It also follows that there must be $2n^2-2n+n-1=2n^2-n-1$ $-1$s in each column of $X$.
  
- Finally, the index of the design follows by considering the Menon design\Dnote{menon-design} induced by the regular Hadamard matrix of the construction.
+ Finally, the index of the design follows by considering the Menon design \Dnote{menon-design} induced by the regular Hadamard matrix of the construction.
  
  It remains to consider the block intersection numbers of the design. Consider the first row of $X$ along with any other two distinct rows. Without loss of generality, we can assume the following situation.
  \[
@@ -96,12 +99,12 @@ The quasi-symmetric designs of the previous result are not new, however. They re
 
 In our earliest collegiate education, we learn that given some linear space, the ``nice'' bases are those which are orthonormal. As \cite{undergrad-frames} points out, however, the property of orthonormality can be too restrictive in many applications. For instance, if a signal is interferred with in transmission, then the lost information cannot be recovered. 
 
-By contrast, a frame is an overdetermined\Dnote{frame-redundance} spanning set of vectors. In this way, calculations and applications involving these objects can at times be simplified and data loss deterred. Frames have theoretical applications as well, as shown in the seminal paper of \cite{paley-wiener} using different language, however.
+By contrast, a frame is an overdetermined \Dnote{frame-redundance} spanning set of vectors. In this way, calculations and applications involving these objects can at times be simplified and data loss deterred. Frames have theoretical applications as well, as shown in the seminal paper of \cite{paley-wiener} using different language, however.
 
 We will not have the opportunity to explore the theory of frames in any depth; rather, we direct the reader to the standard references of \cite{intro-to-frame-theory}, \cite{waldron-tight-frames}, and \cite{young-nonharmonic-frames}.
 
 \begin{defin}\index{frame}\index{frame!bounds of}\index{tight frame}\index{Parseval frame}
- Let $H$ be a Hilbert space\Dnote{hilbert-space} with inner product $\sharps{\cdot,\cdot}$, and let $\{f_i\} \subset H$. Then $\{f_i\}$ is a {\it frame} if there exists two constants $A$ and $B$ such that
+ Let $H$ be a Hilbert space \Dnote{hilbert-space} with inner product $\sharps{\cdot,\cdot}$, and let $\{f_i\} \subset H$. Then $\{f_i\}$ is a {\it frame} if there exists two constants $A$ and $B$ such that
  \begin{defenum}
   \item $A\Vert f \Vert^2 \leq \ssum_i \abs{\sharps{f,f_i}}^2 \leq B\Vert f \Vert^2$, for all $f \in H$.
  \end{defenum}
@@ -136,7 +139,8 @@ The following is then a restatement of the definitions.
  \end{defenum}
 \end{prop}
 
-In what follows, we will take $\HH = \{a_1 + a_ii + a_jj + a_kk : a_1,a_i,a_j,a_k \in \R\}$, i.e. the $\R$-algebra of quaternions\Dnote{frames-of-quaternions}, and we will consider frames over $\HH^k$. Furthermore, for $q=z+wj$ where $z,w \in \C$, we define $\co(q)=z$ and $\coo(q)=w^*$. Finally, define $[\cdot]_\C : \HH^d \rightarrow \C^{2d}$ by $[q]_\C = \left(\begin{smallmatrix} \co(q) \\ \coo(q) \end{smallmatrix}\right) = \left(\begin{smallmatrix} z \\ w^* \end{smallmatrix}\right)$.
+In what follows, we will take $\HH = \{a_1 + a_ii + a_jj + a_kk :
+a_1,a_i,a_j,a_k \in \R\}$, i.e. the $\R$-algebra of quaternions \Dnote{frames-of-quaternions}, and we will consider frames over $\HH^k$. Furthermore, for $q=z+wj$ where $z,w \in \C$, we define $\co(q)=z$ and $\coo(q)=w^*$. Finally, define $[\cdot]_\C : \HH^d \rightarrow \C^{2d}$ by $[q]_\C = \left(\begin{smallmatrix} \co(q) \\ \coo(q) \end{smallmatrix}\right) = \left(\begin{smallmatrix} z \\ w^* \end{smallmatrix}\right)$.
 
 The following is Theorem 3.2 of \cite{waldron-quaternions}.
 
@@ -244,7 +248,12 @@ Let $A$ and $B$ be two orthonormal bases of the Hilbert space $\C^k$. The bases 
 
 The reader will recognize unbiased bases as a subtype of equiangular lines (see \S8.2). These objects are fundamental in many applications such as quantum key distribution \cite[see][]{real-unbiased-bases}.
 
-Unitary Hadamard matrices, i.e. a matrices with entries from the unit circle in the complex plane whose rows are pairwise orthogonal, have received much attention with their connection to unbiased bases. Two unitary Hadamard matrices $H$ and $K$ of order $n$ are {\it unbiased}\index{unbiased Hadamard matrices} if $HK^*=\sqrt{n}L$, for some unitary Hadamard matrix $L$. Recently, these ideas where studied for the case of unitary weighing matrices\Dnote{unbiased-weighing-matrices} in \cite{unbiased-weighing}. The case of unbiased real Hadamard matrices were studied in \cite{unbiased-real}, and the case of unbiased quaternary complex Hadamard in \cite{unbiased-complex}.
+Unitary Hadamard matrices, i.e. a matrices with entries from the unit circle in
+the complex plane whose rows are pairwise orthogonal, have received much
+attention with their connection to unbiased bases. Two unitary Hadamard matrices
+$H$ and $K$ of order $n$ are {\it unbiased}\index{unbiased Hadamard matrices} if
+$HK^*=\sqrt{n}L$, for some unitary Hadamard matrix $L$. Recently, these ideas
+where studied for the case of unitary weighing matrices \Dnote{unbiased-weighing-matrices} in \cite{unbiased-weighing}. The case of unbiased real Hadamard matrices were studied in \cite{unbiased-real}, and the case of unbiased quaternary complex Hadamard in \cite{unbiased-complex}.
 
 We have seen that extending concepts from matrices of concrete values to matrices of indeterminants usually presents us with subtle difficulties, and extending unbiasedness is no different. In \cite{unbiased-od}, unbiased orthogonal designs are presented thus.
 
