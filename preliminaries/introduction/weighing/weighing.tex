@@ -1,0 +1,216 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Weighing Matrices}
+
+We begin the following definition.
+
+\begin{defin}\label{weighing matrix}\index{weighing matrix}
+  Let $W$ be a $(-1,0,1)$-matrix of order $n$. $W$ is a {\it weighing matrix} of {\it order} $n$ and {\it weight} $k$ if
+  \begin{defenum}
+  \item $WW^t = kI_n$.
+  \end{defenum}
+  If $n=k$, then we say that $W$ is a {\it Hadamard matrix}\index{Hadamard matrix}. If $n-1=k$, then we say that $W$ is a {\it conference matrix}\index{conference matrix}. In any event, we write $\w(n,k)$ to denote this property.
+\end{defin}
+
+There are many useful generalizations of weighing matrices. We will take this up
+generally in the following sections, but for now we note the following special
+case. Note that we use $A^*$ to denote the conjugate (Hermitian) transpose of a complex matrix $A$.
+
+\begin{defin}\label{butson-unitary}\index{Butson weighing matrix}
+  Let $G = \{\mathrm{exp}(\frac{2\pi im}{p}) : 0 \leq m < p\}$, and let $W$ be a $(0,G)$-matrix of order $v$. We say that $W$ is a {\it Butson weighing matrix} of {\it order} $v$ and {\it weight} $k$ if
+  \begin{defenum}
+  \item $WW^* = kI_n$,
+  \end{defenum}
+  and we write $\bw(v,k;p)$ to denote this property.
+\end{defin}
+
+A result that is useful in studying properties of complex weighing matrices is
+the following that can be found in \cite{lam-leung}.
+
+\begin{lem}\label{butson lemma}
+  Let $p$ be a prime, and let $\xi$ be a primitive complex $p$-th root of unity. Then $\ssum_{i=0}^n a_i\xi^i = 0$ for some $n < p$ and $a_i \in \N$ if and only if $n = p-1$ and $a_0 = \cdots = a_n$.
+\end{lem}
+
+We now move on to consider some generalizations of a weighing matrix.
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Generalized Bhaskar Rao Designs}
+
+In the previous section, we defined a weighing matrix as a square matrix over $\{-1,0,1\}$. We then extended this definition to include those matrices over $\{0\}$ together with the complex $p$-th roots of unity. More generally, we can have weighing matrices over any finite group. 
+
+Before we can do this, however, we need to extend the conjugate transpose\index{conjugate transpose} to group matrices. To accomplish this, let $A$ be some matrix over a finite group $G$, and define $\bar A$ by $\bar{A}_{ij}=A_{ij}^{-1}$, that is, the matrix obtained by taking the group inverse of the nonzero entries of $A$. Finally, define $A^* = \bar{A}^t$. We then have the following.
+
+\begin{defin}\label{gbrd definition}\index{generalized Bhaskar Rao design}
+  Let $G$ be some finite group, and let $A$ be a $v \times b$ $(0,G)$-matrix such that
+  \begin{equation}\label{gbrd-eq}
+    AA^* = rI_v + \frac{\lambda}{|G|}\left(\sum_{g \in G}g\right)(J_v - I_v),
+  \end{equation}
+  for some positive integers $r$ and $\lambda$, and such that there are $k$ non-zero entries in every column. We then say that $A$ is a {\it generalized Bhaskar Rao design} (henceforth $\gbrd$), and we write $\gbrd(v,k,\lambda;G)$ to denote this property. If we need to stress the remaining parameters, then we write $\gbrd(v,b,r,k,\lambda;G)$.
+\end{defin}
+
+It is clear that replacing the nonzero entries of a GBRD with unity furnishes a
+BIBD. Hence, we see that Fisher's Inequality applies. Again we single out the
+extremal case of the inequality.
+
+\begin{defin}\label{bgw definition}\index{balanced generalized weighing matrix}\index{generalized Hadamard matrix}
+  A {\it balanced generalized weighing matrix} is a $\gbrd(v,b,r,k,\lambda;G)$
+  in which $v = b$ (equiv. $k = r$). We use the denotation
+  $\bgw(v,k,\lambda;G)$. A $\bgw(v,k,\lambda;G)$ in which $v = k$ is called a
+  {\it generalized Hadamard matrix}, and we denote this as $\gh(G,\lambda)$
+  where $\lambda = v/|G|$. If $G = \mathrm{EA}(q)$, the elementary abelian group
+  \Anote{ea-group}\index{elementary abelian group} of order $q$, then we write $\mathrm{GH}(q,\lambda)$ instead.
+\end{defin}
+
+BGW matrices are quite useful in the construction of other combinatorial designs
+(see, for example, \citeauthor{ionin-kharaghani-drad}
+\citeyear{ionin-kharaghani-drad} and \citeyear{ionin-kharaghani-srg}), and
+satisfy a number of properties. For a detailed discussion of BGW matrices, the
+interested reader may consult \cite{combinatorics-of-symmetric-designs}.
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Isomorphisms of BGW matrices}
+
+As before, we can impose an equivalence on the set of all $v \times b$ $(0,G)$-matrices, which will play an important part in what is to come. 
+
+\begin{defin}\label{monomial-equiv}\index{monomial equivalence}
+  Two $v \times b$ $(0,G)$-matrices $A_1$ and $A_2$ are said to be {\it monomially equivalent} if there are monomial $(0,G)$-matrices $P$ and $Q$ of orders $v$ and $b$, respectively, such that 
+  \begin{defenum}
+  \item $PA_1Q=A_2$ \Anote{monomial}.
+  \end{defenum}
+\end{defin}
+
+ In order to extend normality to BGW matrices, we begin by altering somewhat Definition \ref{gbrd definition} as in Part V of \cite{handbook}.
+ 
+ \begin{defin}\label{c-gbrd defintion}\index{c-GBRD}
+   let $G$ be some finite group, and let $A$ be a $v \times b$ $(0,G)$-matrix. If $A$ has $k$ non-zero entries in every column, and if there is an element $c \in (\frac{\lambda}{|G|}G)\bb\{1\} \subset \Z[G]$ such that
+  \begin{defenum}
+   \item\label{c-gbrd-eq} $AA^* = rI_v + c(J_v - I_v)$,
+  \end{defenum}
+  then we say that $A$ is a $c$-$\gbrd(v,k,\lambda-1;G)$, or a $c$-$\gbrd(v,b,r,k,\lambda-1;G)$ if more precision required.
+ \end{defin}
+ 
+ We can now properly extend the idea of normality to BGW matrices.
+ 
+ \begin{defin}\index{balanced generalized weighing matrix!normal form}
+  A $\bgw(v,k,\lambda;G)$ is said to be in {\it normal form} if it has the form
+  \begin{equation}
+   \begin{pmatrix}
+    \zz_{v-k} & A_1 \\ \jj_{k} & A_2
+   \end{pmatrix}.
+  \end{equation}
+ \end{defin}
+ 
+ Note that of necessity, $A_1$ is a $\gbrd(v-k,v-1,k,k-\lambda,\lambda;G)$ and $A_2$ is a $c$-$\gbrd(k,v-1,k-1,\lambda,\lambda-1;G)$. These have the parameters of the residual and derived designs of a square $\bibd(v,k,\lambda)$, hence we call them, respectively, a residual GBRD and a derived $c$-GBRD.
+
+ \dinkus
+
+ % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \subsection{Orthogonal Designs}
+
+ In the previous subsection, we covered one generalization of weighing matrices,
+ namely, we allowed the nonzero enetries to come from a finite group. In this
+ subsection, we pursue another generalization in a different direction. In
+ particular, instead of allowing the nonzero entries to come from some group, we
+will take the nonzero entries to be indeterminants---real, complex, or
+quaternary \Anote{quaternary}.
+
+We begin with the case of real indeterminants.
+
+\begin{defin}\label{real-od-def}\index{orthogonal design}
+  Let $x_1, \dots, x_u$ be real, commuting indeterminants, and let $X$ be an $n \times n$ matrix with entries from $\{0,\pm x_1, \dots, \pm x_u\}$. We say that $X$ is an {\it orthogonal design} if
+  \begin{defenum}
+  \item $XX^t = \left( \ssum_i s_ix_i^2 \right)I_n$.
+  \end{defenum}
+  We say that the orthogonal design is of order $n$ and type $(s_1, \dots, s_u)$, and we write $X$ is an $\od(n;s_1, \dots, s_u)$. If $\ssum_i s_i=n$, then we say that the OD is {\it full}.
+\end{defin}
+
+We now extend Definition \ref{real-od-def} to the case of complex and quaternary numbers.
+
+\begin{defin}\index{complex orthogonal design}\index{quaternary orthogonal design}
+  Let $z_1, \dots, z_u$ be complex (resp. quaternary), commuting indeterminants, and let $X$ be a matrix of order $n$ with entries from $\{0,\varepsilon_1z_1, \dots, \varepsilon_uz_u\}$ and $\{\varepsilon_1z_1^*, \dots, \varepsilon_uz_u^*\}$, where each $\varepsilon_t \in \{\pm 1, \pm i\}$ (resp. $\varepsilon_t \in \{\pm 1, \pm i, \pm j, \pm k\}$). In the event that
+  \begin{defenum}
+  \item\label{qod-od-def} $XX^* = \left( \ssum_is_i|z_i|^2 \right)I_n$,
+  \end{defenum}
+  then we say that $X$ is a {\it complex} (resp. {\it quaternary}) orthogonal design of type $(s_1,\dots,s_u)$. We write $X$ is a $\cod(n;s_1,\dots,s_u)$ (resp. $\qod(n;s_1,\dots,s_u)$).
+\end{defin}
+
+Equivalence of orthogonal designs is the same as for BGW matrices where the
+monimal matrices have nonzero entries in set $\{1,i,j,k\}$, and where we also
+allow a permutation of symbols.
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Sequences and Circulants}
+
+ Let $A$ be an $n \times n$ matrix with first row $(a_0,\dots,a_{n-1})$. Recall that $A$ is {\it circulant}\index{circulant matrix} if $A_{ij}=a_{j-i}$, where the indices are calculated modulo $n$. In this way, the entire matrix is determined by its first row; moreover, if $A$ and $B$ are two circulants of the same dimension, then $A^t,A+B$, and $AB$ are also circulant matrices. Therefore, to effect a study of circulant matrices, we can profitably study sequences. 
+ 
+ What we are particularly interested with here is the following.
+ 
+ \begin{defin}\index{circulant matrix!complementary}
+  Let $\A=\{A_i\}$ be a finite collection of circulant matrices of the same dimension over a commutative ring $R$ endowed with an involution $\cdot^*$. The collection $\A$ is said to be {\it complementary} if
+  \begin{defenum}
+   \item $\ssum_i A_iA_i^* = aI$, for some $a \in R$,
+  \end{defenum}
+  where, as usual, $(m_{ij})^*=(m_{ji}^*)$.
+ \end{defin}
+ 
+ Note, however, that we can state this in terms of sequences. First, a definition.
+ 
+ \begin{defin}\index{periodic autocorrelation}\index{aperiodic autocorrelation}\index{complementary sequences}
+  Let $a_0=(a_{0,0}, \dots, a_{0,n-1})$ be a sequence in a commutative ring $R$ with the involution $\cdot^*$. The {\it $j$-th aperiodic} and {\it $j$-th periodic autocorrelations} of the sequence $a$ are given respectively by
+  \begin{defenum}
+   \item $N_j(a)=\ssum_{i=0}^{n-j-1}a_{0,i}a_{0,i+j}^*$, and
+   \item $P_j(a)=\ssum_{i=0}^{n-1}a_{0,i}a_{0,i+j}^*$, indices calculated modulo $n$.
+  \end{defenum}
+  If $a_1=(a_{1,0},\dots,a_{1,n-1}),\dots,a_m=(a_{m,1},\dots,a_{m,n-1})$ are any other sequence in $R$, then $a_0,\dots,a_m$ are {\it complementary}\index{complementary sequences} if
+  \begin{defenum}[resume]
+   \item\label{periodic-comp} $\ssum_i P_j(a_i)=0$, for every $j \in \{1, \dots, n-1\}$.
+  \end{defenum}
+  For the case in which $m=1$, we say that we have a {\it Golay pair}.
+ \end{defin}
+ 
+ We see immediately that $P_j(a)=N_j(a) + N_{n-j}(a)^*$; hence, if $N_j(a)+N_j(b)=0$, for every $j \in \{1,\dots,n-1\}$, then $a$ and $b$ are complementary. However, vanishing periodic autocorrelations does not in general imply vanishing aperiodic autocorrelations.
+ 
+ The importance of the periodic correlation is given by the fact that if the first row of the circulant $A$ continues to be $a=(a_0,\dots,a_{n-1})$, then the first row of $AA^*$ is given by $(\ssum_i|a_i|^2,P_{n-1}(a), \dots,P_1(a))$. So we see that complementary circulants and complementary sequences are one and the same.
+ 
+ Complementary sequences and orthogonal designs are connected in an intimate way; in fact, complementary sequences offer many elegant constructions of ODs. To make the connection precise, we need to allow sequence elements to be indeterminants whether real, complex, or quaternary, and where the involution is taken to be conjugation.
+ 
+ \begin{prop}\label{2-circs}
+  Let $\{z_1,\dots,z_u\}$ be commuting quaternary indeterminants, and let $a=(a_0,\dots,a_{n-1})$ and $b=(b_0,\dots,b_{n-1})$ be complementary sequences with entries from $\{0,\varepsilon_0z_0, \dots, \varepsilon_uz_u\}$, where $\varepsilon_t \in \{\pm 1, \pm i, \pm j, \pm k\}$, such that $\ssum_i(|a_i|^2 + |b_i|^2)=\ssum_is_ix_i^2$. Then
+  \begin{equation}\label{plug-in-matrix}
+  \arraycolsep=2.0pt\def\arraystretch{0.5}
+  %\arraycolsep=1.25pt\def\arraystretch{0.625}
+   \left(\begin{array}{cc}
+    A&B\\-B^*&A^*
+   \end{array}\right)
+  \end{equation}
+  is a $\qod(2n;s_1,\dots,s_u)$, where $A$ and $B$ are the circulants with first rows $a$ and $b$, respectively.
+ \end{prop}
+
+ The matrix (\ref{plug-in-matrix}) will feature as a submatrix in our later work where the sequences will be composed of matrices. We will need one further idea before we proceed. 
+
+ \begin{defin}\index{cross-correlation}
+  Let $a=(a_0,\dots,a_{n-1})$ and $b=(b_0,\dots,b_{n-1})$ be two sequences over a ring with involution $\cdot^*$. The {\it $j$-th cross-correlation} of $a$ by $b$ is given by
+  \begin{defenum}
+   \item $C_j(a,b)=\ssum_{i=0}^{n-1}a_ib_{i+j}^*$, for each $j \in \{1,\dots,n-1\}$.
+  \end{defenum}
+ \end{defin}
+ 
+ If $A$ has first row $a=(a_0,\dots,a_{n-1})$, and if $B$ has first row $b=(b_0,\dots,b_{n-1})$, then the first row of the circulant $AB^*$ is $(\ssum_ia_ib_i^*,C_{n-1}(a,b),\dots,C_1(a,b))$. Note, however, that $C_j(a,b)$ is not in general equal to $C_j(b,a)$. So, care must be taken in extending Proposition \ref{2-circs} since amicability is required in maintaining orthogonality when substituting into an OD.
+ 
+ Much more can be said about this most useful topic. The interested reader is may consult \cite{seberry-od-2017} and \cite{seberry-yamada-hmatrices-designs} for a wealth of material.
+
+  \biblio
+\end{document}

@@ -1,0 +1,80 @@
+\documentclass[../../../main]{subfiles}
+
+\begin{document}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Defintions}
+
+In essence a code is simply a finite collection of words over a given finite
+alphabet. There are many ways to formalize such a concept; for instance, we may
+consider a code to be a subset of functions from one finite set into another.
+
+For the purposes at hand, however, we are interested in the case the alphabet is
+endowed with arithmetic sufficient to form a field in which case we may consider
+the code to be a linear subspace of an extension of the alphabet.
+
+\begin{defin}\label{linear-code-defin}\index{linear error-correcting code}
+ Let $H=(A \mid I_{n-k})$ be an $(n-k) \times n$ matrix over $\gf(q)$. The {\it linear code} $\code$ with parity check matrix $H$ is given by $\code = \text{Null}(H) = \{x \in \gf(q^n) : Hx^t = 0\}$, where the extension $\gf(q^n)$ is interpreted here as a linear space over $\gf(q)$. We say that $\code$ is a linear $[n,k]_q$-code, where clearly $\text{dim}(\code) = k$.
+\end{defin}
+
+We have defined a linear code by its parity check matrix. An equivalent definition is to use the so-called {\it generator matrix} $G$. If $H=(A \mid I_{n-k})$ is the parity check matrix of the code, then $G=(I_k \mid -A^t)$. The code is then given by the linear span of the rows of $G$. Note that by construction, it follows that $GH^t = HG^t = O$.
+
+The dual of a linear code $\code$ is given in the usual way by $\code^\perp = \{x \in \gf(q^n) : xy^t=0 \text{, for every }y\in\code\}$\index{linear error-correcting code!dual of}. If $H$ and $G$ are the parity check and generator matrices of $\code$, then $G$ and $H$ are the parity check and generator matrices of $\code^\perp$, respectively.
+
+In Definition \ref{linear-code-defin}, there are two parameters explicitly given of a code, namely, the length $n$ of the codewords and the dimension $k$ of the linear space consisting of the codewords. Two more fundamental parameters for us are the minimum distance and the minimum weight defined thus.
+
+\begin{defin}\label{wt-dist}\index{Hamming weight}\index{Hamming distance}
+ Let $\code$ be a linear $[n,k]_q$-code, and let $x=x_0 \cdots x_{n-1}$ and
+ $y=y_0 \cdots y_{n-1}$ be any two codewords of $\code$. Then: 
+ \begin{defenum}
+ \item The {\it Hamming weight} of $x$ is $\wt(x) = \#\{i : x_i \neq 0\}$;
+ \item the {\it Hamming distance} between $x$ and $y$ is $\dist(x,y) = \#\{i : x_i \neq y_i\}$;
+ \item the {\it minimum weight} of the code is $\wt(\code) = \min_{x \in
+     \code\bb\{0\}} \wt(x)$; and
+ \item the {\it minimum distance} of the code is $\dist(\code) = \min_{\begin{smallmatrix}x,y\in\code\\ x \neq y\end{smallmatrix}}\dist(x,y)$. 
+ \end{defenum}
+ If we wish to emphasize the distance $d=\dist(\code)$ of a code, we write $[n,k,d]_q$-code.
+\end{defin}
+
+The Hamming distance can easily be seen to form a metric \Anote{metric} on $\gf(q^n)$. The next result is then clear \cite[see][Theorem 1.9]{hill-coding}.
+
+\begin{prop}
+ If $\code$ is any $[n,k,d]_q$-code, then 
+ \begin{defenum}
+  \item\label{wt-dist-eq} for every $x,y \in \code$, it holds that $\dist(x,y) = \wt(x-y)$, hence $\dist(\code)=\wt(\code)$.
+ \end{defenum}
+\end{prop}
+
+\dinkus
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{The Hamming and Simplex Codes}
+
+The theory of error-correcting codes began with the seminal paper of Richard W. Hamming \citeyearpar{richard-hamming} who introduced redundancy for the purpose of error correction. In this paper, he also constructed a most useful family of codes aptly called the {\it Hamming codes}. The codes constructed by Hamming were binary; however, it is a simple matter to extend the construction to an arbitrary finite field.
+
+\begin{defin}\label{hamming-code}\index{Hamming code}\index{simplex code}\label{hamming-simplex-def}
+  Let $H$ be the $n \times (q^n-1)/(q-1)$ matrix over $\gf(q)$ whose columns are representatives of the nonzero 1-dimensional subspaces of the extension field $\gf(q^n)$ over $\gf(q)$. The linear code $\hamming_{q,n}$ whose parity check matrix is $H$ is called a {\it Hamming code}. The linear code $\simplex_{q,n}$ whose generator matrix is $H$ is called a {\it simplex code}.
+\end{defin}
+
+The following result is immediate.
+
+\begin{prop}
+  Let $q$ be a prime power, $n > 1$, and let $v=(q^n-1)/(q-1)$. Then:
+  \begin{defenum}
+  \item $\simplex_{q,n}$ is a linear $[v,n]_q$-code, and
+  \item $\hamming_{q,n}$ is a linear $[v,v-n]_q$-code.
+  \end{defenum}
+\end{prop}
+
+It can be shown that $\hamming_{q,n}$ is a linear
+single-error correcting code. In what follows, however, the simplex code will
+play a central role. The reader may consult Theorem 3.9.27 of
+\cite{combinatorics-of-symmetric-designs} for a derivation.
+
+\begin{thm}\label{simplex-properties}
+  Let $q$ be a prime power, $n>1$, and let $v=(q^n-1)/(q-1)$. Then a linear $[v,n]_q$-code $\code$ is a $\simplex_{q,n}$ code if and only if $\wt(x)=q^{n-1}$, for every $x \in \code$.
+\end{thm}
+
+\biblio
+\end{document}

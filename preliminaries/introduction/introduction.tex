@@ -1,0 +1,59 @@
+\documentclass[../../main]{subfiles}
+
+\newendnotes{a}
+\input{intronotes.txt}
+\newcommand{\Anote}[1]{\anote{#1}\big)}
+
+\begin{document}
+
+This preliminary chapter introduces the objects with which we will be working.
+We intend to move briskly, so only references to proofs and more in-depth discussions
+will be given, and moreover, examples will be reserved for later chapters. The following sections will define in turn: balanced incomplete block
+designs, error-correcting codes, weighing matrices and their generalizations,
+and finally association schemes.
+
+\section{\centering Balanced Incomplete Block Designs}
+
+This section presents some basic definitions and results about block designs
+that will be used throughout this work. Particular emphasis will be placed on
+matrix representations of such objects. 
+
+\dinkus
+
+\subfile{./bibd/bibd}
+
+\section{\centering Error-Correcting Codes}
+
+In this section, the definitions of linear error-correcting codes will be given. We then move on to consider the famous generalized Hamming and simplex codes. As these are the only family of codes that we require, this section will be brief. The interested reader is refered to the standard references of \cite{pless-book} and \cite{error-correcting-codes-v1} for a greater exposition of the subject.
+
+\dinkus
+
+\subfile{./codes/codes}
+
+\section{\centering Weighing Matrices and Their Generalizations}
+
+This section focuses on a third combinatorial configuration, namely, weighing
+matrices together with their generalizations. We begin with a brief look at weighing matrices themselves before moving onto to consider two generalizations. The first generalization is allowing the entries of a weighing matrix to be chosen from a finite group. This idea is then synthesized with the ideas of $\S1$. Finally, we allow the entries of a weighing matrix to be taken from sets of indeterminants and consider the utility of such an approach.
+
+\dinkus
+
+\subfile{./weighing/weighing}
+
+\section{Association Schemes}
+
+This fourth and final preliminary section briefly touches on association schemes, a fundamental abstract object used as a unifying tool across the otherwise disparate fields of combinatorics. 
+
+\dinkus
+
+\subfile{./schemes/schemes}
+
+\singlespace
+
+\addcontentsline{toc}{section}{Notes}
+\section*{\centering Notes}
+\theanotes
+
+\doublespacing
+
+\biblio
+\end{document}

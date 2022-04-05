@@ -59,7 +59,7 @@
    \end{array}\right),
    $
   \end{defenum}
-  where the block structure is evident\Enote{kronecker-note}.
+  where the block structure is evident \Enote{kronecker-note}.
  \end{ex}
  
  As one further application of the standard Kronecker product before we move on, we will consider regular Hadamard matrices.
@@ -107,7 +107,10 @@ In the previous subsection, we began a brief discussion of groups of symmetries 
  \end{cor}
  
  \begin{ex}
-  Let $q=p^n$ be a prime power, and let $H$ be a $\gh(q,1)$ over $\text{EA}(q)$ where the elements have the usual representation of $(0,1)$-matrices. Then it isn't difficult to see that $A=(\begin{smallmatrix} I_q \otimes \jj_q & H \end{smallmatrix})$ is a $\bibd(q^2,q+q^2,1+q,q,1)$. Importantly, the columns are placed into $1+q$ consecutive disjoint groups of $q$ columns each such that each point appears precisely once in every group\Enote{resolvable-note}. Let $G$ be the group which cyclically permutes the blocks in each group so that $|G|=q$.
+  Let $q=p^n$ be a prime power, and let $H$ be a $\gh(q,1)$ over $\text{EA}(q)$
+  where the elements have the usual representation of $(0,1)$-matrices. Then it
+  isn't difficult to see that $A=(\begin{smallmatrix} I_q \otimes \jj_q &
+                                                                          H \end{smallmatrix})$ is a $\bibd(q^2,q+q^2,1+q,q,1)$. Importantly, the columns are placed into $1+q$ consecutive disjoint groups of $q$ columns each such that each point appears precisely once in every group \Enote{resolvable-note}. Let $G$ be the group which cyclically permutes the blocks in each group so that $|G|=q$.
   
   If $1+q$ is a prime power, then there is a $\bgw(2+q,1+q,q;C_q)$, say $\Xi$, where the group elements cyclically permute the blocks of each parition class in the above design. The parametric conditions of the theorem are met, hence $\Xi \otimes A$ is a $\bibd(q^2(2+q),(q+q^2)(2+q),(1+q)^2,q(1+q),1+q)$. More generally, we can take $\Xi$ to be any $\bgw((p^{n+1}-1)/(p-1),p^n,p^n-p^{n-1};C_q)$, where $p=1+q$.
  \end{ex}
@@ -155,7 +158,11 @@ The following is then a simple generalization of Theorem \ref{bibd-bgw-thm}
   \end{array}\right),
    $
  \end{defenum}
- where the nonzero entries are logarithms of some generator of $C_3$. Note that the core of \ref{bgw.15.7.3.3} is composed of 4 circulant matrices. Taking $R$ to be the residual part of \ref{bgw.15.7.3.3}, and letting $g=\left(\begin{smallmatrix} O & I_7 \\ \omega I_7 & O \end{smallmatrix}\right)$, we see that $G=\sharps{g}$ forms an admissible group of symmetries for $R$. For any $n \in N$, there is a $\bgw((7^{n+1}-1)/6,7^n,6 \cdot 7^{n-1};G)$ which satisfy the parametric conditions of Theorem \ref{gbrd-bgw-thm}. Therefore, for any $n>0$, there is a $\gbrd(4(7^{n+1}-1)/3,2\cdot 7^{n+1},7^{n+1},4 \cdot 7^n,3\cdot 7^n; C_3)$.\Enote{bgw.15.7.3-comp}
+ where the nonzero entries are logarithms of some generator of $C_3$. Note that
+ the core of \ref{bgw.15.7.3.3} is composed of 4 circulant matrices. Taking $R$
+ to be the residual part of \ref{bgw.15.7.3.3}, and letting
+ $g=\left(\begin{smallmatrix} O & I_7 \\ \omega I_7 &
+                                                      O \end{smallmatrix}\right)$, we see that $G=\sharps{g}$ forms an admissible group of symmetries for $R$. For any $n \in N$, there is a $\bgw((7^{n+1}-1)/6,7^n,6 \cdot 7^{n-1};G)$ which satisfy the parametric conditions of Theorem \ref{gbrd-bgw-thm}. Therefore, for any $n>0$, there is a $\gbrd(4(7^{n+1}-1)/3,2\cdot 7^{n+1},7^{n+1},4 \cdot 7^n,3\cdot 7^n; C_3)$ \Enote{bgw.15.7.3-comp}.
 \end{ex}
 
 This concludes our introduction to the generalized Kronecker product.
