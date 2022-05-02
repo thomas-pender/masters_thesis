@@ -170,6 +170,8 @@
 \newlist{defenum}{enumerate}{1}
 \setlist[defenum,1]{leftmargin=8.75ex,label=(\thethm.\alph*)}
 
+\counterwithout{figure}{chapter}
+
 \begin{comment}
 \let\tmp\oddsidemargin
 \let\oddsidemargin\evensidemargin
@@ -223,11 +225,12 @@
 \newpage
 \blankpage
 
-\singlespace
 
 \cleartooddpage
 \tableofcontents{}
 \clearpage
+
+\singlespace
 
 \cleartooddpage
 \addcontentsline{toc}{chapter}{List of Symbols}
@@ -376,6 +379,14 @@
 \end{comment}
 % back matter %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \backmatter
+
+% \cleartooddpage
+% \fancyhead[C]{Appendix}
+% \fancyfoot[C]{\thepage}
+% \addcontentsline{toc}{chapter}{Appendix}
+% \chapter*{Appendix}
+% \subfile{./results/appendix/appendix}
+% \clearpage
 
 \singlespace
 
