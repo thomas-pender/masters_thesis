@@ -222,22 +222,38 @@ B=\left(\begin{array}{cccccc}
  In any event, the parameters of the splits are $(16,6,2,-2)$. Therefore, we have optimal sets of equiangular lines.
 \end{ex}
 
-% \begin{ex}
-%   Beginning with the Hadamard matrix of order 4
-%   \begin{equation}\label{h4}
-%     \arraycolsep=1.25pt\def\arraystretch{0.625}
-%     \left(
-%     \begin{array}{cccc}
-%       +&+&+&+\\
-%       -&+&-&+\\
-%       -&+&+&-\\
-%       -&-&+&+
-%     \end{array}
-%     \right)
-%   \end{equation}
-%   we obtain a balancedly splittable Hadamard matrix of order 64 as shown in
-%   Figure \ref{h64} of the appendix.
-% \end{ex}
+\begin{ex}
+  Beginning with the Hadamard matrix of order 4
+  \begin{equation}\label{h4}
+    \arraycolsep=1.25pt\def\arraystretch{0.625}
+    \left(
+    \begin{array}{cccc}
+      +&+&+&+\\
+      -&+&-&+\\
+      -&+&+&-\\
+      -&-&+&+
+    \end{array}
+    \right)
+  \end{equation}
+  we obtain the balancedly splittable Hadamard matrix of order 64 as constructed
+  in A1.
+\end{ex}
+
+\begin{ex}
+  Of course, we are not limited to real matrices. Beginning with the $\bw(3,3;3)$
+  \begin{equation}\label{bw3}
+    \left(
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \begin{array}{ccc}
+        1 & 1 & 1 \\
+        1 & \omega & \omega^2 \\
+        1 & \omega^2 & \omega
+      \end{array}
+    \right),
+  \end{equation}
+  where $\omega = e^\frac{2\pi\sqrt{-1}}{3}$, we can construct a balancedly
+  splittable $\bw(36,36;6)$ as shown in A2.
+\end{ex}
 
 This construction can be made perfectly general. Since this result is ultimately a special case of Theorem \ref{stable-od-thm}, we will not show it explicitly.
 

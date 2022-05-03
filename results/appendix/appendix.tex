@@ -1,162 +1,893 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\begin{figure}[h!]
-  \centering
-  \begin{tiny}
-  \[
-    \arraycolsep=0.2\def\arraystretch{0.4}
-    \left(
-      \begin{array}{cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc}
-        +&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-\\
-+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-\\
-+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+\\
-+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&+&+&+&+\\
-+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+\\
-+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+\\
-+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-\\
-+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-\\
-+&-&+&-&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+\\
-+&-&+&-&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-\\
-+&-&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+\\
-+&-&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-\\
-+&-&-&+&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-\\
-+&-&-&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+\\
-+&-&-&+&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+\\
-+&-&-&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-\\
-+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+\\
-+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+\\
-+&+&-&-&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-\\
-+&+&-&-&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-\\
-+&+&+&+&-&-&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-\\
-+&+&+&+&-&-&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-\\
-+&+&+&+&-&-&-&-&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+\\
-+&+&+&+&-&-&-&-&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+\\
-+&-&+&-&-&+&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+\\
-+&-&+&-&-&+&-&+&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-\\
-+&-&+&-&-&+&-&+&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-\\
-+&-&+&-&-&+&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+\\
-+&-&-&+&-&+&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-\\
-+&-&-&+&-&+&+&-&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+\\
-+&-&-&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-\\
-+&-&-&+&-&+&+&-&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+\\
-+&+&-&-&-&-&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+\\
-+&+&-&-&-&-&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+\\
-+&+&-&-&-&-&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+\\
-+&+&-&-&-&-&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+\\
--&+&-&+&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-\\
--&+&-&+&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+\\
--&+&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-\\
--&+&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+\\
--&+&+&-&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+\\
--&+&+&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-\\
--&+&+&-&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-\\
--&+&+&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+\\
--&-&+&+&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-\\
--&-&+&+&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-\\
--&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+\\
--&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+\\
--&-&-&-&+&+&+&+&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-\\
--&-&-&-&+&+&+&+&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-\\
--&-&-&-&+&+&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+\\
--&-&-&-&+&+&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+\\
--&+&-&+&+&-&+&-&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+\\
--&+&-&+&+&-&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-\\
--&+&-&+&+&-&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-\\
--&+&-&+&+&-&+&-&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+\\
--&+&+&-&+&-&-&+&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-\\
--&+&+&-&+&-&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+\\
--&+&+&-&+&-&-&+&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-\\
--&+&+&-&+&-&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+\\
--&-&+&+&+&+&-&-&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+\\
--&-&+&+&+&+&-&-&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+\\
--&-&+&+&+&+&-&-&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+\\
--&-&+&+&+&+&-&-&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+\\
-      \end{array}
-    \right)
-  \]
-  \end{tiny}
-  \caption{A splittable Hadamard matrix of order 64 obtained from (\ref{h4}).}
-  \label{h64}
-\end{figure}
 
-\begin{figure}[h!]
-  \centering
-  \begin{tiny}
-    \[
-      \arraycolsep=0.2\def\arraystretch{0.4}
-      \left(
-        \begin{array}{cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc}
-          a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d\\
-a&b&c&d&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d\\
-a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
-a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
-a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&a&b&c&d&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
-a&b&c&d&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
-a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d\\
-a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d\\
-\bar{b}&a&\bar{d}&c&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c\\
-\bar{b}&a&\bar{d}&c&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}\\
-\bar{b}&a&\bar{d}&c&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c\\
-\bar{b}&a&\bar{d}&c&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}\\
-\bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}\\
-\bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b\\
-\bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b\\
-\bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}\\
-\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a\\
-\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a\\
-\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}\\
-\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}\\
-a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}\\
-a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}\\
-a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a\\
-a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a\\
-\bar{b}&a&\bar{d}&c&b&\bar{a}&d&\bar{c}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b\\
-\bar{b}&a&\bar{d}&c&b&\bar{a}&d&\bar{c}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}\\
-\bar{b}&a&\bar{d}&c&b&\bar{a}&d&\bar{c}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}\\
-\bar{b}&a&\bar{d}&c&b&\bar{a}&d&\bar{c}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b\\
-\bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}\\
-\bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c\\
-\bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}\\
-\bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c\\
-\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d\\
-\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d\\
-\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d\\
-\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d\\
-b&\bar{a}&d&\bar{c}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}\\
-b&\bar{a}&d&\bar{c}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c\\
-b&\bar{a}&d&\bar{c}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}\\
-b&\bar{a}&d&\bar{c}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c\\
-c&\bar{d}&\bar{a}&b&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b\\
-c&\bar{d}&\bar{a}&b&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}\\
-c&\bar{d}&\bar{a}&b&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}\\
-c&\bar{d}&\bar{a}&b&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b\\
-d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}\\
-d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}\\
-d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a\\
-d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a\\
-\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}\\
-\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}\\
-\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a\\
-\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a\\
-b&\bar{a}&d&\bar{c}&\bar{b}&a&\bar{d}&c&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b\\
-b&\bar{a}&d&\bar{c}&\bar{b}&a&\bar{d}&c&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}\\
-b&\bar{a}&d&\bar{c}&\bar{b}&a&\bar{d}&c&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}\\
-b&\bar{a}&d&\bar{c}&\bar{b}&a&\bar{d}&c&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b\\
-c&\bar{d}&\bar{a}&b&\bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}\\
-c&\bar{d}&\bar{a}&b&\bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c\\
-c&\bar{d}&\bar{a}&b&\bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}\\
-c&\bar{d}&\bar{a}&b&\bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c\\
-d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d\\
-d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d\\
-d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d\\
-d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d\\
+\section*{A1. A Balancedly Splittable $\w\mathbf{(64,64)}$} 
+
+Beginning with (\ref{h4}), a Hadamard matrix of order 4, we first construct
+the auxiliary matrices as shown.
+\[
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  c_0 = 
+  \left(
+    \begin{array}{cccc}
+      +&+&+&+\\
+      +&+&+&+\\
+      +&+&+&+\\
+      +&+&+&+\\
+    \end{array}
+  \right),
+  c_1 =
+  \left(
+    \begin{array}{cccc}
+      +&-&+&-\\
+      -&+&-&+\\
+      +&-&+&-\\
+      -&+&-&+
+    \end{array}
+  \right),
+  c_2 =
+  \left(
+    \begin{array}{cccc}
+      +&-&-&+\\
+      -&+&+&-\\
+      -&+&+&-\\
+      +&-&-&+
+    \end{array}
+  \right),
+  c_3 =
+  \left(
+    \begin{array}{cccc}
+      +&+&-&-\\
+      +&+&-&-\\
+      -&-&+&+\\
+      -&-&+&+
+    \end{array}
+  \right).
+\]
+
+The block-circulant matrix $A$ has first row $(c_0,c_1,c_2,c_3,c_3,c_2,c_1)$ and is
+given by
+\begin{tiny}
+\[
+  A=
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(
+    \begin{array}{cccc|cccc|cccc|cccc|cccc|cccc|cccc}
+      +&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-\\
+      +&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+\\
+      +&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-\\
+      +&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+\\ \hline
+      +&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+\\
+      -&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-\\
+      +&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-\\
+      -&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+\\ \hline
+      +&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-\\
+      -&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-\\
+      -&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+\\
+      +&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+\\ \hline
+      +&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-\\
+      +&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-\\
+      -&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+\\
+      -&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+\\ \hline
+      +&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-&+&-&-&+\\
+      +&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+&-&+&+&-\\
+      -&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-&-&+&+&-\\
+      -&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+&+&-&-&+\\ \hline
+      +&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+&+&-&+&-\\
+      -&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+&-&+&-&+\\
+      -&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+&+&-&+&-\\
+      +&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+&-&+&-&+\\ \hline
+      +&-&+&-&+&-&-&+&+&+&-&-&+&+&-&-&+&-&-&+&+&-&+&-&+&+&+&+\\
+      -&+&-&+&-&+&+&-&+&+&-&-&+&+&-&-&-&+&+&-&-&+&-&+&+&+&+&+\\
+      +&-&+&-&-&+&+&-&-&-&+&+&-&-&+&+&-&+&+&-&+&-&+&-&+&+&+&+\\
+      -&+&-&+&+&-&-&+&-&-&+&+&-&-&+&+&+&-&-&+&-&+&-&+&+&+&+&+\\
+    \end{array}
+  \right)
+\]
+\end{tiny}
+Similarly, the block-circulant matrix $B$ has first row
+$(c_0,c_1,c_2,c_3,-c_3,-c_2,-c_1)$ and is given by
+\begin{tiny}
+\[
+  B=
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(
+    \begin{array}{cccc|cccc|cccc|cccc|cccc|cccc|cccc}
+      +&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+\\
+      +&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-\\
+      +&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+\\
+      +&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-\\ \hline
+      -&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-\\
+      +&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+\\
+      -&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+\\
+      +&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-\\ \hline
+      -&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+\\
+      +&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+\\
+      +&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-\\
+      -&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-\\ \hline
+      -&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+&+&+&-&-\\
+      -&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-&+&+&-&-\\
+      +&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-&-&-&+&+\\
+      +&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+&-&-&+&+\\ \hline
+      +&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-&+&-&-&+\\
+      +&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+&-&+&+&-\\
+      -&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-&-&+&+&-\\
+      -&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+&+&-&-&+\\ \hline
+      +&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+&+&-&+&-\\
+      -&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+&-&+&-&+\\
+      -&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+&+&-&+&-\\
+      +&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+&-&+&-&+\\ \hline
+      +&-&+&-&+&-&-&+&+&+&-&-&-&-&+&+&-&+&+&-&-&+&-&+&+&+&+&+\\
+      -&+&-&+&-&+&+&-&+&+&-&-&-&-&+&+&+&-&-&+&+&-&+&-&+&+&+&+\\
+      +&-&+&-&-&+&+&-&-&-&+&+&+&+&-&-&+&-&-&+&-&+&-&+&+&+&+&+\\
+      -&+&-&+&+&-&-&+&-&-&+&+&+&+&-&-&-&+&+&-&+&-&+&-&+&+&+&+\\
+    \end{array}
+  \right)
+\]
+\end{tiny}
+
+It remains to construct the block matrix $F$. Label the 8 rows of the Hadamard
+matrix formed by the Kronecker product of
+$
+\left(
+  \begin{smallmatrix}
+    +&+\\
+    +&-
+  \end{smallmatrix}
+\right)
+$
+with (\ref{h4}) by $k_0, \dots, k_7$. We then form the following $F_i=k_i^th_0$,
+for $i \in \{1,2,3,4,5,6,7\}$.
+\begin{small}
+\begin{align*}
+  F_1 &= \left(
+        \arraycolsep=1.25pt\def\arraystretch{0.625}
+        \begin{array}{cccc}
+          -&-&-&-\\
+          +&+&+&+\\
+          -&-&-&-\\
+          +&+&+&+\\
+          -&-&-&-\\
+          +&+&+&+\\
+          -&-&-&-\\
+          +&+&+&+\\
         \end{array}
-      \right)
-    \]
-  \end{tiny}
-  \caption{A splittable $\od(64;16,16,16,16)$ obtained from (\ref{od4}).}
-  \label{od64}
-\end{figure}
+        \right),
+      &
+        F_2 &= \left(
+              \arraycolsep=1.25pt\def\arraystretch{0.625}
+              \begin{array}{cccc}
+                -&-&-&-\\
+                +&+&+&+\\
+                +&+&+&+\\
+                -&-&-&-\\
+                -&-&-&-\\
+                +&+&+&+\\
+                +&+&+&+\\
+                -&-&-&-\\
+              \end{array}
+  \right),
+      &
+        F_3 &= \left(
+              \arraycolsep=1.25pt\def\arraystretch{0.625}
+              \begin{array}{cccc}
+                -&-&-&-\\
+                -&-&-&-\\
+                +&+&+&+\\
+                +&+&+&+\\
+                -&-&-&-\\
+                -&-&-&-\\
+                +&+&+&+\\
+                +&+&+&+\\
+              \end{array}
+  \right),
+      &
+        F_4 &= \left(
+              \arraycolsep=1.25pt\def\arraystretch{0.625}
+              \begin{array}{cccc}
+                +&+&+&+\\
+                +&+&+&+\\
+                +&+&+&+\\
+                +&+&+&+\\
+                -&-&-&-\\
+                -&-&-&-\\
+                -&-&-&-\\
+                -&-&-&-\\
+              \end{array}
+  \right),
+  \\
+  F_5 &= \left(
+        \arraycolsep=1.25pt\def\arraystretch{0.625}
+        \begin{array}{cccc}
+          -&-&-&-\\
+          +&+&+&+\\
+          -&-&-&-\\
+          +&+&+&+\\
+          +&+&+&+\\
+          -&-&-&-\\
+          +&+&+&+\\
+          -&-&-&-\\
+        \end{array}
+  \right),
+      &
+        F_6 &= \left(
+              \arraycolsep=1.25pt\def\arraystretch{0.625}
+              \begin{array}{cccc}
+                -&-&-&-\\
+                +&+&+&+\\
+                +&+&+&+\\
+                -&-&-&-\\
+                +&+&+&+\\
+                -&-&-&-\\
+                -&-&-&-\\
+                +&+&+&+\\
+              \end{array}
+  \right),
+      &
+        F_7 &= \left(
+              \arraycolsep=1.25pt\def\arraystretch{0.625}
+              \begin{array}{cccc}
+                -&-&-&-\\
+                -&-&-&-\\
+                +&+&+&+\\
+                +&+&+&+\\
+                +&+&+&+\\
+                +&+&+&+\\
+                -&-&-&-\\
+                -&-&-&-\\
+              \end{array}
+              \right).
+\end{align*}
+\end{small}
+We then use these to form
+\begin{small}
+\[
+  F =
+  \arraycolsep=1.25pt\def\arraystretch{0.625}
+  \left(
+    \begin{array}{cccc|cccc|cccc|cccc|cccc|cccc|cccc}
+      -&-&-&-&-&-&-&-&-&-&-&-&+&+&+&+&-&-&-&-&-&-&-&-&-&-&-&-\\
+      +&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-\\
+      -&-&-&-&+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&+&+&+&+\\
+      +&+&+&+&-&-&-&-&+&+&+&+&+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+\\
+      -&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&+&+&+&+&+&+&+&+&+&+&+&+\\
+      +&+&+&+&+&+&+&+&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&-&+&+&+&+\\
+      -&-&-&-&+&+&+&+&+&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&-&-&-&-\\
+      +&+&+&+&-&-&-&-&+&+&+&+&-&-&-&-&-&-&-&-&+&+&+&+&-&-&-&-\\
+    \end{array}
+  \right).
+\]
+\end{small}
+
+Taking $E=F^t$, we find that
+$
+\left(
+  \begin{smallmatrix}
+    J_8 & F & -F \\
+    E & A & B \\
+    -E & B & A
+  \end{smallmatrix}
+\right)
+$
+is the required balancedly splittable Hadamard matrix of order 64, which is too
+large to display here.
+
+\section*{A2. A Balancedly Splittable $\bw\mathbf{(36,36;6)}$}
+
+Beginning with (\ref{bw3}), a Butson Hadamard matrix of order 3 over the complex
+3-rd roots of unity, we can construct a balancedly splittable $\bw(36,36;6)$.
+
+First, we rewrite (\ref{bw3}) as
+\[
+  H=
+  \arraycolsep=1.25\def\arraystretch{0.625}
+  \left(
+    \begin{array}{ccc}
+      0&0&0\\
+      0&4&2\\
+      0&2&4
+    \end{array}
+  \right),
+\]
+where the entries of the matrix are the logarithms of
+$-e^\frac{2\pi\sqrt{-1}}{3}$.
+
+The auxiliary matrices of $H$ are then given by
+\[
+  \arraycolsep=1.75\def\arraystretch{0.5}
+  c_0 =
+  \left(
+    \begin{array}{ccc}
+      0&0&0\\
+      0&0&0\\
+      0&0&0
+    \end{array}
+  \right),
+  c_1 =
+  \left(
+   \begin{array}{ccc}
+     0&4&2\\
+     2&0&4\\
+     4&2&0
+   \end{array}
+ \right),
+ c_2 =
+ \left(
+   \begin{array}{ccc}
+     0&2&4\\
+     4&0&2\\
+     2&4&0
+   \end{array}
+ \right).
+\]
+
+The block-circulant matrix $A$ has forst row $(c_0,c_1,c_2,c_2,c_1)$ and is
+given by
+\[
+  A = \left(
+    \arraycolsep=1.75\def\arraystretch{0.5}
+    \begin{array}{ccc|ccc|ccc|ccc|ccc}
+      0&0&0&0&4&2&0&2&4&0&2&4&0&4&2\\
+      0&0&0&2&0&4&4&0&2&4&0&2&2&0&4\\
+      0&0&0&4&2&0&2&4&0&2&4&0&4&2&0\\ \hline
+      0&4&2&0&0&0&0&4&2&0&2&4&0&2&4\\
+      2&0&4&0&0&0&2&0&4&4&0&2&4&0&2\\
+      4&2&0&0&0&0&4&2&0&2&4&0&2&4&0\\ \hline
+      0&2&4&0&4&2&0&0&0&0&4&2&0&2&4\\
+      4&0&2&2&0&4&0&0&0&2&0&4&4&0&2\\
+      2&4&0&4&2&0&0&0&0&4&2&0&2&4&0\\ \hline
+      0&2&4&0&2&4&0&4&2&0&0&0&0&4&2\\
+      4&0&2&4&0&2&2&0&4&0&0&0&2&0&4\\
+      2&4&0&2&4&0&4&2&0&0&0&0&4&2&0\\ \hline
+      0&4&2&0&2&4&0&2&4&0&4&2&0&0&0\\
+      2&0&4&4&0&2&4&0&2&2&0&4&0&0&0\\
+      4&2&0&2&4&0&2&4&0&4&2&0&0&0&0\\
+    \end{array}
+  \right).
+\]
+The block-circulant matrix $B$ has first row $(c_0,c_1,c_2,-c_2,-c_1)$ and is
+given by
+\[
+  B = \left(
+    \arraycolsep=1.75\def\arraystretch{0.5}
+    \begin{array}{ccc|ccc|ccc|ccc|ccc}
+      0&0&0&0&4&2&0&2&4&3&5&1&3&1&5\\
+      0&0&0&2&0&4&4&0&2&1&3&5&5&3&1\\
+      0&0&0&4&2&0&2&4&0&5&1&3&1&5&3\\ \hline
+      3&1&5&0&0&0&0&4&2&0&2&4&3&5&1\\
+      5&3&1&0&0&0&2&0&4&4&0&2&1&3&5\\
+      1&5&3&0&0&0&4&2&0&2&4&0&5&1&3\\ \hline
+      3&5&1&3&1&5&0&0&0&0&4&2&0&2&4\\
+      1&3&5&5&3&1&0&0&0&2&0&4&4&0&2\\
+      5&1&3&1&5&3&0&0&0&4&2&0&2&4&0\\ \hline
+      0&2&4&3&5&1&3&1&5&0&0&0&0&4&2\\
+      4&0&2&1&3&5&5&3&1&0&0&0&2&0&4\\
+      2&4&0&5&1&3&1&5&3&0&0&0&4&2&0\\ \hline
+      0&4&2&0&2&4&3&5&1&3&1&5&0&0&0\\
+      2&0&4&4&0&2&1&3&5&5&3&1&0&0&0\\
+      4&2&0&2&4&0&5&1&3&1&5&3&0&0&0\\
+    \end{array}
+  \right).
+\]
+
+As before, we take
+$
+K=\left(
+  \begin{smallmatrix}
+    +&+\\
+    +&-
+  \end{smallmatrix}
+\right)
+\otimes
+H
+$
+and form $F_i=k_i^*h_0$, for $i \in \{1,2,3,4,5\}$.
+\begin{align*}
+  F_1 &= \left(
+        \arraycolsep=1.75\def\arraystretch{0.5}
+        \begin{array}{ccc}
+          0&0&0\\
+          2&2&2\\
+          4&4&4\\
+          0&0&0\\
+          2&2&2\\
+          4&4&4\\
+        \end{array}
+        \right),
+  &
+    F_2 &= \left(
+          \arraycolsep=1.75\def\arraystretch{0.5}
+          \begin{array}{ccc}
+            0&0&0\\
+            4&4&4\\
+            2&2&2\\
+            0&0&0\\
+            4&4&4\\
+            2&2&2\\
+          \end{array}
+          \right),
+  &
+    F_3 &= \left(
+          \arraycolsep=1.75\def\arraystretch{0.5}
+          \begin{array}{ccc}
+            0&0&0\\
+            0&0&0\\
+            0&0&0\\
+            3&3&3\\
+            3&3&3\\
+            3&3&3\\
+          \end{array}
+          \right),
+  \\
+  F_4 &= \left(
+        \arraycolsep=1.75\def\arraystretch{0.5}
+        \begin{array}{ccc}
+          0&0&0\\
+          2&2&2\\
+          4&4&4\\
+          3&3&3\\
+          5&5&5\\
+          1&1&1\\
+        \end{array}
+        \right),
+  &
+    F_5 &= \left(
+          \arraycolsep=1.75\def\arraystretch{0.5}
+          \begin{array}{ccc}
+            0&0&0\\
+            4&4&4\\
+            2&2&2\\
+            3&3&3\\
+            1&1&1\\
+            5&5&5\\
+          \end{array}
+          \right).
+\end{align*}
+Then
+\[
+  F = \left(
+    \arraycolsep=1.75\def\arraystretch{0.5}
+    \begin{array}{ccc|ccc|ccc|ccc|ccc}
+      0&0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+      2&2&2&4&4&4&0&0&0&2&2&2&4&4&4\\
+      4&4&4&2&2&2&0&0&0&4&4&4&2&2&2\\
+      0&0&0&0&0&0&3&3&3&3&3&3&3&3&3\\
+      2&2&2&4&4&4&3&3&3&5&5&5&1&1&1\\
+      4&4&4&2&2&2&3&3&3&1&1&1&5&5&5\\
+    \end{array}
+  \right),
+\]
+and $E=F^*$.
+
+Finally, we form the matrix
+$
+\left(
+  \begin{smallmatrix}
+    J_6 & F & -F \\
+    E & A & B \\
+    -E & B & A
+  \end{smallmatrix}
+\right) 
+$
+given by
+\[
+  \left(
+    \arraycolsep=1.75\def\arraystretch{0.5}
+    \begin{array}{cccccc|ccccccccccccccc|ccccccccccccccc}
+      0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&3&3&3&3&3&3&3&3&3&3&3&3&3&3&3\\
+      0&0&0&0&0&0&2&2&2&4&4&4&0&0&0&2&2&2&4&4&4&5&5&5&1&1&1&3&3&3&5&5&5&1&1&1\\
+      0&0&0&0&0&0&4&4&4&2&2&2&0&0&0&4&4&4&2&2&2&1&1&1&5&5&5&3&3&3&1&1&1&5&5&5\\
+      0&0&0&0&0&0&0&0&0&0&0&0&3&3&3&3&3&3&3&3&3&3&3&3&3&3&3&0&0&0&0&0&0&0&0&0\\
+      0&0&0&0&0&0&2&2&2&4&4&4&3&3&3&5&5&5&1&1&1&5&5&5&1&1&1&0&0&0&2&2&2&4&4&4\\
+      0&0&0&0&0&0&4&4&4&2&2&2&3&3&3&1&1&1&5&5&5&1&1&1&5&5&5&0&0&0&4&4&4&2&2&2\\
+      \hline
+      0&4&2&0&4&2&0&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&3&5&1&3&1&5\\
+      0&4&2&0&4&2&0&0&0&2&0&4&4&0&2&4&0&2&2&0&4&0&0&0&2&0&4&4&0&2&1&3&5&5&3&1\\
+      0&4&2&0&4&2&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&0&5&1&3&1&5&3\\
+      0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&0&2&4&3&1&5&0&0&0&0&4&2&0&2&4&3&5&1\\
+      0&2&4&0&2&4&2&0&4&0&0&0&2&0&4&4&0&2&4&0&2&5&3&1&0&0&0&2&0&4&4&0&2&1&3&5\\
+      0&2&4&0&2&4&4&2&0&0&0&0&4&2&0&2&4&0&2&4&0&1&5&3&0&0&0&4&2&0&2&4&0&5&1&3\\
+      0&0&0&3&3&3&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&3&5&1&3&1&5&0&0&0&0&4&2&0&2&4\\
+      0&0&0&3&3&3&4&0&2&2&0&4&0&0&0&2&0&4&4&0&2&1&3&5&5&3&1&0&0&0&2&0&4&4&0&2\\
+      0&0&0&3&3&3&2&4&0&4&2&0&0&0&0&4&2&0&2&4&0&5&1&3&1&5&3&0&0&0&4&2&0&2&4&0\\
+      0&4&2&3&1&5&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&3&5&1&3&1&5&0&0&0&0&4&2\\
+      0&4&2&3&1&5&4&0&2&4&0&2&2&0&4&0&0&0&2&0&4&4&0&2&1&3&5&5&3&1&0&0&0&2&0&4\\
+      0&4&2&3&1&5&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&0&5&1&3&1&5&3&0&0&0&4&2&0\\
+      0&2&4&3&5&1&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&3&5&1&3&1&5&0&0&0\\
+      0&2&4&3&5&1&2&0&4&4&0&2&4&0&2&2&0&4&0&0&0&2&0&4&4&0&2&1&3&5&5&3&1&0&0&0\\
+      0&2&4&3&5&1&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&0&5&1&3&1&5&3&0&0&0\\
+      \hline
+      3&1&5&3&1&5&0&0&0&0&4&2&0&2&4&3&5&1&3&1&5&0&0&0&0&4&2&0&2&4&0&2&4&0&4&2\\
+      3&1&5&3&1&5&0&0&0&2&0&4&4&0&2&1&3&5&5&3&1&0&0&0&2&0&4&4&0&2&4&0&2&2&0&4\\
+      3&1&5&3&1&5&0&0&0&4&2&0&2&4&0&5&1&3&1&5&3&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0\\
+      3&5&1&3&5&1&3&1&5&0&0&0&0&4&2&0&2&4&3&5&1&0&4&2&0&0&0&0&4&2&0&2&4&0&2&4\\
+      3&5&1&3&5&1&5&3&1&0&0&0&2&0&4&4&0&2&1&3&5&2&0&4&0&0&0&2&0&4&4&0&2&4&0&2\\
+      3&5&1&3&5&1&1&5&3&0&0&0&4&2&0&2&4&0&5&1&3&4&2&0&0&0&0&4&2&0&2&4&0&2&4&0\\
+      3&3&3&0&0&0&3&5&1&3&1&5&0&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4\\
+      3&3&3&0&0&0&1&3&5&5&3&1&0&0&0&2&0&4&4&0&2&4&0&2&2&0&4&0&0&0&2&0&4&4&0&2\\
+      3&3&3&0&0&0&5&1&3&1&5&3&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0&2&4&0\\
+      3&1&5&0&4&2&0&2&4&3&5&1&3&1&5&0&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2\\
+      3&1&5&0&4&2&4&0&2&1&3&5&5&3&1&0&0&0&2&0&4&4&0&2&4&0&2&2&0&4&0&0&0&2&0&4\\
+      3&1&5&0&4&2&2&4&0&5&1&3&1&5&3&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0&4&2&0\\
+      3&5&1&0&2&4&0&4&2&0&2&4&3&5&1&3&1&5&0&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0\\
+      3&5&1&0&2&4&2&0&4&4&0&2&1&3&5&5&3&1&0&0&0&2&0&4&4&0&2&4&0&2&2&0&4&0&0&0\\
+      3&5&1&0&2&4&4&2&0&2&4&0&5&1&3&1&5&3&0&0&0&4&2&0&2&4&0&2&4&0&4&2&0&0&0&0\\
+    \end{array}
+  \right).
+\]
+which is a balancedly splittable $\bw(36,36;6)$.
+
+\section*{A3. A Balancedly Splittable $\od\mathbf{(64;16,16,16,16)}$}
+
+As before, we start with (\ref{od4}). The corresponding Hadamard matrix is
+(\ref{h4}), so we form the the auxiliary matrices given by
+\[
+  \arraycolsep=2.0pt\def\arraystretch{0.5}
+  c_0 = \left(
+    \begin{array}{cccc}
+      a&b&c&d\\
+      a&b&c&d\\
+      a&b&c&d\\
+      a&b&c&d\\
+    \end{array}
+  \right),
+  c_1 = \left(
+    \begin{array}{cccc}
+      b&\bar{a}&d&\bar{c}\\
+      \bar{b}&a&\bar{d}&c\\
+      b&\bar{a}&d&\bar{c}\\
+      \bar{b}&a&\bar{d}&c\\
+    \end{array}
+  \right),
+  c_2 = \left(
+    \begin{array}{cccc}
+      c&\bar{d}&\bar{a}&b\\
+      \bar{c}&d&a&\bar{b}\\
+      \bar{c}&d&a&\bar{b}\\
+      c&\bar{d}&\bar{a}&b\\
+    \end{array}
+  \right),
+  c_3 = \left(
+    \begin{array}{cccc}
+      d&c&\bar{b}&\bar{a}\\
+      d&c&\bar{b}&\bar{a}\\
+      \bar{d}&\bar{c}&b&a\\
+      \bar{d}&\bar{c}&b&a\\
+    \end{array}
+  \right).
+\]
+
+The block-circulant matrix $A$ has first row $(c_0,c_1,c_2,c_3,c_3,c_2,c_1)$ and
+is given by
+\[
+  A = \left(
+    \arraycolsep=2.0pt\def\arraystretch{0.5}
+    \begin{array}{cccc|cccc|cccc|cccc|cccc|cccc|cccc}
+      a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}\\
+a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c\\
+a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}\\
+a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c\\
+\hline
+b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b\\
+\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}\\
+b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}\\
+\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b\\
+\hline
+c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}\\
+\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}\\
+\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a\\
+c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a\\
+\hline
+d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}\\
+d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}\\
+\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a\\
+\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a\\
+\hline
+d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b\\
+d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}\\
+\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}\\
+\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b\\
+\hline
+c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}\\
+\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c\\
+\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&b&\bar{a}&d&\bar{c}\\
+c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&\bar{b}&a&\bar{d}&c\\
+\hline
+b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d\\
+\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d\\
+b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d\\
+\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d\\
+    \end{array}
+  \right).
+\]
+The block-circulant matrix $B$ has first row $(c_0,c_1,c_2,c_3,-c_3,-c_2,-c_1)$
+and is given by
+\[
+  B = \left(
+    \arraycolsep=2.0pt\def\arraystretch{0.5}
+    \begin{array}{cccc|cccc|cccc|cccc|cccc|cccc|cccc}
+      a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c\\
+a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}\\
+a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c\\
+a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}\\
+\hline
+\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}\\
+b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b\\
+\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b\\
+b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}\\
+\hline
+\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a\\
+c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a\\
+c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}\\
+\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}\\
+\hline
+\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}\\
+\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}\\
+d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a\\
+d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a\\
+\hline
+d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b\\
+d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}\\
+\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}\\
+\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b\\
+\hline
+c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}\\
+\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c\\
+\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d&b&\bar{a}&d&\bar{c}\\
+c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d&\bar{b}&a&\bar{d}&c\\
+\hline
+b&\bar{a}&d&\bar{c}&c&\bar{d}&\bar{a}&b&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&\bar{c}&d&a&\bar{b}&\bar{b}&a&\bar{d}&c&a&b&c&d\\
+\bar{b}&a&\bar{d}&c&\bar{c}&d&a&\bar{b}&d&c&\bar{b}&\bar{a}&\bar{d}&\bar{c}&b&a&c&\bar{d}&\bar{a}&b&b&\bar{a}&d&\bar{c}&a&b&c&d\\
+b&\bar{a}&d&\bar{c}&\bar{c}&d&a&\bar{b}&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&c&\bar{d}&\bar{a}&b&\bar{b}&a&\bar{d}&c&a&b&c&d\\
+\bar{b}&a&\bar{d}&c&c&\bar{d}&\bar{a}&b&\bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}&\bar{c}&d&a&\bar{b}&b&\bar{a}&d&\bar{c}&a&b&c&d\\
+    \end{array}
+  \right)
+\]
+
+Taking $Y$ to be the Kronecker product of
+$
+\left(
+  \begin{smallmatrix}
+    +&+\\
+    +&-
+  \end{smallmatrix}
+\right)
+$
+with $X$ and $K$ the corresponding Hadamard matrix, we form the matrices $F_i =
+k_i^tx_0$, for $i \in \{1,2,3,4,5,6,7\}$.
+\begin{align*}
+  F_1 &= \left(
+        \arraycolsep=2.0pt\def\arraystretch{0.5}
+        \begin{array}{cccc}
+          \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d\\
+          \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d\\
+          \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d\\
+          \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d\\
+        \end{array}
+        \right),
+  &
+    F_2 &= \left(
+          \arraycolsep=2.0pt\def\arraystretch{0.5}
+          \begin{array}{cccc}
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            a&b&c&d\\
+            a&b&c&d\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            a&b&c&d\\
+            a&b&c&d\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          \end{array}
+          \right),
+  &
+    F_3 &= \left(
+          \arraycolsep=2.0pt\def\arraystretch{0.5}
+          \begin{array}{cccc}
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            a&b&c&d\\
+            a&b&c&d\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            a&b&c&d\\
+            a&b&c&d\\
+          \end{array}
+          \right),
+  &
+    F_4 &= \left(
+          \arraycolsep=2.0pt\def\arraystretch{0.5}
+          \begin{array}{cccc}
+            a&b&c&d\\
+            a&b&c&d\\
+            a&b&c&d\\
+            a&b&c&d\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          \end{array}
+          \right),
+  \\
+  F_5 &= \left(
+        \arraycolsep=2.0pt\def\arraystretch{0.5}
+        \begin{array}{cccc}
+          \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d\\
+          \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d\\
+          a&b&c&d\\
+          \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d\\
+          \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+        \end{array}
+        \right),
+  &
+    F_6 &= \left(
+          \arraycolsep=2.0pt\def\arraystretch{0.5}
+          \begin{array}{cccc}
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            a&b&c&d\\
+            a&b&c&d\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            a&b&c&d\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            a&b&c&d\\
+          \end{array}
+          \right),
+  &
+    F_7 &= \left(
+          \arraycolsep=2.0pt\def\arraystretch{0.5}
+          \begin{array}{cccc}
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            a&b&c&d\\
+            a&b&c&d\\
+            a&b&c&d\\
+            a&b&c&d\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+            \bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          \end{array}
+          \right).
+\end{align*}
+The matrix $F$ is then given by
+\[
+  F = \left(
+    \arraycolsep=2.0pt\def\arraystretch{0.5}
+    \begin{array}{cccc|cccc|cccc|cccc|cccc|cccc|cccc}
+      \bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d\\
+a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d\\
+\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&a&b&c&d\\
+a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d\\
+\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}&\bar{a}&\bar{b}&\bar{c}&\bar{d}&a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+    \end{array}
+  \right)
+\]
+
+We next form the matrices $E_i = h_0^ty_i$, for $i \in \{1,2,3,4,5,6,7\}$.
+\begin{align*}
+  E_1 &= \left(
+        \arraycolsep=2.0pt\def\arraystretch{0.5}
+        \begin{array}{cccccccc}
+          \bar{b}&a&\bar{d}&c&\bar{b}&a&\bar{d}&c\\
+          \bar{b}&a&\bar{d}&c&\bar{b}&a&\bar{d}&c\\
+          \bar{b}&a&\bar{d}&c&\bar{b}&a&\bar{d}&c\\
+          \bar{b}&a&\bar{d}&c&\bar{b}&a&\bar{d}&c\\
+        \end{array}
+        \right),
+      &
+        E_2 &= \left(
+              \arraycolsep=2.0pt\def\arraystretch{0.5}
+              \begin{array}{cccccccc}
+                \bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}\\
+                \bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}\\
+                \bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}\\
+                \bar{c}&d&a&\bar{b}&\bar{c}&d&a&\bar{b}\\
+              \end{array}
+              \right),
+      &
+        E_3 &= \left(
+              \arraycolsep=2.0pt\def\arraystretch{0.5}
+              \begin{array}{cccccccc}
+                \bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a\\
+                \bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a\\
+                \bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a\\
+                \bar{d}&\bar{c}&b&a&\bar{d}&\bar{c}&b&a\\
+              \end{array}
+  \right),
+  \\
+  E_4 &= \left(
+        \arraycolsep=2.0pt\def\arraystretch{0.5}
+        \begin{array}{cccccccc}
+          a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+          a&b&c&d&\bar{a}&\bar{b}&\bar{c}&\bar{d}\\
+        \end{array}
+  \right),
+      &
+        E_5 &= \left(
+              \arraycolsep=2.0pt\def\arraystretch{0.5}
+              \begin{array}{cccccccc}
+                \bar{b}&a&\bar{d}&c&b&\bar{a}&d&\bar{c}\\
+                \bar{b}&a&\bar{d}&c&b&\bar{a}&d&\bar{c}\\
+                \bar{b}&a&\bar{d}&c&b&\bar{a}&d&\bar{c}\\
+                \bar{b}&a&\bar{d}&c&b&\bar{a}&d&\bar{c}\\
+              \end{array}
+  \right),
+      &
+        E_6 &= \left(
+              \arraycolsep=2.0pt\def\arraystretch{0.5}
+              \begin{array}{cccccccc}
+                \bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b\\
+                \bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b\\
+                \bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b\\
+                \bar{c}&d&a&\bar{b}&c&\bar{d}&\bar{a}&b\\
+              \end{array}
+  \right),
+  \\
+  E_7 &= \left(
+        \arraycolsep=2.0pt\def\arraystretch{0.5}
+        \begin{array}{cccccccc}
+          \bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}\\
+          \bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}\\
+          \bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}\\
+          \bar{d}&\bar{c}&b&a&d&c&\bar{b}&\bar{a}\\         
+        \end{array}
+        \right).
+\end{align*}
+The matrix $E^t$ is then given by
+\[
+  E^t = \left(
+    \arraycolsep=2.0pt\def\arraystretch{0.5}
+    \begin{array}{cccc|cccc|cccc|cccc|cccc|cccc|cccc}
+      \bar{b}&\bar{b}&\bar{b}&\bar{b}&\bar{c}&\bar{c}&\bar{c}&\bar{c}&\bar{d}&\bar{d}&\bar{d}&\bar{d}&a&a&a&a&\bar{b}&\bar{b}&\bar{b}&\bar{b}&\bar{c}&\bar{c}&\bar{c}&\bar{c}&\bar{d}&\bar{d}&\bar{d}&\bar{d}\\
+      a&a&a&a&d&d&d&d&\bar{c}&\bar{c}&\bar{c}&\bar{c}&b&b&b&b&a&a&a&a&d&d&d&d&\bar{c}&\bar{c}&\bar{c}&\bar{c}\\
+      \bar{d}&\bar{d}&\bar{d}&\bar{d}&a&a&a&a&b&b&b&b&c&c&c&c&\bar{d}&\bar{d}&\bar{d}&\bar{d}&a&a&a&a&b&b&b&b\\
+      c&c&c&c&\bar{b}&\bar{b}&\bar{b}&\bar{b}&a&a&a&a&d&d&d&d&c&c&c&c&\bar{b}&\bar{b}&\bar{b}&\bar{b}&a&a&a&a\\
+      \bar{b}&\bar{b}&\bar{b}&\bar{b}&\bar{c}&\bar{c}&\bar{c}&\bar{c}&\bar{d}&\bar{d}&\bar{d}&\bar{d}&\bar{a}&\bar{a}&\bar{a}&\bar{a}&b&b&b&b&c&c&c&c&d&d&d&d\\
+      a&a&a&a&d&d&d&d&\bar{c}&\bar{c}&\bar{c}&\bar{c}&\bar{b}&\bar{b}&\bar{b}&\bar{b}&\bar{a}&\bar{a}&\bar{a}&\bar{a}&\bar{d}&\bar{d}&\bar{d}&\bar{d}&c&c&c&c\\
+      \bar{d}&\bar{d}&\bar{d}&\bar{d}&a&a&a&a&b&b&b&b&\bar{c}&\bar{c}&\bar{c}&\bar{c}&d&d&d&d&\bar{a}&\bar{a}&\bar{a}&\bar{a}&\bar{b}&\bar{b}&\bar{b}&\bar{b}\\
+      c&c&c&c&\bar{b}&\bar{b}&\bar{b}&\bar{b}&a&a&a&a&\bar{d}&\bar{d}&\bar{d}&\bar{d}&\bar{c}&\bar{c}&\bar{c}&\bar{c}&b&b&b&b&\bar{a}&\bar{a}&\bar{a}&\bar{a}\\
+    \end{array}
+  \right).
+\]
+
+Finally, we form 
+\[
+  G = k_0^ty_0 
+    = \left(
+      \arraycolsep=2.0pt\def\arraystretch{0.5}
+      \begin{array}{cccccccc}
+        a&b&c&d&a&b&c&d\\
+        a&b&c&d&a&b&c&d\\
+        a&b&c&d&a&b&c&d\\
+        a&b&c&d&a&b&c&d\\
+        a&b&c&d&a&b&c&d\\
+        a&b&c&d&a&b&c&d\\
+        a&b&c&d&a&b&c&d\\
+        a&b&c&d&a&b&c&d\\
+      \end{array}
+      \right),
+\]
+whereupon the matrix
+$
+\left(
+  \begin{smallmatrix}
+    G & F & -F \\
+    E & A & B \\
+    -E & B & A
+  \end{smallmatrix}
+\right)
+$
+is the required balancedly splittable $\od(64;16,16,16,16)$.
 
 \end{document}
