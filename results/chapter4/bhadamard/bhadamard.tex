@@ -43,13 +43,17 @@
 +&-&-&+&-&+&+&-&-&+&+&-&+&-&-&+\\
    \end{array}\right).$
   \end{defenum}
-  The matrix \ref{balanced-had-ex-M} has the submatrix $H_1$ which we have shown in bold above. This submatrix has the property that $H_1^tH_1=4I+4A$, for some symmetric $(0,1)$-matrix $A$ with zero diagonal. In particular, there are only two angles that exist between the columns of $H_1$.
+  The matrix \ref{balanced-had-ex-M} has the submatrix $H_1$ which we have shown
+  in bold above. This submatrix has the property that $H_1^tH_1=4I+4A$, for some
+  symmetric $(0,1)$-matrix $A$ with zero diagonal, namely, $A=I_4 \otimes (J_4 -
+  I_4)$. In particular, there is only a single angle that exist between the columns of $H_1$.
  \end{ex}
  
  The above example motivates the following definition.
  
  \begin{defin}\label{bal-split-hadamard}\index{balancedly splittable Hadamard matrix}
-  A Hadamard Matrix $H$ of order $n$ is {\it balancedly splittable} with parameters $(n,\ell,a,b)$ if $H$ has an $\ell \times n$ submatrix $H_1$ such that
+  A Hadamard Matrix $H$ of order $n$ is {\it balancedly splittable} with
+  parameters $(n,\ell,a,b)$, where $a<b$, if $H$ has an $\ell \times n$ submatrix $H_1$ such that
   \begin{defenum}
    \item $H_1^tH_1 = \ell I + aA + b(J-I-A)$,
   \end{defenum}
@@ -85,7 +89,7 @@ We will require the following proposition due to \cite{spherical-codes-designs}.
 Using balancedly splittable Hadamard matrices, we can construct optimal sets of equiangular lines.
 
 \begin{thm}
- If there exists a balancedly splittable Hadamard matrix with parameters $(n,\ell,a,-a)$, then there is an optimal set of equiangular lines in $\R^\ell$.
+ If there exists a balancedly splittable Hadamard matrix with parameters $(n,\ell,-a,a)$, then there is an optimal set of equiangular lines in $\R^\ell$.
 \end{thm}
 
 \begin{proof}
@@ -177,11 +181,11 @@ B=\left(\begin{array}{cccccc}
   \end{array}\right).
   $
  \end{defenum}
- Finally, take $E=F^t$. We then form the block matrix $X=\left(\begin{smallmatrix} J&F&-F\\E&A&B\\-E&B&A \end{smallmatrix}\right)$
+ Finally, take $E=F^t$. We then form the block matrix 
  \begin{defenum}[resume]
   \item\label{stable-had-ex} $
+    \left( \begin{smallmatrix} J&F&-F\\E&A&B\\-E&B&A \end{smallmatrix} \right) =
   \arraycolsep=1.25pt\def\arraystretch{0.625}
-  X=
   \left(\begin{array}{cccccccccccccccc}
 +&+&+&+&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&\textbf{+}&-&-&-&-&-&-\\
 +&+&+&+&\textbf{-}&\textbf{-}&\textbf{+}&\textbf{+}&\textbf{-}&\textbf{-}&+&+&-&-&+&+\\
@@ -202,7 +206,7 @@ B=\left(\begin{array}{cccccc}
   \end{array}\right).
   $
  \end{defenum}
- The matrix $X$ is a Hadamard matrix of order $16$, and evidently, it is balancedly splittable. Indeed, the submatrix shown in bold above can be used to form a balanced split. Due to the form of $X$, however, any one of the following can be used to form a balanced split
+ This matrix is a Hadamard matrix of order $16$, and evidently, it is balancedly splittable. Indeed, the submatrix shown in bold above can be used to form a balanced split. Due to the form of \ref{stable-had-ex}, however, any one of the following can be used to form a balanced split
  \begin{defenum}[resume]
   \item $
   \begin{pmatrix}
@@ -219,7 +223,7 @@ B=\left(\begin{array}{cccccc}
   \end{pmatrix}.
   $
  \end{defenum}
- In any event, the parameters of the splits are $(16,6,2,-2)$. Therefore, we have optimal sets of equiangular lines.
+ In any event, the parameters of the splits are $(16,6,-2,2)$. Therefore, we have optimal sets of equiangular lines.
 \end{ex}
 
 \begin{ex}

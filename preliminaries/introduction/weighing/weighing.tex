@@ -5,7 +5,7 @@
 
 \subsection{Weighing Matrices}
 
-We begin the following definition.
+We begin with the following definition.
 
 \begin{defin}\label{weighing matrix}\index{weighing matrix}
   Let $W$ be a $(-1,0,1)$-matrix of order $n$. $W$ is a {\it weighing matrix} of {\it order} $n$ and {\it weight} $k$ if
@@ -34,7 +34,7 @@ the following that can be found in \cite{lam-leung}.
   Let $p$ be a prime, and let $\xi$ be a primitive complex $p$-th root of unity. Then $\ssum_{i=0}^n a_i\xi^i = 0$ for some $n < p$ and $a_i \in \N$ if and only if $n = p-1$ and $a_0 = \cdots = a_n$.
 \end{lem}
 
-We now move on to consider some generalizations of a weighing matrix.
+We now move on to consider some further generalizations of a weighing matrix.
 
 \dinkus
 
@@ -99,7 +99,9 @@ As before, we can impose an equivalence on the set of all $v \times b$ $(0,G)$-m
   \begin{defenum}
    \item\label{c-gbrd-eq} $AA^* = rI_v + c(J_v - I_v)$,
   \end{defenum}
-  then we say that $A$ is a $c$-$\gbrd(v,k,\lambda-1;G)$, or a $c$-$\gbrd(v,b,r,k,\lambda-1;G)$ if more precision required.
+  then we say that $A$ is a $c$-$\gbrd(v,k,\lambda-1;G)$, or a
+  $c$-$\gbrd(v,b,r,k,\lambda-1;G)$ if more precision required. In what follows,
+  we will always take $c = \frac{\lambda}{|G|}G - 1$.
  \end{defin}
  
  We can now properly extend the idea of normality to BGW matrices.
@@ -108,12 +110,12 @@ As before, we can impose an equivalence on the set of all $v \times b$ $(0,G)$-m
   A $\bgw(v,k,\lambda;G)$ is said to be in {\it normal form} if it has the form
   \begin{equation}
    \begin{pmatrix}
-    \zz_{v-k} & A_1 \\ \jj_{k} & A_2
+    \zz_{v-k} & \res(A) \\ \jj_{k} & \der(A)
    \end{pmatrix}.
   \end{equation}
  \end{defin}
  
- Note that of necessity, $A_1$ is a $\gbrd(v-k,v-1,k,k-\lambda,\lambda;G)$ and $A_2$ is a $c$-$\gbrd(k,v-1,k-1,\lambda,\lambda-1;G)$. These have the parameters of the residual and derived designs of a square $\bibd(v,k,\lambda)$, hence we call them, respectively, a residual GBRD and a derived $c$-GBRD.
+ Note that of necessity, $\res(A)$ is a $\gbrd(v-k,v-1,k,k-\lambda,\lambda;G)$ and $\der(A)$ is a $c$-$\gbrd(k,v-1,k-1,\lambda,\lambda-1;G)$. These have the parameters of the residual and derived designs of a square $\bibd(v,k,\lambda)$, hence we call them, respectively, a residual GBRD and a derived $c$-GBRD.
 
  \dinkus
 
@@ -138,18 +140,18 @@ We begin with the case of real indeterminants.
   We say that the orthogonal design is of order $n$ and type $(s_1, \dots, s_u)$, and we write $X$ is an $\od(n;s_1, \dots, s_u)$. If $\ssum_i s_i=n$, then we say that the OD is {\it full}.
 \end{defin}
 
-We now extend Definition \ref{real-od-def} to the case of complex and quaternary numbers.
+We now extend Definition \ref{real-od-def} to the case of complex and quaternary elements.
 
 \begin{defin}\index{complex orthogonal design}\index{quaternary orthogonal design}
-  Let $z_1, \dots, z_u$ be complex (resp. quaternary), commuting indeterminants, and let $X$ be a matrix of order $n$ with entries from $\{0,\varepsilon_1z_1, \dots, \varepsilon_uz_u\}$ and $\{\varepsilon_1z_1^*, \dots, \varepsilon_uz_u^*\}$, where each $\varepsilon_t \in \{\pm 1, \pm i\}$ (resp. $\varepsilon_t \in \{\pm 1, \pm i, \pm j, \pm k\}$). In the event that
+  Let $z_1, \dots, z_u$ be complex (resp. quaternary), commuting indeterminants, and let $X$ be a matrix of order $n$ with entries from $\{0,\varepsilon_1z_1, \dots, \varepsilon_uz_u\}$ and $\{\varepsilon_1z_1^*, \dots, \varepsilon_uz_u^*\}$, where each $\varepsilon_\ell \in \{\pm 1, \pm i\}$ (resp. $\varepsilon_\ell \in \{\pm 1, \pm i, \pm j, \pm k\}$). In the event that
   \begin{defenum}
-  \item\label{qod-od-def} $XX^* = \left( \ssum_is_i|z_i|^2 \right)I_n$,
+  \item\label{qod-od-def} $XX^* = \left( \ssum_\ell s_\ell|z_\ell|^2 \right)I_n$,
   \end{defenum}
   then we say that $X$ is a {\it complex} (resp. {\it quaternary}) orthogonal design of type $(s_1,\dots,s_u)$. We write $X$ is a $\cod(n;s_1,\dots,s_u)$ (resp. $\qod(n;s_1,\dots,s_u)$).
 \end{defin}
 
 Equivalence of orthogonal designs is the same as for BGW matrices where the
-monimal matrices have nonzero entries in set $\{1,i,j,k\}$, and where we also
+monimal matrices have nonzero entries in set $\{\pm 1,\pm i,\pm j,\pm k\}$, and where we also
 allow a permutation of symbols.
 
 \dinkus
@@ -158,8 +160,12 @@ allow a permutation of symbols.
 
 \subsection{Sequences and Circulants}
 
- Let $A$ be an $n \times n$ matrix with first row $(a_0,\dots,a_{n-1})$. Recall that $A$ is {\it circulant}\index{circulant matrix} if $A_{ij}=a_{j-i}$, where the indices are calculated modulo $n$. In this way, the entire matrix is determined by its first row; moreover, if $A$ and $B$ are two circulants of the same dimension, then $A^t,A+B$, and $AB$ are also circulant matrices. Therefore, to effect a study of circulant matrices, we can profitably study sequences. 
- 
+ Let $A$ be an $n \times n$ matrix with first row $(a_0,\dots,a_{n-1})$. Recall
+ that $A$ is {\it circulant}\index{circulant matrix} if $A_{ij}=a_{j-i}$, where
+ the indices are calculated modulo $n$. In this way, the entire matrix is
+ determined by its first row; moreover, if $A$ and $B$ are two circulants of the
+ same dimension, then $A^t,A+B$, and $AB$ are also circulant matrices. 
+
  What we are particularly interested with here is the following.
  
  \begin{defin}\index{circulant matrix!complementary}
@@ -170,7 +176,8 @@ allow a permutation of symbols.
   where, as usual, $(m_{ij})^*=(m_{ji}^*)$.
  \end{defin}
  
- Note, however, that we can state this in terms of sequences. First, a definition.
+ Note, however, that since circulant matrices are entirely characterized by
+ their first rows, we can state this in terms of sequences. But first, a definition.
  
  \begin{defin}\index{periodic autocorrelation}\index{aperiodic autocorrelation}\index{complementary sequences}
   Let $a_0=(a_{0,0}, \dots, a_{0,n-1})$ be a sequence in a commutative ring $R$ with the involution $\cdot^*$. The {\it $j$-th aperiodic} and {\it $j$-th periodic autocorrelations} of the sequence $a$ are given respectively by
@@ -185,14 +192,16 @@ allow a permutation of symbols.
   For the case in which $m=1$, we say that we have a {\it Golay pair}.
  \end{defin}
  
- We see immediately that $P_j(a)=N_j(a) + N_{n-j}(a)^*$; hence, if $N_j(a)+N_j(b)=0$, for every $j \in \{1,\dots,n-1\}$, then $a$ and $b$ are complementary. However, vanishing periodic autocorrelations does not in general imply vanishing aperiodic autocorrelations.
+ We see immediately that $P_j(a)=N_j(a) + N_{n-j}(a)^*$; hence, if $N_j(a)+N_j(b)=0$, for every $j \in \{1,\dots,n-1\}$, then $a$ and $b$ are complementary. However, vanishing periodic autocorrelations do not in general imply vanishing aperiodic autocorrelations.
  
  The importance of the periodic correlation is given by the fact that if the first row of the circulant $A$ continues to be $a=(a_0,\dots,a_{n-1})$, then the first row of $AA^*$ is given by $(\ssum_i|a_i|^2,P_{n-1}(a), \dots,P_1(a))$. So we see that complementary circulants and complementary sequences are one and the same.
  
- Complementary sequences and orthogonal designs are connected in an intimate way; in fact, complementary sequences offer many elegant constructions of ODs. To make the connection precise, we need to allow sequence elements to be indeterminants whether real, complex, or quaternary, and where the involution is taken to be conjugation.
+ Complementary sequences and orthogonal designs are connected in an intimate way; in fact, complementary sequences offer many elegant constructions of ODs. To make the connection precise, we need to allow sequence elements to be indeterminants---whether real, complex, or quaternary---and where the involution is taken to be conjugation.
  
  \begin{prop}\label{2-circs}
-  Let $\{z_1,\dots,z_u\}$ be commuting quaternary indeterminants, and let $a=(a_0,\dots,a_{n-1})$ and $b=(b_0,\dots,b_{n-1})$ be complementary sequences with entries from $\{0,\varepsilon_0z_0, \dots, \varepsilon_uz_u\}$, where $\varepsilon_t \in \{\pm 1, \pm i, \pm j, \pm k\}$, such that $\ssum_i(|a_i|^2 + |b_i|^2)=\ssum_is_ix_i^2$. Then
+  Let $\{z_1,\dots,z_u\}$ be commuting quaternary indeterminants, and let
+  $a=(a_0,\dots,a_{n-1})$ and $b=(b_0,\dots,b_{n-1})$ be complementary sequences
+  with entries from $\{0,\varepsilon_0z_0, \dots, \varepsilon_uz_u\}$, where each $\varepsilon_\ell \in \{\pm 1, \pm i, \pm j, \pm k\}$, such that $\ssum_i(|a_i|^2 + |b_i|^2)=\ssum_is_ix_i^2$. Then
   \begin{equation}\label{plug-in-matrix}
   \arraycolsep=2.0pt\def\arraystretch{0.5}
   %\arraycolsep=1.25pt\def\arraystretch{0.625}
