@@ -1,5 +1,7 @@
 \documentclass{beamer}
-\usetheme{Madrid}
+% \usetheme[hideothersubsections]{Berkeley}
+\usetheme{Antibes}
+% \usetheme{Madrid}
 
 \usepackage[utf8]{inputenc}
 \usepackage{mathrsfs}
@@ -7,36 +9,1390 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{natbib}
+\usepackage{graphicx}
 
 \newcommand{\rred}[1]{\textcolor{red}{#1}}
 \newcommand{\ggreen}[1]{\textcolor{green}{#1}}
 \newcommand{\bblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\abs}[1]{|#1|}
 
-\title[Splittable ODs]{Weighing Matrices}
+\title[Weighing Matrices]{Weighing Matrices}
  \subtitle{Generalizations and Related Configurations}
-\author[T. Pender]{Thomas Pender}
+ \author[T. Pender]{Thomas Pender\\\scriptsize $^{***}$Joint work with Hadi Kharaghani, Sho Suda}
 \institute[U of L]{Department of Mathematics and Computer Science\\University of
 Lethbridge}
-\date[06/22/2022]{Thesis Defense\\June 22 2022}
+\date[06/22/2022]{June 22, 2022}
+\titlegraphic{
+  \includegraphics[scale=0.75]{shield.jpg}
+}
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% \setbeamertemplate{sidebar left}{}
 \begin{frame}
-
   \titlepage
-  \centering{\scriptsize $^{***}$Joint work with Hadi Kharaghani, Sho Suda}
+  % \centering{\scriptsize $^{***}$Joint work with Hadi Kharaghani, Sho Suda}
 \end{frame}
 
 \begin{frame}{Summary}
+  \tableofcontents[hideallsubsections,sections={1-5}]
+\end{frame}
+% \setbeamertemplate{sidebar left}[sidebar theme]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% section -- preliminaries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{Preliminaries}
+
+\begin{frame}
+  \[
+    \text{\huge\bf Preliminaries}
+  \]
+\end{frame}
+
+\begin{frame}{Section Summary}
+  \tableofcontents[sections={1}]
+\end{frame}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Balanced Incomplete Block Designs}
+
+\begin{frame}
 
   \begin{itemize}
-    \item 
+  \item $J_{n \times m}$ the $n \times m$ matrix of all 1s.
+  \item $I_n$ the identity matrix of order $n$.
+  \end{itemize}
+
+  \begin{block}{Definition: Balanced Incomplete Block Design}
+    \begin{itemize}
+    \item A binary $v \times b$ $(0,1)$-matrix $A$ such that:
+      \begin{enumerate}
+      \item $AA^t = rI_v + \lambda(J_v-I_v)$, and
+      \item $J_vA = kJ_v$.
+      \end{enumerate}
+      Write $BIBD(v,b,r,k,\lambda)$.
+    \item The design is symmetric if $v=b$ (equiv. $k=r$).
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item A $BIBD(13,9,6)$
+    \[
+      A=
+      \arraycolsep=2.0pt\def\arraystretch{1.0}
+      \left(
+      \begin{array}{ccccccccccccc}
+        0&0&1&0&1&1&1&1&1&0&1&1&1\\
+        1&0&0&1&0&1&1&1&1&1&0&1&1\\
+        1&1&0&0&1&0&1&1&1&1&1&0&1\\
+        1&1&1&0&0&1&0&1&1&1&1&1&0\\
+        0&1&1&1&0&0&1&0&1&1&1&1&1\\
+        1&0&1&1&1&0&0&1&0&1&1&1&1\\
+        1&1&0&1&1&1&0&0&1&0&1&1&1\\
+        1&1&1&0&1&1&1&0&0&1&0&1&1\\
+        1&1&1&1&0&1&1&1&0&0&1&0&1\\
+        1&1&1&1&1&0&1&1&1&0&0&1&0\\
+        0&1&1&1&1&1&0&1&1&1&0&0&1\\
+        1&0&1&1&1&1&1&0&1&1&1&0&0\\
+        0&1&0&1&1&1&1&1&0&1&1&1&0\\
+      \end{array}
+      \right).
+    \]
   \end{itemize}
   
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \[
+    AA^t =
+    \arraycolsep=2.0pt\def\arraystretch{1.0}
+    \left(
+    \begin{array}{ccccccccccccc}
+      9&6&6&6&6&6&6&6&6&6&6&6&6\\
+      6&9&6&6&6&6&6&6&6&6&6&6&6\\
+      6&6&9&6&6&6&6&6&6&6&6&6&6\\
+      6&6&6&9&6&6&6&6&6&6&6&6&6\\
+      6&6&6&6&9&6&6&6&6&6&6&6&6\\
+      6&6&6&6&6&9&6&6&6&6&6&6&6\\
+      6&6&6&6&6&6&9&6&6&6&6&6&6\\
+      6&6&6&6&6&6&6&9&6&6&6&6&6\\
+      6&6&6&6&6&6&6&6&9&6&6&6&6\\
+      6&6&6&6&6&6&6&6&6&9&6&6&6\\
+      6&6&6&6&6&6&6&6&6&6&9&6&6\\
+      6&6&6&6&6&6&6&6&6&6&6&9&6\\
+      6&6&6&6&6&6&6&6&6&6&6&6&9\\
+    \end{array}
+    \right)
+  \]
+\end{frame}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Weighing Matrices}
+
+\begin{frame}
+
+  \begin{block}{Definition: Weighing Matrix}
+    A $v \times v$ $(-1,0,1)$-matrix $W$ such that
+    \[
+      WW^t = kI_v.
+    \]
+    Write $W(v,k)$.
+  \end{block}
+
+  \begin{itemize}
+  \item $W(v,v)$ is a {\it Hadamard matrix}
+  \item $W(v,v-1)$ is a {\it conference matrix}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item A $W(13,9)$
+    \[
+      W =
+      \arraycolsep=2.0pt\def\arraystretch{1.0}
+      \left(
+        \begin{array}{ccccccccccccc}
+          0&0&-&0&-&1&-&-&1&0&-&-&-\\
+          1&0&0&-&0&-&1&-&-&1&0&-&-\\
+          1&1&0&0&-&0&-&1&-&-&1&0&-\\
+          1&1&1&0&0&-&0&-&1&-&-&1&0\\
+          0&1&1&1&0&0&-&0&-&1&-&-&1\\
+          -&0&1&1&1&0&0&-&0&-&1&-&-\\
+          1&-&0&1&1&1&0&0&-&0&-&1&-\\
+          1&1&-&0&1&1&1&0&0&-&0&-&1\\
+          -&1&1&-&0&1&1&1&0&0&-&0&-\\
+          1&-&1&1&-&0&1&1&1&0&0&-&0\\
+          0&1&-&1&1&-&0&1&1&1&0&0&-\\
+          1&0&1&-&1&1&-&0&1&1&1&0&0\\
+          0&1&0&1&-&1&1&-&0&1&1&1&0\\
+        \end{array}
+      \right)
+    \]
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \[
+    WW^t = 
+    \arraycolsep=2.0pt\def\arraystretch{1.0}
+    \left(
+      \begin{array}{ccccccccccccc}
+        9&0&0&0&0&0&0&0&0&0&0&0&0\\
+        0&9&0&0&0&0&0&0&0&0&0&0&0\\
+        0&0&9&0&0&0&0&0&0&0&0&0&0\\
+        0&0&0&9&0&0&0&0&0&0&0&0&0\\
+        0&0&0&0&9&0&0&0&0&0&0&0&0\\
+        0&0&0&0&0&9&0&0&0&0&0&0&0\\
+        0&0&0&0&0&0&9&0&0&0&0&0&0\\
+        0&0&0&0&0&0&0&9&0&0&0&0&0\\
+        0&0&0&0&0&0&0&0&9&0&0&0&0\\
+        0&0&0&0&0&0&0&0&0&9&0&0&0\\
+        0&0&0&0&0&0&0&0&0&0&9&0&0\\
+        0&0&0&0&0&0&0&0&0&0&0&9&0\\
+        0&0&0&0&0&0&0&0&0&0&0&0&9\\
+      \end{array}
+    \right)
+  \]
+\end{frame}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Balanced Generalized Weighing Matrices}
+
+\begin{frame}
+
+  \begin{block}{Definition: Generalized Weighing Matrix}
+    \begin{itemize}
+    \item Abelian group $G$ not containg $0$.
+    \item A $v \times v$ $(0,G)$-matrix $W$ such that
+      \[
+        WW^* = (k \cdot 1_G)I_v \pmod{\mathbb{Z}G}.
+      \]
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Definition: Balanced Generalized Weighing Matrix}
+    \begin{itemize}
+    \item Abelian group $G$ not containing $0$.
+    \item A $v \times v$ $(0,G)$-matrix $W$ such that
+      \[
+        WW^* = (k \cdot 1_G)I_v + \frac{\lambda}{\abs{G}}G(J_v-I_v).
+      \]
+    \item Write $BGW(v,k,\lambda; G)$.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item A $BGW(13,9,6;C_2)$
+    \[
+      W =
+      \arraycolsep=2.0pt\def\arraystretch{1.0}
+      \left(
+        \begin{array}{ccccccccccccc}
+          0&0&-&0&-&1&-&-&1&0&-&-&-\\
+          1&0&0&-&0&-&1&-&-&1&0&-&-\\
+          1&1&0&0&-&0&-&1&-&-&1&0&-\\
+          1&1&1&0&0&-&0&-&1&-&-&1&0\\
+          0&1&1&1&0&0&-&0&-&1&-&-&1\\
+          -&0&1&1&1&0&0&-&0&-&1&-&-\\
+          1&-&0&1&1&1&0&0&-&0&-&1&-\\
+          1&1&-&0&1&1&1&0&0&-&0&-&1\\
+          -&1&1&-&0&1&1&1&0&0&-&0&-\\
+          1&-&1&1&-&0&1&1&1&0&0&-&0\\
+          0&1&-&1&1&-&0&1&1&1&0&0&-\\
+          1&0&1&-&1&1&-&0&1&1&1&0&0\\
+          0&1&0&1&-&1&1&-&0&1&1&1&0\\
+        \end{array}
+      \right)
+    \]
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Necessary conditions for BGWs:
+    \begin{itemize}
+    \item weighing matrix
+    \item symmetric BIBD
+    \end{itemize}
+  \item Sufficient in the case that $\abs{G} = \text{prime}$ \cite[][]{lam-leung}
+  \end{itemize}
+
+\end{frame}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Orthogonal Designs}
+
+\begin{frame}
+
+  \begin{block}{Definition: Orthogonal Design}
+    \begin{itemize}
+    \item Real commuting variables $\{z_1, \dots, z_u\}$.
+    \item A $v \times v$ $(0,\pm z_1, \dots, \pm z_u)$-matrix $X$ such that
+      \[
+        XX^t = \sigma I_v,
+      \]
+      where $\sigma = \sum_i s_iz_i^2$.
+    \item Write $OD(v; s_1, \dots, s_u)$.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item An $OD(4;1,1,1,1)$
+    \[
+      X = 
+      \begin{pmatrix}
+        a & b & c & d \\
+        \bar b & a & \bar d & c \\
+        \bar c & d & a & \bar b \\
+        \bar d & \bar c & b & a
+      \end{pmatrix}.
+    \]
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    XX^t = (a^2+b^2+c^2+d^2)
+    \begin{pmatrix}
+      1 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 \\
+      0 & 0 & 1 & 0 \\
+      0 & 0 & 0 & 1
+    \end{pmatrix}
+  \]
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% section -- splittable matrices
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{Balancedly Splittable Orthogonal Designs}
+
+\begin{frame}
+  \[
+    \text{\huge\bf Balancedly Splittable ODs}
+  \]
+\end{frame}
+
+\begin{frame}{Section Summary}
+  \tableofcontents[sections={2}]
+\end{frame}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Balancedly Splittable Hadamard Matrices}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Recall a Hadamard matrix is a $W(v,v)$.
+  \end{itemize}
+
+  \begin{block}{Definition: Balancedly Splittable Hadamard Matrix \cite[][]{splittable-hadamard}}
+    \begin{itemize}
+    \item A $W(v,v)$, say $H$.
+    \item An $v \times \ell$ submatrix $H_1$ such that
+      \[
+        H_1H_1^t = \ell I_v + aA + b(J_v-I_v-A),
+      \]
+      where $A$ is a symmetric $(0,1)$-matrix with zero diagonal.
+    \item $H$ is $(v,\ell,a,b)$ balancedly splittable.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item A Hadamard matrix of order 16
+    \[
+      \arraycolsep=1.0pt\def\arraystretch{0.75}
+      \left(\begin{array}{cccccccccccccccc}
+              1&1&1&1&1&1&1&1&1&1&-&-&-&-&-&-\\
+              1&1&1&1&-&-&1&1&-&-&1&1&-&-&1&1\\
+              1&1&1&1&1&1&-&-&-&-&-&-&1&1&1&1\\
+              1&1&1&1&-&-&-&-&1&1&1&1&1&1&-&-\\
+              1&-&1&-&1&1&1&-&1&-&1&1&1&-&-&1\\
+              1&-&1&-&1&1&-&1&-&1&1&1&-&1&1&-\\
+              1&1&-&-&1&-&1&1&1&-&-&1&1&1&1&-\\
+              1&1&-&-&-&1&1&1&-&1&1&-&1&1&-&1\\
+              1&-&-&1&1&-&1&-&1&1&1&-&-&1&1&1\\
+              1&-&-&1&-&1&-&1&1&1&-&1&1&-&1&1\\
+              -&1&-&1&1&1&1&-&-&1&1&1&1&-&1&-\\
+              -&1&-&1&1&1&-&1&1&-&1&1&-&1&-&1\\
+              -&-&1&1&-&1&1&1&1&-&1&-&1&1&1&-\\
+              -&-&1&1&1&-&1&1&-&1&-&1&1&1&-&1\\
+              -&1&1&-&1&-&-&1&1&1&1&-&1&-&1&1\\
+              -&1&1&-&-&1&1&-&1&1&-&1&-&1&1&1\\
+            \end{array}\right).
+    \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item A Hadamard matrix of order 16
+    \[
+      \arraycolsep=1.0pt\def\arraystretch{0.75}
+      \left(\begin{array}{cccc|cccccc|cccccc}
+            1&1&1&1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&-&-&-&-&-&-\\
+            1&1&1&1&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&1&1&-&-&1&1\\
+            1&1&1&1&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&-&-&1&1&1&1\\
+            1&1&1&1&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&1&1&1&1&-&-\\
+            1&-&1&-&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&1&1&1&-&-&1\\
+            1&-&1&-&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&1&1&-&1&1&-\\
+            1&1&-&-&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&-&1&1&1&1&-\\
+            1&1&-&-&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&1&-&1&1&-&1\\
+            1&-&-&1&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&1&-&-&1&1&1\\
+            1&-&-&1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&-&1&1&-&1&1\\
+            -&1&-&1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&1&1&1&-&1&-\\
+            -&1&-&1&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&1&1&-&1&-&1\\
+            -&-&1&1&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&1&-&1&1&1&-\\
+            -&-&1&1&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&-&1&1&1&-&1\\
+            -&1&1&-&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&1&-&1&-&1&1\\
+            -&1&1&-&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&-&1&-&1&1&1\\
+            \end{array}\right).
+    \]
+  \item A balanced split.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Hadamard Matrices}
+
+  \[
+    \arraycolsep=1.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccc}
+        1&1&1&1&1&1\\
+        -&-&1&1&-&-\\
+        1&1&-&-&-&-\\
+        -&-&-&-&1&1\\
+        1&1&1&-&1&-\\
+        1&1&-&1&-&1\\
+        1&-&1&1&1&-\\
+        -&1&1&1&-&1\\
+        1&-&1&-&1&1\\
+        -&1&-&1&1&1\\
+        1&1&1&-&-&1\\
+        1&1&-&1&1&-\\
+        -&1&1&1&1&-\\
+        1&-&1&1&-&1\\
+        1&-&-&1&1&1\\
+        -&1&1&-&1&1\\
+      \end{array}
+    \right)
+    \arraycolsep=1.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        1&-&1&-&1&1&1&-&1&-&1&1&-&1&1&-\\
+        1&-&1&-&1&1&-&1&-&1&1&1&1&-&-&1\\
+        1&1&-&-&1&-&1&1&1&-&1&-&1&1&-&1\\
+        1&1&-&-&-&1&1&1&-&1&-&1&1&1&1&-\\
+        1&-&-&1&1&-&1&-&1&1&-&1&1&-&1&1\\
+        1&-&-&1&-&1&-&1&1&1&1&-&-&1&1&1\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}{Hadamard Matrices}
+
+  \[
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        6&\bar{2}&\bar{2}&\bar{2}&2&2&2&2&2&2&2&2&2&2&2&2\\
+        \bar{2}&6&\bar{2}&\bar{2}&\bar{2}&\bar{2}&2&2&\bar{2}&\bar{2}&\bar{2}&\bar{2}&2&2&\bar{2}&\bar{2}\\
+        \bar{2}&\bar{2}&6&\bar{2}&2&2&\bar{2}&\bar{2}&\bar{2}&\bar{2}&2&2&\bar{2}&\bar{2}&\bar{2}&\bar{2}\\
+        \bar{2}&\bar{2}&\bar{2}&6&\bar{2}&\bar{2}&\bar{2}&\bar{2}&2&2&\bar{2}&\bar{2}&\bar{2}&\bar{2}&2&2\\
+        2&\bar{2}&2&\bar{2}&6&\bar{2}&2&\bar{2}&2&\bar{2}&2&2&2&\bar{2}&\bar{2}&2\\
+        2&\bar{2}&2&\bar{2}&\bar{2}&6&\bar{2}&2&\bar{2}&2&2&2&\bar{2}&2&2&\bar{2}\\
+        2&2&\bar{2}&\bar{2}&2&\bar{2}&6&\bar{2}&2&\bar{2}&\bar{2}&2&2&2&2&\bar{2}\\
+        2&2&\bar{2}&\bar{2}&\bar{2}&2&\bar{2}&6&\bar{2}&2&2&\bar{2}&2&2&\bar{2}&2\\
+        2&\bar{2}&\bar{2}&2&2&\bar{2}&2&\bar{2}&6&\bar{2}&2&\bar{2}&\bar{2}&2&2&2\\
+        2&\bar{2}&\bar{2}&2&\bar{2}&2&\bar{2}&2&\bar{2}&6&\bar{2}&2&2&\bar{2}&2&2\\
+        2&\bar{2}&2&\bar{2}&2&2&\bar{2}&2&2&\bar{2}&6&\bar{2}&\bar{2}&2&\bar{2}&2\\
+        2&\bar{2}&2&\bar{2}&2&2&2&\bar{2}&\bar{2}&2&\bar{2}&6&2&\bar{2}&2&\bar{2}\\
+        2&2&\bar{2}&\bar{2}&2&\bar{2}&2&2&\bar{2}&2&\bar{2}&2&6&\bar{2}&\bar{2}&2\\
+        2&2&\bar{2}&\bar{2}&\bar{2}&2&2&2&2&\bar{2}&2&\bar{2}&\bar{2}&6&2&\bar{2}\\
+        2&\bar{2}&\bar{2}&2&\bar{2}&2&2&\bar{2}&2&2&\bar{2}&2&\bar{2}&2&6&\bar{2}\\
+        2&\bar{2}&\bar{2}&2&2&\bar{2}&\bar{2}&2&2&2&2&\bar{2}&2&\bar{2}&\bar{2}&6\\
+      \end{array}
+    \right)
+  \]
+ 
+\end{frame}
+
+\begin{frame}
+
+  \[
+      \arraycolsep=1.0pt\def\arraystretch{0.75}
+      \left(\begin{array}{cccc|cccccc|cccccc}
+            1&1&1&1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&-&-&-&-&-&-\\
+            1&1&1&1&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&1&1&-&-&1&1\\
+            1&1&1&1&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&-&-&1&1&1&1\\
+            1&1&1&1&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&1&1&1&1&-&-\\
+            1&-&1&-&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&1&1&1&-&-&1\\
+            1&-&1&-&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&1&1&-&1&1&-\\
+            1&1&-&-&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&-&1&1&1&1&-\\
+            1&1&-&-&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&1&-&1&1&-&1\\
+            1&-&-&1&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&1&-&-&1&1&1\\
+            1&-&-&1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&-&1&1&-&1&1\\
+            -&1&-&1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&1&1&1&-&1&-\\
+            -&1&-&1&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&1&1&-&1&-&1\\
+            -&-&1&1&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&1&-&1&1&1&-\\
+            -&-&1&1&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&-&1&1&1&-&1\\
+            -&1&1&-&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&1&-&1&-&1&1\\
+            -&1&1&-&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&-&1&-&1&1&1\\
+            \end{array}\right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \arraycolsep=1.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccc|cccccc}
+        1&1&1&1&1&1&1&1&1&1&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}\\
+        1&1&1&1&-&-&1&1&-&-&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}\\
+        1&1&1&1&1&1&-&-&-&-&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}\\
+        1&1&1&1&-&-&-&-&1&1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}\\
+        1&-&1&-&1&1&1&-&1&-&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}\\
+        1&-&1&-&1&1&-&1&-&1&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}\\
+        1&1&-&-&1&-&1&1&1&-&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}\\
+        1&1&-&-&-&1&1&1&-&1&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}\\
+        1&-&-&1&1&-&1&-&1&1&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}\\
+        1&-&-&1&-&1&-&1&1&1&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}\\
+        -&1&-&1&1&1&1&-&-&1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}\\
+        -&1&-&1&1&1&-&1&1&-&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}\\
+        -&-&1&1&-&1&1&1&1&-&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}\\
+        -&-&1&1&1&-&1&1&-&1&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}\\
+        -&1&1&-&1&-&-&1&1&1&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}\\
+        -&1&1&-&-&1&1&-&1&1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}\\    
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \arraycolsep=1.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        1&1&1&1&1&1&1&1&1&1&-&-&-&-&-&-\\
+        1&1&1&1&-&-&1&1&-&-&1&1&-&-&1&1\\
+        1&1&1&1&1&1&-&-&-&-&-&-&1&1&1&1\\
+        1&1&1&1&-&-&-&-&1&1&1&1&1&1&-&-\\ \hline
+        \bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}\\
+        \bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}\\
+        \bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}\\
+        \bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}\\
+        \bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}\\
+        \bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}\\ \hline
+        -&1&-&1&1&1&1&-&-&1&1&1&1&-&1&-\\
+        -&1&-&1&1&1&-&1&1&-&1&1&-&1&-&1\\
+        -&-&1&1&-&1&1&1&1&-&1&-&1&1&1&-\\
+        -&-&1&1&1&-&1&1&-&1&-&1&1&1&-&1\\
+        -&1&1&-&1&-&-&1&1&1&1&-&1&-&1&1\\
+        -&1&1&-&-&1&1&-&1&1&-&1&-&1&1&1\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \arraycolsep=1.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        1&1&1&1&1&1&1&1&1&1&-&-&-&-&-&-\\
+        1&1&1&1&-&-&1&1&-&-&1&1&-&-&1&1\\
+        1&1&1&1&1&1&-&-&-&-&-&-&1&1&1&1\\
+        1&1&1&1&-&-&-&-&1&1&1&1&1&1&-&-\\
+        1&-&1&-&1&1&1&-&1&-&1&1&1&-&-&1\\
+        1&-&1&-&1&1&-&1&-&1&1&1&-&1&1&-\\
+        1&1&-&-&1&-&1&1&1&-&-&1&1&1&1&-\\
+        1&1&-&-&-&1&1&1&-&1&1&-&1&1&-&1\\
+        1&-&-&1&1&-&1&-&1&1&1&-&-&1&1&1\\
+        1&-&-&1&-&1&-&1&1&1&-&1&1&-&1&1\\ \hline
+        \bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}\\
+        \bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}\\
+        \bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}\\
+        \bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}\\
+        \bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}\\
+        \bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Balancedly Splittable Orthogonal Designs}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item An $OD(16;8,8)$
+    \[
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        a&b&a&b&a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}\\
+        a&b&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b\\
+        a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b\\
+        a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b&a&b&\bar{a}&\bar{b}\\
+        b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a\\
+        b&\bar{a}&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}\\
+        a&b&\bar{a}&\bar{b}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}\\
+        a&b&\bar{a}&\bar{b}&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a\\
+        b&\bar{a}&\bar{b}&a&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b\\
+        b&\bar{a}&\bar{b}&a&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b\\
+        \bar{b}&a&\bar{b}&a&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}\\
+        \bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a\\
+        \bar{a}&\bar{b}&a&b&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}\\
+        \bar{a}&\bar{b}&a&b&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a\\
+        \bar{b}&a&b&\bar{a}&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b\\
+        \bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b\\
+      \end{array}
+    \right)
+    \]
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccc|cccccc|cccccc}
+        a&b&a&b&\bblue{a}&\bblue{b}&\bblue{a}&\bblue{b}&\bblue{a}&\bblue{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}\\
+        a&b&a&b&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&a&b&\bar{a}&\bar{b}&a&b\\
+        a&b&a&b&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bar{a}&\bar{b}&a&b&a&b\\
+        a&b&a&b&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&a&b&a&b&\bar{a}&\bar{b}\\
+        b&\bar{a}&b&\bar{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&a&b&b&\bar{a}&\bar{b}&a\\
+        b&\bar{a}&b&\bar{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&a&b&\bar{b}&a&b&\bar{a}\\
+        a&b&\bar{a}&\bar{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bar{b}&a&a&b&b&\bar{a}\\
+        a&b&\bar{a}&\bar{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&b&\bar{a}&a&b&\bar{b}&a\\
+        b&\bar{a}&\bar{b}&a&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&b&\bar{a}&\bar{b}&a&a&b\\
+        b&\bar{a}&\bar{b}&a&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bar{b}&a&b&\bar{a}&a&b\\
+        \bar{b}&a&\bar{b}&a&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&a&b&b&\bar{a}&b&\bar{a}\\
+        \bar{b}&a&\bar{b}&a&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&a&b&\bar{b}&a&\bar{b}&a\\
+        \bar{a}&\bar{b}&a&b&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&b&\bar{a}&a&b&b&\bar{a}\\
+        \bar{a}&\bar{b}&a&b&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bar{b}&a&a&b&\bar{b}&a\\
+        \bar{b}&a&b&\bar{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&b&\bar{a}&b&\bar{a}&a&b\\
+        \bar{b}&a&b&\bar{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bar{b}&a&\bar{b}&a&a&b\\
+      \end{array}
+    \right)
+  \]
+
+\end{frame}
+
+\begin{frame}
+
+  \[
+    (a^2+b^2)
+    \arraycolsep=1.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        3&-&-&-&1&1&1&1&1&1&1&1&1&1&1&1\\
+        -&3&-&-&-&-&1&1&-&-&-&-&1&1&-&-\\
+        -&-&3&-&1&1&-&-&-&-&1&1&-&-&-&-\\
+        -&-&-&3&-&-&-&-&1&1&-&-&-&-&1&1\\
+        1&-&1&-&3&-&1&-&1&-&1&1&1&-&-&1\\
+        1&-&1&-&-&3&-&1&-&1&1&1&-&1&1&-\\
+        1&1&-&-&1&-&3&-&1&-&-&1&1&1&1&-\\
+        1&1&-&-&-&1&-&3&-&1&1&-&1&1&-&1\\
+        1&-&-&1&1&-&1&-&3&-&1&-&-&1&1&1\\
+        1&-&-&1&-&1&-&1&-&3&-&1&1&-&1&1\\
+        1&-&1&-&1&1&-&1&1&-&3&-&-&1&-&1\\
+        1&-&1&-&1&1&1&-&-&1&-&3&1&-&1&-\\
+        1&1&-&-&1&-&1&1&-&1&-&1&3&-&-&1\\
+        1&1&-&-&-&1&1&1&1&-&1&-&-&3&1&-\\
+        1&-&-&1&-&1&1&-&1&1&-&1&-&1&3&-\\
+        1&-&-&1&1&-&-&1&1&1&1&-&1&-&-&3\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        a&b&a&b&a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}\\
+        a&b&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b\\
+        a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b\\
+        a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b&a&b&\bar{a}&\bar{b}\\ \hline
+\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}\\
+\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}\\
+\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}\\
+\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}\\
+\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}\\
+\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}\\ \hline
+        \bar{b}&a&\bar{b}&a&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}\\
+        \bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a\\
+        \bar{a}&\bar{b}&a&b&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}\\
+        \bar{a}&\bar{b}&a&b&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a\\
+        \bar{b}&a&b&\bar{a}&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b\\
+        \bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b\\
+      \end{array}
+    \right)
+  \]
+
+  \begin{itemize}
+    \item Products in the set $\{\pm 2a^2, \pm 2b^2, \pm 2ab\}$.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Definition: Balancedly Splittable \cite[][]{split-od}} 
+    \begin{itemize}
+    \item An OD $X$ with $v \times \ell$ submatrix $X_1$ admits a stable
+      $(v,\ell,a,b)$ split if
+      $$
+      X_1X_1^t = \sigma(cI_v + aA + b(J_v-I_v-A)).
+      $$
+    \item The split is unstable if it is not stable and
+      $$
+      X_1X_1^t = \ell I_v + aA + b(J_v-I_v-A)
+      $$
+      after replacing each variable with $1$.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Faithful Construction}
+
+\begin{frame}
+
+  \begin{block}{Definition: Auxiliary Matrices}
+    \begin{itemize}
+    \item $X$ a full $OD(v;s_1, \dots, s_u)$ and $H$ the Hadamard matrix
+      obtained by replacing each variable with $1$.
+    \item Label rows of $X$ and $H$ by $x_0, \dots, x_{v-1}$, and
+      $h_0, \dots, h_{v-1}$.
+    \item The auxiliary matrices of $X$ are given by
+      $$
+      c_i = h_i^tx_i, \qquad i = 0, \dots, v-1. 
+      $$
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+    \item An $OD(2;1,1)$:
+  \end{itemize}
+
+  \[
+    \begin{pmatrix}
+      a & b \\ b & -a
+    \end{pmatrix}
+  \]
+
+  \begin{itemize}
+    \item Auxiliary matrices:
+  \end{itemize}
+
+  \[
+    c_0=
+    \begin{pmatrix}
+      a & b \\ a & b
+    \end{pmatrix}, \qquad
+    c_1=
+    \begin{pmatrix}
+      b & -a \\ -b & a
+    \end{pmatrix}
+  \]
+ 
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+    \item Form the sequences
+  \end{itemize}
+
+  $$
+  \alpha = (c_0,c_1,c_1), \qquad \beta = (c_0,c_1,-c_1).
+  $$
+
+  \begin{itemize}
+    \item The sum of the periodic autocorrelations of $\alpha$ and $\beta$ satisfy
+  \end{itemize}
+
+  $$
+  \sum_i \alpha_i\alpha_{i+j}^t + \sum_i \beta_i\beta_{i+j}^t = O, \qquad j=1,2.
+  $$
+
+  \begin{itemize}
+    \item Sums of cross-correlations
+  \end{itemize}
+
+  $$
+  \sum_i \alpha_i\beta_{i+j}^t + \sum_i \beta_i\alpha_{i+j}^t = O, \qquad j=1,2.
+  $$
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Form the matrices
+  \end{itemize}
+
+  $$
+  A=circ(\alpha), \qquad B=circ(\beta),
+  $$
+
+  \begin{itemize}
+    \item Then the matrix
+  \end{itemize}
+
+  $$
+  \Theta = \begin{pmatrix}
+                A & B \\ B & A
+              \end{pmatrix}.
+  $$
+
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \Theta = 
+    % \arraycolsep=1.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccc|cccccc}
+        a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a\\
+        a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}\\
+        b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}\\
+        \bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a\\
+        b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b\\
+        \bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b\\ \hline
+        a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}\\
+        a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a\\
+        \bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}\\
+        b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a\\
+        b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b\\
+        \bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \Theta\Theta^t =
+    \begin{pmatrix}
+      AA^t + BB^t & AB^t + BA^t \\ AB^t + BA^t & AA^t + BB^t
+    \end{pmatrix}.
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \Theta\Theta^t = (a^2+b^2)
+    \left(
+      \begin{array}{cccccc|cccccc}
+        6&\bar{2}&0&0&0&0&2&2&0&0&0&0\\
+        \bar{2}&6&0&0&0&0&2&2&0&0&0&0\\
+        0&0&6&\bar{2}&0&0&0&0&2&2&0&0\\
+        0&0&\bar{2}&6&0&0&0&0&2&2&0&0\\
+        0&0&0&0&6&\bar{2}&0&0&0&0&2&2\\
+        0&0&0&0&\bar{2}&6&0&0&0&0&2&2\\ \hline
+        2&2&0&0&0&0&6&\bar{2}&0&0&0&0\\
+        2&2&0&0&0&0&\bar{2}&6&0&0&0&0\\
+        0&0&2&2&0&0&0&0&6&\bar{2}&0&0\\
+        0&0&2&2&0&0&0&0&\bar{2}&6&0&0\\
+        0&0&0&0&2&2&0&0&0&0&6&\bar{2}\\
+        0&0&0&0&2&2&0&0&0&0&\bar{2}&6\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+  
+  \[
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccc|cccccc|cccccc}
+        *&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*\\
+        *&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*\\
+        *&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*\\
+        *&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*\\ \hline
+        *&*&*&*&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a\\
+        *&*&*&*&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}\\
+        *&*&*&*&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}\\
+        *&*&*&*&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a\\
+        *&*&*&*&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b\\
+        *&*&*&*&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b\\ \hline
+        *&*&*&*&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}\\
+        *&*&*&*&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a\\
+        *&*&*&*&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}\\
+        *&*&*&*&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a\\
+        *&*&*&*&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b\\
+        *&*&*&*&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b\\
+      \end{array}
+    \right)
+  \]
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+    \item Define:
+  \end{itemize}
+
+  \begin{align*}
+    Y &= \left( \begin{smallmatrix} 1&1\\1&- \end{smallmatrix} \right) \otimes X,\\
+    K &= \left( \begin{smallmatrix} 1&1\\1&- \end{smallmatrix} \right) \otimes H.
+  \end{align*}
+
+  \begin{itemize}
+    \item Index rows as $y_0, \dots, y_{2n-1}$, and $k_0, \dots, k_{2n-1}$.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \begin{array}{cc}
+      Y = \left( \begin{smallmatrix} 1&1\\1&- \end{smallmatrix} \right) \otimes X
+                                           &
+      K = \left( \begin{smallmatrix} 1&1\\1&- \end{smallmatrix} \right) \otimes H
+      \\
+      \text{Rows: } y_0, \dots, y_{2n-1}
+                                      &
+      \text{Rows: } k_0, \dots, k_{2n-1}
+    \end{array}
+  \]
+
+  \begin{itemize}
+    \item Form
+  \end{itemize}
+
+  \begin{align*}
+    F &= \begin{pmatrix} k_1^tx_0 & k_2^tx_0 & k_3^tx_0 \end{pmatrix}, \\
+    E &= \begin{pmatrix} h_0^ty_1 \\ h_0^ty_2 \\ h_0^ty_3 \end{pmatrix}, \\
+    G &= k_0^ty_0.
+  \end{align*}
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \left(
+      \begin{array}{c|c|c}
+        G & F & -F \\ \hline
+        E
+          &
+            \begin{array}{cccccc}
+              a&b&b&\bar{a}&b&\bar{a}\\
+              a&b&\bar{b}&a&\bar{b}&a\\
+              b&\bar{a}&a&b&b&\bar{a}\\
+              \bar{b}&a&a&b&\bar{b}&a\\
+              b&\bar{a}&b&\bar{a}&a&b\\
+              \bar{b}&a&\bar{b}&a&a&b\\
+            \end{array}
+          &
+          \begin{array}{cccccc}
+            a&b&b&\bar{a}&\bar{b}&a\\
+            a&b&\bar{b}&a&b&\bar{a}\\
+            \bar{b}&a&a&b&b&\bar{a}\\
+            b&\bar{a}&a&b&\bar{b}&a\\
+            b&\bar{a}&\bar{b}&a&a&b\\
+            \bar{b}&a&b&\bar{a}&a&b\\
+          \end{array} 
+        \\ \hline
+        -E
+          &
+            \begin{array}{cccccc}
+              a&b&b&\bar{a}&\bar{b}&a\\
+              a&b&\bar{b}&a&b&\bar{a}\\
+              \bar{b}&a&a&b&b&\bar{a}\\
+              b&\bar{a}&a&b&\bar{b}&a\\
+              b&\bar{a}&\bar{b}&a&a&b\\
+              \bar{b}&a&b&\bar{a}&a&b\\
+            \end{array}
+          &
+            \begin{array}{cccccc}
+              a&b&b&\bar{a}&b&\bar{a}\\
+              a&b&\bar{b}&a&\bar{b}&a\\
+              b&\bar{a}&a&b&b&\bar{a}\\
+              \bar{b}&a&a&b&\bar{b}&a\\
+              b&\bar{a}&b&\bar{a}&a&b\\
+              \bar{b}&a&\bar{b}&a&a&b\\
+            \end{array}
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccc|cccccc|cccccc}
+        a&b&a&b&a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}\\
+        a&b&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b\\
+        a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b\\
+        a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b&a&b&\bar{a}&\bar{b}\\\hline
+        b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a\\
+        b&\bar{a}&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}\\
+        a&b&\bar{a}&\bar{b}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}\\
+        a&b&\bar{a}&\bar{b}&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a\\
+        b&\bar{a}&\bar{b}&a&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b\\
+        b&\bar{a}&\bar{b}&a&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b\\\hline
+        \bar{b}&a&\bar{b}&a&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}\\
+        \bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a\\
+        \bar{a}&\bar{b}&a&b&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}\\
+        \bar{a}&\bar{b}&a&b&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a\\
+        \bar{b}&a&b&\bar{a}&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b\\
+        \bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Theorem \cite[][]{split-od}}
+    Whenever there is a full $OD(v,s_1,\dots,s_u)$, there is a full $OD(4v^2;
+    4vs_1, \dots, 4vs_u)$ admitting two stable vertical splits and two unstable
+    horizontal splits.
+  \end{block}
+  
+\end{frame}
+
+% subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Related Configurations}
+
+% subsubsection
+
+\subsubsection{Immediate Generalizations}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item The following is a $OD(2;1,1)$ of quaternions.
+  \end{itemize}
+
+  \[
+    \begin{pmatrix}
+      \bar{a} & bi \\
+      \bar{b}j & ak
+    \end{pmatrix},
+  \]
+
+  \begin{itemize}
+  \item where $a$ and $b$ are real variables.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccc|cccccc|cccccc}
+        \bar{a}&bi&\bar{a}&bi&\bar{a}&bi&\bar{a}&bi&\bar{a}&bi& a&\bar{b}i& a&\bar{b}i& a&\bar{b}i\\
+        \bar{a}&bi&\bar{a}&bi& a&\bar{b}i&\bar{a}&bi& a&\bar{b}i&\bar{a}&bi& a&\bar{b}i&\bar{a}&bi\\
+        \bar{a}&bi&\bar{a}&bi&\bar{a}&bi& a&\bar{b}i& a&\bar{b}i& a&\bar{b}i&\bar{a}&bi&\bar{a}&bi\\
+        \bar{a}&bi&\bar{a}&bi& a&\bar{b}i& a&\bar{b}i&\bar{a}&bi&\bar{a}&bi&\bar{a}&bi& a&\bar{b}i\\\hline
+        \bar{b}j&ak&\bar{b}j&ak&\bar{a}&bi&\bar{b}j&ak&\bar{b}j&ak&\bar{a}&bi&\bar{b}j&ak&bj&\bar{a}k\\
+        \bar{b}j&ak&\bar{b}j&ak&\bar{a}&bi&bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi&bj&\bar{a}k&\bar{b}j&ak\\
+        \bar{a}&bi& a&\bar{b}i&\bar{b}j&ak&\bar{a}&bi&\bar{b}j&ak&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak\\
+        \bar{a}&bi& a&\bar{b}i&bj&\bar{a}k&\bar{a}&bi&bj&\bar{a}k&\bar{b}j&ak&\bar{a}&bi&bj&\bar{a}k\\
+        \bar{b}j&ak&bj&\bar{a}k&\bar{b}j&ak&\bar{b}j&ak&\bar{a}&bi&\bar{b}j&ak&bj&\bar{a}k&\bar{a}&bi\\
+        \bar{b}j&ak&bj&\bar{a}k&bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi&bj&\bar{a}k&\bar{b}j&ak&\bar{a}&bi\\\hline
+        bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak&\bar{b}j&ak\\
+        bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi&bj&\bar{a}k&\bar{b}j&ak&\bar{a}&bi&bj&\bar{a}k&bj&\bar{a}k\\
+        a&\bar{b}i&\bar{a}&bi&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak&\bar{b}j&ak&\bar{a}&bi&\bar{b}j&ak\\
+        a&\bar{b}i&\bar{a}&bi&\bar{b}j&ak&\bar{a}&bi&bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi&bj&\bar{a}k\\
+        bj&\bar{a}k&\bar{b}j&ak&\bar{b}j&ak&bj&\bar{a}k&\bar{a}&bi&\bar{b}j&ak&\bar{b}j&ak&\bar{a}&bi\\
+        bj&\bar{a}k&\bar{b}j&ak&bj&\bar{a}k&\bar{b}j&ak&\bar{a}&bi&bj&\bar{a}k&bj&\bar{a}k&\bar{a}&bi\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+% subsubsection
+
+\subsubsection{Unbiased ODs}
+
+\begin{frame}
+
+  \begin{block}{Definition: Unbiased Hadamard Matrices}
+    Hadamard matrices $H$ and $K$ of the same order $v$ are unbiased if
+    \[
+      HK^t = \sqrt{v}L
+    \]
+    for some Hadamard matrix $L$.
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Proposition \cite[][]{splittable-hadamard}}
+    $H = \left( \begin{smallmatrix} H_1 & H_2 \end{smallmatrix} \right)$ a
+    Hadamard matrix of order $v$ with
+    \[
+      H_1H_1^t = \ell I_n + aS
+    \]
+    where $S$ is a $(-1,0,1)$-matrix. The following are equivalent:
+    \begin{enumerate}
+    \item $K = \left( \begin{smallmatrix} -H_1 & H_2 \end{smallmatrix}
+      \right)$ is unbiased with $H$, and
+    \item $(\ell,a) = ((v \pm \sqrt{v})/2,\sqrt{v}/2)$.
+    \end{enumerate}
+  \end{block}
+
+  \begin{itemize}
+  \item each split gives equiangular lines
+  \item parametric conditions of the proposition are satisfied
+  \item we can always construct unbiased Hadamard matrices
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{Definition: Unbiased ODs \cite[][]{unbiased-od}}
+    \begin{itemize}
+    \item $X_1$ and $X_2$ be two $OD(v,s_1, \dots,s_u)$ in $\{\pm z_1, \dots,
+      \pm z_u\}$.
+    \item $X_1$ and $X_2$ are unbiased if there is a Hadamard matrix $H$ such that
+      \[
+        X_1X_2^t = \left( \alpha^{-\frac{1}{2}}\sum_i s_iz_i^2 \right)H.
+      \]
+      for some $\alpha \in \mathbb{R}^+$.
+    \end{itemize}
+  \end{block}
+
+  \begin{itemize}
+  \pause\item
+    \[
+      \left\{
+      \begin{array}{l}
+        \text{stable split} \\
+        \text{equiangular lines} \\
+        \text{param. cond.}
+      \end{array} \right\}
+      \Rightarrow
+      \text{unbiased ODs}
+    \]
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+    \item Recall:
+      \[
+        X = \begin{pmatrix}
+              G & F & \bblue{-F} \\
+              E & A & \bblue{B} \\
+              -E & B & \bblue{A}
+            \end{pmatrix}.
+      \]
+    \item Take
+      \[
+        Y = \begin{pmatrix}
+              G & F & \rred{F} \\
+              E & A & \rred{-B} \\
+              -E & B & \rred{-A}
+            \end{pmatrix}.
+      \]
+    \item Then $XY^t = 2\left( \sum_is_iz_i^2 \right)H$, where $H$ is Hadamard.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{tiny}
+  \[
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        a&b&a&b&a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}\\
+        a&b&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b\\
+        a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b\\
+        a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b&a&b&\bar{a}&\bar{b}\\
+        b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a\\
+        b&\bar{a}&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}\\
+        a&b&\bar{a}&\bar{b}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}\\
+        a&b&\bar{a}&\bar{b}&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a\\
+        b&\bar{a}&\bar{b}&a&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b\\
+        b&\bar{a}&\bar{b}&a&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b\\
+        \bar{b}&a&\bar{b}&a&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}\\
+        \bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a\\
+        \bar{a}&\bar{b}&a&b&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}\\
+        \bar{a}&\bar{b}&a&b&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a\\
+        \bar{b}&a&b&\bar{a}&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b\\
+        \bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b\\
+      \end{array}
+    \right)
+    \cdot
+    \left(
+      \begin{array}{cccccccccccccccc}
+        a&a&a&a&b&b&a&a&b&b&\bar{b}&\bar{b}&\bar{a}&\bar{a}&\bar{b}&\bar{b}\\
+        b&b&b&b&\bar{a}&\bar{a}&b&b&\bar{a}&\bar{a}&a&a&\bar{b}&\bar{b}&a&a\\
+        a&a&a&a&b&b&\bar{a}&\bar{a}&\bar{b}&\bar{b}&\bar{b}&\bar{b}&a&a&b&b\\
+        b&b&b&b&\bar{a}&\bar{a}&\bar{b}&\bar{b}&a&a&a&a&b&b&\bar{a}&\bar{a}\\
+        a&\bar{a}&a&\bar{a}&a&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b&b&\bar{b}\\
+        b&\bar{b}&b&\bar{b}&b&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}&\bar{a}&a\\
+        a&a&\bar{a}&\bar{a}&b&\bar{b}&a&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b\\
+        b&b&\bar{b}&\bar{b}&\bar{a}&a&b&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}\\
+        a&\bar{a}&\bar{a}&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b&b&\bar{b}&a&a\\
+        b&\bar{b}&\bar{b}&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}&\bar{a}&a&b&b\\
+        a&\bar{a}&a&\bar{a}&\bar{a}&\bar{a}&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b&\bar{b}&b\\
+        b&\bar{b}&b&\bar{b}&\bar{b}&\bar{b}&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}&a&\bar{a}\\
+        a&a&\bar{a}&\bar{a}&\bar{b}&b&\bar{a}&\bar{a}&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b\\
+        b&b&\bar{b}&\bar{b}&a&\bar{a}&\bar{b}&\bar{b}&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}\\
+        a&\bar{a}&\bar{a}&a&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b&\bar{b}&b&\bar{a}&\bar{a}\\
+        b&\bar{b}&\bar{b}&b&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}&a&\bar{a}&\bar{b}&\bar{b}\\
+      \end{array}
+    \right)
+  \]
+  \end{tiny}
+
+\end{frame}
+
+\begin{frame}
+  
+  \[
+    2(a^2+b^2)
+    \arraycolsep=2.0pt\def\arraystretch{0.75}
+    \left(
+      \begin{array}{cccccccccccccccc}
+        1&1&1&1&1&1&1&1&1&1&1&1&1&1&1&1\\
+        1&1&1&1&-&-&1&1&-&-&-&-&1&1&-&-\\
+        1&1&1&1&1&1&-&-&-&-&1&1&-&-&-&-\\
+        1&1&1&1&-&-&-&-&1&1&-&-&-&-&1&1\\
+        1&-&1&-&1&1&1&-&1&-&-&-&1&-&-&1\\
+        1&-&1&-&1&1&-&1&-&1&-&-&-&1&1&-\\
+        1&1&-&-&1&-&1&1&1&-&-&1&-&-&1&-\\
+        1&1&-&-&-&1&1&1&-&1&1&-&-&-&-&1\\
+        1&-&-&1&1&-&1&-&1&1&1&-&-&1&-&-\\
+        1&-&-&1&-&1&-&1&1&1&-&1&1&-&-&-\\
+        1&-&1&-&-&-&-&1&1&-&1&1&-&1&-&1\\
+        1&-&1&-&-&-&1&-&-&1&1&1&1&-&1&-\\
+        1&1&-&-&1&-&-&-&-&1&-&1&1&1&-&1\\
+        1&1&-&-&-&1&-&-&1&-&1&-&1&1&1&-\\
+        1&-&-&1&-&1&1&-&-&-&-&1&-&1&1&1\\
+        1&-&-&1&1&-&-&1&-&-&1&-&1&-&1&1\\
+      \end{array}
+    \right)
+  \]
+
+\end{frame}
+  
+% subsubsection
+
+\subsubsection{Further Configurations}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Further configurations:
+    \begin{itemize}
+    \item quasi-symmetric designs
+    \item quaternion frames
+    \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% section -- new class of BWGs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{A New Class of Balanced Weighing Matrices}
+
+\begin{frame}
+  \[
+    \text{\huge\bf A New Class of BGWs}
+  \]
+\end{frame}
+
+\begin{frame}{Section Summary}
+  \tableofcontents[sections={3}]
+\end{frame}
+
+\subsection[]{Generalized Simplex Codes}
+\subsection[]{Seed Matrix}
+\subsection[]{Construction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% section -- unifying construction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{Unifying Construction of Weighing Matrices}
+
+\begin{frame}
+  \[
+    \begin{array}{c}
+      \text{\huge\bf Unifying Construction of}
+      \\
+      \text{\huge\bf Weighing Matrices}
+    \end{array}
+  \]
+\end{frame}
+
+\begin{frame}{Section Summary}
+  \tableofcontents[sections={4}]
+\end{frame}
+
+\subsection[]{Normalization}
+\subsection[]{Construction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% section -- association schemes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{Equivalence to Association Schemes}
+
+\begin{frame}
+  \[
+    \begin{array}{c}
+      \text{\huge\bf Equivalence to}
+      \\
+      \text{\huge\bf Association Schemes}
+    \end{array}
+  \]
+\end{frame}
+
+\begin{frame}{Section Summary}
+  \tableofcontents[sections={5}]
+\end{frame}
+
+\subsection[]{Equivalence to Balanced Weighing Matrices}
+\subsection[]{Equivalence to Balanced Generalized Weighing Matrices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% section -- future work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{Future Work}
+
+\begin{frame}{Future Work}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% section -- references
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{References}
+
+\begin{frame}{References}
+  \bibliographystyle{apalike}
+  \bibliography{mybib.bib}
+\end{frame}
 
 \end{document}
