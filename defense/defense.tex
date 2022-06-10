@@ -1,7 +1,8 @@
 \documentclass{beamer}
 % \usetheme[hideothersubsections]{Berkeley}
-\usetheme{Antibes}
+% \usetheme{Antibes}
 % \usetheme{Madrid}
+\usetheme{AnnArbor}
 
 \usepackage[utf8]{inputenc}
 \usepackage{mathrsfs}
@@ -10,10 +11,13 @@
 \usepackage{xcolor}
 \usepackage{natbib}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{longtable,tabu}
 
 \newcommand{\rred}[1]{\textcolor{red}{#1}}
 \newcommand{\ggreen}[1]{\textcolor{green}{#1}}
 \newcommand{\bblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\mmag}[1]{\textcolor{magenta}{#1}}
 \newcommand{\abs}[1]{|#1|}
 
 \title[Weighing Matrices]{Weighing Matrices}
@@ -22,17 +26,23 @@
 \institute[U of L]{Department of Mathematics and Computer Science\\University of
 Lethbridge}
 \date[06/22/2022]{June 22, 2022}
+
 \titlegraphic{
   \includegraphics[scale=0.75]{shield.jpg}
 }
 
+\usebackgroundtemplate{%
+  \tikz\node[opacity=0.1] {\includegraphics[height=0.75\paperheight,width=0.75\paperwidth,angle=-22.5]{shield2}};}
+
 \begin{document}
 
-% \setbeamertemplate{sidebar left}{}
+{
+\setbeamertemplate{background canvas}{}
 \begin{frame}
   \titlepage
   % \centering{\scriptsize $^{***}$Joint work with Hadi Kharaghani, Sho Suda}
 \end{frame}
+}
 
 \begin{frame}{Summary}
   \tableofcontents[hideallsubsections,sections={1-5}]
@@ -66,7 +76,7 @@ Lethbridge}
   \item $I_n$ the identity matrix of order $n$.
   \end{itemize}
 
-  \begin{block}{Definition: Balanced Incomplete Block Design}
+  \begin{block}{{\bf Definition:} Balanced Incomplete Block Design}
     \begin{itemize}
     \item A binary $v \times b$ $(0,1)$-matrix $A$ such that:
       \begin{enumerate}
@@ -139,7 +149,7 @@ Lethbridge}
 
 \begin{frame}
 
-  \begin{block}{Definition: Weighing Matrix}
+  \begin{block}{{\bf Definition:} Weighing Matrix}
     A $v \times v$ $(-1,0,1)$-matrix $W$ such that
     \[
       WW^t = kI_v.
@@ -213,7 +223,7 @@ Lethbridge}
 
 \begin{frame}
 
-  \begin{block}{Definition: Generalized Weighing Matrix}
+  \begin{block}{{\bf Definition:} Generalized Weighing Matrix}
     \begin{itemize}
     \item Abelian group $G$ not containg $0$.
     \item A $v \times v$ $(0,G)$-matrix $W$ such that
@@ -223,7 +233,7 @@ Lethbridge}
     \end{itemize}
   \end{block}
 
-  \begin{block}{Definition: Balanced Generalized Weighing Matrix}
+  \begin{block}{{\bf Definition:} Balanced Generalized Weighing Matrix}
     \begin{itemize}
     \item Abelian group $G$ not containing $0$.
     \item A $v \times v$ $(0,G)$-matrix $W$ such that
@@ -233,6 +243,10 @@ Lethbridge}
     \item Write $BGW(v,k,\lambda; G)$.
     \end{itemize}
   \end{block}
+
+  \begin{itemize}
+  \item A $BGW(v,k,\lambda;C_2)$ is a balanced weighing matrix.
+  \end{itemize}
   
 \end{frame}
 
@@ -284,7 +298,7 @@ Lethbridge}
 
 \begin{frame}
 
-  \begin{block}{Definition: Orthogonal Design}
+  \begin{block}{{\bf Definition:} Orthogonal Design}
     \begin{itemize}
     \item Real commuting variables $\{z_1, \dots, z_u\}$.
     \item A $v \times v$ $(0,\pm z_1, \dots, \pm z_u)$-matrix $X$ such that
@@ -355,7 +369,7 @@ Lethbridge}
   \item Recall a Hadamard matrix is a $W(v,v)$.
   \end{itemize}
 
-  \begin{block}{Definition: Balancedly Splittable Hadamard Matrix \cite[][]{splittable-hadamard}}
+  \begin{block}{{\bf Definition:} Balancedly Splittable Hadamard Matrix \cite[][]{splittable-hadamard}}
     \begin{itemize}
     \item A $W(v,v)$, say $H$.
     \item An $v \times \ell$ submatrix $H_1$ such that
@@ -424,7 +438,7 @@ Lethbridge}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Hadamard Matrices}
+\begin{frame}
 
   \[
     \arraycolsep=1.0pt\def\arraystretch{0.75}
@@ -463,7 +477,7 @@ Lethbridge}
   
 \end{frame}
 
-\begin{frame}{Hadamard Matrices}
+\begin{frame}
 
   \[
     \arraycolsep=2.0pt\def\arraystretch{0.75}
@@ -727,7 +741,7 @@ Lethbridge}
 
 \begin{frame}
 
-  \begin{block}{Definition: Balancedly Splittable \cite[][]{split-od}} 
+  \begin{block}{{\bf Definition:} Balancedly Splittable \cite[][]{split-od}} 
     \begin{itemize}
     \item An OD $X$ with $v \times \ell$ submatrix $X_1$ admits a stable
       $(v,\ell,a,b)$ split if
@@ -750,7 +764,7 @@ Lethbridge}
 
 \begin{frame}
 
-  \begin{block}{Definition: Auxiliary Matrices}
+  \begin{block}{{\bf Definition:} Auxiliary Matrices}
     \begin{itemize}
     \item $X$ a full $OD(v;s_1, \dots, s_u)$ and $H$ the Hadamard matrix
       obtained by replacing each variable with $1$.
@@ -1056,10 +1070,13 @@ Lethbridge}
 
 \begin{frame}
 
-  \begin{block}{Theorem \cite[][]{split-od}}
-    Whenever there is a full $OD(v,s_1,\dots,s_u)$, there is a full $OD(4v^2;
-    4vs_1, \dots, 4vs_u)$ admitting two stable vertical splits and two unstable
-    horizontal splits.
+  \begin{block}{{\bf Theorem} \cite[][]{split-od}}
+    If there is a full $OD(v,s_1,\dots,s_u)$, then:
+    \begin{itemize}
+    \item There is a full $OD(4v^2; 4vs_1, \dots, 4vs_u)$ for which
+    \item there are two verticle splits and
+    \item there are two unstable horizontal splits.
+    \end{itemize}
   \end{block}
   
 \end{frame}
@@ -1121,213 +1138,201 @@ Lethbridge}
 
 % subsubsection
 
-\subsubsection{Unbiased ODs}
+% \subsubsection{Unbiased ODs}
 
-\begin{frame}
+% \begin{frame}
 
-  \begin{block}{Definition: Unbiased Hadamard Matrices}
-    Hadamard matrices $H$ and $K$ of the same order $v$ are unbiased if
-    \[
-      HK^t = \sqrt{v}L
-    \]
-    for some Hadamard matrix $L$.
-  \end{block}
+%   \begin{block}{{\bf Definition:} Equiangular Lines}
+%     A collection $\mathcal{L} \subset \mathbb{R}^\ell$ of lines (vectors) are
+%     equiangular if there is a constant $a$ such that $|\langle u,v \rangle| = a$ for
+%     every $u,v \in L$.
+%   \end{block}
+
+%   \begin{block}{{\bf Definition:} Unbiased Hadamard Matrices}
+%     Hadamard matrices $H$ and $K$ of the same order $v$ are unbiased if
+%     \[
+%       HK^t = \sqrt{v}L
+%     \]
+%     for some Hadamard matrix $L$.
+%   \end{block}
   
-\end{frame}
+% \end{frame}
 
-\begin{frame}
+% \begin{frame}
 
-  \begin{block}{Proposition \cite[][]{splittable-hadamard}}
-    $H = \left( \begin{smallmatrix} H_1 & H_2 \end{smallmatrix} \right)$ a
-    Hadamard matrix of order $v$ with
-    \[
-      H_1H_1^t = \ell I_n + aS
-    \]
-    where $S$ is a $(-1,0,1)$-matrix. The following are equivalent:
-    \begin{enumerate}
-    \item $K = \left( \begin{smallmatrix} -H_1 & H_2 \end{smallmatrix}
-      \right)$ is unbiased with $H$, and
-    \item $(\ell,a) = ((v \pm \sqrt{v})/2,\sqrt{v}/2)$.
-    \end{enumerate}
-  \end{block}
+%   \begin{block}{{\bf Proposition} \cite[][]{splittable-hadamard}}
+%     $H = \left( \begin{smallmatrix} H_1 & H_2 \end{smallmatrix} \right)$ a
+%     Hadamard matrix of order $v$ with
+%     \[
+%       H_1H_1^t = \ell I_n + aS
+%     \]
+%     where $S$ is a $(-1,0,1)$-matrix. The following are equivalent:
+%     \begin{enumerate}
+%     \item $K = \left( \begin{smallmatrix} -H_1 & H_2 \end{smallmatrix}
+%       \right)$ is unbiased with $H$, and
+%     \item $(\ell,a) = ((v \pm \sqrt{v})/2,\sqrt{v}/2)$.
+%     \end{enumerate}
+%   \end{block}
 
-  \begin{itemize}
-  \item each split gives equiangular lines
-  \item parametric conditions of the proposition are satisfied
-  \item we can always construct unbiased Hadamard matrices
-  \end{itemize}
+%   \begin{itemize}
+%   \item each split gives equiangular lines
+%   \item parametric conditions of the proposition are satisfied
+%   \item we can always construct unbiased Hadamard matrices
+%   \end{itemize}
   
-\end{frame}
+% \end{frame}
 
-\begin{frame}
+% \begin{frame}
 
-  \begin{block}{Definition: Unbiased ODs \cite[][]{unbiased-od}}
-    \begin{itemize}
-    \item $X_1$ and $X_2$ be two $OD(v,s_1, \dots,s_u)$ in $\{\pm z_1, \dots,
-      \pm z_u\}$.
-    \item $X_1$ and $X_2$ are unbiased if there is a Hadamard matrix $H$ such that
-      \[
-        X_1X_2^t = \left( \alpha^{-\frac{1}{2}}\sum_i s_iz_i^2 \right)H.
-      \]
-      for some $\alpha \in \mathbb{R}^+$.
-    \end{itemize}
-  \end{block}
+%   \begin{block}{{\bf Definition:} Unbiased ODs \cite[][]{unbiased-od}}
+%     \begin{itemize}
+%     \item $X_1$ and $X_2$ be two $OD(v,s_1, \dots,s_u)$ in $\{\pm z_1, \dots,
+%       \pm z_u\}$.
+%     \item $X_1$ and $X_2$ are unbiased if there is a Hadamard matrix $H$ such that
+%       \[
+%         X_1X_2^t = \left( \alpha^{-\frac{1}{2}}\sum_i s_iz_i^2 \right)H.
+%       \]
+%       for some $\alpha \in \mathbb{R}^+$.
+%     \end{itemize}
+%   \end{block}
 
-  \begin{itemize}
-  \pause\item
-    \[
-      \left\{
-      \begin{array}{l}
-        \text{stable split} \\
-        \text{equiangular lines} \\
-        \text{param. cond.}
-      \end{array} \right\}
-      \Rightarrow
-      \text{unbiased ODs}
-    \]
-  \end{itemize}
+%   \begin{itemize}
+%   \pause\item
+%     \[
+%       \left\{
+%       \begin{array}{l}
+%         \text{stable split} \\
+%         \text{equiangular lines} \\
+%         \text{param. cond.}
+%       \end{array} \right\}
+%       \Rightarrow
+%       \text{unbiased ODs}
+%     \]
+%   \end{itemize}
   
-\end{frame}
+% \end{frame}
 
-\begin{frame}
+% \begin{frame}
 
-  \begin{itemize}
-    \item Recall:
-      \[
-        X = \begin{pmatrix}
-              G & F & \bblue{-F} \\
-              E & A & \bblue{B} \\
-              -E & B & \bblue{A}
-            \end{pmatrix}.
-      \]
-    \item Take
-      \[
-        Y = \begin{pmatrix}
-              G & F & \rred{F} \\
-              E & A & \rred{-B} \\
-              -E & B & \rred{-A}
-            \end{pmatrix}.
-      \]
-    \item Then $XY^t = 2\left( \sum_is_iz_i^2 \right)H$, where $H$ is Hadamard.
-  \end{itemize}
+%   \begin{itemize}
+%     \item Recall:
+%       \[
+%         X = \begin{pmatrix}
+%               G & F & \bblue{-F} \\
+%               E & A & \bblue{B} \\
+%               -E & B & \bblue{A}
+%             \end{pmatrix}.
+%       \]
+%     \item Take
+%       \[
+%         Y = \begin{pmatrix}
+%               G & F & \rred{F} \\
+%               E & A & \rred{-B} \\
+%               -E & B & \rred{-A}
+%             \end{pmatrix}.
+%       \]
+%     \item Then $XY^t = 2\left( \sum_is_iz_i^2 \right)H$, where $H$ is Hadamard.
+%   \end{itemize}
   
-\end{frame}
+% \end{frame}
 
-\begin{frame}
+% \begin{frame}
 
-  \begin{tiny}
-  \[
-    \arraycolsep=2.0pt\def\arraystretch{0.75}
-    \left(
-      \begin{array}{cccccccccccccccc}
-        a&b&a&b&a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}\\
-        a&b&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b\\
-        a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b\\
-        a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b&a&b&\bar{a}&\bar{b}\\
-        b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a\\
-        b&\bar{a}&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}\\
-        a&b&\bar{a}&\bar{b}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}\\
-        a&b&\bar{a}&\bar{b}&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a\\
-        b&\bar{a}&\bar{b}&a&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b\\
-        b&\bar{a}&\bar{b}&a&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b\\
-        \bar{b}&a&\bar{b}&a&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}\\
-        \bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a\\
-        \bar{a}&\bar{b}&a&b&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}\\
-        \bar{a}&\bar{b}&a&b&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a\\
-        \bar{b}&a&b&\bar{a}&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b\\
-        \bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b\\
-      \end{array}
-    \right)
-    \cdot
-    \left(
-      \begin{array}{cccccccccccccccc}
-        a&a&a&a&b&b&a&a&b&b&\bar{b}&\bar{b}&\bar{a}&\bar{a}&\bar{b}&\bar{b}\\
-        b&b&b&b&\bar{a}&\bar{a}&b&b&\bar{a}&\bar{a}&a&a&\bar{b}&\bar{b}&a&a\\
-        a&a&a&a&b&b&\bar{a}&\bar{a}&\bar{b}&\bar{b}&\bar{b}&\bar{b}&a&a&b&b\\
-        b&b&b&b&\bar{a}&\bar{a}&\bar{b}&\bar{b}&a&a&a&a&b&b&\bar{a}&\bar{a}\\
-        a&\bar{a}&a&\bar{a}&a&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b&b&\bar{b}\\
-        b&\bar{b}&b&\bar{b}&b&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}&\bar{a}&a\\
-        a&a&\bar{a}&\bar{a}&b&\bar{b}&a&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b\\
-        b&b&\bar{b}&\bar{b}&\bar{a}&a&b&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}\\
-        a&\bar{a}&\bar{a}&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b&b&\bar{b}&a&a\\
-        b&\bar{b}&\bar{b}&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}&\bar{a}&a&b&b\\
-        a&\bar{a}&a&\bar{a}&\bar{a}&\bar{a}&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b&\bar{b}&b\\
-        b&\bar{b}&b&\bar{b}&\bar{b}&\bar{b}&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}&a&\bar{a}\\
-        a&a&\bar{a}&\bar{a}&\bar{b}&b&\bar{a}&\bar{a}&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b\\
-        b&b&\bar{b}&\bar{b}&a&\bar{a}&\bar{b}&\bar{b}&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}\\
-        a&\bar{a}&\bar{a}&a&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b&\bar{b}&b&\bar{a}&\bar{a}\\
-        b&\bar{b}&\bar{b}&b&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}&a&\bar{a}&\bar{b}&\bar{b}\\
-      \end{array}
-    \right)
-  \]
-  \end{tiny}
+%   \begin{tiny}
+%   \[
+%     \arraycolsep=2.0pt\def\arraystretch{0.75}
+%     \left(
+%       \begin{array}{cccccccccccccccc}
+%         a&b&a&b&a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}\\
+%         a&b&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b\\
+%         a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b\\
+%         a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b&a&b&\bar{a}&\bar{b}\\
+%         b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a\\
+%         b&\bar{a}&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}\\
+%         a&b&\bar{a}&\bar{b}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}\\
+%         a&b&\bar{a}&\bar{b}&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a\\
+%         b&\bar{a}&\bar{b}&a&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}&\bar{b}&a&a&b\\
+%         b&\bar{a}&\bar{b}&a&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b\\
+%         \bar{b}&a&\bar{b}&a&a&b&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}\\
+%         \bar{b}&a&\bar{b}&a&a&b&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a\\
+%         \bar{a}&\bar{b}&a&b&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b&b&\bar{a}\\
+%         \bar{a}&\bar{b}&a&b&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b&\bar{b}&a\\
+%         \bar{b}&a&b&\bar{a}&b&\bar{a}&\bar{b}&a&a&b&b&\bar{a}&b&\bar{a}&a&b\\
+%         \bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&a&b&\bar{b}&a&\bar{b}&a&a&b\\
+%       \end{array}
+%     \right)
+%     \cdot
+%     \left(
+%       \begin{array}{cccccccccccccccc}
+%         a&a&a&a&b&b&a&a&b&b&\bar{b}&\bar{b}&\bar{a}&\bar{a}&\bar{b}&\bar{b}\\
+%         b&b&b&b&\bar{a}&\bar{a}&b&b&\bar{a}&\bar{a}&a&a&\bar{b}&\bar{b}&a&a\\
+%         a&a&a&a&b&b&\bar{a}&\bar{a}&\bar{b}&\bar{b}&\bar{b}&\bar{b}&a&a&b&b\\
+%         b&b&b&b&\bar{a}&\bar{a}&\bar{b}&\bar{b}&a&a&a&a&b&b&\bar{a}&\bar{a}\\
+%         a&\bar{a}&a&\bar{a}&a&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b&b&\bar{b}\\
+%         b&\bar{b}&b&\bar{b}&b&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}&\bar{a}&a\\
+%         a&a&\bar{a}&\bar{a}&b&\bar{b}&a&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b\\
+%         b&b&\bar{b}&\bar{b}&\bar{a}&a&b&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}\\
+%         a&\bar{a}&\bar{a}&a&b&\bar{b}&b&\bar{b}&a&a&\bar{b}&b&b&\bar{b}&a&a\\
+%         b&\bar{b}&\bar{b}&b&\bar{a}&a&\bar{a}&a&b&b&a&\bar{a}&\bar{a}&a&b&b\\
+%         a&\bar{a}&a&\bar{a}&\bar{a}&\bar{a}&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b&\bar{b}&b\\
+%         b&\bar{b}&b&\bar{b}&\bar{b}&\bar{b}&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}&a&\bar{a}\\
+%         a&a&\bar{a}&\bar{a}&\bar{b}&b&\bar{a}&\bar{a}&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b\\
+%         b&b&\bar{b}&\bar{b}&a&\bar{a}&\bar{b}&\bar{b}&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}\\
+%         a&\bar{a}&\bar{a}&a&b&\bar{b}&\bar{b}&b&\bar{a}&\bar{a}&\bar{b}&b&\bar{b}&b&\bar{a}&\bar{a}\\
+%         b&\bar{b}&\bar{b}&b&\bar{a}&a&a&\bar{a}&\bar{b}&\bar{b}&a&\bar{a}&a&\bar{a}&\bar{b}&\bar{b}\\
+%       \end{array}
+%     \right)
+%   \]
+%   \end{tiny}
 
-\end{frame}
+% \end{frame}
 
-\begin{frame}
+% \begin{frame}
   
-  \[
-    2(a^2+b^2)
-    \arraycolsep=2.0pt\def\arraystretch{0.75}
-    \left(
-      \begin{array}{cccccccccccccccc}
-        1&1&1&1&1&1&1&1&1&1&1&1&1&1&1&1\\
-        1&1&1&1&-&-&1&1&-&-&-&-&1&1&-&-\\
-        1&1&1&1&1&1&-&-&-&-&1&1&-&-&-&-\\
-        1&1&1&1&-&-&-&-&1&1&-&-&-&-&1&1\\
-        1&-&1&-&1&1&1&-&1&-&-&-&1&-&-&1\\
-        1&-&1&-&1&1&-&1&-&1&-&-&-&1&1&-\\
-        1&1&-&-&1&-&1&1&1&-&-&1&-&-&1&-\\
-        1&1&-&-&-&1&1&1&-&1&1&-&-&-&-&1\\
-        1&-&-&1&1&-&1&-&1&1&1&-&-&1&-&-\\
-        1&-&-&1&-&1&-&1&1&1&-&1&1&-&-&-\\
-        1&-&1&-&-&-&-&1&1&-&1&1&-&1&-&1\\
-        1&-&1&-&-&-&1&-&-&1&1&1&1&-&1&-\\
-        1&1&-&-&1&-&-&-&-&1&-&1&1&1&-&1\\
-        1&1&-&-&-&1&-&-&1&-&1&-&1&1&1&-\\
-        1&-&-&1&-&1&1&-&-&-&-&1&-&1&1&1\\
-        1&-&-&1&1&-&-&1&-&-&1&-&1&-&1&1\\
-      \end{array}
-    \right)
-  \]
+%   \[
+%     2(a^2+b^2)
+%     \arraycolsep=2.0pt\def\arraystretch{0.75}
+%     \left(
+%       \begin{array}{cccccccccccccccc}
+%         1&1&1&1&1&1&1&1&1&1&1&1&1&1&1&1\\
+%         1&1&1&1&-&-&1&1&-&-&-&-&1&1&-&-\\
+%         1&1&1&1&1&1&-&-&-&-&1&1&-&-&-&-\\
+%         1&1&1&1&-&-&-&-&1&1&-&-&-&-&1&1\\
+%         1&-&1&-&1&1&1&-&1&-&-&-&1&-&-&1\\
+%         1&-&1&-&1&1&-&1&-&1&-&-&-&1&1&-\\
+%         1&1&-&-&1&-&1&1&1&-&-&1&-&-&1&-\\
+%         1&1&-&-&-&1&1&1&-&1&1&-&-&-&-&1\\
+%         1&-&-&1&1&-&1&-&1&1&1&-&-&1&-&-\\
+%         1&-&-&1&-&1&-&1&1&1&-&1&1&-&-&-\\
+%         1&-&1&-&-&-&-&1&1&-&1&1&-&1&-&1\\
+%         1&-&1&-&-&-&1&-&-&1&1&1&1&-&1&-\\
+%         1&1&-&-&1&-&-&-&-&1&-&1&1&1&-&1\\
+%         1&1&-&-&-&1&-&-&1&-&1&-&1&1&1&-\\
+%         1&-&-&1&-&1&1&-&-&-&-&1&-&1&1&1\\
+%         1&-&-&1&1&-&-&1&-&-&1&-&1&-&1&1\\
+%       \end{array}
+%     \right)
+%   \]
 
-\end{frame}
+% \end{frame}
   
 % subsubsection
 
-\subsubsection{Further Configurations}
+\subsubsection{Configurations}
 
 \begin{frame}
 
   \begin{itemize}
-  \item Further configurations:
+  \item Related configurations:
     \begin{itemize}
+    \item equiangular lines
+    \item Unbiased orthogonal designs
     \item quasi-symmetric designs
     \item quaternion frames
     \end{itemize}
   \end{itemize}
   
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% section -- new class of BWGs
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-\section{A New Class of Balanced Weighing Matrices}
-
-\begin{frame}
-  \[
-    \text{\huge\bf A New Class of BGWs}
-  \]
-\end{frame}
-
-\begin{frame}{Section Summary}
-  \tableofcontents[sections={3}]
-\end{frame}
-
-\subsection[]{Generalized Simplex Codes}
-\subsection[]{Seed Matrix}
-\subsection[]{Construction}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % section -- unifying construction
@@ -1346,11 +1351,656 @@ Lethbridge}
 \end{frame}
 
 \begin{frame}{Section Summary}
+  \tableofcontents[sections={3}]
+\end{frame}
+
+% subsection
+
+\subsection{Classical Parameter BGWs}
+
+\begin{frame}
+
+  \begin{block}{Theorem: Classical Paramaeter BGWs}
+    \begin{itemize}
+    \item Let $q$ be a prime power and $d>0$.
+    \item BGWs are known to exist with the following parameters:
+      \begin{itemize}
+      \item
+        \[
+          \left(
+            v = \frac{q^{d+1}-1}{q-1}, k = q^d, \lambda = q^d-q^{d-1}; G = C_{q-1}
+          \right)
+        \]
+        for every $q$ and $d>0$, and
+      \item
+        \[
+          \left(
+            v = \frac{q^{d+1}-1}{q-1}, k = q^d, \lambda = q^d-q^{d-1}; G = C_{2q-2}
+          \right)
+        \]
+        for even $q$ and $d$.
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+% subsection
+
+\subsection{Normalization}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Equivalence operations for generalized weighing matrices:
+    \begin{itemize}
+    \item permutation of rows
+    \item permutation of columns
+    \item post-multiplying column elements by a group element
+    \item pre-multiplying row elements by a group element
+    \end{itemize}
+  \item Every weighing matrix is equivalent to one of the following form
+    \[
+      \begin{pmatrix}
+        \textbf{0} & \rred{R} \\
+        \textbf{1} & \bblue{D}
+      \end{pmatrix}.
+    \]
+  \item $\rred{R}$ is the residual-part
+  \item $\bblue{D}$ is the derived-part
+  \end{itemize}
+  
+\end{frame}
+
+% subsection
+
+\subsection{Generalized Simplex Codes}
+
+\begin{frame}
+
+  \begin{block}{{\bf Definition:} Simplex Code}
+    \begin{itemize}
+    \item $q$ a prime power and $d>0$
+    \item Form matrix $G$ with columns given by reps. of 1-D subspaces of $GF(q^{d+1})$
+    \item simplex code $\mathcal{S}_{q,d}=row(G)$
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{{\bf Proposition}}
+    For $\mathcal{S}_{q,d}$:
+    \begin{itemize}
+    \item $wt(x) = q^d$ for all $x \in \mathcal{S}_{q,d}$
+    \item $dist(x,y)=q^d$ for all $x,y \in \mathcal{S}_{q,d}$ and $x \neq y$
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+% subsection
+
+\subsection{Construction}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Ingredients of unifying construction:
+    \begin{itemize} 
+    \item a normalized $W(v,q)$ (seed matrix) with residual-part $\rred{R}$ and derived-part $\bblue{D}$
+    \item a $W((q^{d+1}-1)/(q-1),q^d)$, say $W$
+    \item $\mathcal{S}_{q,d}$
+    \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Recipie of unifying construction:
+    \begin{itemize}
+    \item Form $\rred{A} = W \otimes R$.
+    \item Form $\bblue{B}$ by replacing elements of $\mathcal{S}_{q,d}$ by rows of $D$.
+    \item Then
+      \[
+        \begin{pmatrix}
+          \textbf{0} & \rred{A} \\
+          \textbf{1} & \bblue{B}
+        \end{pmatrix}
+      \]
+      is a $W((v-1)(q^{d+1}-1)/(q-1)+1,q^{d+1})$.
+    \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item A seed $W(8,5)$
+    \[
+      \begin{pmatrix}
+        \textbf{0} & \rred{R} \\
+        \textbf{1} & \bblue{D}
+      \end{pmatrix}
+      =
+      \left(
+        \arraycolsep=1.0pt\def\arraystretch{1.0}
+        \begin{array}{c|ccccccc}
+          0&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}\\
+          0&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}\\
+          0&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}\\ \hline
+          1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}\\
+          1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}\\
+          1&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}\\
+          1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}\\
+          1&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}\\
+        \end{array}
+      \right)
+    \]
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item A classical parameter $W(6,5)$
+    \[
+      W =
+      \begin{pmatrix}
+        -&1&-&0&1&1\\
+        -&-&1&-&0&1\\
+        -&-&-&1&-&0\\
+        0&-&-&-&1&-\\
+        1&0&-&-&-&1\\
+        -&1&0&-&-&-\\
+      \end{pmatrix}.
+    \]
+  \item The simplex code $\mathcal{S}_{5,1}$ (transposed)
+    \[
+      \left(
+        \arraycolsep=2.0pt\def\arraystretch{1.0}
+        \begin{array}{ccccccccccccccccccccccccc}
+          1&2&3&4&0&1&2&3&4&0&1&2&3&4&0&1&2&3&4&0&1&2&3&4&0\\
+          1&1&1&1&1&2&2&2&2&2&3&3&3&3&3&4&4&4&4&4&0&0&0&0&0\\
+          2&4&0&3&1&4&3&1&0&2&0&1&4&2&3&3&0&2&1&4&1&2&3&4&0\\
+          4&0&3&2&1&3&1&0&4&2&1&4&2&0&3&0&2&1&3&4&2&3&4&1&0\\
+          0&3&2&4&1&1&0&4&3&2&4&2&0&1&3&2&1&3&0&4&3&4&1&2&0\\
+          3&2&4&0&1&0&4&3&1&2&2&0&1&4&3&1&3&0&2&4&4&1&2&3&0\\
+        \end{array}
+      \right)
+    \]
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Take $\rred{A}=W \otimes R$.
+  \item Take $\bblue{B}$ to be the matrix formed after replacing the entries of
+    $S_{5,1}$ by the rows of $D$.
+  \item Then
+    \[
+      \begin{pmatrix}
+        \textbf{0} & \rred{A} \\
+        \textbf{1} & \bblue{B}
+      \end{pmatrix}
+    \]
+    is a $W(43,25)$.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{tiny}
+    \[
+      \left(
+        \arraycolsep=0.5pt\def\arraystretch{0.5}
+        \begin{array}{c|cccccccccccccccccccccccccccccccccccccccccc}
+          0&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}\\
+          0&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}\\
+          0&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}\\
+          0&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}\\
+          0&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}\\
+          0&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}\\
+          0&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}\\
+          0&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}\\
+          0&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}\\
+          0&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}\\
+          0&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}\\
+          0&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}\\
+          0&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}\\
+          0&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}\\
+          0&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}\\
+          0&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{-}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{-}&\rred{-}\\
+          0&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{-}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{1}&\rred{-}\\
+          0&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{-}&\rred{1}&\rred{-}&\rred{1}\\ \hline
+          1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}\\
+          1&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}\\
+          1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}\\
+          1&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}\\
+          1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}\\
+          1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}\\
+          1&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}\\
+          1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}\\
+          1&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}\\
+          1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}\\
+          1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}\\
+          1&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}\\
+          1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}\\
+          1&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}\\
+          1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}\\
+          1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}\\
+          1&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}\\
+          1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}\\
+          1&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}\\
+          1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}\\
+          1&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}\\
+          1&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}\\
+          1&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}\\
+          1&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}\\
+          1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{-}&\bblue{-}\\
+        \end{array}
+      \right)
+    \]
+  \end{tiny}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{{\bf Theorem} \cite[][]{w-mat-construct}}
+    If there is a $W(v,q)$, then there is a weighing matrix with parameters
+    \[
+      \left(
+        \frac{(v-1)(q^{d+1}-1)}{q-1}+1, q^{d+1}
+      \right)
+    \]
+    whenever:
+    \begin{enumerate}
+    \item $q$ is odd and every $d>0$, and
+    \item $q$ and $d$ are both even.
+    \end{enumerate}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{scriptsize}
+    \begin{longtable}[c]{rl|rl}
+      % \caption{Small parameter consequential order/weight pairs.}\\
+
+      % \hline
+      Seed $(v,k)$ & Succident $(v',k')$ & Seed $(v,k)$ & Succident $(v',k')$ \\
+      \hline
+      \endfirsthead
+
+      \multicolumn{4}{c}{\it Continuation of Table.}\\
+      % \hline
+      Seed $(v,k)$ & Succident $(v',k')$ & Seed $(v,k)$ & Succident $(v',k')$ \\
+      \hline
+      \endhead
+
+      % \hline
+      \endfoot
+
+      $(6,5)$: & $(31,25)$, $(156,125)$, $(781,625)$ & $(16,3)$: & $(69,9)$, $(196,27)$, $(601,81)$ \\
+      $(8,5)$: & $\rred{(43,25)}$, $(218,125)$ & $(16,5)$: & $(91,25)$, $(466,125)$ \\
+      $(8,7)$: & $(57,49)$, $(400,343)$ & $(16,7)$: & $(121,49)$, $(856,343)$ \\
+      $(10,5)$: & $(55,25)$, $(280,125)$ & $(16,9)$: & $(151,81)$ \\
+      $(10,9)$: & $(91,81)$, $(820,729)$ & $(16,11)$: & $\rred{(181,121)}$ \\
+      $(12,5)$: & $(67,25)$, $(342,125)$ & $(16,13)$: & $(211,169)$ \\
+      $(12,7)$: & $\rred{(89,49)}$, $(628,343)$ & $(18,13)$: & $(239,169)$ \\
+      $(12,9)$: & $\rred{(111,81)}$ & $(19,9)$: & $(181,81)$ \\
+      $(13,9)$: & $(121,81)$ & $(20,7)$: & $(153,49)$ \\
+      $(14,9)$: & $(131,81)$ & $(20,13)$: & $\rred{(267,169)}$ \\
+      $(14,13)$: & $(183,169)$ & & \\
+
+    \end{longtable}
+  \end{scriptsize}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% section -- new class of BWGs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{A New Class of Balanced Weighing Matrices}
+
+\begin{frame}
+  \[
+    \text{\huge\bf A New Class of BWs}
+  \]
+\end{frame}
+
+\begin{frame}{Section Summary}
   \tableofcontents[sections={4}]
 \end{frame}
 
-\subsection[]{Normalization}
-\subsection[]{Construction}
+% subsection
+
+\subsection{Seed Matrix}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Consider the following $BGW(19,9,4;C_2)$:
+    \[
+      W_{19}=
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \left(\begin{array}{c|cccccccccccccccccc}
+              0&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}\\
+              0&\rred{-}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{-}&\rred{1}&\rred{-}&\rred{0}\\
+              0&\rred{0}&\rred{-}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{-}\\
+              0&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{1}\\
+              0&\rred{1}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{-}\\
+              0&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{1}&\rred{0}\\
+              0&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{1}\\
+              0&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}\\
+              0&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}\\
+              0&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}\\ \hline
+              1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}\\
+              1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{0}&\bblue{0}\\
+              1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}\\
+              1&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}\\
+              1&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}\\
+              1&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}\\
+              1&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}\\
+              1&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{-}\\
+              1&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{0}\\
+            \end{array}\right)
+    \]
+  \item Computationally found in \cite{bgw-19-9-4}.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \rred{R_1} =
+    \left(
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \begin{array}{cccccccccccccccccc}
+        \rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}\\
+        \rred{-}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{-}&\rred{1}&\rred{-}&\rred{0}\\
+        \rred{0}&\rred{-}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{-}\\
+        \rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{1}\\
+        \rred{1}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{-}\\
+        \rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{1}&\rred{0}\\
+        \rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{1}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{-}&\rred{1}\\
+        \rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}&\rred{0}\\
+        \rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{-}&\rred{0}&\rred{0}&\rred{0}\\
+        \rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{-}&\rred{0}&\rred{-}&\rred{1}&\rred{-}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \rred{\abs{R_1}} = 
+    \left(
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \begin{array}{cccccccccccccccccc}
+       \rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}&\rred{1}\\
+        \rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}\\
+        \rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}\\
+        \rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}\\
+        \rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}\\
+        \rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}\\
+        \rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}&\rred{1}&\rred{1}\\
+        \rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}&\rred{0}\\
+        \rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{1}&\rred{0}&\rred{0}&\rred{0}\\
+        \rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{1}&\rred{0}&\rred{1}&\rred{1}&\rred{1}&\rred{0}&\rred{1}&\rred{0}&\rred{0}&\rred{0}\\
+
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \mmag{\abs{R_2}} = J-\rred{\abs{R_1}} =
+    \left(
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \begin{array}{cccccccccccccccccc}
+        \mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}\\
+        \mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}\\
+        \mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}\\
+        \mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}\\
+        \mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}\\
+        \mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}\\
+        \mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}\\
+        \mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}\\
+        \mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}\\
+        \mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{1}\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \mmag{R_2} =
+    \left(
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \begin{array}{cccccccccccccccccc}
+        \mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}\\
+        \mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}\\
+        \mmag{-}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}\\
+        \mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}\\
+        \mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}\\
+        \mmag{1}&\mmag{0}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}\\
+        \mmag{0}&\mmag{1}&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{0}&\mmag{0}\\
+        \mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{1}\\
+        \mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}\\
+        \mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{-}\\
+      \end{array}
+    \right)
+  \]
+
+  \begin{itemize}
+  \item Computationally found viz. Maple.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    W_{19}' =
+    \left(
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \begin{array}{c|cccccccccccccccccc}
+        0&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{0}\\
+        0&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}\\
+        0&\mmag{-}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}\\
+        0&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}\\
+        0&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{0}\\
+        0&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}\\
+        0&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{0}&\mmag{0}\\
+        0&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}&\mmag{1}\\
+        0&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{-}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{-}&\mmag{1}\\
+        0&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{-}&\mmag{-}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{0}&\mmag{0}&\mmag{1}&\mmag{0}&\mmag{1}&\mmag{1}&\mmag{-}\\ \hline
+        1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}\\
+        1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{0}&\bblue{0}\\
+        1&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}\\
+        1&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}\\
+        1&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{1}\\
+        1&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}\\
+        1&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}\\
+        1&\bblue{-}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{-}&\bblue{0}&\bblue{-}\\
+        1&\bblue{0}&\bblue{-}&\bblue{1}&\bblue{-}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{0}&\bblue{0}&\bblue{1}&\bblue{0}&\bblue{-}&\bblue{-}&\bblue{0}\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+% subsection
+
+\subsection{Construction}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Let $\Xi$ be a BGW with parameters
+    \[
+      \left(
+        v = \frac{9^{d+1}-1}{8}, k = 9^d, \lambda = 9^d-9^{d-1}
+      \right)
+    \]
+    over the group $C_4 = \{1,g,g^2,g^3\}$.
+  \item Decompose $\Xi$ as
+    \[
+      \Xi = \Xi_1 + g\Xi_g + g^2\Xi_{g^2} + g^3\Xi_{g^3},
+    \]
+    where the $\Xi_i$s are disjoint $(0,1)$-matrices.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{tiny}
+    \[
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \left(
+        \begin{array}{cccccccccc}
+          0&1&1&1&1&1&1&1&1&1\\
+          1&0&g&g^{2}&g^{3}&1&g&g^{2}&g^{3}&1\\
+          1&g&0&1&g^{2}&g^{2}&g&g^{3}&1&g^{3}\\
+          1&g^{2}&1&0&g&g^{3}&g^{3}&g^{2}&1&g\\
+          1&g^{3}&g^{2}&g&0&g^{2}&1&1&g^{3}&g\\
+          1&1&g^{2}&g^{3}&g^{2}&0&g^{3}&g&g&1\\
+          1&g&g&g^{3}&1&g^{3}&0&1&g^{2}&g^{2}\\
+          1&g^{2}&g^{3}&g^{2}&1&g&1&0&g&g^{3}\\
+          1&g^{3}&1&1&g^{3}&g&g^{2}&g&0&g^{2}\\
+          1&1&g^{3}&g&g&1&g^{2}&g^{3}&g^{2}&0\\
+        \end{array}
+      \right)
+    \]
+
+    \[
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \left(
+        \begin{array}{cccccccccc}
+          0&1&1&1&1&1&1&1&1&1\\
+          1&0&0&0&0&1&0&0&0&1\\
+          1&0&0&1&0&0&0&0&1&0\\
+          1&0&1&0&0&0&0&0&1&0\\
+          1&0&0&0&0&0&1&1&0&0\\
+          1&1&0&0&0&0&0&0&0&1\\
+          1&0&0&0&1&0&0&1&0&0\\
+          1&0&0&0&1&0&1&0&0&0\\
+          1&0&1&1&0&0&0&0&0&0\\
+          1&1&0&0&0&1&0&0&0&0\\
+        \end{array}
+      \right)
+      +
+      g
+      \left(
+        \begin{array}{cccccccccc}
+          0&0&0&0&0&0&0&0&0&0\\
+          0&0&1&0&0&0&1&0&0&0\\
+          0&1&0&0&0&0&1&0&0&0\\
+          0&0&0&0&1&0&0&0&0&1\\
+          0&0&0&1&0&0&0&0&0&1\\
+          0&0&0&0&0&0&0&1&1&0\\
+          0&1&1&0&0&0&0&0&0&0\\
+          0&0&0&0&0&1&0&0&1&0\\
+          0&0&0&0&0&1&0&1&0&0\\
+          0&0&0&1&1&0&0&0&0&0\\
+        \end{array}
+      \right)
+      +
+      g^2
+      \left(
+        \begin{array}{cccccccccc}
+          0&0&0&0&0&0&0&0&0&0\\
+          0&0&0&1&0&0&0&1&0&0\\
+          0&0&0&0&1&1&0&0&0&0\\
+          0&1&0&0&0&0&0&1&0&0\\
+          0&0&1&0&0&1&0&0&0&0\\
+          0&0&1&0&1&0&0&0&0&0\\
+          0&0&0&0&0&0&0&0&1&1\\
+          0&1&0&1&0&0&0&0&0&0\\
+          0&0&0&0&0&0&1&0&0&1\\
+          0&0&0&0&0&0&1&0&1&0\\
+        \end{array}
+      \right)
+      +
+      g^3
+      \left(
+        \begin{array}{cccccccccc}
+          0&0&0&0&0&0&0&0&0&0\\
+          0&0&0&0&1&0&0&0&1&0\\
+          0&0&0&0&0&0&0&1&0&1\\
+          0&0&0&0&0&1&1&0&0&0\\
+          0&1&0&0&0&0&0&0&1&0\\
+          0&0&0&1&0&0&1&0&0&0\\
+          0&0&0&1&0&1&0&0&0&0\\
+          0&0&1&0&0&0&0&0&0&1\\
+          0&1&0&0&1&0&0&0&0&0\\
+          0&0&1&0&0&0&0&1&0&0\\
+        \end{array}
+      \right)
+    \]
+  \end{tiny}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Form:
+    \[
+      \Xi \otimes \rred{R_1} = \Xi_1 \otimes \rred{R_1} - \Xi_g \otimes
+      \mmag{R_2} + \Xi_{g^2} \otimes \rred{R_1} + \Xi_{g^3} \otimes \mmag{R_2}
+    \]
+  \item Applying $\rred{R_1} \mapsto -\mmag{R_2} \mapsto -\rred{R_1} \mapsto
+    \mmag{R_2} \mapsto \rred{R_1}$.
+  \item Form $\bblue{D}$ by substituting for the elements of $S_{9,d}$ the rows
+    of the derived part of $W_{19}$.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item The matrix
+    \[
+      \begin{pmatrix}
+        \textbf{0} & \Xi \otimes \rred{R_1} \\
+        \text{1} & \bblue{D}
+      \end{pmatrix}
+    \]
+    is a balanced weighing matrix.
+  \end{itemize}
+
+  \pause
+
+  \begin{block}{Theorem: \cite[][]{new-bw}}
+    For every $d>0$, there is a balanced weighing matrix with parameters
+    \[
+      \left(
+        v = \frac{9(9^{d+1}-1)}{4}, k = 9^{d+1}
+      \right).
+    \]
+  \end{block}
+  
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % section -- association schemes
@@ -1372,8 +2022,15 @@ Lethbridge}
   \tableofcontents[sections={5}]
 \end{frame}
 
-\subsection[]{Equivalence to Balanced Weighing Matrices}
-\subsection[]{Equivalence to Balanced Generalized Weighing Matrices}
+\subsection{Equivalence to Balanced Weighing Matrices}
+
+\begin{frame}
+
+
+  
+\end{frame}
+
+\subsection{Equivalence to Balanced Generalized Weighing Matrices}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % section -- future work
