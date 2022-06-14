@@ -19,6 +19,7 @@
 \newcommand{\bblue}[1]{\textcolor{blue}{#1}}
 \newcommand{\mmag}[1]{\textcolor{magenta}{#1}}
 \newcommand{\abs}[1]{|#1|}
+\newcommand{\sharps}[1]{\langle #1 \rangle}
 
 \title[Weighing Matrices]{Weighing Matrices}
  \subtitle{Generalizations and Related Configurations}
@@ -74,6 +75,7 @@ Lethbridge}
   \begin{itemize}
   \item $J_{n \times m}$ the $n \times m$ matrix of all 1s.
   \item $I_n$ the identity matrix of order $n$.
+
   \end{itemize}
 
   \begin{block}{{\bf Definition:} Balanced Incomplete Block Design}
@@ -245,7 +247,8 @@ Lethbridge}
   \end{block}
 
   \begin{itemize}
-  \item A $BGW(v,k,\lambda;C_2)$ is a balanced weighing matrix.
+  \item A $BGW(v,k,\lambda;C_2)$ is a balanced weighing matrix. 
+  \item $\lambda = k(k-1)/(v-1)$
   \end{itemize}
   
 \end{frame}
@@ -1071,11 +1074,21 @@ Lethbridge}
 \begin{frame}
 
   \begin{block}{{\bf Theorem} \cite[][]{split-od}}
-    If there is a full $OD(v,s_1,\dots,s_u)$, then:
+    If there is a full $OD(v,s_1,\dots,s_u)$, then there is a full $OD(4v^2; 4vs_1, \dots, 4vs_u)$ for which:
     \begin{itemize}
-    \item There is a full $OD(4v^2; 4vs_1, \dots, 4vs_u)$ for which
-    \item there are two verticle splits and
+    \item there are two verticle splits, and
     \item there are two unstable horizontal splits.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{{\bf Proof}}
+    \begin{itemize}
+    \item In the general case:
+      \begin{align*}
+        \alpha &= (c_0, c_1, \dots, c_{n-1},c_{n-1},\dots,c_1) \\
+        \beta &= (c_0, c_1, \dots, c_{n-1},-c_{n-1},\dots,-c_1).
+      \end{align*}
+    \item Tedious checking of products between block rows.
     \end{itemize}
   \end{block}
   
@@ -1360,7 +1373,7 @@ Lethbridge}
 
 \begin{frame}
 
-  \begin{block}{Theorem: Classical Paramaeter BGWs}
+  \begin{block}{{\bf Proposition}: Classical Paramaeter BGWs}
     \begin{itemize}
     \item Let $q$ be a prime power and $d>0$.
     \item BGWs are known to exist with the following parameters:
@@ -1392,6 +1405,8 @@ Lethbridge}
 \begin{frame}
 
   \begin{itemize}
+  \item Applying an epimorphism to the nonzero entries of a BGW gives a BGW with
+    the same parameters.
   \item Equivalence operations for generalized weighing matrices:
     \begin{itemize}
     \item permutation of rows
@@ -1458,8 +1473,8 @@ Lethbridge}
   \begin{itemize}
   \item Recipie of unifying construction:
     \begin{itemize}
-    \item Form $\rred{A} = W \otimes R$.
-    \item Form $\bblue{B}$ by replacing elements of $\mathcal{S}_{q,d}$ by rows of $D$.
+    \item Form $\rred{A} = W \otimes \rred{R}$.
+    \item Form $\bblue{B}$ by replacing elements of $\mathcal{S}_{q,d}$ by rows of $\bblue{D}$.
     \item Then
       \[
         \begin{pmatrix}
@@ -1472,6 +1487,30 @@ Lethbridge}
   \end{itemize}
   
 \end{frame}
+
+{
+\newcommand{\rbox}{\rred{\mbox{\rule{0.5in}{0.3in}}}}
+\newcommand{\bbox}{\bblue{\mbox{\rule{0.5in}{0.05in}}}}
+
+\begin{frame}
+
+  \[
+    \left(
+      \begin{array}{c|cccc}
+        0 & \rbox & \rbox & \cdots & \rbox \\
+        0 & \rbox & \rbox & \cdots & \rbox \\
+        \vdots & \vdots & \vdots &  & \vdots \\
+        0 & \rbox & \rbox & \cdots & \rbox \\ \hline
+        1 & \bbox & \bbox & \cdots & \bbox \\
+        1 & \bbox & \bbox & \cdots & \bbox \\
+        \vdots & \vdots & \vdots &  & \vdots \\
+        1 & \bbox & \bbox & \cdots & \bbox \\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+}
 
 \begin{frame}
 
@@ -1991,7 +2030,7 @@ Lethbridge}
 
   \pause
 
-  \begin{block}{Theorem: \cite[][]{new-bw}}
+  \begin{block}{{\bf Theorem}: \cite[][]{new-bw}}
     For every $d>0$, there is a balanced weighing matrix with parameters
     \[
       \left(
@@ -2022,15 +2061,165 @@ Lethbridge}
   \tableofcontents[sections={5}]
 \end{frame}
 
+% subsection
+
+\subsection{Association Schemes}
+
+\begin{frame}
+
+  \begin{block}{{\bf Definition} (Commutative) Association Scheme}
+    A (commutative) association scheme is a pair $\mathfrak{X}=(X,\mathscr{A})$
+    where:
+    \begin{itemize}
+    \item $X$ is a point set and $\mathscr{A}=\{A_0, \dots, A_d\}$ a collection
+      of $(0,1)$-matrices indexed by elements of $X$.
+    \item $A_0=I$;
+    \item $\displaystyle{\sum_{i=0}^d A_i} = J$;
+    \item $\mathscr{A}$ is closed under transposition;
+    \item there exist non-negative integers $p_{ij}^k$ such that $A_iA_j =
+      \displaystyle{\sum_{k=0}^d p_{ij}^kA_k}$; and
+    \item $A_iA_j=A_jA_i$.
+    \item[***] $\mathfrak{X}$ is symmetric if $A_i^t=A_i$, for every $i$.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item $\mathfrak{U} = \sharps{\mathscr{A}}$ is the adjacency algebra of
+    $\mathfrak{X}$. 
+  \item $\mathfrak{U}$ has a dual basis of idempotents $\{E_0=\abs{X}^{-1}J,
+    \dots, E_d\}$. 
+  \item There are change of basis matrices $P$ and $Q$ such that
+    \[
+      A_j = \sum_{i=0}^d P_{ij}E_i, \qquad
+      E_j = \abs{X}^{-1}\sum_{i=0}^d Q_{ij}A_i
+    \]
+  \end{itemize}
+  
+\end{frame}
+
+%subsection
+
 \subsection{Equivalence to Balanced Weighing Matrices}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Let $W$ be a $BGW(v,k,\lambda; C_2)$.
+  \item Decompose...
+    \[
+      W = W_1 - W_2,
+    \]
+    where $W_1$ and $W_2$ are disjoint $(0,1)$-matrices.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Properties...
+    \begin{itemize}
+    \pause\item $(W_1-W_2)(W_1-W_2)^t = (W_1-W_2)^t(W_1-W_2) = kI$
+    \pause\item $(W_1+W_2)(W_1+W_2)^t = (W_1+W_2)^t(W_1+W_2) = kI +
+      \lambda(J-I)$
+    \pause\item $W_1W_1^t + W_2W_2^t = W_1^tW_1 + W_2^tW_2 = kI +
+    \frac{\lambda}{2}(J-I)$
+    \pause\item $W_1W_2^t + W_2W_1^t = W_1^tW_2 + W_2^tW_1 =
+    \frac{\lambda}{2}(J-I)$ 
+    \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item With $P=\left( \begin{smallmatrix} 0&1\\1&0 \end{smallmatrix}
+    \right)$, form the $(0,1)$-matrices...
+  \end{itemize}
+
+  \[
+    \begin{align*}
+      A_0 &= I_{4v} \\
+      \rred{A_1} &= \begin{pmatrix}
+               \rred{P \otimes I_v} & O \\ O & \rred{P \otimes I_v}
+             \end{pmatrix} \\
+      \rred{A_2} &= \begin{pmatrix}
+               \rred{J_2 \otimes (J_v-I_v)} & O \\ O & \rred{J_2 \otimes (J_v-I_v)} 
+             \end{pmatrix} \\
+      \bblue{A_3} &= \begin{pmatrix}
+               O & \bblue{I_2 \otimes W_1 + P \otimes W_2} \\
+               \bblue{I_2 \otimes W_1^t + P \otimes W_2^t} & O
+             \end{pmatrix} \\
+      \bblue{A_4} &= \begin{pmatrix}
+               O & \bblue{I_2 \otimes W_2 + P \otimes W_1} \\
+               \bblue{I_2 \otimes W_2^t + P \otimes W_1^t} & O              
+             \end{pmatrix} \\
+      \bblue{A_5} &= \begin{pmatrix}
+               O & \bblue{J_2 \otimes (J_v - W_1 - W_2)} \\
+               \bblue{J_2 \otimes (J_v - W_1^t - W_2^t)} & O
+             \end{pmatrix}
+    \end{align*}
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{itemize}
+  \item Character tables...
+  \end{itemize}
+
+  \[
+    P = \begin{pmatrix}
+          1 & 1 & 2(v-1) & k & k & 2(v-k) \\
+          1 & -1 & 0 & \sqrt{k} & -\sqrt{k} & 0 \\
+          1 & -1 & 0 & -\sqrt{k} & \sqrt{k} & 0 \\
+          1 & 1 & 2(v-1) & -k & -k & 2(k-v) \\
+          1 & 1 & -2 & -\sqrt{\frac{k(v-k)}{v-1}} & -\sqrt{\frac{k(v-k)}{v-1}} & 2\sqrt{\frac{k(v-k)}{v-1}} \\
+          1 & 1 & -2 & \sqrt{\frac{k(v-k)}{v-1}} & \sqrt{\frac{k(v-k)}{v-1}} & -2\sqrt{\frac{k(v-k)}{v-1}}
+        \end{pmatrix}
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    Q = \begin{pmatrix}
+          1 & v & v & 1 & v-1 & v-1 \\
+          1 & -v & -v & 1 & v-1 & v-1 \\
+          1 & 0 & 0 & 1 & -1 & -1 \\
+          1 & \frac{v}{\sqrt{k}} & -\frac{v}{\sqrt{k}} & -1 & -\sqrt{\frac{(v-1)(v-k)}{k}} & \sqrt{\frac{(v-1)(v-k)}{k}} \\
+          1 & -\frac{v}{\sqrt{k}} & \frac{v}{\sqrt{k}} & -1 & -\sqrt{\frac{(v-1)(v-k)}{k}} & \sqrt{\frac{(v-1)(v-k)}{k}} \\
+          1 & 0 & 0 & -1 & \sqrt{\frac{k(v-1)}{v-k}} & -\sqrt{\frac{k(v-1)}{v-k}}
+        \end{pmatrix}
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{{\bf Theorem:} Weighing Schemes \cite[][]{new-bw}}
+    There is a commutative scheme with character tables $P$ and $Q$ given above
+    if and only if there is a balanced $W(v,k)$.
+  \end{block}
+  
+\end{frame}
+
+% subsection
+
+\subsection{Equivalence to Balanced Generalized Weighing Matrices}
 
 \begin{frame}
 
 
   
 \end{frame}
-
-\subsection{Equivalence to Balanced Generalized Weighing Matrices}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % section -- future work
