@@ -92,34 +92,34 @@ Lethbridge}
 
 \end{frame}
 
-\begin{frame}
+% \begin{frame}
 
-  \begin{itemize}
-  \item A $BIBD(13,9,6)$
-    \[
-      A=
-      \arraycolsep=2.0pt\def\arraystretch{1.0}
-      \left(
-      \begin{array}{ccccccccccccc}
-        0&0&1&0&1&1&1&1&1&0&1&1&1\\
-        1&0&0&1&0&1&1&1&1&1&0&1&1\\
-        1&1&0&0&1&0&1&1&1&1&1&0&1\\
-        1&1&1&0&0&1&0&1&1&1&1&1&0\\
-        0&1&1&1&0&0&1&0&1&1&1&1&1\\
-        1&0&1&1&1&0&0&1&0&1&1&1&1\\
-        1&1&0&1&1&1&0&0&1&0&1&1&1\\
-        1&1&1&0&1&1&1&0&0&1&0&1&1\\
-        1&1&1&1&0&1&1&1&0&0&1&0&1\\
-        1&1&1&1&1&0&1&1&1&0&0&1&0\\
-        0&1&1&1&1&1&0&1&1&1&0&0&1\\
-        1&0&1&1&1&1&1&0&1&1&1&0&0\\
-        0&1&0&1&1&1&1&1&0&1&1&1&0\\
-      \end{array}
-      \right).
-    \]
-  \end{itemize}
+%   \begin{itemize}
+%   \item A $BIBD(13,9,6)$
+%     \[
+%       A=
+%       \arraycolsep=2.0pt\def\arraystretch{1.0}
+%       \left(
+%       \begin{array}{ccccccccccccc}
+%         0&0&1&0&1&1&1&1&1&0&1&1&1\\
+%         1&0&0&1&0&1&1&1&1&1&0&1&1\\
+%         1&1&0&0&1&0&1&1&1&1&1&0&1\\
+%         1&1&1&0&0&1&0&1&1&1&1&1&0\\
+%         0&1&1&1&0&0&1&0&1&1&1&1&1\\
+%         1&0&1&1&1&0&0&1&0&1&1&1&1\\
+%         1&1&0&1&1&1&0&0&1&0&1&1&1\\
+%         1&1&1&0&1&1&1&0&0&1&0&1&1\\
+%         1&1&1&1&0&1&1&1&0&0&1&0&1\\
+%         1&1&1&1&1&0&1&1&1&0&0&1&0\\
+%         0&1&1&1&1&1&0&1&1&1&0&0&1\\
+%         1&0&1&1&1&1&1&0&1&1&1&0&0\\
+%         0&1&0&1&1&1&1&1&0&1&1&1&0\\
+%       \end{array}
+%       \right).
+%     \]
+%   \end{itemize}
   
-\end{frame}
+% \end{frame}
 
 % \begin{frame}
 %   \[
@@ -282,18 +282,19 @@ Lethbridge}
   
 % \end{frame}
 
-\begin{frame}
+% \begin{frame}
 
-  \begin{itemize}
-  \item Necessary conditions for BGWs:
-    \begin{itemize}
-    \item weighing matrix
-    \item symmetric BIBD
-    \end{itemize}
-  \item Sufficient in the case that $\abs{G} = \text{prime}$ \cite[][]{lam-leung}
-  \end{itemize}
+%   \begin{itemize}
+%   \item Necessary conditions for BGWs:
+%     \begin{itemize}
+%     \item weighing matrix
+%     \item symmetric BIBD
+%     \end{itemize}
+%   \item Sufficient in the case that $\abs{G} = \text{prime}$
+%     \cite[][]{lam-leung} 
+%   \end{itemize}
 
-\end{frame}
+% \end{frame}
 
 % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1106,7 +1107,7 @@ Lethbridge}
   \begin{block}{{\bf Theorem} \cite[][]{split-od}}
     If there is a full $OD(v,s_1,\dots,s_u)$, then there is a full $OD(4v^2; 4vs_1, \dots, 4vs_u)$ for which:
     \begin{itemize}
-    \item there are two verticle splits, and
+    \item there are two stable verticle splits, and
     \item there are two unstable horizontal splits.
     \end{itemize}
   \end{block}
@@ -1121,6 +1122,62 @@ Lethbridge}
     \item Tedious checking of products between block rows.
     \end{itemize}
   \end{block}
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \left(
+      \arraycolsep=2.0pt\def\arraystretch{0.75}
+      \begin{array}{cccccccccccccccc}
+        a&b&a&b&\rred{a}&\rred{b}&\rred{a}&\rred{b}&\rred{a}&\rred{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{\bar{a}}&\bblue{\bar{b}}\\
+        a&b&a&b&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}\\
+        a&b&a&b&\rred{a}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{\bar{a}}&\rred{\bar{b}}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{a}&\bblue{b}\\
+        a&b&a&b&\rred{\bar{a}}&\rred{\bar{b}}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}&\rred{b}&\bblue{a}&\bblue{b}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}\\
+        b&\bar{a}&b&\bar{a}&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}&\rred{b}&\rred{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}\\
+        b&\bar{a}&b&\bar{a}&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}&\rred{\bar{b}}&\rred{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}\\
+        a&b&\bar{a}&\bar{b}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}\\
+        a&b&\bar{a}&\bar{b}&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}\\
+        b&\bar{a}&\bar{b}&a&\rred{b}&\rred{\bar{a}}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}\\
+        b&\bar{a}&\bar{b}&a&\rred{\bar{b}}&\rred{a}&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}\\
+        \bar{b}&a&\bar{b}&a&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}\\
+        \bar{b}&a&\bar{b}&a&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}&\rred{b}&\rred{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}\\
+        \bar{a}&\bar{b}&a&b&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}\\
+        \bar{a}&\bar{b}&a&b&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}\\
+        \bar{b}&a&b&\bar{a}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}\\
+        \bar{b}&a&b&\bar{a}&\rred{\bar{b}}&\rred{a}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}\\
+      \end{array}
+    \right)
+  \]
+  
+\end{frame}
+
+\begin{frame}
+
+  \[
+    \left(
+      \arraycolsep=2.0pt\def\arraystretch{0.75}
+      \begin{array}{cccccccccccccccc}
+        a&b&a&b&a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}\\
+        a&b&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b&\bar{a}&\bar{b}&a&b\\
+        a&b&a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b\\
+        a&b&a&b&\bar{a}&\bar{b}&\bar{a}&\bar{b}&a&b&a&b&a&b&\bar{a}&\bar{b}\\
+        \rred{b}&\rred{\bar{a}}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}\\
+        \rred{b}&\rred{\bar{a}}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}&\rred{b}&\rred{\bar{a}}\\
+        \rred{a}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}\\
+        \rred{a}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}\\
+        \rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}&\rred{b}&\rred{\bar{a}}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}&\rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}\\
+        \rred{b}&\rred{\bar{a}}&\rred{\bar{b}}&\rred{a}&\rred{\bar{b}}&\rred{a}&\rred{\bar{b}}&\rred{a}&\rred{a}&\rred{b}&\rred{\bar{b}}&\rred{a}&\rred{b}&\rred{\bar{a}}&\rred{a}&\rred{b}\\
+        \bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}\\
+        \bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}\\
+        \bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}\\
+        \bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}\\
+        \bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}&\bblue{b}&\bblue{\bar{a}}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}\\
+        \bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{\bar{b}}&\bblue{a}&\bblue{b}&\bblue{\bar{a}}&\bblue{a}&\bblue{b}&\bblue{\bar{b}}&\bblue{a}&\bblue{\bar{b}}&\bblue{a}&\bblue{a}&\bblue{b}\\
+      \end{array}
+    \right)
+  \]
   
 \end{frame}
 
@@ -1404,7 +1461,7 @@ Lethbridge}
 
 \begin{frame}
 
-  \begin{block}{{\bf Proposition}: Classical Paramaeter BGWs}
+  \begin{block}{{\bf Proposition}: Classical Parameter BGWs}
     \begin{itemize}
     \item Let $q$ be a prime power and $d>0$.
     \item BGWs are known to exist with the following parameters:
@@ -1436,15 +1493,15 @@ Lethbridge}
 \begin{frame}
 
   \begin{itemize}
-  \item Applying an epimorphism to the nonzero entries of a BGW gives a BGW with
-    the same parameters.
-  \item Equivalence operations for generalized weighing matrices:
-    \begin{itemize}
-    \item permutation of rows
-    \item permutation of columns
-    \item post-multiplying column elements by a group element
-    \item pre-multiplying row elements by a group element
-    \end{itemize}
+  % \item Applying an epimorphism to the nonzero entries of a BGW gives a BGW with
+  %   the same parameters.
+  % \item Equivalence operations for generalized weighing matrices:
+  %   \begin{itemize}
+  %   \item permutation of rows
+  %   \item permutation of columns
+  %   \item post-multiplying column elements by a group element
+  %   \item pre-multiplying row elements by a group element
+  %   \end{itemize}
   \item Every weighing matrix is equivalent to one of the following form
     \[
       \begin{pmatrix}
@@ -1941,95 +1998,95 @@ Lethbridge}
   
 \end{frame}
 
-\begin{frame}
+% \begin{frame}
 
-  \begin{tiny}
-    \[
-      \arraycolsep=1.25pt\def\arraystretch{0.625}
-      \left(
-        \begin{array}{cccccccccc}
-          0&1&1&1&1&1&1&1&1&1\\
-          1&0&g&g^{2}&g^{3}&1&g&g^{2}&g^{3}&1\\
-          1&g&0&1&g^{2}&g^{2}&g&g^{3}&1&g^{3}\\
-          1&g^{2}&1&0&g&g^{3}&g^{3}&g^{2}&1&g\\
-          1&g^{3}&g^{2}&g&0&g^{2}&1&1&g^{3}&g\\
-          1&1&g^{2}&g^{3}&g^{2}&0&g^{3}&g&g&1\\
-          1&g&g&g^{3}&1&g^{3}&0&1&g^{2}&g^{2}\\
-          1&g^{2}&g^{3}&g^{2}&1&g&1&0&g&g^{3}\\
-          1&g^{3}&1&1&g^{3}&g&g^{2}&g&0&g^{2}\\
-          1&1&g^{3}&g&g&1&g^{2}&g^{3}&g^{2}&0\\
-        \end{array}
-      \right)
-    \]
+%   \begin{tiny}
+%     \[
+%       \arraycolsep=1.25pt\def\arraystretch{0.625}
+%       \left(
+%         \begin{array}{cccccccccc}
+%           0&1&1&1&1&1&1&1&1&1\\
+%           1&0&g&g^{2}&g^{3}&1&g&g^{2}&g^{3}&1\\
+%           1&g&0&1&g^{2}&g^{2}&g&g^{3}&1&g^{3}\\
+%           1&g^{2}&1&0&g&g^{3}&g^{3}&g^{2}&1&g\\
+%           1&g^{3}&g^{2}&g&0&g^{2}&1&1&g^{3}&g\\
+%           1&1&g^{2}&g^{3}&g^{2}&0&g^{3}&g&g&1\\
+%           1&g&g&g^{3}&1&g^{3}&0&1&g^{2}&g^{2}\\
+%           1&g^{2}&g^{3}&g^{2}&1&g&1&0&g&g^{3}\\
+%           1&g^{3}&1&1&g^{3}&g&g^{2}&g&0&g^{2}\\
+%           1&1&g^{3}&g&g&1&g^{2}&g^{3}&g^{2}&0\\
+%         \end{array}
+%       \right)
+%     \]
 
-    \[
-      \arraycolsep=1.25pt\def\arraystretch{0.625}
-      \left(
-        \begin{array}{cccccccccc}
-          0&1&1&1&1&1&1&1&1&1\\
-          1&0&0&0&0&1&0&0&0&1\\
-          1&0&0&1&0&0&0&0&1&0\\
-          1&0&1&0&0&0&0&0&1&0\\
-          1&0&0&0&0&0&1&1&0&0\\
-          1&1&0&0&0&0&0&0&0&1\\
-          1&0&0&0&1&0&0&1&0&0\\
-          1&0&0&0&1&0&1&0&0&0\\
-          1&0&1&1&0&0&0&0&0&0\\
-          1&1&0&0&0&1&0&0&0&0\\
-        \end{array}
-      \right)
-      +
-      g
-      \left(
-        \begin{array}{cccccccccc}
-          0&0&0&0&0&0&0&0&0&0\\
-          0&0&1&0&0&0&1&0&0&0\\
-          0&1&0&0&0&0&1&0&0&0\\
-          0&0&0&0&1&0&0&0&0&1\\
-          0&0&0&1&0&0&0&0&0&1\\
-          0&0&0&0&0&0&0&1&1&0\\
-          0&1&1&0&0&0&0&0&0&0\\
-          0&0&0&0&0&1&0&0&1&0\\
-          0&0&0&0&0&1&0&1&0&0\\
-          0&0&0&1&1&0&0&0&0&0\\
-        \end{array}
-      \right)
-      +
-      g^2
-      \left(
-        \begin{array}{cccccccccc}
-          0&0&0&0&0&0&0&0&0&0\\
-          0&0&0&1&0&0&0&1&0&0\\
-          0&0&0&0&1&1&0&0&0&0\\
-          0&1&0&0&0&0&0&1&0&0\\
-          0&0&1&0&0&1&0&0&0&0\\
-          0&0&1&0&1&0&0&0&0&0\\
-          0&0&0&0&0&0&0&0&1&1\\
-          0&1&0&1&0&0&0&0&0&0\\
-          0&0&0&0&0&0&1&0&0&1\\
-          0&0&0&0&0&0&1&0&1&0\\
-        \end{array}
-      \right)
-      +
-      g^3
-      \left(
-        \begin{array}{cccccccccc}
-          0&0&0&0&0&0&0&0&0&0\\
-          0&0&0&0&1&0&0&0&1&0\\
-          0&0&0&0&0&0&0&1&0&1\\
-          0&0&0&0&0&1&1&0&0&0\\
-          0&1&0&0&0&0&0&0&1&0\\
-          0&0&0&1&0&0&1&0&0&0\\
-          0&0&0&1&0&1&0&0&0&0\\
-          0&0&1&0&0&0&0&0&0&1\\
-          0&1&0&0&1&0&0&0&0&0\\
-          0&0&1&0&0&0&0&1&0&0\\
-        \end{array}
-      \right)
-    \]
-  \end{tiny}
+%     \[
+%       \arraycolsep=1.25pt\def\arraystretch{0.625}
+%       \left(
+%         \begin{array}{cccccccccc}
+%           0&1&1&1&1&1&1&1&1&1\\
+%           1&0&0&0&0&1&0&0&0&1\\
+%           1&0&0&1&0&0&0&0&1&0\\
+%           1&0&1&0&0&0&0&0&1&0\\
+%           1&0&0&0&0&0&1&1&0&0\\
+%           1&1&0&0&0&0&0&0&0&1\\
+%           1&0&0&0&1&0&0&1&0&0\\
+%           1&0&0&0&1&0&1&0&0&0\\
+%           1&0&1&1&0&0&0&0&0&0\\
+%           1&1&0&0&0&1&0&0&0&0\\
+%         \end{array}
+%       \right)
+%       +
+%       g
+%       \left(
+%         \begin{array}{cccccccccc}
+%           0&0&0&0&0&0&0&0&0&0\\
+%           0&0&1&0&0&0&1&0&0&0\\
+%           0&1&0&0&0&0&1&0&0&0\\
+%           0&0&0&0&1&0&0&0&0&1\\
+%           0&0&0&1&0&0&0&0&0&1\\
+%           0&0&0&0&0&0&0&1&1&0\\
+%           0&1&1&0&0&0&0&0&0&0\\
+%           0&0&0&0&0&1&0&0&1&0\\
+%           0&0&0&0&0&1&0&1&0&0\\
+%           0&0&0&1&1&0&0&0&0&0\\
+%         \end{array}
+%       \right)
+%       +
+%       g^2
+%       \left(
+%         \begin{array}{cccccccccc}
+%           0&0&0&0&0&0&0&0&0&0\\
+%           0&0&0&1&0&0&0&1&0&0\\
+%           0&0&0&0&1&1&0&0&0&0\\
+%           0&1&0&0&0&0&0&1&0&0\\
+%           0&0&1&0&0&1&0&0&0&0\\
+%           0&0&1&0&1&0&0&0&0&0\\
+%           0&0&0&0&0&0&0&0&1&1\\
+%           0&1&0&1&0&0&0&0&0&0\\
+%           0&0&0&0&0&0&1&0&0&1\\
+%           0&0&0&0&0&0&1&0&1&0\\
+%         \end{array}
+%       \right)
+%       +
+%       g^3
+%       \left(
+%         \begin{array}{cccccccccc}
+%           0&0&0&0&0&0&0&0&0&0\\
+%           0&0&0&0&1&0&0&0&1&0\\
+%           0&0&0&0&0&0&0&1&0&1\\
+%           0&0&0&0&0&1&1&0&0&0\\
+%           0&1&0&0&0&0&0&0&1&0\\
+%           0&0&0&1&0&0&1&0&0&0\\
+%           0&0&0&1&0&1&0&0&0&0\\
+%           0&0&1&0&0&0&0&0&0&1\\
+%           0&1&0&0&1&0&0&0&0&0\\
+%           0&0&1&0&0&0&0&1&0&0\\
+%         \end{array}
+%       \right)
+%     \]
+%   \end{tiny}
   
-\end{frame}
+% \end{frame}
 
 \begin{frame}
 
@@ -2286,7 +2343,17 @@ Lethbridge}
 
 \section{Future Work}
 
-\begin{frame}{Future Work}
+\begin{frame}
+
+  \[
+    \begin{array}{c}
+      \text{\huge\bf Future Work}
+    \end{array}
+  \]
+  
+\end{frame}
+
+\begin{frame}
 
   \begin{itemize}
   \item More relations to BGWs!
