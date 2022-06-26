@@ -11,7 +11,7 @@ Symmetric designs are characterized by the fact that the blocks of the design in
  A balanced incomplete block design is {\it quasi-symmetric} if there exist two
  cardinalities that exist for the intersections between pairs of distinct
  blocks. The cardinalities of the intersections are called the {\it intersection
-   numbers} of the design \Dnote{quasi-symmetric}.
+   numbers} of the design.\Dnote{quasi-symmetric}
 \end{defin}
 
 These beautiful objects are studied extensively in \cite{quasi-symmetric-shrikhande}. \cite{combinatorics-of-symmetric-designs} also contains a study of these objects, especially as it pertains to SRGs and association schemes. 
@@ -31,23 +31,44 @@ These beautiful objects are studied extensively in \cite{quasi-symmetric-shrikha
 \end{array}\right)
   $
  \end{defenum}
- with block intersection numbers 0 and 2.
+ with block intersection numbers 0 and 1.
 \end{ex}
 
-Using the balancedly splittable Hadamard matrices constructed in Theorem \ref{stable-od-thm}, we can constuct quasi-symmetric BIBDs. For the proposition, we assume the notations of $\S5.3$.
+Using the balancedly splittable Hadamard matrices constructed in Theorem
+\ref{stable-od-thm}, we can construct quasi-symmetric BIBDs. For the proposition,
+we assume the notations of $\S5.3$. 
 
 \begin{prop}
  If there is a Hadamard matrix of order $n$, there is a quasi-symmetric $\bibd(2n^2-n,4n^2-1,2n^2-n-1,n^2-n,n^2-n-1)$ with intersection numbers $(n^2-n)/2$ and $(n^2-2n)/2$.
 \end{prop}
 
 \begin{proof}
- If there exists a normalized Hadamard matrix of order $n$, there exists a balancedly splittable Hadamard matrix of order $4n^2$ by Theorem \ref{stable-hadamard} (or by Theorem \ref{stable-od-thm} upon setting the indeterminants to unity if there is a full OD of order $n$). It suffices to show the result for one of the four splits obtained by the theorem; in particular, we will show the result for the submatrix $X=\left(\begin{smallmatrix} -F \\ B \\ A \end{smallmatrix}\right)$. Form the matrix $\tilde Y = (1/2)(J-X)$, and take $Y$ to be the matrix formed by omitting the first row of $\tilde Y$ consisting of all zeros.
+ If there exists a normalized Hadamard matrix of order $n$, there exists a
+ balancedly splittable Hadamard matrix of order $4n^2$ by Theorem
+ \ref{stable-hadamard} (or by Theorem \ref{stable-od-thm} upon setting the
+ indeterminates to unity if there is a full OD of order $n$). It suffices to
+ show the result for one of the four splits obtained by the theorem; in
+ particular, we will show the result for the submatrix
+ $X=\left(\begin{smallmatrix} -F \\ B \\ A \end{smallmatrix}\right)$. Form the
+ matrix $\tilde Y = (1/2)(J-X)$, and take $Y$ to be the matrix formed by
+ omitting the first row of $\tilde Y$ consisting of all zeros. 
  
- Since $H$ is assumed to be normalized, each row of $H$ and $\left(\begin{smallmatrix}+&+\\+&-\end{smallmatrix}\right) \otimes H$, other than the first, of course, contain $n/2$ and $n^2/2$ $-1$s, respectively. By construction, then, the first row of $F$ consists of all ones, while the remaining rows have $n^2-n$ $+1$s; thus, the same rows of $-F$ have $n^2-n$ $-1$s. Similarly, $A$ and $B$ have $n(2n-2)/2 = n^2-n$ $-1$s in each row. It also follows that there must be $2n^2-2n+n-1=2n^2-n-1$ $-1$s in each column of $X$.
+ Since $H$ is assumed to be normalized, each row of $H$ and
+ $\left(\begin{smallmatrix}+&+\\+&-\end{smallmatrix}\right) \otimes H$, other
+ than the first, of course, contain $n/2$ and $n^2/2$ minus $1$s, respectively. By
+ construction, then, the first row of $F$ consists of all ones, while the
+ remaining rows have $n^2-n$ $+1$s; thus, the same rows of $-F$ have $n^2-n$
+ $-1$s. Similarly, $A$ and $B$ have $n(2n-2)/2 = n^2-n$ $-1$s in each row. It
+ also follows that there must be $2n^2-2n+n-1=2n^2-n-1$ $-1$s in each column of
+ $X$. 
  
- Finally, the index of the design follows by considering the Menon design \Dnote{menon-design} induced by the regular Hadamard matrix of the construction.
+ Finally, the index of the design follows by considering the Menon
+ design\Dnote{menon-design} induced by the regular Hadamard matrix of the 
+ construction. 
  
- It remains to consider the block intersection numbers of the design. Consider the first row of $X$ along with any other two distinct rows. Without loss of generality, we can assume the following situation.
+ It remains to consider the block intersection numbers of the design. Consider
+ the first row of $X$ along with any other two distinct rows. Without loss of
+ generality, we can assume the following situation. 
  \[
  \def\arraystretch{0.65}
   \begin{array}{cccc}
@@ -90,14 +111,20 @@ Using the balancedly splittable Hadamard matrices constructed in Theorem \ref{st
  The quasi-symmetric $\bibd(6,15,5,2,1)$ given by \ref{quasi-sym-ex} is obtained by the splittable Hadamard matrix \ref{stable-had-ex}.
 \end{ex}
 
-The quasi-symmetric designs of the previous result are not new, however. They represent a subset of the designs obtained in \cite{bracken-mcguire} viz. \cite{mcguire-grey-rankin-bound}.
+The parameters of the quasi-symmetric designs in the previous result are not
+new, however. They represent a subset of the designs obtained in
+\cite{bracken-mcguire} viz. \cite{mcguire-grey-rankin-bound}. 
 
 \dinkus
 
 % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equiangular Tight Frames}
 
-In our earliest collegiate education, we learn that given some linear space, the ``nice'' bases are those which are orthonormal. As \cite{undergrad-frames} points out, however, the property of orthonormality can be too restrictive in many applications. For instance, if a signal is interferred with in transmission, then the lost information cannot be recovered. 
+In our earliest collegiate education, we learn that given some linear space, the
+``nice'' bases are those which are orthonormal. As \cite{undergrad-frames}
+points out, however, the property of orthonormality can be too restrictive in
+many applications. For instance, if a signal is interfered with in
+transmission, then the lost information cannot be recovered.  
 
 By contrast, a frame is an overdetermined % \Dnote{frame-redundance}
 spanning set of vectors. In this way, calculations and applications involving these objects can at times be simplified and data loss deterred. Frames have theoretical applications as well, as shown in the seminal paper of \cite{paley-wiener} using different language, however.
@@ -105,11 +132,17 @@ spanning set of vectors. In this way, calculations and applications involving th
 We will not have the opportunity to explore the theory of frames in any depth; rather, we direct the reader to the standard references of \cite{intro-to-frame-theory}, \cite{waldron-tight-frames}, and \cite{young-nonharmonic-frames}.
 
 \begin{defin}\index{frame}\index{frame!bounds of}\index{tight frame}\index{Parseval frame}
- Let $H$ be a Hilbert space \Dnote{hilbert-space} with inner product $\sharps{\cdot,\cdot}$, and let $\{f_i\} \subset H$. Then $\{f_i\}$ is a {\it frame} if there exists two constants $A$ and $B$ such that
+ Let $H$ be a Hilbert space\Dnote{hilbert-space} with inner product
+ $\sharps{\cdot,\cdot}$, and let $\{f_i\} \subset H$. Then $\{f_i\}$ is a {\it
+   frame} if there exists two constants $A$ and $B$ such that 
  \begin{defenum}
-  \item $A\Vert f \Vert^2 \leq \ssum_i \abs{\sharps{f,f_i}}^2 \leq B\Vert f \Vert^2$, for all $f \in H$.
+  \item $A\Vert f \Vert^2 \leq \ssum_i \abs{\sharps{f,f_i}}^2 \leq B\Vert f
+    \Vert^2$, for all $f \in H$. 
  \end{defenum}
- $A$ and $B$ are called frame bounds. If $\#\{f_i\} < \infty$, it is a {\it finite frame}. If $A=B$, the frame is said to be {\it tight}. If $A=B=1$, then $\{f_i\}$ is said to be a {\it Parseval frame}.
+ $A$ and $B$ are called frame bounds. If $\#\{f_i\} < \infty$, it is a {\it
+   finite frame}. If $A=B$, the frame is said to be {\it tight}. If $\ssum_i
+ \abs{\sharps{f,f_i}}^2 = \Vert f \Vert^2$, then $\{f_i\}$ is said to be a {\it
+   Parseval frame}.   
 \end{defin}
 
 The frame bounds of a frame are not unique. The {\it optimal upper frame bound} is the infimum of the collection of all upper bounds of the frame. Similarly, the {\it optimal lower frame bound} is the supremum of the collection of all lower bounds of the frame.
@@ -124,7 +157,10 @@ It also follows from the definition that $\bar{\sspan}\{f_i\}=H$.
  If $\{e_i\}$ is an orthonormal basis, then $\{e_0,2^{-\frac{1}{2}}e_1,2^{-\frac{1}{2}}e_1,3^{-\frac{1}{2}}e_2,3^{-\frac{1}{2}}e_2,3^{-\frac{1}{2}}e_2\}$, where the element $(n+1)^{-\frac{1}{2}}e_n$ is repeated $n+1$ times, is a frame with $A=1$.
 \end{ex}
 
-From this point on, we will assume that we are working with a finite dimensional Hilbert space of dimension $k$. Our frames will, therefore, always be finite, say of order $n$. Just as for the standard bases of a space, we can relate matrices to finite frames.
+From this point on, we will assume that we are working with a finite dimensional
+Hilbert space of dimension $k$. Our frames will, therefore, always be finite.
+Just as for the standard bases of a space, we can relate 
+matrices to finite frames. 
 
 \begin{defin}\index{analysis operator}\index{synthesis operator}
  Let $\{f_0, \dots,f_{n-1}\}$ be a finite frame in a finite dimensional Hilbert space $H$. The matrix $\Theta=\left(\begin{smallmatrix} f_0^* \\ \vdots \\ f_{n-1}^* \end{smallmatrix}\right)$ is the {\it analysis operator} of the frame, and $\Theta^*$ is called the {\it synthesis operator} of the frame.
@@ -133,9 +169,9 @@ From this point on, we will assume that we are working with a finite dimensional
 The following is then a restatement of the definitions.
 
 \begin{prop}
- Let $x_0,\dots,x_{n-1}$ be vectos in a Hilbert space $H$ of dimension $n$, and define the $k \times n$ matrix $T=\left(\begin{smallmatrix} x_0 & \dots & x_{n-1} \end{smallmatrix}\right)$. Then:
+ Let $x_0,\dots,x_{n-1}$ be vectors in a Hilbert space $H$ of dimension $n$, and define the $k \times n$ matrix $T=\left(\begin{smallmatrix} x_0 & \dots & x_{n-1} \end{smallmatrix}\right)$. Then:
  \begin{defenum}
-  \item $\{x_0,\dots,x_{n-1}\}$ is a frame if and only if $\rrank(T)=n$,
+  \item $\{x_0,\dots,x_{n-1}\}$ is a frame if and only if $\rrank(T)=k$,
   \item $\{x_0,\dots,x_{n-1}\}$ is a tight frame with bound $A$ if and only if $TT^*=\sqrt{A}I$.
  \end{defenum}
 \end{prop}
@@ -148,11 +184,13 @@ The following is Theorem 3.2 of \cite{waldron-quaternions}.
 \begin{thm}\label{quaternion-complex-frame-thm}
  \begin{defenum}
   \item Tight frames for $\C^{2k}$ correspond to tight frames for $\HH^k$, and
-  \item Tight frames for $\HH^k$ correspond to tight frames for $\C^k$ if and only if $\ssum_{i,j}\abs{\co(\sharps{f_i,f_j})}^2 = \ssum_{i,j}\abs{\coo(\sharps{f_i,f_j})}^2$.
+  \item Tight frames for $\HH^k$ correspond to tight frames for $\C^{2k}$ if and only if $\ssum_{i,j}\abs{\co(\sharps{f_i,f_j})}^2 = \ssum_{i,j}\abs{\coo(\sharps{f_i,f_j})}^2$.
  \end{defenum}
 \end{thm}
 
-In light of this result, it is of interest to find frames over $\HH^k$ for which they are not equivalent to frames over $\C^{2d}$, i.e. there can be no reduction in the ring of scalars. We present two examples of such frames.
+In light of this result, it is of interest to find frames over $\HH^k$ for which
+they are not equivalent to frames over $\C^{2k}$, i.e. there can be no reduction
+in the ring of scalars. We present two examples of such frames. 
 
 \begin{ex}
  The following is a $\qod(2;1,1)$
@@ -249,17 +287,20 @@ Let $A$ and $B$ be two orthonormal bases of the Hilbert space $\C^k$. The bases 
 
 The reader will recognize unbiased bases as a subtype of equiangular lines. These objects are fundamental in many applications such as quantum key distribution \cite[see][]{real-unbiased-bases}.
 
-Unitary Hadamard matrices, i.e. a matrices with entries from the unit circle in
+Unit Hadamard matrices, i.e. a matrices with entries from the unit circle in
 the complex plane whose rows are pairwise orthogonal, have received much
-attention with their connection to unbiased bases. Two unitary Hadamard matrices
+attention with their connection to unbiased bases. Two unit Hadamard matrices
 $H$ and $K$ of order $n$ are {\it unbiased}\index{unbiased Hadamard matrices} if
-$HK^*=\sqrt{n}L$, for some unitary Hadamard matrix $L$. Recently, these ideas
-where studied for the case of unitary weighing matrices \Dnote{unbiased-weighing-matrices} in \cite{unbiased-weighing}. The case of unbiased real Hadamard matrices were studied in \cite{unbiased-real}, and the case of unbiased quaternary complex Hadamard in \cite{unbiased-complex}.
+$HK^*=\sqrt{n}L$, for some unit Hadamard matrix $L$. Recently, these ideas
+where studied for the case of unit weighing
+matrices\Dnote{unbiased-weighing-matrices} in \cite{unbiased-weighing}. The case
+of unbiased real Hadamard matrices were studied in \cite{unbiased-real}, and the
+case of unbiased quaternary complex Hadamard in \cite{unbiased-complex}. 
 
-We have seen that extending concepts from matrices of concrete values to matrices of indeterminants usually presents us with subtle difficulties, and extending unbiasedness is no different. In \cite{unbiased-od}, unbiased orthogonal designs are presented thus.
+We have seen that extending concepts from matrices of concrete values to matrices of indeterminates usually presents us with subtle difficulties, and extending unbiasedness is no different. In \cite{unbiased-od}, unbiased orthogonal designs are presented thus.
 
 \begin{defin}\index{unbiased orthogonal designs}
- Let $X_1$ and $X_2$ be two instances of an $\od(n;s_1,\dots,s_u)$ in the indeterminants $x_1,\dots,x_u$. Then $X_1$ and $X_1$ are {\it unbiased} with parameter $\alpha \in \R_+$ if there is a $(-1,0,1)$-matrix $W$ such that
+ Let $X_1$ and $X_2$ be two instances of an $\od(n;s_1,\dots,s_u)$ in the indeterminates $x_1,\dots,x_u$. Then $X_1$ and $X_1$ are {\it unbiased} with parameter $\alpha \in \R_+$ if there is a $(-1,0,1)$-matrix $W$ such that
  \begin{defenum}
   \item $X_1X_2^t = \left(\alpha^{-\frac{1}{2}}\ssum_i s_ix_i^t\right)W$.
  \end{defenum}

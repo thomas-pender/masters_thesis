@@ -10,7 +10,7 @@ There are numerous directions to take with this vague understanding, but we only
 require the following.
 
  \begin{defin}\label{bibd}\index{balanced incomplete block design}
- Let $X$ be a set of order $v$, called the set of varieties; and let $\B \subset \binom{X}{k}$, called the set of blocks, have order $b$. The ordered pair $\D=(X,\B)$ is a {\it balanced incomplete block design} (henceforth BIBD) if there is a positive integer $\lambda$ such that each 2-subset of varieties appears in $\lambda$ blocks of $\B$. \\
+ Let $X$ be a set of cardinality $v$, called the set of varieties; and let $\B \subset \binom{X}{k}$, called the set of blocks, have order $b$. The ordered pair $\D=(X,\B)$ is a {\it balanced incomplete block design} (henceforth BIBD) if there is a positive integer $\lambda$ such that each 2-subset of varieties appears in $\lambda$ blocks of $\B$. \\
  \end{defin}
 
  The conditions placed on a finite set and a collection of its subsets in order
@@ -40,7 +40,7 @@ require the following.
  Corollary \ref{cor-bibd-params} imposes some necessary conditions on the parameters of a BIBD. Our next result, due to \cite{fisher-inequality}, is a strong necessary condition relating the number of points to the number of blocks of a BIBD, and it has far reaching consequences in the applications of designs to fields like statistics.
 
  This most important result admits several interesting derivations employing
- techniques ranging from determinants to variance counting \Anote{variance}. 
+ techniques ranging from determinants to variance counting.\Anote{variance}
 
  \begin{namedthm}{Fisher's Inequality}\index{Fisher's inequality}
    Let $\D=(X,\B)$ be a $\bibd(v,b,r,k,\lambda)$. It follows that 
@@ -52,7 +52,9 @@ require the following.
  The extremal case of Fisher's inequality is naturally very interesting and important. We single this case out thus.
 
  \begin{defin}\label{square-design}\index{balanced incomplete block design!symmetric design}
-   Let $\D=(X,\B)$ be some $\bibd(v,b,r,k,\lambda)$. If $v = b$ (equiv. $k = r$), then we say that $\D$ is a {\it symmetric} balanced incomplete block design, or simply symmetric.
+   Let $\D=(X,\B)$ be some $\bibd(v,b,r,k,\lambda)$. If $v = b$ (equiv. $k =
+   r$), then we say that $\D$ is a {\it symmetric} balanced incomplete block
+   design, or simply a symmetric design.
  \end{defin}
 
  \dinkus
@@ -74,6 +76,33 @@ Thus far, we have been thinking of designs strictly as subsets of some finite se
  We call $A$ the {\it incidence matrix} of the design.
 \end{defin}
 
+\begin{ex}
+  The following is the incidence matrix of a $\bibd(13,9,6)$
+  \begin{defenum}
+    \item\label{ex-symmetric-bibd}
+   $ 
+      \left(
+        \arraycolsep=2.5pt\def\arraystretch{0.625}
+        \begin{array}{ccccccccccccc}
+          0&0&1&0&1&1&1&1&1&0&1&1&1\\
+          1&0&0&1&0&1&1&1&1&1&0&1&1\\
+          1&1&0&0&1&0&1&1&1&1&1&0&1\\
+          1&1&1&0&0&1&0&1&1&1&1&1&0\\
+          0&1&1&1&0&0&1&0&1&1&1&1&1\\
+          1&0&1&1&1&0&0&1&0&1&1&1&1\\
+          1&1&0&1&1&1&0&0&1&0&1&1&1\\
+          1&1&1&0&1&1&1&0&0&1&0&1&1\\
+          1&1&1&1&0&1&1&1&0&0&1&0&1\\
+          1&1&1&1&1&0&1&1&1&0&0&1&0\\
+          0&1&1&1&1&1&0&1&1&1&0&0&1\\
+          1&0&1&1&1&1&1&0&1&1&1&0&0\\
+          0&1&0&1&1&1&1&1&0&1&1&1&0\\
+        \end{array}
+      \right).
+    $
+    \end{defenum}
+\end{ex}
+
 The next result is immediate. Note that we use $I_n$ and $J_n$ to denote the identity matrix and the all ones matrix, respectively, of $n$ rows and $n$ columns. Similarly, $\jj_n$ and $\zz_n$ will denote the column with $n$ ones and the column with $n$ zeros. For simplicity, the indices will at times be omitted.
 
 \begin{prop}\label{incidence prop}
@@ -85,7 +114,7 @@ The next result is immediate. Note that we use $I_n$ and $J_n$ to denote the ide
 \end{prop}
 
 As balanced incomplete block designs can more generally be regarded as finite
-incidence structures \Anote{incidence}, there can be related a number of further such objects. For our purposes, we will be interested in the following. 
+incidence structures,\Anote{incidence} there can be related a number of further such objects. For our purposes, we will be interested in the following. 
 
 \begin{defin}\label{res-der}\index{balanced incomplete block design!complement design}\index{balanced incomplete block design!residual design}\index{balanced incomplete block design!derived design}
  Let $\D=(X,\B)$ be a BIBD, and let $B \in \B$. Then the {\it complement design} $\comp(\D)$ is the pair $(X,\binom{X}{k} \bb \B)$. If $\D$ is symmetric, we have that the {\it derived design} $\der(\D)$ is the pair $(B_0, \{B \cap B_0 : B \in \B \text{ and } B \neq B_0\})$, and the {\it residual design} $\res(\D)$ is the pair $(X \bb B_0, \{B - B_0 : B \in \B \text{ and } B \neq B_0\})$. When convenient, we will simply denote the complement, derived, and residual designs as $\comp$, $\der$, and $\res$, respectively.
@@ -105,6 +134,42 @@ The following result shows why, in part, these substructures are interesting.
  \end{defenum}
 \end{prop}
 
+\begin{ex}
+  The residual design of \ref{ex-symmetric-bibd} is given by
+  \begin{defenum}
+  \item $
+    \left(
+      \arraycolsep=2.5pt\def\arraystretch{0.625}
+      \begin{array}{cccccccccccc}
+        0&1&0&1&1&1&1&1&0&1&1&1\\
+        1&1&1&0&0&1&0&1&1&1&1&1\\
+        1&1&1&1&1&0&1&1&1&0&0&1\\
+        1&0&1&1&1&1&1&0&1&1&1&0\\
+      \end{array}
+    \right);
+    $
+  \end{defenum}
+  while the derived design is given by
+  \begin{defenum}[resume]
+  \item $
+    \left(
+      \arraycolsep=2.5pt\def\arraystretch{0.625}
+      \begin{array}{cccccccccccc}
+        0&0&1&0&1&1&1&1&1&0&1&1\\
+        1&0&0&1&0&1&1&1&1&1&0&1\\
+        1&1&0&0&1&0&1&1&1&1&1&0\\
+        0&1&1&1&0&0&1&0&1&1&1&1\\
+        1&0&1&1&1&0&0&1&0&1&1&1\\
+        1&1&0&1&1&1&0&0&1&0&1&1\\
+        1&1&1&0&1&1&1&0&0&1&0&1\\
+        1&1&1&1&0&1&1&1&0&0&1&0\\
+        0&1&1&1&1&1&0&1&1&1&0&0\\
+      \end{array}
+    \right)
+    $
+  \end{defenum}
+\end{ex}
+
 \dinkus
 
 % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -114,16 +179,18 @@ The following result shows why, in part, these substructures are interesting.
 We conclude this section by briefly discussing isomorphisms of designs. 
 
 \begin{defin}\label{isomorphisms}\index{balanced incomplete block design!isomorphisms of}\index{balanced incomplete block design!automorphism group}
- Let $\D_1=(X_1,\B_1)$ and $\D_2=(X_2,\B_2)$ be two BIBDs with the same parameters, and let $f: X_1 \rightarrow X_2$ be some bijection. If $f(\B_1) = f(\B_2)$, then we say that $f$ is an {\it isomorphism} and that the two designs are {\it isomporhic}. For the case in which $\D_1 = \D_2$, we say that $f$ is an {\it automorphism}. The collection of all automorphisms of a design $\D$ forms a group under composition called the {\it automorphism group} of the design.
+ Let $\D_1=(X_1,\B_1)$ and $\D_2=(X_2,\B_2)$ be two BIBDs with the same parameters, and let $f: X_1 \rightarrow X_2$ be some bijection. If $f(\B_1) = B_2$, then we say that $f$ is an {\it isomorphism} and that the two designs are {\it isomporhic}. For the case in which $\D_1 = \D_2$, we say that $f$ is an {\it automorphism}. The collection of all automorphisms of a design $\D$ forms a group under composition called the {\it automorphism group} of the design.
 
 In practice, one is usually concerned with the actions of isomorphisms on the incidence matrices of designs. In particular, two $\bibd(v,b,r,k,\lambda)$s with incidence matrices $A_1$ and $A_2$ are isomorphic if and only if there is a permutation matrix $P$ of order $v$ and a permutation matrix $Q$ of order $b$ such that 
 \begin{defenum}
-\item\label{binary-equiv} $PA_1Q = A_2$ \Anote{iso-bibd}.
+\item\label{binary-equiv} $PA_1Q = A_2$.\Anote{iso-bibd}
 \end{defenum}
 \end{defin}
 
 \begin{defin}\index{balanced incomplete block design!normal form}
-As nothing essential is changed under the action of an isomorphism, one can then assume that the incidence matrix of a symmetric design has the following form
+As nothing essential is changed under the action of an isomorphism, one can then
+assume that the incidence matrix of a symmetric $(v,k,\lambda)$ design has the
+following form  
 \begin{equation}
     \begin{pmatrix}
      \zz_{v-k} & \res \\

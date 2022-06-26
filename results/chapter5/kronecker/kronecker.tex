@@ -59,16 +59,23 @@
    \end{array}\right),
    $
   \end{defenum}
-  where the block structure is evident \Enote{kronecker-note}.
+  where the block structure is evident.\Enote{kronecker-note}
  \end{ex}
  
  As one further application of the standard Kronecker product before we move on, we will consider regular Hadamard matrices.
  
  \begin{defin}\index{regular Hadamard matrix}
-  A Hadamard matrix is {\it row regular} (or {\it column regular}) if it's rows (resp. columns) have a constant sum. A Hadamard matrix is {\it regular} if it is both row and column regular.
+   A Hadamard matrix is {\it row regular} (or {\it column regular}) if its rows
+   (resp. columns) have a constant sum. A Hadamard matrix is {\it regular} if it
+   is both row and column regular. 
  \end{defin}
  
- It isn't difficult to see that a Hadamard matrix is row regular or column regular if and only if it is regular. Moreover, if the constant row (column) sum is $s$, then the order of the matrix is $s^2$ \cite[see][Chapter 4]{combinatorial-designs}. By the definition of the standard Kronecker product, we also see that if $H$ and $K$ are regular Hadamard matrices, then so is $H \otimes K$.
+ It is not difficult to see that a Hadamard matrix is row regular or column
+ regular if and only if it is regular. Moreover, if the constant row (column)
+ sum is $s$, then the order of the matrix is $s^2$ \cite[see][Chapter
+ 4]{combinatorial-designs}. By the definition of the standard Kronecker product,
+ we also see that if $H$ and $K$ are regular Hadamard matrices, then so is $H
+ \otimes K$. 
  
  Example \ref{regular-ex} has evinced the existence of a regular $\w(4,4)$. It is also known that there is a regular $\w(36,36)$ \cite[see][Chapter 4]{combinatorial-designs}. Also, if there is a Hadamard matrix of order $n$, then there is a symmetric, regular, Hadamard matrix with constant block diagonal of order $n^2$ \cite[see][Part V]{handbook}. We then have the following result.
  
@@ -76,7 +83,14 @@
   If there exist Hadamard matrices of orders $n_1, \dots, n_k$, then there is a regular Hadamard matrix of order $4^a9^bn_1^2\cdots n_k^2$, for $a,b \in \Z_+$ and $a \geq b$.
  \end{prop}
  
- Having convinced ourselves of the utility of the standard Kronecker product, we generalize in the following way. Let $\MM$ be a collection of $n \times m$ matrices with entries from some commutative ring $R$, and let $\Xi$ be an $s \times t$ matrix over the collection of endofunctions of $\MM$. For each $A \in \MM$, the $ns \times mt$ matrix $\Xi \otimes A$ over $R$ is defined as $(\Xi_{ij}(A))$. If certain properties of $A$ are left invariant under the elements of $\Xi$, then these properties will be reflected in the block structure of $\Xi \otimes A$.
+ Having convinced ourselves of the utility of the standard Kronecker product, we
+ generalize it in the following way. Let $\MM$ be a collection of $n \times m$
+ matrices with entries from some commutative ring $R$, and let $\Xi$ be an $s
+ \times t$ matrix over the collection of endofunctions of $\MM$. For each $A \in
+ \MM$, the $ns \times mt$ matrix $\Xi \otimes A$ over $R$ is defined as
+ $(\Xi_{ij}(A))$. If certain properties of $A$ are left invariant under the
+ elements of $\Xi$, then these properties will be reflected in the block
+ structure of $\Xi \otimes A$. 
  
  With the above ideas in mind, if we have a collection $\MM$ of objects, we desire a subset of the collection of endofunctions of $\MM$ that are property preserving. If $\MM$ is a collection of incidence structures, then a set of bijections of $\MM$ that preserve incidence is called a {\it group of symmetries}\index{group of symmetries} of $\MM$. If $\Xi$ is a BGW over a group of symmetries, then $\Xi \otimes A$ has both inter-block regularites and intra-block regularities.
  
@@ -85,14 +99,49 @@
  % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{A First Application: Block designs}
 
-In the previous subsection, we began a brief discussion of groups of symmetries of incidence structures. As an example, let $\D=(X,\B)$ be a $\bibd(v,b,r,k,\lambda)$, and let $\B = \bigcup_{i=1}^m \B_i$ be a partition of the blocks of $\D$. If $G_i$ acts on $\B_i$, then, $(X,\bigcup_{i=1}^m\B_ig_i)$, for $g_i \in G_i$, is again a $\bibd(v,b,r,k,\lambda)$. Let $A=A(\D)$ be the incidence matrix of $\D$, and assume that $A = \left(\begin{smallmatrix} A(X,\B_1) & \cdots & A(X,\B_m) \end{smallmatrix}\right)$. Then $G=\pprod_iG_i$ acts naturally on the columns of $A$. If in addition $G_i$ is sharpley transitive on $\B_i$, and if each point $x \in X$ appears $r_i$ times in $\B_i$, then 
+In the previous subsection, we began a brief discussion of groups of symmetries
+of incidence structures. As an example, let $\D=(X,\B)$ be a
+$\bibd(v,b,r,k,\lambda)$, and let $\B = \bigcup_{i=1}^m \B_i$ be a partition of
+the blocks of $\D$. If $G_i$ acts on $\B_i$, then, $(X,\bigcup_{i=1}^m\B_ig_i)$,
+for $g_i \in G_i$, is again a $\bibd(v,b,r,k,\lambda)$. Let $A=A(\D)$ be the
+incidence matrix of $\D$, and assume that $A = \left(\begin{smallmatrix}
+                                                       A(X,\B_1) & \cdots & 
+                                                                            A(X,\B_m) \end{smallmatrix}\right)$.
+                                                                        Then
+                                                                        $G=\pprod_iG_i$
+                                                                        acts
+                                                                        naturally
+                                                                        on the
+                                                                        columns
+                                                                        of $A$.
+                                                                        If in
+                                                                        addition
+                                                                        $G_i$ is
+                                                                        sharply
+                                                                        transitive
+                                                                        on
+                                                                        $\B_i$,
+                                                                        and if
+                                                                        each
+                                                                        point $x
+                                                                        \in X$
+                                                                        appears
+                                                                        $r_i$
+                                                                        times in
+                                                                        $\B_i$,
+                                                                        then   
  \[
  \arraycolsep=1.25pt\def\arraystretch{0.625}
  \abs{G}^{-1}\sum_{g \in G}Ag = (\begin{array}{ccc} r_1b_1^{-1}J_{v \times b_1} & \cdots & r_mb_m^{-1}J_{v \times b_m} \end{array}),
  \]
  where $b_i=\abs{\B_i}$. Therefore, if $r_ib_j=r_jb_i$, for all $i,j \in \{1,\dots,m\}$, then $\ssum_{g \in G}Ag$ is an integer multiple of $J_{v \times b}$ since $b_i \mid |G|$. Since $G$ acts on the columns of $A$, we also have that $Xg(Yg)^t = XY^t$, for each $X,Y \in AG$. 
  
- This motivates the following. If $G$ is a group of symmetries of a collection $\MM$ of $\bibd(v,b,r,k,\lambda)$s such that $\ssum_{g \in G}Xg = \alpha_XJ$, for some $\alpha_X \in \N$ and all $X \in \MM$; and if $Xg(Yg)^t = XY^t$, for all $X,Y \in \MM$; then we say that $G$ is an {\it admissible} group of symmetries of $\D$\index{admissible group of symmetries}. We then have the following.
+ This motivates the following. If $G$ is a group of symmetries of a collection
+ $\MM$ of $\bibd(v,b,r,k,\lambda)$s such that $\ssum_{g \in G}Xg = \alpha_XJ$,
+ for some $\alpha_X \in \N$ and all $X \in \MM$; and if $Xg(Yg)^t = XY^t$, for
+ all $X,Y \in \MM$; then we say that $G$ is an {\it admissible} group of
+ symmetries of $\D$\index{admissible group of symmetries}. We then have the
+ following \cite[see][]{ionin-bgw-bibd}. 
  
  \begin{thm}\label{bibd-bgw-thm}
   Let $\MM$ be a collection of $\bibd(v,b,r,k,\lambda)$s, and let $G$ be an admissible group of symmetries of $\MM$. If $\Xi$ is a $\bgw(w,\ell,\mu;G)$ such that $kr\mu=v\lambda\ell$, then $\Xi \otimes X$ is a $\bibd(vw,bw,r\ell,k\ell,\lambda\ell)$, for any $X \in \MM$.
@@ -110,9 +159,50 @@ In the previous subsection, we began a brief discussion of groups of symmetries 
   Let $q=p^n$ be a prime power, and let $H$ be a $\gh(q,1)$ over $\text{EA}(q)$
   where the elements have the usual representation of $(0,1)$-matrices. Then it
   isn't difficult to see that $A=(\begin{smallmatrix} I_q \otimes \jj_q &
-                                                                          H \end{smallmatrix})$ is a $\bibd(q^2,q+q^2,1+q,q,1)$. Importantly, the columns are placed into $1+q$ consecutive disjoint groups of $q$ columns each such that each point appears precisely once in every group \Enote{resolvable-note}. Let $G$ be the group which cyclically permutes the blocks in each group so that $|G|=q$.
+                                                                          H \end{smallmatrix})$
+                                                                        is a
+                                                                        $\bibd(q^2,q+q^2,1+q,q,1)$.
+                                                                        Importantly,
+                                                                        the
+                                                                        columns
+                                                                        are
+                                                                        placed
+                                                                        into
+                                                                        $1+q$
+                                                                        consecutive
+                                                                        disjoint
+                                                                        groups
+                                                                        of $q$
+                                                                        columns
+                                                                        each
+                                                                        such
+                                                                        that
+                                                                        each
+                                                                        point
+                                                                        appears
+                                                                        precisely
+                                                                        once in
+                                                                        every
+                                                                        group.\Enote{resolvable-note}
+                                                                        Let $G$
+                                                                        be the
+                                                                        group
+                                                                        which
+                                                                        cyclically
+                                                                        permutes
+                                                                        the
+                                                                        blocks
+                                                                        in each
+                                                                        group so
+                                                                        that
+                                                                        $|G|=q$. 
   
-  If $1+q$ is a prime power, then there is a $\bgw(2+q,1+q,q;C_q)$, say $\Xi$, where the group elements cyclically permute the blocks of each parition class in the above design. The parametric conditions of the theorem are met, hence $\Xi \otimes A$ is a $\bibd(q^2(2+q),(q+q^2)(2+q),(1+q)^2,q(1+q),1+q)$. More generally, we can take $\Xi$ to be any $\bgw((p^{n+1}-1)/(p-1),p^n,p^n-p^{n-1};C_q)$, where $p=1+q$.
+  If $1+q$ is a prime power, then there is a $\bgw(2+q,1+q,q;C_q)$, say $\Xi$,
+  where the group elements cyclically permute the blocks of each partition class
+  in the above design. The parametric conditions of the theorem are met, hence
+  $\Xi \otimes A$ is a $\bibd(q^2(2+q),(q+q^2)(2+q),(1+q)^2,q(1+q),1+q)$. More
+  generally, we can take $\Xi$ to be any
+  $\bgw((p^{n+1}-1)/(p-1),p^n,p^n-p^{n-1};C_q)$, where $p=1+q$. 
  \end{ex}
 
 \dinkus

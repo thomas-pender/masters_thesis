@@ -3,7 +3,7 @@
 \begin{document}
 % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Defintion}
+\subsection{Definition}
 
  We begin with the following definition.
  
@@ -11,8 +11,8 @@
   Let $X$ be a finite set of $v$ elements, and let $\RR=\{R_0, \dots, R_d\}$ be a collection of relations on $X$. We say that the ordered pair $\X=(X,\RR)$ is an {\it association scheme} with {\it $d$ classes} whenever the following are satisfied.
   \begin{defenum}
    \item $R_0=\{(x,x) : x \in X\}$;
-   \item $R_i \cap R_j = \emptyset$ and $X \times X$ is the disjoint union of $R_0, \dots, R_d$;
-   \item $R_i^t=R_{i'}$ for some $i' \in \{0, \dots, d\}$, where $R_i^t=\{(x,y) : (y,x) \in R_i\}$; and
+   \item $R_i \cap R_j = \emptyset$, for $i \neq j$, and $X \times X$ is the disjoint union of $R_0, \dots, R_d$;
+   \item\label{closure-transpose} $R_i^t=R_{i'}$ for some $i' \in \{0, \dots, d\}$, where $R_i^t=\{(x,y) : (y,x) \in R_i\}$; and
    \item Given $(x,y) \in R_k$, the number of $z \in X$ such that $(x,z) \in R_i$ and $(z,y) \in R_j$ is a constant $p_{ij}^k$. We call the $p_{ij}^k$, the {\it intersection numbers}\index{intersection numbers} of the scheme.
   \end{defenum}
   The scheme $\X$ is {\it commutative} if
@@ -21,7 +21,8 @@
   \end{defenum}
   The scheme is {\it symmetric} if
   \begin{defenum}[resume]
-   \item $i=i'$, for every $i \in \{0, \dots, d\}$.
+  \item $i=i'$, for every $i \in \{0, \dots, d\}$, where $i'$ is given by
+    \ref{closure-transpose}. 
   \end{defenum}
   We denote $p_{ii}^0$ as $k_i$, the {\it valency} of the relation $R_i$.
  \end{defin}
@@ -38,7 +39,7 @@
  The importance of association schemes resides in the following equivalent definition.
  
  \begin{defin}
-  Let $\X=(X,\RR)$ be a $d$-class assocation scheme. For $i \in \{0, \dots, d\}$, define the $v \times v$ $(0,1)$-matrix $A_i$ with rows and columns indexed by elements of $X$ by $(A_i)_{xy} = 1$ if and only if $(x,y) \in R_i$. We call $A_i$ the {\it adjacency matrix} of the relation $R_i$. Then Definition \ref{ass-scheme-def} is equivalent to the following.
+   Let $\X=(X,\RR)$ be a $d$-class association scheme. For $i \in \{0, \dots, d\}$, define the $v \times v$ $(0,1)$-matrix $A_i$ with rows and columns indexed by elements of $X$ by $(A_i)_{xy} = 1$ if and only if $(x,y) \in R_i$. We call $A_i$ the {\it adjacency matrix} of the relation $R_i$. Then Definition \ref{ass-scheme-def} is equivalent to the following.
   \begin{defenum}
    \item\label{id-mat} $A_0=I$;
    \item\label{lin-indep} $A_0 + \cdots + A_d=J$;
@@ -53,11 +54,18 @@
   \begin{defenum}[resume]
    \item\label{symmetric-scheme} $A_i^t=A_i$, for every $i \in \{0, \dots, d\}$.
   \end{defenum}
-  By \ref{lin-indep}, the adjacency matrices of the scheme are $\C$-linearly independent and generate a subspace $\U$ of $\mat_v(\C)$ of dimension $d+1$. By \ref{mult-closed}, $\U$ is closed under standard matrix multiplication. We call $\U$ the {\it adjacency algebra}\index{adjacency algebra} of the association scheme $\X$.
+
+  By \ref{lin-indep}, the adjacency matrices of the scheme are $\C$-linearly
+  independent and generate a subspace $\U$ of the matrix space $\mat_v(\C)$ of
+  dimension $d+1$. 
+  By \ref{mult-closed}, $\U$ is closed under standard matrix multiplication. We
+  call $\U$ the {\it adjacency algebra}\index{adjacency algebra} of the
+  association scheme $\X$. 
   
-  We further have that $A_i \circ A_j = \delta_{ij}A_i$. Therefore, $A_0, \dots,
+  We further have that $A_i \circ A_j = \delta_{ij}A_i$ where $\cdot\circ\cdot$
+  denotes Schur, i.e. componentwise multiplication. Therefore, $A_0, \dots, 
   A_d$ also generate a comutative algebra $\hat \U$ with Schur multiplication
-  for which they are primitive idempotents \Anote{dual-scheme}. We therefore also call the adjacency matrices the {\it Schur idempotents}\index{Schur idempotents} of the scheme.
+  for which they are primitive idempotents.\Anote{dual-scheme} We therefore also call the adjacency matrices the {\it Schur idempotents}\index{Schur idempotents} of the scheme.
  \end{defin}
  
  Assume an ordering of $X=\{x_0, \dots, x_{v-1}\}$, and take $e_{x_i}$ to be the standard vector with $i$-th position equal to 1 and 0 elsewhere. Take $V$ to be the Hermitian space with the standard orthonormal basis $\{e_x : x \in X\}$. 

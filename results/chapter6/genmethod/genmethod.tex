@@ -108,7 +108,8 @@ It follows that $\WW$ is a weighing matrix. We record this result below.
  Evidently, this resolves the question of existence of a $\w(43,25)$ given in Part V of \cite{handbook}.
 \end{ex}
 
-To further evince the utility of the method, we include a table of constructible parameters given a seed weighing matrix known to exist.
+To further evince the utility of the method, we include a table of constructible
+parameters given a known seed weighing matrix.
 
 \begin{small}
 \begin{longtable}[c]{rl|rl}
@@ -156,7 +157,12 @@ $^\ddag$ Denotes a balanced weighing matrix.
 
 The construction is perfectly amenable to certain symmetric designs. For precisely the same reasoning given in the previous subsection, we require that the design have a prime power block size. Furthermore, we require that the parameters of the residual of the design be invariant under complementation. Explicitly, if $A = \left(\begin{smallmatrix} \zz & R \\ \jj & D \end{smallmatrix}\right)$ is the incidence matrix of the given design, then $J-R$ must have the same parameters as $R$.
 
-As shown in \cite{combinatorial-theory}, there is a $\w(2q+2,2q+2)$ if and only if there is a symmetric $\bibd(2q+1,q,(q-1)/2)$, called a {\it Hadamard design}\index{Hadamard design} \Fnote{hadamard-design}. Accordingly, the residual of this design is a $\bibd(q+1,2q,q,(q+1)/2,(q-1)/2)$, the parameters of which are invariant under complementation. Also, the derived design is a $\bibd(q,2q,q-1,(q-1)/2,(q-3)/2)$.
+As shown in \cite{combinatorial-theory}, there is a $\w(2q+2,2q+2)$ if and only
+if there is a symmetric $\bibd(2q+1,q,(q-1)/2)$, called a {\it Hadamard
+  design}\index{Hadamard design}.\Fnote{hadamard-design} Accordingly, the
+residual of this design is a $\bibd(q+1,2q,q,(q+1)/2,(q-1)/2)$, the parameters
+of which are invariant under complementation. Also, the derived design is a
+$\bibd(q,2q,q-1,(q-1)/2,(q-3)/2)$. 
 
 Let $H=H_0-H_1$ be a balanced $\w((q^n-1)/(q-1),q^{n-1})$, and let $\{A_\alpha\}_{\alpha\in\gf(q)}$ be as above. If $A = \left(\begin{smallmatrix} \zz & R \\ \jj & D \end{smallmatrix}\right)$ is a Hadamard design with parameters $(2q+1,q,(q-1)/2)$, then we form $\rr = H_0 \otimes R + H_1 \otimes (J-R)$. Indexing the rows of $D$ by the elements of $\gf(q)$, we then form $\DD = \sum_{\alpha\in\gf(q)} A_\alpha \otimes r_\alpha$.
 

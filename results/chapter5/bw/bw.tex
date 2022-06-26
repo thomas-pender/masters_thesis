@@ -45,35 +45,38 @@
  \end{lem}
 
  \begin{proof}
-   \ref{bgw-circ-lem-1} is simply a restatment of the fact that both $W$ and $W^*$ are $\bgw(v,k,\lambda;C_n)$s \cite[see][]{combinatorics-of-symmetric-designs}. \ref{bgw-circ-lem-2} follows by noting that there are $k$ nonzero entries in every row of $W$, and that $1$ appears $\lambda/n$ times in the conjugate inner product between distinct rows. Similarly, \ref{bgw-circ-lem-3} follows by noting that each nonidentity element of the group appears $\lambda/n$ times in the conjugate inner product between distinct rows of $W$, and that $i \neq i+j$, for each $i$ whenever $j \not\equiv 0 \pmod{n}$.
+   \ref{bgw-circ-lem-1} is simply a restatement of the fact that both $W$ and $W^*$ are $\bgw(v,k,\lambda;C_n)$s \cite[see][]{combinatorics-of-symmetric-designs}. \ref{bgw-circ-lem-2} follows by noting that there are $k$ nonzero entries in every row of $W$, and that $1$ appears $\lambda/n$ times in the conjugate inner product between distinct rows. Similarly, \ref{bgw-circ-lem-3} follows by noting that each nonidentity element of the group appears $\lambda/n$ times in the conjugate inner product between distinct rows of $W$, and that $i \neq i+j$, for each $i$ whenever $j \not\equiv 0 \pmod{n}$.
  \end{proof}
 
- Now, consider the balanced $\w(19,9)$ shown to exist by computational means in \cite{bgw-19-9-4}.
- \[
-  W_{19}=
-  \arraycolsep=1.25pt\def\arraystretch{0.625}
-  \left(\begin{array}{ccccccccccccccccccc}
-          0&+&+&+&+&+&+&+&+&+&0&0&0&0&0&0&0&0&0\\
-          0&0&-&-&0&+&0&0&0&+&-&+&+&0&+&0&0&0&+\\
-          0&-&0&-&0&0&+&+&0&0&+&-&+&0&0&+&+&0&0\\
-          0&-&-&0&+&0&0&0&+&0&+&+&-&+&0&0&0&+&0\\
-          0&0&0&+&0&-&-&0&+&0&0&0&+&-&+&+&0&+&0\\
-          0&+&0&0&-&0&-&0&0&+&+&0&0&+&-&+&0&0&+\\
-          0&0&+&0&-&-&0&+&0&0&0&+&0&+&+&-&+&0&0\\
-          0&0&+&0&0&0&+&0&-&-&0&+&0&0&0&+&-&+&+\\
-          0&0&0&+&+&0&0&-&0&-&0&0&+&+&0&0&+&-&+\\
-          0&+&0&0&0&+&0&-&-&0&+&0&0&0&+&0&+&+&-\\
-          +&0&0&0&+&0&-&+&-&0&0&-&-&0&+&0&0&0&+\\
-          +&0&0&0&-&+&0&0&+&-&-&0&-&0&0&+&+&0&0\\
-          +&0&0&0&0&-&+&-&0&+&-&-&0&+&0&0&0&+&0\\
-          +&+&-&0&0&0&0&+&0&-&0&0&+&0&-&-&0&+&0\\
-          +&0&+&-&0&0&0&-&+&0&+&0&0&-&0&-&0&0&+\\
-          +&-&0&+&0&0&0&0&-&+&0&+&0&-&-&0&+&0&0\\
-          +&+&0&-&+&-&0&0&0&0&0&+&0&0&0&+&0&-&-\\
-          +&-&+&0&0&+&-&0&0&0&0&0&+&+&0&0&-&0&-\\
-          +&0&-&+&-&0&+&0&0&0&+&0&0&0&+&0&-&-&0\\
-  \end{array}\right).
- \]
+ Now, consider the balanced $\w(19,9)$ first appearing in \cite{bgw-19-9-4}
+ where it was presented to the authors by Mathon.
+ \begin{small}
+   \[
+     W_{19}=
+     \arraycolsep=1.25pt\def\arraystretch{0.625}
+     \left(\begin{array}{ccccccccccccccccccc}
+             0&+&+&+&+&+&+&+&+&+&0&0&0&0&0&0&0&0&0\\
+             0&0&-&-&0&+&0&0&0&+&-&+&+&0&+&0&0&0&+\\
+             0&-&0&-&0&0&+&+&0&0&+&-&+&0&0&+&+&0&0\\
+             0&-&-&0&+&0&0&0&+&0&+&+&-&+&0&0&0&+&0\\
+             0&0&0&+&0&-&-&0&+&0&0&0&+&-&+&+&0&+&0\\
+             0&+&0&0&-&0&-&0&0&+&+&0&0&+&-&+&0&0&+\\
+             0&0&+&0&-&-&0&+&0&0&0&+&0&+&+&-&+&0&0\\
+             0&0&+&0&0&0&+&0&-&-&0&+&0&0&0&+&-&+&+\\
+             0&0&0&+&+&0&0&-&0&-&0&0&+&+&0&0&+&-&+\\
+             0&+&0&0&0&+&0&-&-&0&+&0&0&0&+&0&+&+&-\\
+             +&0&0&0&+&0&-&+&-&0&0&-&-&0&+&0&0&0&+\\
+             +&0&0&0&-&+&0&0&+&-&-&0&-&0&0&+&+&0&0\\
+             +&0&0&0&0&-&+&-&0&+&-&-&0&+&0&0&0&+&0\\
+             +&+&-&0&0&0&0&+&0&-&0&0&+&0&-&-&0&+&0\\
+             +&0&+&-&0&0&0&-&+&0&+&0&0&-&0&-&0&0&+\\
+             +&-&0&+&0&0&0&0&-&+&0&+&0&-&-&0&+&0&0\\
+             +&+&0&-&+&-&0&0&0&0&0&+&0&0&0&+&0&-&-\\
+             +&-&+&0&0&+&-&0&0&0&0&0&+&+&0&0&-&0&-\\
+             +&0&-&+&-&0&+&0&0&0&+&0&0&0&+&0&-&-&0\\
+           \end{array}\right).
+       \]
+ \end{small}
  
  Take $R_1$ and $D$ to be the residual and derived parts, respectively, of
  $W_{19}$. Define the matrix $\abs{R_1}$ by $\abs{R_1}_{ij}=\abs{R_{1_{ij}}}$.
@@ -112,7 +115,8 @@
  \end{lem}
  
  \begin{proof}
-  Restatement of the facts that $R_1,R_2$, and $D$ form balanced $\w(19,4)$ weighing matrices.
+  Restatement of the fact that each of $R_1,R_2$, together with  $D$ form a
+  balanced $\w(19,4)$ weighing matrix. 
  \end{proof}
  
  \dinkus

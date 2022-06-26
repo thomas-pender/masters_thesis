@@ -57,7 +57,9 @@
   \begin{defenum}
    \item $H_1^tH_1 = \ell I + aA + b(J-I-A)$,
   \end{defenum}
-  for some binary $(0,1)$-matrix $A$ with zero diagonal.
+  for some symmetric $(0,1)$-matrix $A$ with zero diagonal. Additionally, balanced
+  splittability can equally well be defined with respect to submatrices formed by
+  subsets of the rows.
  \end{defin}
  
  This definition and the previous example are suggestive. Notably, a connection to sets of biangular lines is inherent in the definition. These connections will be taken up in the following subsections.
@@ -73,7 +75,7 @@ matrices were related to collections of biangular lines. By a set of {\it
 collection $\LL$ of lines in $\R^\ell$, define $\Xi=\{|\sharps{u,v}| : u,v \in
 \LL \text{ and } u \neq v\}$. If $\abs{\Xi}=2$, then we say that $\LL$ is a set
 of {\it biangular lines}; while if $|\Xi|=1$, then we say that $\LL$ is a set of
-{\it equiangular lines}\index{equiangular lines} \Dnote{equiangular-lines-note}.
+{\it equiangular lines}\index{equiangular lines}.\Dnote{equiangular-lines-note}
 
 Clearly, if $H$ is balancedly splittable with respect to the $\ell \times n$ submatrix $H_1$, then Definition \ref{bal-split-hadamard} implies that the columns of $H_1$ are at most biangular. They are equiangular precisely in the case that $b=-a$.
 
@@ -240,7 +242,7 @@ B=\left(\begin{array}{cccccc}
     \right)
   \end{equation}
   we obtain the balancedly splittable Hadamard matrix of order 64 as constructed
-  in A1.
+  in appendix A1.
 \end{ex}
 
 \begin{ex}
@@ -256,7 +258,7 @@ B=\left(\begin{array}{cccccc}
     \right),
   \end{equation}
   where $\omega = e^\frac{2\pi\sqrt{-1}}{3}$, we can construct a balancedly
-  splittable $\bw(36,36;6)$ as shown in A2.
+  splittable $\bw(36,36;6)$ as shown in appendix A2.
 \end{ex}
 
 This construction can be made perfectly general. Since this result is ultimately a special case of Theorem \ref{stable-od-thm}, we will not show it explicitly.

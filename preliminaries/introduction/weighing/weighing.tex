@@ -15,6 +15,32 @@ We begin with the following definition.
   If $n=k$, then we say that $W$ is a {\it Hadamard matrix}\index{Hadamard matrix}. If $n-1=k$, then we say that $W$ is a {\it conference matrix}\index{conference matrix}. In any event, we write $\w(n,k)$ to denote this property.
 \end{defin}
 
+\begin{ex}
+  A $\w(13,9)$
+  \begin{defenum}
+  \item\label{ex-balanced-w-matrix} $
+    \left(
+      \arraycolsep=1.25pt\def\arraystretch{0.625}
+      \begin{array}{ccccccccccccc}
+        0&0&-&0&-&1&-&-&1&0&-&-&-\\
+        1&0&0&-&0&-&1&-&-&1&0&-&-\\
+        1&1&0&0&-&0&-&1&-&-&1&0&-\\
+        1&1&1&0&0&-&0&-&1&-&-&1&0\\
+        0&1&1&1&0&0&-&0&-&1&-&-&1\\
+        -&0&1&1&1&0&0&-&0&-&1&-&-\\
+        1&-&0&1&1&1&0&0&-&0&-&1&-\\
+        1&1&-&0&1&1&1&0&0&-&0&-&1\\
+        -&1&1&-&0&1&1&1&0&0&-&0&-\\
+        1&-&1&1&-&0&1&1&1&0&0&-&0\\
+        0&1&-&1&1&-&0&1&1&1&0&0&-\\
+        1&0&1&-&1&1&-&0&1&1&1&0&0\\
+        0&1&0&1&-&1&1&-&0&1&1&1&0\\
+      \end{array}
+    \right).
+    $
+  \end{defenum}
+\end{ex}
+
 There are many useful generalizations of weighing matrices. We will take this up
 generally in the following sections, but for now we note the following special
 case. Note that we use $A^*$ to denote the conjugate (Hermitian) transpose of a complex matrix $A$.
@@ -47,11 +73,12 @@ In the previous section, we defined a weighing matrix as a square matrix over $\
 Before we can do this, however, we need to extend the conjugate transpose\index{conjugate transpose} to group matrices. To accomplish this, let $A$ be some matrix over a finite group $G$, and define $\bar A$ by $\bar{A}_{ij}=A_{ij}^{-1}$, that is, the matrix obtained by taking the group inverse of the nonzero entries of $A$. Finally, define $A^* = \bar{A}^t$. We then have the following.
 
 \begin{defin}\label{gbrd definition}\index{generalized Bhaskar Rao design}
-  Let $G$ be some finite group, and let $A$ be a $v \times b$ $(0,G)$-matrix such that
+  Let $G$ be some finite group, and let $A$ be a $v \times b$ $(0,G)$-matrix
+  considered as a matrix over $\Z[G]$ and such that 
   \begin{equation}\label{gbrd-eq}
     AA^* = rI_v + \frac{\lambda}{|G|}\left(\sum_{g \in G}g\right)(J_v - I_v),
   \end{equation}
-  for some positive integers $r$ and $\lambda$, and such that there are $k$ non-zero entries in every column. We then say that $A$ is a {\it generalized Bhaskar Rao design} (henceforth $\gbrd$), and we write $\gbrd(v,k,\lambda;G)$ to denote this property. If we need to stress the remaining parameters, then we write $\gbrd(v,b,r,k,\lambda;G)$.
+  for some positive integers $r$ and $\lambda$, and such that there are $k$ nonzero entries in every column. We then say that $A$ is a {\it generalized Bhaskar Rao design} (henceforth $\gbrd$), and we write $\gbrd(v,k,\lambda;G)$ to denote this property. If we need to stress the remaining parameters, then we write $\gbrd(v,b,r,k,\lambda;G)$.
 \end{defin}
 
 It is clear that replacing the nonzero entries of a GBRD with unity furnishes a
@@ -63,19 +90,27 @@ extremal case of the inequality.
   in which $v = b$ (equiv. $k = r$). We use the denotation
   $\bgw(v,k,\lambda;G)$. A $\bgw(v,k,\lambda;G)$ in which $v = k$ is called a
   {\it generalized Hadamard matrix}, and we denote this as $\gh(G,\lambda)$
-  where $\lambda = v/|G|$. If $G = \mathrm{EA}(q)$, the elementary abelian group
-  \Anote{ea-group}\index{elementary abelian group} of order $q$, then we write $\mathrm{GH}(q,\lambda)$ instead.
+  where $\lambda = v/|G|$. If $G = \mathrm{EA}(q)$, the elementary abelian
+  group\Anote{ea-group}\index{elementary abelian group} of order $q$, then we
+  write $\mathrm{GH}(q,\lambda)$ instead. 
 \end{defin}
 
 Using Lemma \ref{butson lemma}, we see that a Butson weighing matrix over prime
 complex roots of unity forms a BGW precisely in the case that the nonzero
 entries yield the incidence matrix of a symmetric design.
 
+\begin{ex}
+  Taking the absolute values of the entries of \ref{ex-balanced-w-matrix} yields
+  the symmetric design \ref{ex-symmetric-bibd}.
+  \end{defenum}
+\end{ex}
+
 BGW matrices are quite useful in the construction of other combinatorial designs
 (see, for example, \citeauthor{ionin-kharaghani-drad}
 \citeyear{ionin-kharaghani-drad} and \citeyear{ionin-kharaghani-srg}), and
-satisfy a number of properties. For a detailed discussion of BGW matrices, the
-interested reader may consult \cite{combinatorics-of-symmetric-designs}.
+satisfy a number of properties. For a more detailed discussion of BGW matrices
+not considered in this thesis, the interested reader may consult
+\cite{combinatorics-of-symmetric-designs}. 
 
 \dinkus
 
@@ -88,14 +123,16 @@ As before, we can impose an equivalence on the set of all $v \times b$ $(0,G)$-m
 \begin{defin}\label{monomial-equiv}\index{monomial equivalence}
   Two $v \times b$ $(0,G)$-matrices $A_1$ and $A_2$ are said to be {\it monomially equivalent} if there are monomial $(0,G)$-matrices $P$ and $Q$ of orders $v$ and $b$, respectively, such that 
   \begin{defenum}
-  \item $PA_1Q=A_2$ \Anote{monomial}.
+  \item $PA_1Q=A_2$.\Anote{monomial}
   \end{defenum}
 \end{defin}
 
  In order to extend normality to BGW matrices, we begin by altering somewhat Definition \ref{gbrd definition} as in Part V of \cite{handbook}.
  
  \begin{defin}\label{c-gbrd defintion}\index{c-GBRD}
-   let $G$ be some finite group, and let $A$ be a $v \times b$ $(0,G)$-matrix. If $A$ has $k$ non-zero entries in every column, and if there is an element $c \in (\frac{\lambda}{|G|}G)\bb\{1\} \subset \Z[G]$ such that
+   let $G$ be some finite group, and let $A$ be a $v \times b$ $(0,G)$-matrix.
+   If $A$ has $k$ non-zero entries in every column, and if there is an element
+   $c$ in the integral group ring $\Z[G]$ such that 
   \begin{defenum}
    \item\label{c-gbrd-eq} $AA^* = rI_v + c(J_v - I_v)$,
   \end{defenum}
@@ -124,26 +161,52 @@ As before, we can impose an equivalence on the set of all $v \times b$ $(0,G)$-m
  \subsection{Orthogonal Designs}
 
  In the previous subsection, we covered one generalization of weighing matrices,
- namely, we allowed the nonzero enetries to come from a finite group. In this
+ namely, we allowed the nonzero entries to come from a finite group. In this
  subsection, we pursue another generalization in a different direction. In
  particular, instead of allowing the nonzero entries to come from some group, we
-will take the nonzero entries to be indeterminants---real, complex, or
-quaternary \Anote{quaternary}.
+will take the nonzero entries to be real, complex, or
+quaternion\Anote{quaternary} indeterminates.
 
-We begin with the case of real indeterminants.
+We begin with the case of real indeterminates.
 
 \begin{defin}\label{real-od-def}\index{orthogonal design}
-  Let $x_1, \dots, x_u$ be real, commuting indeterminants, and let $X$ be an $n \times n$ matrix with entries from $\{0,\pm x_1, \dots, \pm x_u\}$. We say that $X$ is an {\it orthogonal design} if
+  Let $x_1, \dots, x_u$ be real, commuting indeterminates, and let $X$ be an $n \times n$ matrix with entries from $\{0,\pm x_1, \dots, \pm x_u\}$. We say that $X$ is an {\it orthogonal design} if
   \begin{defenum}
-  \item $XX^t = \left( \ssum_i s_ix_i^2 \right)I_n$.
+  \item\label{od-def-eq} $XX^t = \left( \ssum_i s_ix_i^2 \right)I_n$.
   \end{defenum}
   We say that the orthogonal design is of order $n$ and type $(s_1, \dots, s_u)$, and we write $X$ is an $\od(n;s_1, \dots, s_u)$. If $\ssum_i s_i=n$, then we say that the OD is {\it full}.
 \end{defin}
 
-We now extend Definition \ref{real-od-def} to the case of complex and quaternary elements.
+\begin{ex}
+  The following are an $\od(2;1,1)$ and an $\od(4;1,1,1,1)$, respectively,
+  \begin{defenum}
+  \item $
+    \left(
+      \arraycolsep=2.0pt\def\arraystretch{0.5}
+      \begin{array}{cc}
+        a & b \\ \bar{b} & a
+      \end{array}
+    \right),
+    \left(
+      \arraycolsep=2.0pt\def\arraystretch{0.5}
+      \begin{array}{cccc}
+        a & b & c & d \\
+        \bar{b} & a & \bar{d} & c \\
+        \bar{c} & d & a & \bar{b} \\
+        \bar{d} & \bar{c} & b & a
+      \end{array}
+    \right).
+    $
+  \end{defenum}
+\end{ex}
+
+We now extend Definition \ref{real-od-def} to the case of complex and quaternion
+elements where we use $\cdot^*$ to denote conjugation over the ring of scalars
+and also to denote conjugate transposition of matrices.
+
 
 \begin{defin}\index{complex orthogonal design}\index{quaternary orthogonal design}
-  Let $z_1, \dots, z_u$ be complex (resp. quaternary), commuting indeterminants, and let $X$ be a matrix of order $n$ with entries from $\{0,\varepsilon_1z_1, \dots, \varepsilon_uz_u\}$ and $\{\varepsilon_1z_1^*, \dots, \varepsilon_uz_u^*\}$, where each $\varepsilon_\ell \in \{\pm 1, \pm i\}$ (resp. $\varepsilon_\ell \in \{\pm 1, \pm i, \pm j, \pm k\}$). In the event that
+  Let $z_1, \dots, z_u$ be complex, commuting indeterminates, and let $X$ be a matrix of order $n$ with entries from $\{0,\varepsilon_1z_1, \dots, \varepsilon_uz_u\}$ and $\{\varepsilon_1z_1^*, \dots, \varepsilon_uz_u^*\}$, where each $\varepsilon_\ell \in \{\pm 1, \pm i\}$ (resp. $\varepsilon_\ell \in \{\pm 1, \pm i, \pm j, \pm k\}$). In the event that
   \begin{defenum}
   \item\label{qod-od-def} $XX^* = \left( \ssum_\ell s_\ell|z_\ell|^2 \right)I_n$,
   \end{defenum}
@@ -160,16 +223,20 @@ allow a permutation of symbols.
 
 \subsection{Sequences and Circulants}
 
- Let $A$ be an $n \times n$ matrix with first row $(a_0,\dots,a_{n-1})$. Recall
+ Let $A$ be an $n \times n$ matrix over a ring with an involution $\cdot^*$
+ which can be extended to define the conjugate transpose of a matrix and with
+ first row $(a_0,\dots,a_{n-1})$. Recall 
  that $A$ is {\it circulant}\index{circulant matrix} if $A_{ij}=a_{j-i}$, where
  the indices are calculated modulo $n$. In this way, the entire matrix is
  determined by its first row; moreover, if $A$ and $B$ are two circulants of the
- same dimension, then $A^t,A+B$, and $AB$ are also circulant matrices. 
+ same dimension, then $A^*,A+B$, and $AB$ are also circulant matrices. 
 
  What we are particularly interested with here is the following.
  
  \begin{defin}\index{circulant matrix!complementary}
-  Let $\A=\{A_i\}$ be a finite collection of circulant matrices of the same dimension over a commutative ring $R$ endowed with an involution $\cdot^*$. The collection $\A$ is said to be {\it complementary} if
+  Let $\A=\{A_i\}$ be a finite collection of circulant matrices of the same
+  dimension over a ring $R$ endowed with an involution $\cdot^*$.
+  The collection $\A$ is said to be {\it complementary} if 
   \begin{defenum}
    \item $\ssum_i A_iA_i^* = aI$, for some $a \in R$,
   \end{defenum}
@@ -180,7 +247,7 @@ allow a permutation of symbols.
  their first rows, we can state this in terms of sequences. But first, a definition.
  
  \begin{defin}\index{periodic autocorrelation}\index{aperiodic autocorrelation}\index{complementary sequences}
-  Let $a_0=(a_{0,0}, \dots, a_{0,n-1})$ be a sequence in a commutative ring $R$ with the involution $\cdot^*$. The {\it $j$-th aperiodic} and {\it $j$-th periodic autocorrelations} of the sequence $a$ are given respectively by
+  Let $a_0=(a_{0,0}, \dots, a_{0,n-1})$ be a sequence in a ring $R$ with the involution $\cdot^*$. The {\it $j$-th aperiodic} and {\it $j$-th periodic autocorrelations} of the sequence $a$ are given respectively by
   \begin{defenum}
    \item $N_j(a)=\ssum_{i=0}^{n-j-1}a_{0,i}a_{0,i+j}^*$, and
    \item $P_j(a)=\ssum_{i=0}^{n-1}a_{0,i}a_{0,i+j}^*$, indices calculated modulo $n$.
@@ -189,19 +256,24 @@ allow a permutation of symbols.
   \begin{defenum}[resume]
    \item\label{periodic-comp} $\ssum_i P_j(a_i)=0$, for every $j \in \{1, \dots, n-1\}$.
   \end{defenum}
-  For the case in which $m=1$, we say that we have a {\it Golay pair}.
  \end{defin}
  
  We see immediately that $P_j(a)=N_j(a) + N_{n-j}(a)^*$; hence, if $N_j(a)+N_j(b)=0$, for every $j \in \{1,\dots,n-1\}$, then $a$ and $b$ are complementary. However, vanishing periodic autocorrelations do not in general imply vanishing aperiodic autocorrelations.
  
  The importance of the periodic correlation is given by the fact that if the first row of the circulant $A$ continues to be $a=(a_0,\dots,a_{n-1})$, then the first row of $AA^*$ is given by $(\ssum_i|a_i|^2,P_{n-1}(a), \dots,P_1(a))$. So we see that complementary circulants and complementary sequences are one and the same.
  
- Complementary sequences and orthogonal designs are connected in an intimate way; in fact, complementary sequences offer many elegant constructions of ODs. To make the connection precise, we need to allow sequence elements to be indeterminants---whether real, complex, or quaternary---and where the involution is taken to be conjugation.
+ Complementary sequences and orthogonal designs are connected in an intimate
+ way; in fact, complementary sequences offer many elegant constructions of ODs.
+ To make the connection precise, we need to allow sequence elements to be
+ indeterminates---whether real or complex---and where the
+ involution is taken to be conjugation. 
  
  \begin{prop}\label{2-circs}
-  Let $\{z_1,\dots,z_u\}$ be commuting quaternary indeterminants, and let
+  Let $\{z_1,\dots,z_u\}$ be commuting real or complex indeterminates, and let
   $a=(a_0,\dots,a_{n-1})$ and $b=(b_0,\dots,b_{n-1})$ be complementary sequences
-  with entries from $\{0,\varepsilon_0z_0, \dots, \varepsilon_uz_u\}$, where each $\varepsilon_\ell \in \{\pm 1, \pm i, \pm j, \pm k\}$, such that $\ssum_i(|a_i|^2 + |b_i|^2)=\ssum_is_ix_i^2$. Then
+  with entries from $\{0,\varepsilon_0z_0, \dots, \varepsilon_uz_u\}$, where
+  each $\varepsilon_\ell \in \{\pm 1, \pm i, \pm j, \pm k\}$, such that
+  $\ssum_i(|a_i|^2 + |b_i|^2)=\ssum_is_i\abs{z_i}^2$. Then 
   \begin{equation}\label{plug-in-matrix}
   \arraycolsep=2.0pt\def\arraystretch{0.5}
   %\arraycolsep=1.25pt\def\arraystretch{0.625}
@@ -212,7 +284,7 @@ allow a permutation of symbols.
   is a $\qod(2n;s_1,\dots,s_u)$, where $A$ and $B$ are the circulants with first rows $a$ and $b$, respectively.
  \end{prop}
 
- The matrix (\ref{plug-in-matrix}) will feature as a submatrix in our later work where the sequences will be composed of matrices. We will need one further idea before we proceed. 
+ A matrix similar to (\ref{plug-in-matrix}) will feature as a submatrix in our later work where the sequences will be composed of matrices. We will need one further idea before we proceed. 
 
  \begin{defin}\index{cross-correlation}
   Let $a=(a_0,\dots,a_{n-1})$ and $b=(b_0,\dots,b_{n-1})$ be two sequences over a ring with involution $\cdot^*$. The {\it $j$-th cross-correlation} of $a$ by $b$ is given by
@@ -221,9 +293,16 @@ allow a permutation of symbols.
   \end{defenum}
  \end{defin}
  
- If $A$ has first row $a=(a_0,\dots,a_{n-1})$, and if $B$ has first row $b=(b_0,\dots,b_{n-1})$, then the first row of the circulant $AB^*$ is $(\ssum_ia_ib_i^*,C_{n-1}(a,b),\dots,C_1(a,b))$. Note, however, that $C_j(a,b)$ is not in general equal to $C_j(b,a)$. So, care must be taken in extending Proposition \ref{2-circs} since amicability is required in maintaining orthogonality when substituting into an OD.
+ If $A$ has first row $a=(a_0,\dots,a_{n-1})$, and if $B$ has first row
+ $b=(b_0,\dots,b_{n-1})$, then the first row of the circulant $AB^*$ is
+ $(\ssum_ia_ib_i^*,C_{n-1}(a,b),\dots,C_1(a,b))$. Note, however, that $C_j(a,b)$
+ is not in general equal to $C_j(b,a)$. So, care must be taken in extending
+ Proposition \ref{2-circs} since amicability, i.e. $AB^t=BA^t$, is required in maintaining
+ orthogonality when substituting into an OD. 
  
- Much more can be said about this most useful topic. The interested reader is may consult \cite{seberry-od-2017} and \cite{seberry-yamada-hmatrices-designs} for a wealth of material.
+ Much more can be said about this most useful topic. The interested reader 
+ may consult \cite{seberry-od-2017} and \cite{seberry-yamada-hmatrices-designs}
+ for a wealth of material. 
 
   \biblio
 \end{document}

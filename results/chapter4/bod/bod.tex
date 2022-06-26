@@ -5,46 +5,32 @@
 % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Definition}
 
-Generalizing balanced splittability to orthogonal designs presents several difficulties. The various cases are encapsulated in the next definition.
+Generalizing balanced splittability to orthogonal designs presents several
+difficulties. The various cases are encapsulated in the next definition. 
 
 \begin{defin}\index{balancedly splittable orthogonal designs}
- Let $X$ be a full $\qod(n;s_1, \dots, s_u)$. $X$ is {\it balancedly splittable} if there is an $\ell \times n$ submatrix $X_1$ where one of the following conditions holds. In what follows $\alpha, \beta \in \{a+ib+jc+kd : a,b,c,d \in \R\}$.
+ Let $X$ be a full $\qod(n;s_1, \dots, s_u)$. $X$ is {\it balancedly splittable}
+ if there is an $\ell \times n$ submatrix $X_1$ where one of the following
+ conditions holds.
  \begin{defenum}
-  \item The off-diagonal entries of $X_1^*X_1$ are in the set
-  \begin{small}
-  \[
-   \{\pm\varepsilon cx_1^{m_1} \cdots x_u^{m_u}x_1^{*m_1'} \cdots x_u^{*m_u'} : m_i,m_i' \in \N, \varepsilon \in \{1,i,j,k\}, c \in \{\alpha,\alpha^*,\beta,\beta^*\}\}.
-  \]
-  \end{small}
-  
-  \item\label{od-split-2} The off-diagonal entries of $X_1^*X_1$ are in the set
-  \[
-   \left\{
-   \sum_{i=1}^u t_i|x_i|^2 : t_i \in \N, \sum_{i=0}^u t_i=m
-   \right\}
-  \]
-  or in the set
-  \[
-   \{\pm\varepsilon cx_1^{m_1} \cdots x_u^{m_u}x_1^{*m_1'} \cdots x_u^{*m_u'} : m_i,m_i' \in \N, \varepsilon \in \{1,i,j,k\}, c \in \{\alpha,\alpha^*,\beta,\beta^*\}\}.
-  \]
-  
-  \item The off-diagonal entries of $X_1^*X_1$ are in the set 
-  \[
-   \{\pm\varepsilon c\sigma : \varepsilon \in \{1,i,j,k\}, c \in \{\alpha,\alpha^*,\beta,\beta^*\}\},
-  \]
-  where $\sigma = \ssum_i s_i|x_i|^2$ (cf. \ref{qod-od-def}).
+ \item $X_1^*X_1 = \sigma[\ell I + aA + b(J-I-A)]$, where $\sigma$ is given by
+   \ref{od-def-eq} and the elements $a$ and $b$ are in the quaternion algebra
+   $\HH$ (see \S7).
+ \item If $H_1$ is the matrix obtained from $X_1$ obtained by replacing each
+   indeterminate with unity, then $H_1^tH_1 = \ell I + aA + b(J-I-A)$, where $a$
+   and $b$ are integers.
  \end{defenum}
- In the first case, the split is {\it unstable}; in the second, the split is {\it unfaithfully unstable}; and in the third, the split is {\it stable}. The term {\it faithful} is used to describe the first and third cases.
+ In the former case, the split is {\it stable}. If the latter case holds while
+ the former does not, then the split is termed {\it unstable}.
 \end{defin}
 
-From the definition, we see that if $\alpha$ and $\beta$ are the same in absolute value, the split corresponds to a set of equiangular lines. Interestingly, we will see that both conditions in \ref{od-split-2} can hold simultaneously.
-
-The next two subsections will present constructions for both the unfaithful, and the faithful case.
+The next two subsections will present constructions for both the unstable, and
+the stables cases. 
 
 \dinkus
 
 % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Unfaithful Constructions}
+\subsection{Unstable Constructions}
 
 The constructions of this section are similar to those presented in \cite{fender-quh} and \cite{pender_2020}, and are applicable to real and complex orthogonal designs.
 
@@ -59,7 +45,7 @@ To begin, if $W$ is a skew-symmetric $\w(q+1,q)$, then we take $Q$ to be its cor
       I_q \otimes \J_{m-1} + Q \otimes \A_{m-1} & \text{ if $m>0$;}
      \end{cases}
 \end{align*}
-where $a$ and $b$ are commuting indeterminants.
+where $a$ and $b$ are commuting indeterminates.
 
 We require the following lemma.
 
@@ -102,7 +88,7 @@ We can now present the first construction of the novel balancedly splittable ODs
  Let $W, \A_m$, and $\J_m$ be as above. Define $X_m = I \otimes \J_m + W \otimes \A_m$. Then:
  \begin{defenum}
   \item $X_m$ is an $\od(q^m(q+1); q^m, q^{m+1})$, and
-  \item The matrix $X_1$ is an unfaithful balancedly splittable $\od(q(q+1); q, q^2)$.
+  \item The matrix $X_1$ admits an unstable balanced split.
  \end{defenum}
 \end{thm}
 
@@ -118,12 +104,13 @@ We can now present the first construction of the novel balancedly splittable ODs
  \end{align*}
  which shows that $X_m$ is an $\od(q^m(q+1); q^m; q^{m+1})$. It remains to prove the balanced splittability of the base case.
  
- Take $Y=(\begin{smallmatrix} \J_1 & \A_1 & \dots & \A_1 \end{smallmatrix})$, the first block row of $X_1$. Then
+ Take $Y=(\begin{smallmatrix} \J_1 & \A_1 & \dots & \A_1 \end{smallmatrix})$,
+ the first block row of $X_1$. Then 
  \begin{align*}
-  Y^tY &= \begin{pmatrix} \J_1^t\J_1 & \jj^t \otimes \J_1^t\A_1 \\ \jj \otimes \A_1^t\J_1 & J \otimes \A_1^t\A_1 \end{pmatrix} \\
-  &= \begin{pmatrix} qa^2J & ab\jj^t \otimes J \\ ab\jj \otimes J & J \otimes [(a^2-b^2)J + qb^2I] \end{pmatrix}.
+  Y^tY &= \begin{pmatrix} \J_1^t\J_1 & \jj^t \otimes \J_1^t\A_1 \\ \jj \otimes \A_1^t\J_1 & J \otimes \A_1^t\A_1 \end{pmatrix} \\  
+  &= \begin{pmatrix} qb^2J & ab\jj^t \otimes J \\ ab\jj \otimes J & J \otimes [(a^2-qb^2)I + b^2J] \end{pmatrix}. 
  \end{align*}
- Hence, $X_1$ admits an unfaithfully balanced split.
+ Hence, $X_1$ admits an unstable balanced split.
 \end{proof}
 
 \begin{cor}
@@ -131,15 +118,18 @@ We can now present the first construction of the novel balancedly splittable ODs
 \end{cor}
 
 \begin{proof}
-  It is well known \cite[see][]{combinatorics-of-symmetric-designs} that there is a skew-symmetric $\w(q+1,q)$. Apply the theorem to this matrix.
+  It is well known \cite[see][]{combinatorics-of-symmetric-designs} that there
+  is a skew-symmetric $\w(q+1,q)$. Apply the theorem to this matrix. 
 \end{proof}
 
 \begin{cor}
- For every prime power $q \equiv -1 \pmod{4}$, there is an unfaithful balancedly splittable $\od(q(q+1); q, q^2)$. 
+ For every prime power $q \equiv -1 \pmod{4}$, there is an unstable balancedly
+ splittable $\od(q(q+1); q, q^2)$.  
 \end{cor}
 
 \begin{ex}
- Using the skew-symmetric Paley weighing matrix \Dnote{paley-note} $W(4,3)$ given by
+ Using the skew-symmetric Paley weighing matrix\Dnote{paley-note} $W(4,3)$
+ given by 
  \begin{defenum}
   \item $
   \arraycolsep=1.25pt\def\arraystretch{0.625}
@@ -156,23 +146,25 @@ We can now present the first construction of the novel balancedly splittable ODs
   \item $
   %\arraycolsep=1.25pt\def\arraystretch{0.625}
   \arraycolsep=2.0pt\def\arraystretch{0.5}
-  \left(\begin{array}{cccccccccccc}
-   \mathbf{b} & \mathbf{b} & \mathbf{b} & \mathbf{a} & \mathbf{b} & \mathbf{\bar b} & \mathbf{a} & \mathbf{b} & \mathbf{\bar b} & \mathbf{a} & \mathbf{b} & \mathbf{\bar b} \\
-\mathbf{b} & \mathbf{b} & \mathbf{b} & \mathbf{\bar b} & \mathbf{a} & \mathbf{b} & \mathbf{\bar b} & \mathbf{a} & \mathbf{b} & \mathbf{\bar b} & \mathbf{a} & \mathbf{b} \\
-\mathbf{b} & \mathbf{b} & \mathbf{b} & \mathbf{b} & \mathbf{\bar b} & \mathbf{a} & \mathbf{b} & \mathbf{\bar b} & \mathbf{a} & \mathbf{b} & \mathbf{\bar b} & \mathbf{a} \\
-\mathbf{\bar a} & \mathbf{\bar b} & \mathbf{b} & \mathbf{b} & \mathbf{b} & \mathbf{b} & \mathbf{a} & \mathbf{b} & \mathbf{\bar b} & \mathbf{\bar a} & \mathbf{\bar b} & \mathbf{b} \\
-b & \bar a & \bar b & b & b & b & \bar b & a & b & b & \bar a & \bar b \\
-\bar b & b & \bar a & b & b & b & b & \bar b & a & \bar b & b & \bar a \\
-\bar a & \bar b & b & \bar a & \bar b & b & b & b & b & a & b & \bar b \\
-b & \bar a & \bar b & b & \bar a & \bar b & b & b & b & \bar b & a & b \\
-\bar b & b & \bar a & \bar b & b & \bar a & b & b & b & b & \bar b & a \\
-\bar a & \bar b & b & a & b & \bar b & \bar a & \bar b & b & b & b & b \\
-b & \bar a & \bar b & \bar b & a & b & b & \bar a & \bar b & b & b & b \\
-\bar b & b & \bar a & b & \bar b & a & \bar b & b & \bar a & b & b & b \\
-  \end{array}\right),
+  \left(
+    \begin{array}{cccccccccccc}
+      \mathbf{b}&\mathbf{b}&\mathbf{b}&\mathbf{a}&\mathbf{b}&\mathbf{\bar b}&\mathbf{a}&\mathbf{b}&\mathbf{\bar b}&\mathbf{a}&\mathbf{b}&\mathbf{\bar b}\\
+      \mathbf{b}&\mathbf{b}&\mathbf{b}&\mathbf{\bar b}&\mathbf{a}&\mathbf{b}&\mathbf{\bar b}&\mathbf{a}&\mathbf{b}&\mathbf{\bar b}&\mathbf{a}&\mathbf{b}\\
+      \mathbf{b}&\mathbf{b}&\mathbf{b}&\mathbf{b}&\mathbf{\bar b}&\mathbf{a}&\mathbf{b}&\mathbf{\bar b}&\mathbf{a}&\mathbf{b}&\mathbf{\bar b}&\mathbf{a}\\
+      \bar a&\bar b&b&b&b&b&a&b&\bar b&\bar a&\bar b&b\\
+      b&\bar a&\bar b&b&b&b&\bar b&a&b&b&\bar a&\bar b\\
+      \bar b&b&\bar a&b&b&b&b&\bar b&a&\bar b&b&\bar a\\
+      \bar a&\bar b&b&\bar a&\bar b&b&b&b&b&a&b&\bar b\\
+      b&\bar a&\bar b&b&\bar a&\bar b&b&b&b&\bar b&a&b\\
+      \bar b&b&\bar a&\bar b&b&\bar a&b&b&b&b&\bar b&a\\
+      \bar a&\bar b&b&a&b&\bar b&\bar a&\bar b&b&b&b&b\\
+      b&\bar a&\bar b&\bar b&a&b&b&\bar a&\bar b&b&b&b\\
+      \bar b&b&\bar a&b&\bar b&a&\bar b&b&\bar a&b&b&b\\
+    \end{array}
+  \right),
   $
  \end{defenum}
- where the unfaithful split is shown in bold.
+ where the unstable split is shown in bold.
 \end{ex}
 
 Our first construction yields real ODs and is applicable in the case that we
@@ -190,7 +182,7 @@ To apply the complex units, we make the following recursive definitions where $W
         I_q \otimes \CC_{m-1} + iQ \otimes \DD_{m-1} & \text{if $m>0$;}
        \end{cases}
 \end{align*}
-where again $a$ and $b$ are real commuting indeterminants. As above, we have the following lemma that is shown in precisely the same way as before, save one replaces transposition with conjugate transposition.
+where again $a$ and $b$ are real commuting indeterminates. As above, we have the following lemma that is shown in precisely the same way as before, save one replaces transposition with conjugate transposition.
 
 \begin{lem}
   \begin{defenum}
@@ -205,7 +197,7 @@ where again $a$ and $b$ are real commuting indeterminants. As above, we have the
  Let $W$, $\CC_m$, and $\DD_m$ be as above, and define $Y_m=iI \otimes \CC_m + W \otimes \DD_m$. Then:
  \begin{defenum}
   \item The matrix $Y_m$ is a $\cod(q^m(q+1); q^m, q^{m+1})$, and
-  \item $Y_1$ admits an unfaithfully balanced split.
+  \item $Y_1$ admits an unstable balanced split.
  \end{defenum}
 \end{thm}
 
@@ -239,57 +231,59 @@ We again explore the smallest case.
   \item \begin{tiny}$
   \arraycolsep=1.25pt\def\arraystretch{0.625}
   \left(\begin{array}{cccccccccccccccccccccccccccccc}
-   \mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}\\
-\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}\\
-\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}\\
-\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}\\
-\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar b}&\mathbf{i\bar b}&\mathbf{ib}&\mathbf{a}\\
-a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib&a&ib&i\bar b&i\bar b&ib&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&a&ib&i\bar b&i\bar b&ib\\
-ib&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib&a&ib&i\bar b&i\bar b&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&ib&a&ib&i\bar b&i\bar b\\
-i\bar b&ib&a&ib&i\bar b&ib&ib&ib&ib&ib&i\bar b&ib&a&ib&i\bar b&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&i\bar b&ib&a&ib&i\bar b\\
-i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&i\bar b&i\bar b&ib&a&ib\\
-ib&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib&i\bar b&i\bar b&ib&a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&ib&i\bar b&i\bar b&ib&a\\
-a&ib&i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib&a&ib&i\bar b&i\bar b&ib&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b\\
-ib&a&ib&i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib&a&ib&i\bar b&i\bar b&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib\\
-i\bar b&ib&a&ib&i\bar b&i\bar b&ib&a&ib&i\bar b&ib&ib&ib&ib&ib&i\bar b&ib&a&ib&i\bar b&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib\\
-i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b\\
-ib&i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib&i\bar b&i\bar b&ib&a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a\\
-a&ib&i\bar b&i\bar b&ib&\bar a&i\bar b&ib&ib&i\bar b&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib&a&ib&i\bar b&i\bar b&ib&\bar a&i\bar b&ib&ib&i\bar b\\
-ib&a&ib&i\bar b&i\bar b&i\bar b&\bar a&i\bar b&ib&ib&ib&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib&a&ib&i\bar b&i\bar b&i\bar b&\bar a&i\bar b&ib&ib\\
-i\bar b&ib&a&ib&i\bar b&ib&i\bar b&\bar a&i\bar b&ib&i\bar b&ib&a&ib&i\bar b&ib&ib&ib&ib&ib&i\bar b&ib&a&ib&i\bar b&ib&i\bar b&\bar a&i\bar b&ib\\
-i\bar b&i\bar b&ib&a&ib&ib&ib&i\bar b&\bar a&i\bar b&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&i\bar b&\bar a&i\bar b\\
-ib&i\bar b&i\bar b&ib&a&i\bar b&ib&ib&i\bar b&\bar a&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib&i\bar b&i\bar b&ib&a&i\bar b&ib&ib&i\bar b&\bar a\\
-a&ib&i\bar b&i\bar b&ib&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib&a&ib&i\bar b&i\bar b&ib\\
-ib&a&ib&i\bar b&i\bar b&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&ib&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib&a&ib&i\bar b&i\bar b\\
-i\bar b&ib&a&ib&i\bar b&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&i\bar b&ib&a&ib&i\bar b&ib&ib&ib&ib&ib&i\bar b&ib&a&ib&i\bar b\\
-i\bar b&i\bar b&ib&a&ib&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib&i\bar b&i\bar b&ib&a&ib\\
-ib&i\bar b&i\bar b&ib&a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib&i\bar b&i\bar b&ib&a\\
-a&ib&i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&ib&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib&ib\\
-ib&a&ib&i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&ib&a&ib&i\bar b&i\bar b&ib&ib&ib&ib&ib\\
-i\bar b&ib&a&ib&i\bar b&i\bar b&ib&a&ib&i\bar b&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&i\bar b&ib&a&ib&i\bar b&ib&ib&ib&ib&ib\\
-i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib&ib\\
-ib&i\bar b&i\bar b&ib&a&ib&i\bar b&i\bar b&ib&a&i\bar b&ib&ib&i\bar b&\bar a&i\bar b&ib&ib&i\bar b&\bar a&ib&i\bar b&i\bar b&ib&a&ib&ib&ib&ib&ib\\
+         \mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}\\
+\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}\\
+\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}\\
+\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}\\
+\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}&\mathbf{ib}&\mathbf{i\bar{b}}&\mathbf{i\bar{b}}&\mathbf{ib}&\mathbf{a}\\
+a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&ib&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&a&ib&i\bar{b}&i\bar{b}&ib\\
+ib&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}\\
+i\bar{b}&ib&a&ib&i\bar{b}&ib&ib&ib&ib&ib&i\bar{b}&ib&a&ib&i\bar{b}&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&i\bar{b}&ib&a&ib&i\bar{b}\\
+i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&i\bar{b}&i\bar{b}&ib&a&ib\\
+ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib&i\bar{b}&i\bar{b}&ib&a&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&ib&i\bar{b}&i\bar{b}&ib&a\\
+a&ib&i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&ib&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}\\
+ib&a&ib&i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib\\
+i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&ib&ib&ib&ib&ib&i\bar{b}&ib&a&ib&i\bar{b}&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib\\
+i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}\\
+ib&i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib&i\bar{b}&i\bar{b}&ib&a&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}\\
+a&ib&i\bar{b}&i\bar{b}&ib&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&ib&\bar{a}&i\bar{b}&ib&ib&i\bar{b}\\
+ib&a&ib&i\bar{b}&i\bar{b}&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&i\bar{b}&\bar{a}&i\bar{b}&ib&ib\\
+i\bar{b}&ib&a&ib&i\bar{b}&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&i\bar{b}&ib&a&ib&i\bar{b}&ib&ib&ib&ib&ib&i\bar{b}&ib&a&ib&i\bar{b}&ib&i\bar{b}&\bar{a}&i\bar{b}&ib\\
+i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&i\bar{b}&\bar{a}&i\bar{b}\\
+ib&i\bar{b}&i\bar{b}&ib&a&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib&i\bar{b}&i\bar{b}&ib&a&i\bar{b}&ib&ib&i\bar{b}&\bar{a}\\
+a&ib&i\bar{b}&i\bar{b}&ib&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&ib\\
+ib&a&ib&i\bar{b}&i\bar{b}&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}\\
+i\bar{b}&ib&a&ib&i\bar{b}&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&i\bar{b}&ib&a&ib&i\bar{b}&ib&ib&ib&ib&ib&i\bar{b}&ib&a&ib&i\bar{b}\\
+i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib&i\bar{b}&i\bar{b}&ib&a&ib\\
+ib&i\bar{b}&i\bar{b}&ib&a&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib&i\bar{b}&i\bar{b}&ib&a\\
+a&ib&i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib&ib\\
+ib&a&ib&i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&ib&a&ib&i\bar{b}&i\bar{b}&ib&ib&ib&ib&ib\\
+i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&i\bar{b}&ib&a&ib&i\bar{b}&ib&ib&ib&ib&ib\\
+i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib&ib\\
+ib&i\bar{b}&i\bar{b}&ib&a&ib&i\bar{b}&i\bar{b}&ib&a&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&i\bar{b}&ib&ib&i\bar{b}&\bar{a}&ib&i\bar{b}&i\bar{b}&ib&a&ib&ib&ib&ib&ib\\ 
   \end{array}\right),
   $\end{tiny}
  \end{defenum}
- a $\cod(30;5,25)$, where the unfaithful split is shown in bold.
+ a $\cod(30;5,25)$, where the unstable split is shown in bold.
 \end{ex}
 
 \dinkus
 
 % subsection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Faithful Construction}
+\subsection{Stable Construction}
 
-Here we will introduce a most useful construction of orthogonal designs admitting a faithful split. We will see later how we can use these constructed matrices in developing other objects.
+Here we will introduce a most useful construction of orthogonal designs
+admitting a stable split. We will see later how we can use these constructed
+matrices in developing other objects. 
 
 To begin, we assume the existence of a full $\od(n; s_1, \dots, s_u)$, say $X$,
 and label the rows of $X$ as $x_0, \dots, x_{n-1}$. Further, assume that the
-coefficients of the indeterminants of the first row and column are $+1$. We need
+coefficients of the indeterminates of the first row and column are $+1$. We need
 to extend the idea of an auxiliary matrix given in Example \ref{bal-had-ex2}. To
 do this, we will follow \cite{unbiased-od} in defining the auxiliary matrix of
 an OD thus: Let $H$ be the Hadamard matrix obtained by setting each
-indeterminant of $X$ to $+1$, and label the rows of $H$ as $h_0, \dots,
-h_{n-1}$. Then the auxiliary matrices \Dnote{aux-note}\index{auxiliary matrices} of $X$ are given by $c_i=h_i^tx_i$. We have the following result.
+indeterminate of $X$ to $+1$, and label the rows of $H$ as $h_0, \dots,
+h_{n-1}$. Then the auxiliary matrices\Dnote{aux-note}\index{auxiliary matrices} of $X$ are given by $c_i=h_i^tx_i$. We have the following result.
 
 \begin{lem}
 Let $c_i=h_i^tx_i$, for $i \in \{0, \dots, n-1\}$, be the auxiliary matrices of an $\od(n; s_1, \dots, s_u)$ $X$ where $XX^t=\sigma I$. Then:
@@ -299,7 +293,7 @@ Let $c_i=h_i^tx_i$, for $i \in \{0, \dots, n-1\}$, be the auxiliary matrices of 
  \end{defenum}
 \end{lem}
  
- We need the simple fact that if $(a,b)$ denotes the concatination of sequences $a$ and $b$, then $(a,b)$ and $(a,-b)$ is a Golay pair (see \S3). Continuing to let $c_0, \dots, c_{n-1}$ be the auxiliary matrices of the $\od(n; s_1, \dots, s_u)$ $X$, then $a=(c_0,c_1, \dots, c_{n-1},c_{n-1},\dots,c_1)$ and $b=(c_0,c_1, \dots, c_{n-1},-c_{n-1},\dots,-c_1)$ form a complementary pair. Let $A$ and $B$ be the block-circulant matrices with first rows $a$ and $b$, respectively. 
+ We need the simple fact that if $(a,b)$ denotes the concatenation of sequences $a$ and $b$, then $(a,b)$ and $(a,-b)$ is a Golay pair (see \S3). Continuing to let $c_0, \dots, c_{n-1}$ be the auxiliary matrices of the $\od(n; s_1, \dots, s_u)$ $X$, then $a=(c_0,c_1, \dots, c_{n-1},c_{n-1},\dots,c_1)$ and $b=(c_0,c_1, \dots, c_{n-1},-c_{n-1},\dots,-c_1)$ form a complementary pair. Let $A$ and $B$ be the block-circulant matrices with first rows $a$ and $b$, respectively. 
  
  Now, take $\tilde X = \left(\begin{smallmatrix} +&+\\+&- \end{smallmatrix}\right) \otimes X$ and $\tilde H = \left(\begin{smallmatrix} +&+\\+&- \end{smallmatrix}\right) \otimes H$, and label the block rows $\tilde x_0, \dots, \tilde x_{2n-1}$ and $\tilde h_0, \dots, \tilde h_{2n-1}$. Define $G=\tilde h_0^t \tilde x_0$, and define the block matrices $E^t=(\begin{smallmatrix} E_1^t & \dots & E_{2n-1}^t \end{smallmatrix})^t$ and $F=(\begin{smallmatrix} F_1 & \dots & F_{2n-1} \end{smallmatrix})$ by $E_i=h_0^t\tilde x_i$ and $F_i=\tilde h_i^t x_0$.
  
@@ -384,7 +378,8 @@ Let $c_i=h_i^tx_i$, for $i \in \{0, \dots, n-1\}$, be the auxiliary matrices of 
   Thus, $EE^t + AA^t + BB^t = 4\sigma I$. The proof is complete.
  \end{proof}
  
- We have shown that $Z$ is an OD. It remains to show that $Z$ admits a faithful split. This is accomplished with the next result.
+ We have shown that $Z$ is an OD. It remains to show that $Z$ admits a stable
+ split. This is accomplished with the next result. 
  
  \begin{thm}
   Assume the OD $Z$ of the previous theorem. Then:
@@ -445,7 +440,7 @@ Let $c_i=h_i^tx_i$, for $i \in \{0, \dots, n-1\}$, be the auxiliary matrices of 
   \]
   However, $E^tE=n\sum_{i=1}^{2n-1}\tilde x_i^t \tilde x_0$ has off-diagonal entries in the set
   \[
-    \{\pm x_1^{m_1} \cdots x_u^{m_u}x_1^{*m_1'} \cdots x_u^{*m_u'} : m_i,m_i' \in \N\},
+    \{\pm x_1^{m_1} \cdots x_u^{m_u} : m_i \in \N\},
   \]
   which shows \ref{unstable-split}.
  \end{proof}
@@ -460,7 +455,7 @@ Let $c_i=h_i^tx_i$, for $i \in \{0, \dots, n-1\}$, be the auxiliary matrices of 
    \end{array}\right),
    $
   \end{defenum}
-  we obtain the balancedly splittble $\od(16;8,8)$
+  we obtain the balancedly splittable $\od(16;8,8)$
   \begin{defenum}[resume]
    \item $
    %\arraycolsep=1.25pt\def\arraystretch{0.625}
@@ -488,7 +483,7 @@ b&\bar{a}&\bar{b}&a&\mathbf{\bar{b}}&\mathbf{a}&\mathbf{\bar{b}}&\mathbf{a}&\mat
   where a stable vertical split is shown in bold.
  \end{ex}
  
- Finally, we see at once how Theorem \ref{stable-hadamard} is a consequence of Theorem \ref{stable-od-thm} as we can simply set the indeterminants to $+1$ to obtain the result.
+ Finally, we see at once how Theorem \ref{stable-hadamard} is a consequence of Theorem \ref{stable-od-thm} as we can simply set the indeterminates to $+1$ to obtain the result.
 
  \begin{ex}
    Beginning with the $\od(4;1,1,1,1)$
@@ -503,7 +498,7 @@ b&\bar{a}&\bar{b}&a&\mathbf{\bar{b}}&\mathbf{a}&\mathbf{\bar{b}}&\mathbf{a}&\mat
        \end{array}
      \right),
    \end{equation}
-   we obtain the $\od(64;16,16,16,16)$ constructed in A3.
+   we obtain the $\od(64;16,16,16,16)$ constructed in appendix A3.
  \end{ex}
 
  \begin{ex}
@@ -521,8 +516,9 @@ b&\bar{a}&\bar{b}&a&\mathbf{\bar{b}}&\mathbf{a}&\mathbf{\bar{b}}&\mathbf{a}&\mat
        \end{array}
      \right),
    \end{equation}
-   where $a$ and $b$ are real, commuting indeterminants. Using the method, one
-   can  construct a $\cod(144;24,120)$, which we do not show in this essay due to its size. 
+   where $a$ and $b$ are real, commuting indeterminates. Using the method, one
+  can  construct a $\cod(144;24,120)$, which we do not show in this thesis due
+  to its size.  
  \end{ex}
  
 \biblio
