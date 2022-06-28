@@ -8,8 +8,8 @@
 Symmetric designs are characterized by the fact that the blocks of the design intersect in a constant number of points. The ``next best'' designs are those which have two cardinalities for the intersections between distinct blocks.
 
 \begin{defin}
- A balanced incomplete block design is {\it quasi-symmetric} if there exist two
- cardinalities that exist for the intersections between pairs of distinct
+ A balanced incomplete block design is {\it quasi-symmetric} if there exists at
+ most two cardinalities that exist for the intersections between pairs of distinct
  blocks. The cardinalities of the intersections are called the {\it intersection
    numbers} of the design.\Dnote{quasi-symmetric}
 \end{defin}
@@ -169,10 +169,13 @@ matrices to finite frames.
 The following is then a restatement of the definitions.
 
 \begin{prop}
- Let $x_0,\dots,x_{n-1}$ be vectors in a Hilbert space $H$ of dimension $n$, and define the $k \times n$ matrix $T=\left(\begin{smallmatrix} x_0 & \dots & x_{n-1} \end{smallmatrix}\right)$. Then:
+ Let $x_0,\dots,x_{n-1}$ be vectors in a Hilbert space $H$ of dimension $k$, and
+ define the $k \times n$ matrix $T=( x_0,\dots, x_{n-1} )$ with columns given by
+ the vectors. Then: 
  \begin{defenum}
   \item $\{x_0,\dots,x_{n-1}\}$ is a frame if and only if $\rrank(T)=k$,
-  \item $\{x_0,\dots,x_{n-1}\}$ is a tight frame with bound $A$ if and only if $TT^*=\sqrt{A}I$.
+  \item $\{x_0,\dots,x_{n-1}\}$ is a tight frame with bound $A$ if and only if
+    $TT^*=\sqrt{A}I$. 
  \end{defenum}
 \end{prop}
 

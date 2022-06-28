@@ -136,23 +136,27 @@ As before, we can impose an equivalence on the set of all $v \times b$ $(0,G)$-m
   \begin{defenum}
    \item\label{c-gbrd-eq} $AA^* = rI_v + c(J_v - I_v)$,
   \end{defenum}
-  then we say that $A$ is a $c$-$\gbrd(v,k,\lambda-1;G)$, or a
-  $c$-$\gbrd(v,b,r,k,\lambda-1;G)$ if more precision required. In what follows,
-  we will always take $c = \frac{\lambda}{|G|}G - 1$.
+  then we say that $A$ is a $c$-GBRD. In what follows, we will always take $c
+  = \frac{\lambda}{|G|}G - 1$ and denote this property as
+  $c$-$\gbrd(v,b,r,k,\lambda-1;G)$. 
  \end{defin}
  
  We can now properly extend the idea of normality to BGW matrices.
  
  \begin{defin}\index{balanced generalized weighing matrix!normal form}
-  A $\bgw(v,k,\lambda;G)$ is said to be in {\it normal form} if it has the form
-  \begin{equation}
-   \begin{pmatrix}
-    \zz_{v-k} & \res(A) \\ \jj_{k} & \der(A)
-   \end{pmatrix}.
-  \end{equation}
+   A $\bgw(v,k,\lambda;G)$ is said to be in {\it normal form} if it has the form
+   \begin{equation}
+     \begin{pmatrix}
+       \zz_{v-k} & \res \\ \jj_{k} & \der
+     \end{pmatrix}.
+   \end{equation}
+   
+   Note that of necessity, $\res$ is a $\gbrd(v-k,v-1,k,k-\lambda,\lambda;G)$
+   and $\der$ is a $c$-$\gbrd(k,v-1,k-1,\lambda,\lambda-1;G)$. These have the
+   parameters of the residual and derived designs of a symmetric
+   $\bibd(v,k,\lambda)$, hence we call them, respectively, a residual GBRD and a
+   derived $c$-GBRD. 
  \end{defin}
- 
- Note that of necessity, $\res(A)$ is a $\gbrd(v-k,v-1,k,k-\lambda,\lambda;G)$ and $\der(A)$ is a $c$-$\gbrd(k,v-1,k-1,\lambda,\lambda-1;G)$. These have the parameters of the residual and derived designs of a square $\bibd(v,k,\lambda)$, hence we call them, respectively, a residual GBRD and a derived $c$-GBRD.
 
  \dinkus
 
@@ -201,16 +205,23 @@ We begin with the case of real indeterminates.
 \end{ex}
 
 We now extend Definition \ref{real-od-def} to the case of complex and quaternion
-elements where we use $\cdot^*$ to denote conjugation over the ring of scalars
-and also to denote conjugate transposition of matrices.
+elements where we use $\cdot^*$ to denote conjugation over the complex or
+quaternion elements and also to denote conjugate transposition of matrices.
 
-
-\begin{defin}\index{complex orthogonal design}\index{quaternary orthogonal design}
-  Let $z_1, \dots, z_u$ be complex, commuting indeterminates, and let $X$ be a matrix of order $n$ with entries from $\{0,\varepsilon_1z_1, \dots, \varepsilon_uz_u\}$ and $\{\varepsilon_1z_1^*, \dots, \varepsilon_uz_u^*\}$, where each $\varepsilon_\ell \in \{\pm 1, \pm i\}$ (resp. $\varepsilon_\ell \in \{\pm 1, \pm i, \pm j, \pm k\}$). In the event that
+\begin{defin}\index{complex orthogonal design}\index{quaternion orthogonal design}
+  Let $z_1, \dots, z_u$ be complex, commuting indeterminates, and let $X$ be a
+  matrix of order $n$ with entries from $\{0,\varepsilon_1z_1, \dots, 
+  \varepsilon_uz_u,\eta_1z_1^*, \dots, \eta_uz_u^*\}$, 
+  where each $\varepsilon_\ell,\eta_\ell \in \{\pm 1, \pm i\}$ (resp.
+  $\varepsilon_\ell,\eta_\ell \in \{\pm 1, \pm i, \pm j, \pm k\}$). In the event
+  that  
   \begin{defenum}
-  \item\label{qod-od-def} $XX^* = \left( \ssum_\ell s_\ell|z_\ell|^2 \right)I_n$,
+  \item\label{qod-od-def} $X^*X=XX^* = \left( \ssum_\ell s_\ell|z_\ell|^2
+    \right)I_n$, 
   \end{defenum}
-  then we say that $X$ is a {\it complex} (resp. {\it quaternary}) orthogonal design of type $(s_1,\dots,s_u)$. We write $X$ is a $\cod(n;s_1,\dots,s_u)$ (resp. $\qod(n;s_1,\dots,s_u)$).
+  then we say that $X$ is a {\it complex} (resp. {\it quaternion}) orthogonal
+  design of type $(s_1,\dots,s_u)$. We write $X$ is a $\cod(n;s_1,\dots,s_u)$
+  (resp. $\qod(n;s_1,\dots,s_u)$). 
 \end{defin}
 
 Equivalence of orthogonal designs is the same as for BGW matrices where the
