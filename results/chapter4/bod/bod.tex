@@ -10,23 +10,22 @@ difficulties. The various cases are encapsulated in the next definition.
 
 \begin{defin}\index{balancedly splittable orthogonal designs}
  Let $X$ be a full $\qod(n;s_1, \dots, s_u)$. $X$ is {\it balancedly splittable}
- if there is an $\ell \times n$ submatrix $X_1$ where one of the following
- conditions holds.
+ if there is an $n \times \ell$ submatrix $X_1$ and if there are quaternion
+ numbers $a$ and $b$ where one of the following conditions holds.
  \begin{defenum}
- \item $X_1^*X_1 = \sigma[\ell I + aA + b(J-I-A)]$, where $\sigma$ is given by
-   \ref{od-def-eq} and the elements $a$ and $b$ are in the quaternion algebra
-   $\HH$ (see \S7).
- \item If $H_1$ is the matrix obtained from $X_1$ obtained by replacing each
-   indeterminate with unity, then $H_1^*H_1 = \ell I + aA + b(J-I-A)$, where $a$
-
-   and $b$ are integers.
+ \item The off-diagonal entries of $X_1^*X_1$ have the form $\varepsilon
+   c\sigma$, where $\varepsilon$ is a free unimodular quaternion number, $c$ is
+   in the set $\{a,b,a^*,b^*\}$, and where $\sigma$ is given by \ref{od-def-eq}.
+ \item If $H_1$ is the matrix obtained from $X_1$ by replacing each
+   indeterminate with unity, then $H_1^*H_1$ has off-diagonal entries of the
+   form $\varepsilon c$, where $\varepsilon$ and $c$ are as stated previously.
  \end{defenum}
  In the former case, the split is {\it stable}. If the latter case holds while
  the former does not, then the split is termed {\it unstable}.
 \end{defin}
 
-The next two subsections will present constructions for both the unstable, and
-the stables cases. 
+The next two subsections will present constructions for both the unstable and
+the stable cases. 
 
 \dinkus
 
