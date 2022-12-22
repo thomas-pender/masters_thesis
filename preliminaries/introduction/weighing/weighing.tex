@@ -12,7 +12,10 @@ We begin with the following definition.
   \begin{defenum}
   \item $WW^t = kI_n$.
   \end{defenum}
-  If $n=k$, then we say that $W$ is a {\it Hadamard matrix}\index{Hadamard matrix}. If $n-1=k$, then we say that $W$ is a {\it conference matrix}\index{conference matrix}. In any event, we write $\w(n,k)$ to denote this property.
+  If $n=k$, then we say that $W$ is a {\it Hadamard matrix}\index{Hadamard
+    matrix}. If $n-1=k$, then we say that $W$ is a {\it conference
+    matrix}\index{conference matrix}. In any event, we write $\w(n,k)$ to denote
+  this property. 
 \end{defin}
 
 \begin{ex}
@@ -46,7 +49,9 @@ generally in the following sections, but for now we note the following special
 case. Note that we use $A^*$ to denote the conjugate (Hermitian) transpose of a complex matrix $A$.
 
 \begin{defin}\label{butson-unitary}\index{Butson weighing matrix}
-  Let $G = \{\mathrm{exp}(\frac{2\pi im}{p}) : 0 \leq m < p\}$, and let $W$ be a $(0,G)$-matrix of order $v$. We say that $W$ is a {\it Butson weighing matrix} of {\it order} $v$ and {\it weight} $k$ if
+  Let $G = \{\mathrm{exp}(\frac{2\pi im}{p}) : 0 \leq m < p\}$, and let $W$ be a
+  $(0,G)$-matrix of order $v$. We say that $W$ is a {\it Butson weighing matrix}
+  of {\it order} $v$ and {\it weight} $k$ if 
   \begin{defenum}
   \item $WW^* = kI_n$,
   \end{defenum}
@@ -57,7 +62,9 @@ A result that is useful in studying properties of complex weighing matrices is
 the following that can be found in \cite{lam-leung}.
 
 \begin{lem}\label{butson lemma}
-  Let $p$ be a prime, and let $\xi$ be a primitive complex $p$-th root of unity. Then $\ssum_{i=0}^n a_i\xi^i = 0$ for some $n < p$ and $a_i \in \N$ if and only if $n = p-1$ and $a_0 = \cdots = a_n$.
+  Let $p$ be a prime, and let $\xi$ be a primitive complex $p$-th root of unity.
+  Then $\ssum_{i=0}^n a_i\xi^i = 0$ for some $n < p$ and $a_i \in \N$ if and
+  only if $n = p-1$ and $a_0 = \cdots = a_n$. 
 \end{lem}
 
 We now move on to consider some further generalizations of a weighing matrix.
@@ -68,9 +75,17 @@ We now move on to consider some further generalizations of a weighing matrix.
 
 \subsection{Generalized Bhaskar Rao Designs}
 
-In the previous section, we defined a weighing matrix as a square matrix over $\{-1,0,1\}$. We then extended this definition to include those matrices over $\{0\}$ together with the complex $p$-th roots of unity. More generally, we can have weighing matrices over any finite group. 
+In the previous section, we defined a weighing matrix as a square matrix over
+$\{-1,0,1\}$. We then extended this definition to include those matrices over
+$\{0\}$ together with the complex $p$-th roots of unity. More generally, we can
+have weighing matrices over any finite group.  
 
-Before we can do this, however, we need to extend the conjugate transpose\index{conjugate transpose} to group matrices. To accomplish this, let $A$ be some matrix over a finite group $G$, and define $\bar A$ by $\bar{A}_{ij}=A_{ij}^{-1}$, that is, the matrix obtained by taking the group inverse of the nonzero entries of $A$. Finally, define $A^* = \bar{A}^t$. We then have the following.
+Before we can do this, however, we need to extend the conjugate
+transpose\index{conjugate transpose} to group matrices. To accomplish this, let
+$A$ be some matrix over a finite group $G$, and define $\bar A$ by
+$\bar{A}_{ij}=A_{ij}^{-1}$, that is, the matrix obtained by taking the group
+inverse of the nonzero entries of $A$. Finally, define $A^* = \bar{A}^t$. We
+then have the following. 
 
 \begin{defin}\label{gbrd definition}\index{generalized Bhaskar Rao design}
   Let $G$ be some finite group, and let $A$ be a $v \times b$ $(0,G)$-matrix
@@ -78,7 +93,11 @@ Before we can do this, however, we need to extend the conjugate transpose\index{
   \begin{equation}\label{gbrd-eq}
     AA^* = rI_v + \frac{\lambda}{|G|}\left(\sum_{g \in G}g\right)(J_v - I_v),
   \end{equation}
-  for some positive integers $r$ and $\lambda$, and such that there are $k$ nonzero entries in every column. We then say that $A$ is a {\it generalized Bhaskar Rao design} (henceforth $\gbrd$), and we write $\gbrd(v,k,\lambda;G)$ to denote this property. If we need to stress the remaining parameters, then we write $\gbrd(v,b,r,k,\lambda;G)$.
+  for some positive integers $r$ and $\lambda$, and such that there are $k$
+  nonzero entries in every column. We then say that $A$ is a {\it generalized
+    Bhaskar Rao design} (henceforth $\gbrd$), and we write
+  $\gbrd(v,k,\lambda;G)$ to denote this property. If we need to stress the
+  remaining parameters, then we write $\gbrd(v,b,r,k,\lambda;G)$. 
 \end{defin}
 
 It is clear that replacing the nonzero entries of a GBRD with unity furnishes a
@@ -102,7 +121,6 @@ entries yield the incidence matrix of a symmetric design.
 \begin{ex}
   Taking the absolute values of the entries of \ref{ex-balanced-w-matrix} yields
   the symmetric design \ref{ex-symmetric-bibd}.
-  \end{defenum}
 \end{ex}
 
 BGW matrices are quite useful in the construction of other combinatorial designs
@@ -121,7 +139,9 @@ not considered in this thesis, the interested reader may consult
 As before, we can impose an equivalence on the set of all $v \times b$ $(0,G)$-matrices, which will play an important part in what is to come. 
 
 \begin{defin}\label{monomial-equiv}\index{monomial equivalence}
-  Two $v \times b$ $(0,G)$-matrices $A_1$ and $A_2$ are said to be {\it monomially equivalent} if there are monomial $(0,G)$-matrices $P$ and $Q$ of orders $v$ and $b$, respectively, such that 
+  Two $v \times b$ $(0,G)$-matrices $A_1$ and $A_2$ are said to be {\it
+    monomially equivalent} if there are monomial $(0,G)$-matrices $P$ and $Q$ of
+  orders $v$ and $b$, respectively, such that  
   \begin{defenum}
   \item $PA_1Q=A_2$.\Anote{monomial}
   \end{defenum}
@@ -174,11 +194,15 @@ quaternion\Anote{quaternary} indeterminates.
 We begin with the case of real indeterminates.
 
 \begin{defin}\label{real-od-def}\index{orthogonal design}
-  Let $x_1, \dots, x_u$ be real, commuting indeterminates, and let $X$ be an $n \times n$ matrix with entries from $\{0,\pm x_1, \dots, \pm x_u\}$. We say that $X$ is an {\it orthogonal design} if
+  Let $x_1, \dots, x_u$ be real, commuting indeterminates, and let $X$ be an $n
+  \times n$ matrix with entries from $\{0,\pm x_1, \dots, \pm x_u\}$. We say
+  that $X$ is an {\it orthogonal design} if 
   \begin{defenum}
   \item\label{od-def-eq} $XX^t = \left( \ssum_i s_ix_i^2 \right)I_n$.
   \end{defenum}
-  We say that the orthogonal design is of order $n$ and type $(s_1, \dots, s_u)$, and we write $X$ is an $\od(n;s_1, \dots, s_u)$. If $\ssum_i s_i=n$, then we say that the OD is {\it full}.
+  We say that the orthogonal design is of order $n$ and type $(s_1, \dots,
+  s_u)$, and we write $X$ is an $\od(n;s_1, \dots, s_u)$. If $\ssum_i s_i=n$,
+  then we say that the OD is {\it full}. 
 \end{defin}
 
 \begin{ex}
@@ -258,20 +282,31 @@ allow a permutation of symbols.
  their first rows, we can state this in terms of sequences. But first, a definition.
  
  \begin{defin}\index{periodic autocorrelation}\index{aperiodic autocorrelation}\index{complementary sequences}
-  Let $a_0=(a_{0,0}, \dots, a_{0,n-1})$ be a sequence in a ring $R$ with the involution $\cdot^*$. The {\it $j$-th aperiodic} and {\it $j$-th periodic autocorrelations} of the sequence $a$ are given respectively by
+  Let $a_0=(a_{0,0}, \dots, a_{0,n-1})$ be a sequence in a ring $R$ with the
+  involution $\cdot^*$. The {\it $j$-th aperiodic} and {\it $j$-th periodic
+    autocorrelations} of the sequence $a$ are given respectively by 
   \begin{defenum}
    \item $N_j(a)=\ssum_{i=0}^{n-j-1}a_{0,i}a_{0,i+j}^*$, and
    \item $P_j(a)=\ssum_{i=0}^{n-1}a_{0,i}a_{0,i+j}^*$, indices calculated modulo $n$.
   \end{defenum}
-  If $a_1=(a_{1,0},\dots,a_{1,n-1}),\dots,a_m=(a_{m,1},\dots,a_{m,n-1})$ are any other sequence in $R$, then $a_0,\dots,a_m$ are {\it complementary}\index{complementary sequences} if
+  If $a_1=(a_{1,0},\dots,a_{1,n-1}),\dots,a_m=(a_{m,1},\dots,a_{m,n-1})$ are any
+  other sequence in $R$, then $a_0,\dots,a_m$ are {\it
+    complementary}\index{complementary sequences} if 
   \begin{defenum}[resume]
    \item\label{periodic-comp} $\ssum_i P_j(a_i)=0$, for every $j \in \{1, \dots, n-1\}$.
   \end{defenum}
  \end{defin}
  
- We see immediately that $P_j(a)=N_j(a) + N_{n-j}(a)^*$; hence, if $N_j(a)+N_j(b)=0$, for every $j \in \{1,\dots,n-1\}$, then $a$ and $b$ are complementary. However, vanishing periodic autocorrelations do not in general imply vanishing aperiodic autocorrelations.
+ We see immediately that $P_j(a)=N_j(a) + N_{n-j}(a)^*$; hence, if
+ $N_j(a)+N_j(b)=0$, for every $j \in \{1,\dots,n-1\}$, then $a$ and $b$ are
+ complementary. However, vanishing periodic autocorrelations do not in general
+ imply vanishing aperiodic autocorrelations. 
  
- The importance of the periodic correlation is given by the fact that if the first row of the circulant $A$ continues to be $a=(a_0,\dots,a_{n-1})$, then the first row of $AA^*$ is given by $(\ssum_i|a_i|^2,P_{n-1}(a), \dots,P_1(a))$. So we see that complementary circulants and complementary sequences are one and the same.
+ The importance of the periodic correlation is given by the fact that if the
+ first row of the circulant $A$ continues to be $a=(a_0,\dots,a_{n-1})$, then
+ the first row of $AA^*$ is given by $(\ssum_i|a_i|^2,P_{n-1}(a),
+ \dots,P_1(a))$. So we see that complementary circulants and complementary
+ sequences are one and the same. 
  
  Complementary sequences and orthogonal designs are connected in an intimate
  way; in fact, complementary sequences offer many elegant constructions of ODs.
@@ -287,7 +322,6 @@ allow a permutation of symbols.
   $\ssum_i(|a_i|^2 + |b_i|^2)=\ssum_is_i\abs{z_i}^2$. Then 
   \begin{equation}\label{plug-in-matrix}
   \arraycolsep=2.0pt\def\arraystretch{0.5}
-  %\arraycolsep=1.25pt\def\arraystretch{0.625}
    \left(\begin{array}{cc}
     A&B\\-B^*&A^*
    \end{array}\right)
@@ -295,10 +329,14 @@ allow a permutation of symbols.
   is a $\qod(2n;s_1,\dots,s_u)$, where $A$ and $B$ are the circulants with first rows $a$ and $b$, respectively.
  \end{prop}
 
- A matrix similar to (\ref{plug-in-matrix}) will feature as a submatrix in our later work where the sequences will be composed of matrices. We will need one further idea before we proceed. 
+ A matrix similar to (\ref{plug-in-matrix}) will feature as a submatrix in our
+ later work where the sequences will be composed of matrices. We will need one
+ further idea before we proceed.  
 
  \begin{defin}\index{cross-correlation}
-  Let $a=(a_0,\dots,a_{n-1})$ and $b=(b_0,\dots,b_{n-1})$ be two sequences over a ring with involution $\cdot^*$. The {\it $j$-th cross-correlation} of $a$ by $b$ is given by
+  Let $a=(a_0,\dots,a_{n-1})$ and $b=(b_0,\dots,b_{n-1})$ be two sequences over
+  a ring with involution $\cdot^*$. The {\it $j$-th cross-correlation} of $a$ by
+  $b$ is given by 
   \begin{defenum}
    \item $C_j(a,b)=\ssum_{i=0}^{n-1}a_ib_{i+j}^*$, for each $j \in \{1,\dots,n-1\}$.
   \end{defenum}
